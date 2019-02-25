@@ -2,22 +2,29 @@
   Header
 ================================================ */
 .header {
-  background-color: red;
+  background-color: #424242;
+  padding: .5rem;
+
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  margin-right: auto;
 }
 
 .header__navigation {
-  float: right;
+
 }
 
 .header__button {
-  float: right;
+
 }
 
 /* =============================================
   Logo
 ================================================ */
 .logo {
-  display: inline-block;
   color: #fff;
   text-decoration: none;
 }
@@ -60,6 +67,7 @@
   Button
 ================================================ */
 .button {
+  font-size: 1rem;
   background-color: transparent;
   border: none;
 }
