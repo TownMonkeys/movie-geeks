@@ -1,8 +1,17 @@
 import React from 'react';
+import Logo from './Logo';
+import NavBar from './NavBar';
+import Notifications from './Notifications';
+import SignOut from './SignOut';
 
 const Header = () => {
   return (
-    <header></header>
+    <header className="header" role="banner">
+      <Logo />
+      <NavBar />
+      <SignOut />
+      <Notifications />
+    </header>
   );
 }
 
