@@ -2,7 +2,7 @@ import React from 'react';
 
 const NavBar = () => {
   return (
-    <nav className="navigation" role="navigation">
+    <nav className="navigation header__navigation" role="navigation">
       <h2 className="navigation__heading">Navigation Bar</h2>
 
       <ul className="navigationMenu">

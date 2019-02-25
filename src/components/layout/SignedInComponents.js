@@ -6,9 +6,9 @@ import Notifications from './Notifications';
 const SignedInComponents = () => {
   return (
     <React.Fragment>
-      <NavBar />
-      <SignOut />
       <Notifications />
+      <SignOut />
+      <NavBar />
     </React.Fragment>
   );
 }

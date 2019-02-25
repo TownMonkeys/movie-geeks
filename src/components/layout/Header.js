@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from './Logo';
 import SignedInComponents from './SignedInComponents';
 import SignedOutComponents from './SignedOutComponents';
+import './Header.scss';
 
 const Header = () => {
   return (

@@ -1,0 +1,72 @@
+/* =============================================
+  Header
+================================================ */
+.header {
+  background-color: red;
+}
+
+.header__navigation {
+  float: right;
+}
+
+.header__button {
+  float: right;
+}
+
+/* =============================================
+  Logo
+================================================ */
+.logo {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+}
+
+.logo__heading {
+  margin: 0;
+}
+
+/* =============================================
+  NavBar
+================================================ */
+.navigation__heading {
+  position: absolute;
+  left: -100rem;
+}
+
+/* =============================================
+  NavMenu
+================================================ */
+.navigationMenu {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.navigationMenu__item {
+  display: inline-block;
+}
+
+.navigationMenu__item:first-child {
+  margin-right: .8rem;
+}
+
+.navigationMenu__link {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* =============================================
+  Button
+================================================ */
+.button {
+  background-color: transparent;
+  border: none;
+}
+
+/* =============================================
+  Auth Button
+================================================ */
+.authButton {
+  color: #fff;
+}

@@ -2,7 +2,7 @@ import React from 'react';
 
 const SignUp = () => {
   return (
-    <button className="button" type="button">
+    <button className="button authButton" type="button">
       Sign Up
     </button>
   );
