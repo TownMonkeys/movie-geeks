@@ -3,14 +3,24 @@
 ================================================ */
 .header {
   background-color: #424242;
-  padding: 0 1rem;
+  padding: .26rem 1rem;
 
   display: flex;
+  justify-content: center;
   align-items: center;
+
+  @media screen and (min-width: 668px) {
+    padding: 0 1rem;
+  }
 }
 
 .header__logo {
-  margin-right: auto;
+  position: absolute;
+
+  @media screen and (min-width: 668px) {
+    position: static;
+    margin-right: auto;
+  }
 }
 
 .header__navigation {
@@ -37,6 +47,14 @@
 /* =============================================
   NavBar
 ================================================ */
+.navigation {
+  display: none;
+
+  @media screen and (min-width: 668px) {
+    display: block;
+  }
+}
+
 .navigation__heading {
   position: absolute;
   left: -100rem;
@@ -100,6 +118,17 @@
 }
 
 /* =============================================
+  signOut
+================================================ */
+.signOut {
+  display: none;
+
+  @media screen and (min-width: 668px) {
+    display: block;
+  }
+}
+
+/* =============================================
   Avatar
 ================================================ */
 .avatar {
@@ -137,4 +166,17 @@
 ================================================ */
 .image {
   max-width: 100%;
+}
+
+/* =============================================
+  Menu Icon
+================================================ */
+.menuIcon {
+  width: 3rem;
+  padding: .7rem;
+  margin-right: auto;
+
+  @media screen and (min-width: 668px) {
+    display: none;
+  }
 }
