@@ -3,7 +3,7 @@
 ================================================ */
 .header {
   background-color: #424242;
-  padding: .5rem;
+  padding: 0 1rem;
 
   display: flex;
   align-items: center;
@@ -14,11 +14,11 @@
 }
 
 .header__navigation {
-
+  align-self: stretch;
 }
 
-.header__button {
-
+.header__signOut {
+  margin: 0 1.5rem;
 }
 
 /* =============================================
@@ -27,6 +27,7 @@
 .logo {
   color: #fff;
   text-decoration: none;
+  padding: .5rem 0;
 }
 
 .logo__heading {
@@ -50,26 +51,41 @@
   margin: 0;
 }
 
+.navigationMenu__item:first-child .navigationMenu__link {
+  position: relative;
+  padding-left: 2.8rem;
+}
+
 .navigationMenu__item {
   display: inline-block;
 }
 
-.navigationMenu__item:first-child {
-  margin-right: .8rem;
-}
-
 .navigationMenu__link {
+  display: block;
   text-decoration: none;
   color: #fff;
+  padding: 1.2rem .5rem;
+
+  transition: background-color .1s;
+}
+
+.navigationMenu__link:hover {
+  background-color: #212121;
+}
+
+.navigationMenu__avatar {
+  vertical-align: middle;
+  margin-right: .3rem;
 }
 
 /* =============================================
   Button
 ================================================ */
 .button {
-  font-size: 1rem;
+  font-size: .8rem;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 
 /* =============================================
@@ -77,4 +93,48 @@
 ================================================ */
 .authButton {
   color: #fff;
+  padding: .7rem .3rem;
+  background-color: #212121;
+  border: 1px solid;
+  border-radius: .7rem;
+}
+
+/* =============================================
+  Avatar
+================================================ */
+.avatar {
+  width: 2rem;
+  height: 2rem;
+  background-color: #212121;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: .5rem;
+}
+
+/* =============================================
+  Notifications
+================================================ */
+.notifications {
+  width: 2.3rem;
+  position: relative;
+}
+
+.notifications__badge {
+  position: absolute;
+  top: -.3rem;
+  right: .2rem;
+  color: #fff;
+  background-color: #f44336;
+  padding: .1rem .15rem;
+  border-radius: .2rem;
+}
+
+/* =============================================
+  image
+================================================ */
+.image {
+  max-width: 100%;
 }
