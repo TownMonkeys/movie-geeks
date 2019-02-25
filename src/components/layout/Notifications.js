@@ -2,7 +2,7 @@ import React from 'react';
 
 const Notifications = () => {
   return (
-    <button type="button">Notifications</button>
+    <button className="button" type="button">Notifications</button>
   );
 }
 

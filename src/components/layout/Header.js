@@ -1,16 +1,17 @@
 import React from 'react';
 import Logo from './Logo';
-import NavBar from './NavBar';
-import Notifications from './Notifications';
-import SignOut from './SignOut';
+import SignedInComponents from './SignedInComponents';
+import SignedOutComponents from './SignedOutComponents';
 
 const Header = () => {
   return (
     <header className="header" role="banner">
       <Logo />
-      <NavBar />
-      <SignOut />
-      <Notifications />
+      {
+        true ?
+        <SignedInComponents /> :
+        <SignedOutComponents />
+      }
     </header>
   );
 }
