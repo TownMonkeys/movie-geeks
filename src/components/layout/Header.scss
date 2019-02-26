@@ -2,33 +2,17 @@
   Header
 ================================================ */
 .header {
+  text-align: center;
+
+  height: 3.75rem;
+  padding: 0 .5rem;
   background-color: #424242;
-  padding: .26rem 1rem;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
 
   @media screen and (min-width: 668px) {
-    padding: 0 1rem;
+    text-align: left;
   }
-}
-
-.header__logo {
-  position: absolute;
-
-  @media screen and (min-width: 668px) {
-    position: static;
-    margin-right: auto;
-  }
-}
-
-.header__navigation {
-  align-self: stretch;
-}
-
-.header__signOut {
-  margin: 0 1.5rem;
 }
 
 /* =============================================
@@ -37,11 +21,68 @@
 .logo {
   color: #fff;
   text-decoration: none;
-  padding: .5rem 0;
+}
+
+.header__logo {
+  display: inline-block;
+  line-height: 3.75rem;
 }
 
 .logo__heading {
   margin: 0;
+}
+
+/* =============================================
+  Button
+================================================ */
+.button {
+  font-size: .8rem;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* =============================================
+  Menu Icon
+================================================ */
+.menuIcon {
+  width: 3rem;
+  padding: .981rem .7rem;
+
+  @media screen and (min-width: 668px) {
+    display: none;
+  }
+}
+
+.header__menuIcon {
+  float: left;
+}
+
+/* =============================================
+  Notifications Icon
+================================================ */
+.notificationsIcon {
+  width: 3rem;
+  padding: .981rem .7rem;
+
+  position: relative;
+}
+
+.header__notificationsIcon {
+  float: right;
+}
+
+.notificationsIcon__badge {
+  line-height: normal;
+  color: #fff;
+  background-color: #f44336;
+  padding: .1rem .15rem;
+  border-radius: .2rem;
+
+  position: absolute;
+  top: .4rem;
+  right: .6rem;
 }
 
 /* =============================================
@@ -53,6 +94,10 @@
   @media screen and (min-width: 668px) {
     display: block;
   }
+}
+
+.header__navigation {
+  float: right;
 }
 
 .navigation__heading {
@@ -82,7 +127,7 @@
   display: block;
   text-decoration: none;
   color: #fff;
-  padding: 1.2rem .5rem;
+  padding: 1.219rem .5rem;
 
   transition: background-color .1s;
 }
@@ -97,13 +142,18 @@
 }
 
 /* =============================================
-  Button
+  Avatar
 ================================================ */
-.button {
-  font-size: .8rem;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
+.avatar {
+  width: 2rem;
+  height: 2rem;
+  background-color: #212121;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: .5rem;
 }
 
 /* =============================================
@@ -128,37 +178,9 @@
   }
 }
 
-/* =============================================
-  Avatar
-================================================ */
-.avatar {
-  width: 2rem;
-  height: 2rem;
-  background-color: #212121;
-  border-radius: 50%;
-
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: .5rem;
-}
-
-/* =============================================
-  Notifications
-================================================ */
-.notifications {
-  width: 2.3rem;
-  position: relative;
-}
-
-.notifications__badge {
-  position: absolute;
-  top: -.3rem;
-  right: .2rem;
-  color: #fff;
-  background-color: #f44336;
-  padding: .1rem .15rem;
-  border-radius: .2rem;
+.header__signOut {
+  float: right;
+  margin: .64rem 1rem;
 }
 
 /* =============================================
@@ -168,15 +190,3 @@
   max-width: 100%;
 }
 
-/* =============================================
-  Menu Icon
-================================================ */
-.menuIcon {
-  width: 3rem;
-  padding: .7rem;
-  margin-right: auto;
-
-  @media screen and (min-width: 668px) {
-    display: none;
-  }
-}

@@ -3,7 +3,7 @@ import menu from '../../images/menu.svg';
 
 const MenuIcon = () => {
   return (
-    <button className="button menuIcon" type="button">
+    <button className="button menuIcon header__menuIcon" type="button">
       <img src={menu} alt="Menu Icon" className="image"/>
     </button>
   );

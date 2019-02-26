@@ -1,13 +1,13 @@
 import React from 'react';
 import notifications from '../../images/notifications.svg';
 
-const Notifications = () => {
+const NotificationsIcon = () => {
   return (
-    <button className="button notifications" type="button">
+    <button className="button notificationsIcon header__notificationsIcon" type="button">
       <img className="image" src={notifications} alt="Notifications Icon"/>
-      <span className="notifications__badge">3</span>
+      <span className="notificationsIcon__badge">3</span>
     </button>
   );
 }
 
-export default Notifications;
+export default NotificationsIcon;
