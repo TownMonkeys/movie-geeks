@@ -136,19 +136,20 @@
   background-color: #212121;
 }
 
-.navigationMenu__avatar {
-  vertical-align: middle;
-  margin-right: .3rem;
-}
-
 /* =============================================
   Avatar
 ================================================ */
 .avatar {
+  vertical-align: middle;
   width: 2rem;
   height: 2rem;
   background-color: #212121;
+  border: 1px solid #212121;
   border-radius: 50%;
+}
+
+.navigationMenu__avatar {
+  margin-right: .3rem;
 
   position: absolute;
   top: 50%;
@@ -169,18 +170,14 @@
 
 /* =============================================
   signOut
-================================================ */
-.signOut {
+================================================ */.desktop__signOut {
   display: none;
+  float: right;
+  margin: .64rem 1rem;
 
   @media screen and (min-width: 668px) {
     display: block;
   }
-}
-
-.header__signOut {
-  float: right;
-  margin: .64rem 1rem;
 }
 
 /* =============================================
@@ -190,3 +187,88 @@
   max-width: 100%;
 }
 
+/* =============================================
+  Side Wrapper (mobile)
+================================================ */
+.sideWrapper {
+  text-align: left;
+
+  width: 18rem;
+  background-color: #fff;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+
+  transform: translateX(-100%);
+  transition: transform .3s;
+}
+
+.menuIcon[aria-pressed="true"] ~ .sideWrapper {
+  transform: translateX(0);
+}
+
+/* =============================================
+  Side Navigation (mobile)
+================================================ */
+.sideNav {
+  @media screen and (min-width: 668px) {
+    display: none;
+  }
+}
+
+.sideNav__heading {
+  position: absolute;
+  left: -100rem;
+}
+
+/* =============================================
+  Side Navigation Menu (mobile)
+================================================ */
+.sideNavMenu {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.sideNavMenu__link {
+  display: block;
+
+  text-decoration: none;
+  color: #424242;
+
+  padding: 1rem 2rem;
+
+  transition: background-color .1s;
+}
+
+.sideNavMenu__link:hover {
+  background-color: #e0e0e0;
+}
+
+.sideNavMenu__avatar {
+  margin-right: .3rem;
+}
+
+.mobile__signOut {
+  margin: 1rem 2rem;
+}
+
+/* =============================================
+  Side Navigation Overlay (mobile)
+================================================ */
+.sideNavOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba($color: #000000, $alpha: .5);
+}
+
+.menuIcon[aria-pressed="true"] ~ .sideNavOverlay {
+  display: block;
+}
