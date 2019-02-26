@@ -10,9 +10,11 @@ const SignedInComponents = () => {
   return (
     <React.Fragment>
       <MenuIcon />
-      <NotificationsIcon />
-      <NavBar />
-      <SignOut />
+      <div className="right">
+        <NavBar />
+        <SignOut />
+        <NotificationsIcon />
+      </div>
       <SideWrapper />
       <SideNavOverlay />
     </React.Fragment>
