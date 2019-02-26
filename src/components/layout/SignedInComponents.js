@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import NavBar from './NavBar';
 import SignOut from './SignOut';
 import MenuIcon from './MenuIcon';
@@ -6,23 +6,50 @@ import NotificationsIcon from './NotificationsIcon';
 import SideNavOverlay from './SideNavOverlay';
 import SideWrapper from './SideWrapper';
 
-const SignedInComponents = (props) => {
-  const {openSideWrapper, closeSideWrapper, sideWrapperOpened} = props;
-  return (
-    <React.Fragment>
-      <MenuIcon 
-        openSideWrapper={openSideWrapper}
-        sideWrapperOpened={sideWrapperOpened}
-      />
-      <div className="right">
-        <NavBar />
-        <SignOut />
-        <NotificationsIcon />
-      </div>
-      <SideWrapper />
-      <SideNavOverlay closeSideWrapper={closeSideWrapper} />
-    </React.Fragment>
-  );
+class SignedInComponents extends Component {
+  state = { 
+    sideWrapperOpened: false
+  }
+
+  sideFirstTabTarget = React.createRef();
+
+  openSideWrapper = () => {
+    this.setState({
+      sideWrapperOpened: true
+    });
+    
+    this.sideFirstTabTarget.current.focus();
+  }
+
+  closeSideWrapper = () => {
+    this.setState({
+      sideWrapperOpened: false
+    });
+  }
+
+  render() {
+    const {sideWrapperOpened} = this.state;
+
+    return (
+      <React.Fragment>
+        <MenuIcon 
+          openSideWrapper={this.openSideWrapper}
+          sideWrapperOpened={sideWrapperOpened}
+        />
+        <div className="right">
+          <NavBar />
+          <SignOut />
+          <NotificationsIcon />
+        </div>
+        <SideWrapper 
+          sideWrapperOpened={sideWrapperOpened}
+          closeSideWrapper={this.closeSideWrapper}
+          ref={this.sideFirstTabTarget} 
+        />
+        <SideNavOverlay closeSideWrapper={this.closeSideWrapper} />
+      </React.Fragment>
+    );
+  }
 }
 
 export default SignedInComponents;
