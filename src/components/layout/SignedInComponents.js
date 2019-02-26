@@ -12,6 +12,7 @@ class SignedInComponents extends Component {
   }
 
   sideFirstTabTarget = React.createRef();
+  menuIcon = React.createRef();
 
   openSideWrapper = () => {
     this.setState({
@@ -25,6 +26,8 @@ class SignedInComponents extends Component {
     this.setState({
       sideWrapperOpened: false
     });
+
+    this.menuIcon.current.focus();
   }
 
   render() {
@@ -35,6 +38,7 @@ class SignedInComponents extends Component {
         <MenuIcon 
           openSideWrapper={this.openSideWrapper}
           sideWrapperOpened={sideWrapperOpened}
+          ref={this.menuIcon}
         />
         <div className="right">
           <NavBar />

@@ -1,7 +1,7 @@
 import React from 'react';
 import menu from '../../images/menu.svg';
 
-const MenuIcon = (props) => {
+const MenuIcon = React.forwardRef((props, menuIcon) => {
   const {openSideWrapper, sideWrapperOpened} = props;
 
   return (
@@ -12,10 +12,11 @@ const MenuIcon = (props) => {
       aria-pressed={sideWrapperOpened} 
       aria-expanded={sideWrapperOpened}
       onClick={openSideWrapper}
+      ref={menuIcon}
     >
       <img src={menu} alt="Menu Icon" className="image"/>
     </button>
   );
-}
+})
 
 export default MenuIcon;
