@@ -27,11 +27,11 @@ const SideWrapper = React.forwardRef((props, sideFirstTabTarget) => {
     >
       <nav className="sideNav" role="navigation">
         <h2 className="sideNav__heading">Side Navigaion</h2>
-        <ul className="sideNavMenu">
+        <ul className="list sideNavMenu">
           <li className="sideNavMenu__item">
             <a 
               href="#" 
-              className="sideNavMenu__link" 
+              className="link sideNavMenu__link" 
               tabIndex={sideWrapperOpened ? '0' : '-1'}
               ref={sideFirstTabTarget}
             >
@@ -42,7 +42,7 @@ const SideWrapper = React.forwardRef((props, sideFirstTabTarget) => {
           <li className="sideNavMenu__item">
             <a 
               href="#" 
-              className="sideNavMenu__link" 
+              className="link sideNavMenu__link" 
               tabIndex={sideWrapperOpened ? '0' : '-1'}
             >Add Movie</a>
           </li>

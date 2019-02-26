@@ -5,6 +5,7 @@ import MenuIcon from './MenuIcon';
 import NotificationsIcon from './NotificationsIcon';
 import SideNavOverlay from './SideNavOverlay';
 import SideWrapper from './SideWrapper';
+import NotificationsPanel from './NotificationsPanel';
 
 class SignedInComponents extends Component {
   state = { 
@@ -44,6 +45,7 @@ class SignedInComponents extends Component {
           <NavBar />
           <SignOut />
           <NotificationsIcon />
+          <NotificationsPanel />
         </div>
         <SideWrapper 
           sideWrapperOpened={sideWrapperOpened}

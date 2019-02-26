@@ -1,3 +1,10 @@
+/* Wrappers --- */
+.right {
+  float: right;
+
+  position: relative;
+}
+
 /* =============================================
   Header
 ================================================ */
@@ -85,6 +92,75 @@
 }
 
 /* =============================================
+  Notifications Panel
+================================================ */
+.notificationsPanel {
+  border: 1px solid #bdbdbd ;
+  box-shadow: 0 2px 20px -5px rgba(#000, .5);
+}
+
+.header__notificationsPanel {
+  position: absolute;
+  top: 3.75rem;
+  right: 0;
+}
+
+.notificationsPanel__arrow {
+  width: 0; 
+  height: 0; 
+  border-left: .8rem solid transparent;
+  border-right: .8rem solid transparent;
+  border-bottom: .8rem solid #fff;
+
+  position: absolute;
+  top: -.8rem;
+  right: .66rem
+}
+
+/* =============================================
+  Notifications List
+================================================ */
+.notificationsList {
+  text-align: left;
+  width: 21rem;
+  max-height: 32rem;
+  overflow-y: auto;
+  background: #fff;
+}
+
+.notificationsList__link {
+  display: block;
+
+  padding: .5rem 1rem;
+  border-bottom: 1px solid #bdbdbd;
+
+  transition: background-color .1s;
+}
+
+.notificationsList__link:hover,
+.notificationsList__link:focus {
+  background-color: #e0e0e0;
+}
+
+.notificationsList__avatar {
+  width: 3rem;
+  height: 3rem;
+  margin-right: .8rem;
+}
+
+.notificationsList__content {
+  color: #212121;
+
+  display: inline-block;
+
+  margin: 0;
+}
+
+.notificationsList__name {
+  color: #f44336;
+}
+
+/* =============================================
   NavBar
 ================================================ */
 .navigation {
@@ -105,14 +181,17 @@
 }
 
 /* =============================================
-  NavMenu
+  List
 ================================================ */
-.navigationMenu {
+.list {
   list-style: none;
   padding-left: 0;
   margin: 0;
 }
 
+/* =============================================
+  NavMenu
+================================================ */
 .navigationMenu__item:first-child .navigationMenu__link {
   position: relative;
   padding-left: 2.8rem;
@@ -124,7 +203,6 @@
 
 .navigationMenu__link {
   display: block;
-  text-decoration: none;
   color: #fff;
   padding: 1.219rem .5rem;
 
@@ -137,18 +215,25 @@
 }
 
 /* =============================================
+  Link
+================================================ */
+.link {
+  text-decoration: none;
+}
+
+/* =============================================
   Avatar
 ================================================ */
 .avatar {
   vertical-align: middle;
-  width: 2rem;
-  height: 2rem;
-  background-color: #212121;
-  border: 1px solid #212121;
+  background-color: #bdbdbd;
+  border: 1px solid #bdbdbd;
   border-radius: 50%;
 }
 
 .navigationMenu__avatar {
+  width: 2rem;
+  height: 2rem;
   margin-right: .3rem;
 
   position: absolute;
@@ -228,16 +313,9 @@
 /* =============================================
   Side Navigation Menu (mobile)
 ================================================ */
-.sideNavMenu {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
 .sideNavMenu__link {
   display: block;
 
-  text-decoration: none;
   color: #424242;
 
   padding: 1rem 2rem;
@@ -251,6 +329,8 @@
 }
 
 .sideNavMenu__avatar {
+  width: 2rem;
+  height: 2rem;
   margin-right: .3rem;
 }
 
