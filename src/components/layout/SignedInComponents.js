@@ -6,17 +6,21 @@ import NotificationsIcon from './NotificationsIcon';
 import SideNavOverlay from './SideNavOverlay';
 import SideWrapper from './SideWrapper';
 
-const SignedInComponents = () => {
+const SignedInComponents = (props) => {
+  const {openSideWrapper, closeSideWrapper, sideWrapperOpened} = props;
   return (
     <React.Fragment>
-      <MenuIcon />
+      <MenuIcon 
+        openSideWrapper={openSideWrapper}
+        sideWrapperOpened={sideWrapperOpened}
+      />
       <div className="right">
         <NavBar />
         <SignOut />
         <NotificationsIcon />
       </div>
       <SideWrapper />
-      <SideNavOverlay />
+      <SideNavOverlay closeSideWrapper={closeSideWrapper} />
     </React.Fragment>
   );
 }
