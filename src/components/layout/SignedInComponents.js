@@ -6,14 +6,18 @@ import NotificationsIcon from './NotificationsIcon';
 import SideNavOverlay from './SideNavOverlay';
 import SideWrapper from './SideWrapper';
 import NotificationsPanel from './NotificationsPanel';
+import NotificationsOverlay from './NotificationsOverlay';
 
 class SignedInComponents extends Component {
   state = { 
-    sideWrapperOpened: false
+    sideWrapperOpened: false,
+    NotificationsPanelOpened: false
   }
 
+  // Refs
   sideFirstTabTarget = React.createRef();
   menuIcon = React.createRef();
+  notificationsIcon = React.createRef();
 
   openSideWrapper = () => {
     this.setState({
@@ -31,8 +35,30 @@ class SignedInComponents extends Component {
     this.menuIcon.current.focus();
   }
 
+  openNotificationsPanel = () => {
+    this.setState({
+      NotificationsPanelOpened: true
+    });
+  }
+
+  closeNotificationsPanel = () => {
+    this.setState({
+      NotificationsPanelOpened: false
+    });
+
+    this.notificationsIcon.current.focus();
+  }
+
+  toggleNotificationsPanel = () => {
+    if (this.state.NotificationsPanelOpened) {
+      this.closeNotificationsPanel();
+    } else {
+      this.openNotificationsPanel();
+    }
+  }
+
   render() {
-    const {sideWrapperOpened} = this.state;
+    const {sideWrapperOpened, NotificationsPanelOpened} = this.state;
 
     return (
       <React.Fragment>
@@ -44,8 +70,16 @@ class SignedInComponents extends Component {
         <div className="right">
           <NavBar />
           <SignOut />
-          <NotificationsIcon />
-          <NotificationsPanel />
+          <NotificationsIcon 
+            toggleNotificationsPanel={this.toggleNotificationsPanel}
+            NotificationsPanelOpened={NotificationsPanelOpened}
+            ref={this.notificationsIcon}
+          />
+          <NotificationsPanel 
+            NotificationsPanelOpened={NotificationsPanelOpened}
+            closeNotificationsPanel={this.closeNotificationsPanel}
+          />
+          <NotificationsOverlay closeNotificationsPanel={this.closeNotificationsPanel} />
         </div>
         <SideWrapper 
           sideWrapperOpened={sideWrapperOpened}

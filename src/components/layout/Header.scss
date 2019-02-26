@@ -95,14 +95,20 @@
   Notifications Panel
 ================================================ */
 .notificationsPanel {
+  display: none;
   border: 1px solid #bdbdbd ;
   box-shadow: 0 2px 20px -5px rgba(#000, .5);
+}
+
+.notificationsIcon[aria-pressed="true"] ~ .notificationsPanel {
+  display: block;
 }
 
 .header__notificationsPanel {
   position: absolute;
   top: 3.75rem;
   right: 0;
+  z-index: 1;
 }
 
 .notificationsPanel__arrow {
@@ -158,6 +164,23 @@
 
 .notificationsList__name {
   color: #f44336;
+}
+
+/* =============================================
+  Notifications Overlay
+================================================ */
+.notificationsOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba($color: #000000, $alpha: .5);
+}
+
+.notificationsIcon[aria-pressed="true"] ~ .notificationsOverlay {
+  display: block;
 }
 
 /* =============================================
