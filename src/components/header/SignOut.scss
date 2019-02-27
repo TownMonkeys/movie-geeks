@@ -1,0 +1,10 @@
+/* Element --- */
+.header__signOut {
+  display: none;
+  float: left;
+  margin: .64rem 1.5rem;
+
+  @media screen and (min-width: 668px) {
+    display: block;
+  }
+}

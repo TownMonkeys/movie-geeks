@@ -1,7 +1,8 @@
 import React from 'react';
 import user from '../../images/user.jpg';
+import './Navigation.scss';
 
-const NavBar = () => {
+const Navigation = () => {
   return (
     <nav className="navigation header__navigation" role="navigation">
       <h2 className="navigation__heading">Navigation Bar</h2>
@@ -9,7 +10,7 @@ const NavBar = () => {
       <ul className="list navigationMenu">
         <li className="navigationMenu__item">
           <a href="#" className="link navigationMenu__link">
-            <img className="avatar navigationMenu__avatar" src={user} alt="Moaaz's Avatar"/>
+            <img className="avatar navigationMenu__avatar avatar_size_small" src={user} alt="Moaaz's Avatar"/>
             <span>Moaaz</span>
           </a>
         </li>
@@ -21,4 +22,4 @@ const NavBar = () => {
   );
 }
 
-export default NavBar;
+export default Navigation;

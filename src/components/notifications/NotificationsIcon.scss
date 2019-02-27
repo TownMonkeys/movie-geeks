@@ -1,0 +1,25 @@
+/* =============================================
+  Notifications Icon
+================================================ */
+.notificationsIcon {
+  width: 3rem;
+  padding: .981rem .7rem;
+
+  position: relative;
+}
+
+.header__notificationsIcon {
+  float: left;
+}
+
+/* Element --- */
+.notificationsIcon__badge {
+  color: #fff;
+  background-color: #f44336;
+  padding: .1rem .15rem;
+  border-radius: .2rem;
+
+  position: absolute;
+  top: .4rem;
+  right: .6rem;
+}

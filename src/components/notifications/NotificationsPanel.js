@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Notification from './Notification';
+import './NotificationsPanel.scss';
 
 class NotificationsPanel extends Component {
   firstNotification = React.createRef();

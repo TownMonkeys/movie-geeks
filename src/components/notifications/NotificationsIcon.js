@@ -1,5 +1,6 @@
 import React from 'react';
 import notifications from '../../images/notifications.svg';
+import './NotificationsIcon.scss';
 
 const NotificationsIcon = React.forwardRef((props, notificationsIcon) => {
   const {notificationsPanelOpened, toggleNotificationsPanel} = props;

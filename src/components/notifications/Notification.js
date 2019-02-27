@@ -1,5 +1,6 @@
 import React from 'react';
 import user from '../../images/user.jpg';
+import './Notification.scss';
 
 const Notification = React.forwardRef((props, ref) => {
   const {notificationsPanelOpened} = props;

@@ -1,5 +1,6 @@
 import React from 'react';
 import menu from '../../images/menu.svg';
+import './MenuIcon.scss';
 
 const MenuIcon = React.forwardRef((props, menuIcon) => {
   const {openMobileSidebar, mobileSidebarOpened} = props;
@@ -8,7 +9,7 @@ const MenuIcon = React.forwardRef((props, menuIcon) => {
     <button 
       className="button menuIcon header__menuIcon" 
       type="button" 
-      aria-controls="sideWrapper" 
+      aria-controls="mobileSideBar" 
       aria-pressed={mobileSidebarOpened} 
       aria-expanded={mobileSidebarOpened}
       onClick={openMobileSidebar}

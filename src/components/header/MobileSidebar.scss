@@ -1,0 +1,67 @@
+/* =============================================
+  Mobile Sidebar
+================================================ */
+.mobileSideBar {
+  text-align: left;
+
+  width: 18rem;
+  background-color: #fff;
+}
+
+.header__mobileSideBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+
+  transform: translateX(-100%);
+  transition: transform .3s;
+}
+
+.menuIcon[aria-pressed="true"] ~ .header__mobileSideBar {
+  transform: translateX(0);
+}
+
+/* =============================================
+  Mobile Navigation
+================================================ */
+.mobileNavigation {
+  @media screen and (min-width: 668px) {
+    display: none;
+  }
+}
+
+/* Element --- */
+.mobileNavigation__heading {
+  position: absolute;
+  left: -100rem;
+}
+
+/* =============================================
+  Mobile Navigation Menu
+================================================ */
+
+/* Elements --- */
+.mobileNavigationMenu__link {
+  display: block;
+
+  color: #424242;
+
+  padding: 1rem 2rem;
+
+  transition: background-color .1s;
+
+  &:hover,
+  &:focus {
+    background-color: #e0e0e0;
+  }
+}
+
+.mobileNavigationMenu__avatar {
+  margin-right: .3rem;
+}
+
+.mobileSideBar__authButton {
+  margin: 1rem 2rem;
+}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavBar from './NavBar';
+import Navigation from './Navigation';
 import SignOut from './SignOut';
 import MenuIcon from './MenuIcon';
 import NotificationsIcon from '../notifications/NotificationsIcon';
@@ -7,6 +7,7 @@ import MobileSidebarOverlay from './MobileSidebarOverlay';
 import MobileSidebar from './MobileSidebar';
 import NotificationsPanel from '../notifications/NotificationsPanel';
 import NotificationsOverlay from '../notifications/NotificationsOverlay';
+import './SignedInComponents.scss';
 
 class SignedInComponents extends Component {
   state = { 
@@ -67,8 +68,8 @@ class SignedInComponents extends Component {
           mobileSidebarOpened={mobileSidebarOpened}
           ref={this.menuIcon}
         />
-        <div className="right">
-          <NavBar />
+        <div className="rightHeaderComponentsCnotainer">
+          <Navigation />
           <SignOut />
           <NotificationsIcon 
             toggleNotificationsPanel={this.toggleNotificationsPanel}

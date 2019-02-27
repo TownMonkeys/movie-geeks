@@ -1,8 +1,9 @@
 import React from 'react';
+import './SignOut.scss';
 
 const SignOut = () => {
   return (
-    <button className="button authButton desktop__signOut" type="button">
+    <button className="button authButton header__signOut" type="button">
       Sign Out
     </button>
   );

@@ -1,11 +1,12 @@
 import React from 'react';
+import './NotificationsOverlay.scss';
 
 const NotificationsOverlay = (props) => {
   const {closeNotificationsPanel} = props;
 
   return (
     <div 
-      className="notificationsOverlay"
+      className="header__notificationsOverlay"
       onClick={closeNotificationsPanel}
     ></div>
   );

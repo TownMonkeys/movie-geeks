@@ -1,8 +1,15 @@
 import React from 'react';
 import user from '../../images/user.jpg';
+import './MobileSidebar.scss';
+import './Link.scss';
+import './List.scss';
+import './Avatar.scss';
+import './AuthButton.scss';
+import './Image.scss';
 
 const MobileSidebar = React.forwardRef((props, sideFirstTabTarget) => {
   const {mobileSidebarOpened, closeMobileSidebar} = props;
+
   const sideLastTabTarget = React.createRef();
 
   const handleKeyDown = (e) => {
@@ -21,28 +28,28 @@ const MobileSidebar = React.forwardRef((props, sideFirstTabTarget) => {
 
   return (
     <div 
-      className="sideWrapper" 
-      id="sideWrapper"
+      className="mobileSideBar header__mobileSideBar" 
+      id="mobileSideBar"
       onKeyDown={handleKeyDown}
     >
-      <nav className="sideNav" role="navigation">
-        <h2 className="sideNav__heading">Side Navigaion</h2>
-        <ul className="list sideNavMenu">
-          <li className="sideNavMenu__item">
+      <nav className="mobileNavigation" role="navigation">
+        <h2 className="mobileNavigation__heading">Side Navigaion</h2>
+        <ul className="list mobileNavigationMenu">
+          <li className="mobileNavigationMenu__item">
             <a 
               href="#" 
-              className="link sideNavMenu__link" 
+              className="link mobileNavigationMenu__link" 
               tabIndex={mobileSidebarOpened ? '0' : '-1'}
               ref={sideFirstTabTarget}
             >
-            <img className="avatar sideNavMenu__avatar" src={user} alt="User Photo"/>
+            <img className="avatar mobileNavigationMenu__avatar avatar_size_small" src={user} alt="User Photo"/>
               <span>Moaaz</span>
             </a>
           </li>
-          <li className="sideNavMenu__item">
+          <li className="mobileNavigationMenu__item">
             <a 
               href="#" 
-              className="link sideNavMenu__link" 
+              className="link mobileNavigationMenu__link" 
               tabIndex={mobileSidebarOpened ? '0' : '-1'}
             >Add Movie</a>
           </li>
@@ -50,7 +57,7 @@ const MobileSidebar = React.forwardRef((props, sideFirstTabTarget) => {
       </nav>
 
       <button 
-        className="button authButton mobile__signOut" 
+        className="button authButton mobileSideBar__authButton" 
         type="button" 
         tabIndex={mobileSidebarOpened ? '0' : '-1'}
         ref={sideLastTabTarget}
