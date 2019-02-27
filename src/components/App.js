@@ -1,27 +1,14 @@
 import React, { Component } from 'react';
-import Header from './header/Header';
-import './App.scss';
-import './Container.scss';
-import './Link.scss';
-import './List.scss';
-import './Image.scss';
-import './Avatar.scss';
-import Footer from './footer/Footer';
-import { BrowserRouter, Route } from 'react-router-dom';
-import Dashboard from './dashboard/Dashboard';
+import Header from './header.js/Header';
+import './container.scss';
 
 class App extends Component {
+  state = {  }
   render() {
     return (
-      <BrowserRouter>
-        <div className="App">
-          <Header />
-          <main role="main">
-            <Route exact path="/" component={Dashboard} />
-          </main>
-          <Footer />
-        </div>
-      </BrowserRouter>
+      <div className="App">
+        <Header />
+      </div>
     );
   }
 }
