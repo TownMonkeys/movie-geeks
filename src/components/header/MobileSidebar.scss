@@ -46,9 +46,10 @@
 
 /* Elements --- */
 .mobileNavigationMenu__link {
-  display: block;
-
+  text-decoration: none;
   color: $grey-dark-3;
+
+  display: block;
 
   padding: 1rem 2rem;
 

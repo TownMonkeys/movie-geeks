@@ -36,8 +36,11 @@
 }
 
 .navigationMenu__link {
-  display: block;
+  text-decoration: none;
   color: #fff;
+
+  display: block;
+  
   padding: 1.219rem .5rem;
 
   transition: background-color .1s;

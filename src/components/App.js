@@ -13,6 +13,9 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <main role="main">
+        
+        </main>
         <Footer />
       </div>
     );
