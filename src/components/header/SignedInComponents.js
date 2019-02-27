@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import NavBar from './NavBar';
 import SignOut from './SignOut';
 import MenuIcon from './MenuIcon';
-import NotificationsIcon from './NotificationsIcon';
-import SideNavOverlay from './SideNavOverlay';
-import SideWrapper from './SideWrapper';
-import NotificationsPanel from './NotificationsPanel';
-import NotificationsOverlay from './NotificationsOverlay';
+import NotificationsIcon from '../notifications/NotificationsIcon';
+import MobileSidebarOverlay from './MobileSidebarOverlay';
+import MobileSidebar from './MobileSidebar';
+import NotificationsPanel from '../notifications/NotificationsPanel';
+import NotificationsOverlay from '../notifications/NotificationsOverlay';
 
 class SignedInComponents extends Component {
   state = { 
-    sideWrapperOpened: false,
-    NotificationsPanelOpened: false
+    mobileSidebarOpened: false,
+    notificationsPanelOpened: false
   }
 
   // Refs
@@ -19,17 +19,17 @@ class SignedInComponents extends Component {
   menuIcon = React.createRef();
   notificationsIcon = React.createRef();
 
-  openSideWrapper = () => {
+  openMobileSidebar = () => {
     this.setState({
-      sideWrapperOpened: true
+      mobileSidebarOpened: true
     });
     
     this.sideFirstTabTarget.current.focus();
   }
 
-  closeSideWrapper = () => {
+  closeMobileSidebar = () => {
     this.setState({
-      sideWrapperOpened: false
+      mobileSidebarOpened: false
     });
 
     this.menuIcon.current.focus();
@@ -37,20 +37,20 @@ class SignedInComponents extends Component {
 
   openNotificationsPanel = () => {
     this.setState({
-      NotificationsPanelOpened: true
+      notificationsPanelOpened: true
     });
   }
 
   closeNotificationsPanel = () => {
     this.setState({
-      NotificationsPanelOpened: false
+      notificationsPanelOpened: false
     });
 
     this.notificationsIcon.current.focus();
   }
 
   toggleNotificationsPanel = () => {
-    if (this.state.NotificationsPanelOpened) {
+    if (this.state.notificationsPanelOpened) {
       this.closeNotificationsPanel();
     } else {
       this.openNotificationsPanel();
@@ -58,13 +58,13 @@ class SignedInComponents extends Component {
   }
 
   render() {
-    const {sideWrapperOpened, NotificationsPanelOpened} = this.state;
+    const {mobileSidebarOpened, notificationsPanelOpened} = this.state;
 
     return (
       <React.Fragment>
         <MenuIcon 
-          openSideWrapper={this.openSideWrapper}
-          sideWrapperOpened={sideWrapperOpened}
+          openMobileSidebar={this.openMobileSidebar}
+          mobileSidebarOpened={mobileSidebarOpened}
           ref={this.menuIcon}
         />
         <div className="right">
@@ -72,21 +72,21 @@ class SignedInComponents extends Component {
           <SignOut />
           <NotificationsIcon 
             toggleNotificationsPanel={this.toggleNotificationsPanel}
-            NotificationsPanelOpened={NotificationsPanelOpened}
+            notificationsPanelOpened={notificationsPanelOpened}
             ref={this.notificationsIcon}
           />
           <NotificationsPanel 
-            NotificationsPanelOpened={NotificationsPanelOpened}
+            notificationsPanelOpened={notificationsPanelOpened}
             closeNotificationsPanel={this.closeNotificationsPanel}
           />
           <NotificationsOverlay closeNotificationsPanel={this.closeNotificationsPanel} />
         </div>
-        <SideWrapper 
-          sideWrapperOpened={sideWrapperOpened}
-          closeSideWrapper={this.closeSideWrapper}
+        <MobileSidebar 
+          mobileSidebarOpened={mobileSidebarOpened}
+          closeMobileSidebar={this.closeMobileSidebar}
           ref={this.sideFirstTabTarget} 
         />
-        <SideNavOverlay closeSideWrapper={this.closeSideWrapper} />
+        <MobileSidebarOverlay closeMobileSidebar={this.closeMobileSidebar} />
       </React.Fragment>
     );
   }

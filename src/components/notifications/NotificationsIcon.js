@@ -2,15 +2,15 @@ import React from 'react';
 import notifications from '../../images/notifications.svg';
 
 const NotificationsIcon = React.forwardRef((props, notificationsIcon) => {
-  const {NotificationsPanelOpened, toggleNotificationsPanel} = props;
+  const {notificationsPanelOpened, toggleNotificationsPanel} = props;
 
   return (
     <button 
       className="button notificationsIcon header__notificationsIcon" 
       type="button"
       aria-controls="notificationsPanel" 
-      aria-pressed={NotificationsPanelOpened} 
-      aria-expanded={NotificationsPanelOpened}
+      aria-pressed={notificationsPanelOpened} 
+      aria-expanded={notificationsPanelOpened}
       onClick={toggleNotificationsPanel}
       ref={notificationsIcon}
     >

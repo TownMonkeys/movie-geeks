@@ -24,7 +24,7 @@ class NotificationsPanel extends Component {
   }
 
   render() {
-    const {NotificationsPanelOpened} = this.props;
+    const {notificationsPanelOpened} = this.props;
 
     return (
       <div 
@@ -40,7 +40,7 @@ class NotificationsPanel extends Component {
             Array(7).fill(null).map((e, index, array) => (
               <Notification 
                 key={index} 
-                NotificationsPanelOpened={NotificationsPanelOpened}
+                notificationsPanelOpened={notificationsPanelOpened}
                 ref={
                   (index === 0)              ? this.firstNotification 
                 : (index === array.length-1) ? this.lastNotification 

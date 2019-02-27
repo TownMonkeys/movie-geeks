@@ -1,15 +1,15 @@
 import React from 'react';
 import user from '../../images/user.jpg';
 
-const SideWrapper = React.forwardRef((props, sideFirstTabTarget) => {
-  const {sideWrapperOpened, closeSideWrapper} = props;
+const MobileSidebar = React.forwardRef((props, sideFirstTabTarget) => {
+  const {mobileSidebarOpened, closeMobileSidebar} = props;
   const sideLastTabTarget = React.createRef();
 
   const handleKeyDown = (e) => {
     const esc = e.keyCode === 27;
     const tab = e.keyCode === 9;
     if (esc) { 
-      closeSideWrapper();
+      closeMobileSidebar();
     } else if (tab && e.shiftKey && e.target === sideFirstTabTarget.current) {
       e.preventDefault();
       sideLastTabTarget.current.focus();
@@ -32,7 +32,7 @@ const SideWrapper = React.forwardRef((props, sideFirstTabTarget) => {
             <a 
               href="#" 
               className="link sideNavMenu__link" 
-              tabIndex={sideWrapperOpened ? '0' : '-1'}
+              tabIndex={mobileSidebarOpened ? '0' : '-1'}
               ref={sideFirstTabTarget}
             >
             <img className="avatar sideNavMenu__avatar" src={user} alt="User Photo"/>
@@ -43,7 +43,7 @@ const SideWrapper = React.forwardRef((props, sideFirstTabTarget) => {
             <a 
               href="#" 
               className="link sideNavMenu__link" 
-              tabIndex={sideWrapperOpened ? '0' : '-1'}
+              tabIndex={mobileSidebarOpened ? '0' : '-1'}
             >Add Movie</a>
           </li>
         </ul>
@@ -52,7 +52,7 @@ const SideWrapper = React.forwardRef((props, sideFirstTabTarget) => {
       <button 
         className="button authButton mobile__signOut" 
         type="button" 
-        tabIndex={sideWrapperOpened ? '0' : '-1'}
+        tabIndex={mobileSidebarOpened ? '0' : '-1'}
         ref={sideLastTabTarget}
       >
         Sign Out
@@ -61,4 +61,4 @@ const SideWrapper = React.forwardRef((props, sideFirstTabTarget) => {
   );
 })
 
-export default SideWrapper;
+export default MobileSidebar;
