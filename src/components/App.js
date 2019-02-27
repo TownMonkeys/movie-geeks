@@ -6,12 +6,14 @@ import './Link.scss';
 import './List.scss';
 import './Image.scss';
 import './Avatar.scss';
+import Footer from './footer/Footer';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Header />
+        <Footer />
       </div>
     );
   }

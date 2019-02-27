@@ -1,0 +1,31 @@
+@import '../../sass-modules/colors';
+
+/* ====================================
+  Footer
+======================================= */
+.footer {
+  background-color: $grey-dark-3;
+  padding: .5rem;
+}
+
+.App__footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+/* Element --- */
+.footer__link {
+  color: $pink;
+}
+
+/* ====================================
+  Content Info
+======================================= */
+.contentInfo {
+  text-align: center;
+  color: #fff;
+  line-height: 1.7;
+  margin: 0;
+}
