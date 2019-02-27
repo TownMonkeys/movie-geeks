@@ -1,7 +1,11 @@
 @import '../../sass-modules/colors';
 
+/* ========================================
+  Notification
+=========================================== */
+
 /* Elements --- */
-.notificationsList__link {
+.notification__link {
   display: block;
 
   padding: .5rem 1rem;
@@ -15,13 +19,11 @@
   }
 }
 
-.notificationsList__avatar {
-  width: 3rem;
-  height: 3rem;
+.notification__avatar {
   margin-right: .8rem;
 }
 
-.notificationsList__content {
+.notification__content {
   color: #212121;
 
   display: inline-block;
@@ -29,6 +31,6 @@
   margin: 0;
 }
 
-.notificationsList__name {
+.notification__name {
   color: $pink;
 }

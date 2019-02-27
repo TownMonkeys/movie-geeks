@@ -6,16 +6,16 @@ const Notification = React.forwardRef((props, ref) => {
   const {notificationsPanelOpened} = props;
 
   return (
-    <li className="notificationsList__item">
+    <li className="notification">
       <a 
         href="#" 
-        className="link notificationsList__link" 
+        className="link notification__link" 
         tabIndex={notificationsPanelOpened ? '0' : '-1'}
         ref={ref}
       >
-        <img src={user} alt="Moaaz's Avatar" className="image avatar notificationsList__avatar"/>
-        <p className="notificationsList__content">
-          <span className="notificationsList__name">Moaaz Bhnas</span> joined the party.
+        <img src={user} alt="Moaaz's Avatar" className="image avatar notification__avatar avatar_size_med"/>
+        <p className="notification__content">
+          <span className="notification__name">Moaaz Bhnas</span> joined the party.
         </p>
       </a>
     </li>

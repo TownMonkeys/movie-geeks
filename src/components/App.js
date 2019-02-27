@@ -7,17 +7,21 @@ import './List.scss';
 import './Image.scss';
 import './Avatar.scss';
 import Footer from './footer/Footer';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Dashboard from './dashboard/Dashboard';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header />
-        <main role="main">
-        
-        </main>
-        <Footer />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <main role="main">
+            <Route exact path="/" component={Dashboard} />
+          </main>
+          <Footer />
+        </div>
+      </BrowserRouter>
     );
   }
 }
