@@ -1,9 +1,15 @@
+@import '../../sass-modules/colors';
+
+/* =============================================
+  Header
+================================================ */
+
 .header {
   text-align: center;
 
   height: 3.75rem;
   padding: 0 .5rem;
-  background-color: #424242;
+  background-color: $grey-dark-3;
 
   position: relative;
 

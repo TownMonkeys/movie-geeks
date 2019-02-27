@@ -1,3 +1,5 @@
+@import '../../sass-modules/colors';
+
 /* Elements --- */
 .notificationsList__link {
   display: block;
@@ -28,5 +30,5 @@
 }
 
 .notificationsList__name {
-  color: #f44336;
+  color: $red;
 }

@@ -1,3 +1,5 @@
+@import '../../sass-modules/colors';
+
 /* =============================================
   Notifications Icon
 ================================================ */
@@ -15,7 +17,7 @@
 /* Element --- */
 .notificationsIcon__badge {
   color: #fff;
-  background-color: #f44336;
+  background-color: $red;
   padding: .1rem .15rem;
   border-radius: .2rem;
 
