@@ -68,7 +68,7 @@ class SignedInComponents extends Component {
           mobileSidebarOpened={mobileSidebarOpened}
           ref={this.menuIcon}
         />
-        <div className="rightHeaderComponentsCnotainer">
+        <div className="header__signedInComponentsContainer">
           <Navigation />
           <SignOut />
           <NotificationsIcon 

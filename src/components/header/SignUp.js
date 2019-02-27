@@ -1,8 +1,9 @@
 import React from 'react';
+import './SignUp.scss';
 
 const SignUp = () => {
   return (
-    <button className="button authButton" type="button">
+    <button className="button authButton header__signUp" type="button">
       Sign Up
     </button>
   );

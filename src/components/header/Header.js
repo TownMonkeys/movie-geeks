@@ -11,7 +11,7 @@ const Header = () => {
       <div className="container">
         <Logo />
         {
-          true ?
+          false ?
           <SignedInComponents /> :
           <SignedOutComponents />
         }

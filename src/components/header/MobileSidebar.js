@@ -52,7 +52,7 @@ const MobileSidebar = React.forwardRef((props, sideFirstTabTarget) => {
       </nav>
 
       <button 
-        className="button authButton mobileSideBar__authButton" 
+        className="button authButton mobileSideBar__signOut" 
         type="button" 
         tabIndex={mobileSidebarOpened ? '0' : '-1'}
         ref={sideLastTabTarget}

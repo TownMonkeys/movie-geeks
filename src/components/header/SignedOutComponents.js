@@ -1,13 +1,14 @@
 import React from 'react';
 import SignIn from './SignIn';
-import SignOut from './SignOut';
+import SignUp from './SignUp';
+import './SignedOutComponents.scss';
 
 const SignedOutComponents = () => {
   return (
-    <React.Fragment>
+    <div className="header__signedOutComponentsContainer">
+      <SignUp />
       <SignIn />
-      <SignOut />
-    </React.Fragment>
+    </div>
   );
 }
 
