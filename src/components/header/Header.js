@@ -3,7 +3,7 @@ import Logo from './Logo';
 import SignedInComponents from './SignedInComponents';
 import SignedOutComponents from './SignedOutComponents';
 import './Header.scss';
-import './Container.scss';
+import './AuthButton.scss';
 
 const Header = () => {
   return (

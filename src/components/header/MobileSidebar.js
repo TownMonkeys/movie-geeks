@@ -1,11 +1,6 @@
 import React from 'react';
 import user from '../../images/user.jpg';
 import './MobileSidebar.scss';
-import './Link.scss';
-import './List.scss';
-import './Avatar.scss';
-import './AuthButton.scss';
-import './Image.scss';
 
 const MobileSidebar = React.forwardRef((props, sideFirstTabTarget) => {
   const {mobileSidebarOpened, closeMobileSidebar} = props;

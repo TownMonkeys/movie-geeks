@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import Header from './header/Header';
+import './Container.scss';
+import './Link.scss';
+import './List.scss';
+import './Image.scss';
+import './Avatar.scss';
 
 class App extends Component {
   render() {
