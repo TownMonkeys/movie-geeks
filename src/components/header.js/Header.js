@@ -25,7 +25,7 @@ class Header extends Component {
   firstNotification = React.createRef();
   lastNotification  = React.createRef();
 
-  opensideNav = () => {
+  openSideNav = () => {
     this.setState({
       sideNavOpened: true
     });
@@ -33,7 +33,7 @@ class Header extends Component {
     this.firstSideNavLink.current.focus();
   }
 
-  closesideNav = () => {
+  closeSideNav = () => {
     this.setState({
       sideNavOpened: false
     });
@@ -69,7 +69,7 @@ class Header extends Component {
     const esc = e.keyCode === 27;
     const tab = e.keyCode === 9;
     if (esc) { 
-      this.closesideNav();
+      this.closeSideNav();
     } else if (tab && e.shiftKey && e.target === firstElement) {
       e.preventDefault();
       lastElement.focus();
@@ -92,7 +92,7 @@ class Header extends Component {
           {/* mobile only */}
           <MenuIcon 
             sideNavOpened={sideNavOpened} 
-            opensideNav={this.opensideNav}
+            openSideNav={this.openSideNav}
             ref={menuIcon}
           /> 
           {/* Mobile only when menu is clicked */}
@@ -120,7 +120,7 @@ class Header extends Component {
           {/* Mobile only when menu is clicked */}
           <div 
             className="header__sideNavOverlay"
-            onClick={this.closesideNav}
+            onClick={this.closeSideNav}
           ></div>
           {/*
           - purpose of this container: ordering the notification icon after the nav bar.
