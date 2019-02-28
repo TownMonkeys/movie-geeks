@@ -1,10 +1,19 @@
 @import '../../sass-modules/colors';
+@import '../../sass-modules/breakpoints';
 
 /* ==============================
   Desktop Navigation Bar
 ================================= */
 .desktopNavBar {
-  float: right;
+  display: none;
+
+  @media screen and (min-width: $break-header) {
+    display: block;
+  }
+}
+
+.header__desktopNavBar {
+  float: left;
 }
 
 /* Elements --- */
@@ -16,9 +25,6 @@
 /* ==============================
   Desktop Navigation Menu
 ================================= */
-.desktopNavMenu {
-
-}
 
 /* Elements --- */
 .desktopNavMenu__item {

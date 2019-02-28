@@ -4,8 +4,9 @@ import './NotificationIcon.scss';
 
 const NotificationIcon = () => {
   return (
-    <button className="button notificationIcon" type="button">
+    <button className="button notificationIcon header__notificationIcon" type="button">
       <img src={notificationIcon} alt="Notification Icon" className="image"/>
+      <span className="notificationIcon__badge">7</span>
     </button>
   );
 }

@@ -12,20 +12,26 @@ const Header = () => {
     <header className="header" role="banner">
       <div className="container">
         <Logo />
-        <nav className="desktopNavBar" role="navigation">
-          <h2 className="desktopNavBar__heading">Navigation Bar</h2>
-          <ul className="list desktopNavMenu">
-            {
-              signedIn ?
-              <DesktopSignedInLinks /> :
-              <DesktopSignedOutLinks />
-            }
-          </ul>
-        </nav>
-        {
-          signedIn && 
-          <NotificationIcon />
-        }
+        {/*
+        - purpose of this container: ordering the notif icon after the nav bar.
+        - How: float the whole container to the right, and then float both navbar and notif icon to left.
+        */}
+        <div className="headerDesktopRightComponentsContainer">
+          <nav className="desktopNavBar header__desktopNavBar" role="navigation">
+            <h2 className="desktopNavBar__heading">Navigation Bar</h2>
+            <ul className="list desktopNavMenu">
+              {
+                signedIn ?
+                <DesktopSignedInLinks /> :
+                <DesktopSignedOutLinks />
+              }
+            </ul>
+          </nav>
+          {
+            signedIn && 
+            <NotificationIcon />
+          }
+        </div>
       </div>
     </header>
   );

@@ -1,7 +1,29 @@
+@import '../../sass-modules/colors';
+
 /* ==========================
   Notification Icon
 ============================= */
 .notificationIcon {
   width: 3rem;
   padding: .981rem .7rem;
+  border: none;
+
+  position: relative;
+}
+
+.header__notificationIcon {
+  float: left;
+  margin-left: 1rem;
+}
+
+/* Element --- */
+.notificationIcon__badge {
+  color: #fff;
+  background-color: $pink;
+  padding: .1rem .15rem;
+  border-radius: .2rem;
+
+  position: absolute;
+  top: .4rem;
+  right: .6rem;
 }
