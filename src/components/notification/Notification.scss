@@ -1,0 +1,36 @@
+@import '../../sass-modules/colors';
+
+/* ========================================
+  Notification
+=========================================== */
+
+/* Elements --- */
+.notification__link {
+  display: block;
+
+  padding: .5rem 1rem;
+  border-bottom: 1px solid $grey-light-1;
+
+  transition: background-color .1s;
+
+  &:hover,
+  &:focus {
+    background-color: $grey-light-2;
+  }
+}
+
+.notification__avatar {
+  margin-right: .8rem;
+}
+
+.notification__content {
+  color: #212121;
+
+  display: inline-block;
+
+  margin: 0;
+}
+
+.notification__name {
+  color: $pink;
+}
