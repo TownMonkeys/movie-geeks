@@ -65,11 +65,11 @@ class Header extends Component {
     }
   }
 
-  trapFocus = (e, firstElement, lastElement) => {
+  trapFocus = (e, firstElement, lastElement, closeFunc) => {
     const esc = e.keyCode === 27;
     const tab = e.keyCode === 9;
     if (esc) { 
-      this.closeSideNav();
+      closeFunc();
     } else if (tab && e.shiftKey && e.target === firstElement) {
       e.preventDefault();
       lastElement.focus();
@@ -98,7 +98,7 @@ class Header extends Component {
           {/* Mobile only when menu is clicked */}
           <div 
             className="sideNav header__sideNav"
-            onKeyDown={(e) => this.trapFocus(e, firstSideNavLink.current, lastSideNavLink.current)}
+            onKeyDown={(e) => this.trapFocus(e, firstSideNavLink.current, lastSideNavLink.current, this.closeSideNav)}
           >
             <nav className="mobileNavBar" role="navigation">
               <h2 className="mobileNavBar__heading">Navigation Bar</h2>
@@ -149,7 +149,7 @@ class Header extends Component {
                   ref={notificationIcon}
                 />
                 <NotificationPanel 
-                  trapFocus={(e) => this.trapFocus(e, firstNotification.current, lastNotification.current)}
+                  trapFocus={(e) => this.trapFocus(e, firstNotification.current, lastNotification.current, this.closeNotificationPanel)}
                   notificationPanelOpened={notificationPanelOpened}
                   ref={{firstNotification, lastNotification}}
                 />

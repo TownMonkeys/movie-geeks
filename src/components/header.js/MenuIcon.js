@@ -3,7 +3,7 @@ import menu from '../../images/menu.svg';
 import './MenuIcon.scss';
 
 const MenuIcon = React.forwardRef((props, menuIcon) => {
-  const {sideNavOpened, closeSideNav} = props; 
+  const {sideNavOpened, openSideNav} = props; 
 
   return (
     <button 
@@ -12,7 +12,7 @@ const MenuIcon = React.forwardRef((props, menuIcon) => {
       aria-controls="mobileSideBar" 
       aria-pressed={sideNavOpened} 
       aria-expanded={sideNavOpened}
-      onClick={closeSideNav}
+      onClick={openSideNav}
       ref={menuIcon}
     >
       <img src={menu} alt="Menu Icon" className="image"/>
