@@ -1,0 +1,40 @@
+@import '../../sass-modules/colors';
+@import '../../sass-modules/breakpoints';
+
+/* ==============================
+  Mobile Navigation Bar
+================================= */
+.mobileNavBar {
+  @media screen and (min-width: $break-header) {
+    display: none;
+  }
+}
+
+/* Elements --- */
+.mobileNavBar__heading {
+  position: absolute;
+  left: -100rem;
+}
+
+/* ==============================
+  Desktop Navigation Menu
+================================= */
+
+/* Elements --- */
+.mobileNavMenu__link {
+  display: block;
+  line-height: 3.75rem;
+  text-decoration: none;
+  color: $grey-dark-3;
+
+  transition: background-color .1s;
+
+  &:hover,
+  &:focus {
+    background-color: $grey-light-2;
+  }
+}
+
+.mobileNavMenu__avatar {
+  margin-right: .3rem;
+}

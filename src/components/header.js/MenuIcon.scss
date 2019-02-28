@@ -1,0 +1,18 @@
+@import '../../sass-modules/breakpoints';
+
+/* =============================================
+  Menu Icon
+================================================ */
+.menuIcon {
+  width: 3rem;
+  padding: .981rem .7rem;
+  border: none;
+
+  @media screen and (min-width: $break-header) {
+    display: none;
+  }
+}
+
+.header__menuIcon {
+  float: left;
+}

@@ -2,9 +2,13 @@ import React from 'react';
 import Logo from './Logo';
 import './Header.scss';
 import './DesktopNavBar.scss';
+import './MobileNavBar.scss';
 import DesktopSignedInLinks from './DesktopSignedInLinks';
 import DesktopSignedOutLinks from './DesktopSignedOutLinks';
 import NotificationIcon from './NotificationIcon';
+import MenuIcon from './MenuIcon';
+import MobileSignedInLinks from './MobileSignedInLinks';
+import MobileSignedOutLinks from './MobileSignedOutLinks';
 
 const Header = () => {
   const signedIn = true;
@@ -12,11 +16,24 @@ const Header = () => {
     <header className="header" role="banner">
       <div className="container">
         <Logo />
+        <MenuIcon />
+        <div className="header__mobileSidebar">
+          <nav className="mobileNavBar" role="navigation">
+            <h2 className="mobileNavBar__heading">Navigation Bar</h2>
+            <ul className="list mobileNavMenu">
+              {
+                signedIn ?
+                <MobileSignedInLinks /> :
+                <MobileSignedOutLinks />
+              }
+            </ul>
+          </nav>
+        </div>
         {/*
-        - purpose of this container: ordering the notif icon after the nav bar.
+        - purpose of this container: ordering the notification icon after the nav bar.
         - How: float the whole container to the right, and then float both navbar and notif icon to left.
         */}
-        <div className="headerDesktopRightComponentsContainer">
+        <div className="header__desktopRightComponentsContainer">
           <nav className="desktopNavBar header__desktopNavBar" role="navigation">
             <h2 className="desktopNavBar__heading">Navigation Bar</h2>
             <ul className="list desktopNavMenu">
