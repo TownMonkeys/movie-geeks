@@ -22,10 +22,13 @@
 
 /* Elements --- */
 .mobileNavMenu__link {
-  display: block;
   line-height: 3.75rem;
   text-decoration: none;
   color: $grey-dark-3;
+
+  display: block;
+
+  padding: 0 1rem;
 
   transition: background-color .1s;
 
