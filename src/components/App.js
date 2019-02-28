@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Header from './header.js/Header';
 import './container.scss';
 import './list.scss';
+import './image.scss';
 import './avatar.scss';
+import './button.scss';
 
 class App extends Component {
   state = {  }
