@@ -1,0 +1,30 @@
+/* ==============================
+  Desktop Navigation Bar
+================================= */
+.desktopNavBar {
+  float: right;
+}
+
+/* Elements --- */
+.desktopNavBar__heading {
+  position: absolute;
+  left: -100rem;
+}
+
+/* ==============================
+  Desktop Navigation Menu
+================================= */
+.desktopNavMenu {
+
+}
+
+/* Elements --- */
+.desktopNavMenu__item {
+  display: inline-block;
+}
+
+/* Elements --- */
+.desktopNavMenu__link {
+  text-decoration: none;
+  color: #fff;
+}

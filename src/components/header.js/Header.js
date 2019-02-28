@@ -1,6 +1,9 @@
 import React from 'react';
 import Logo from './Logo';
 import './Header.scss';
+import './DesktopNavBar.scss';
+import DesktopSignedInLinks from './DesktopSignedInLinks';
+import DesktopSignedOutLinks from './DesktopSignedOutLinks';
 
 const Header = () => {
   return (
@@ -8,9 +11,12 @@ const Header = () => {
       <div className="container">
         <Logo />
         <nav className="desktopNavBar" role="navigation">
-          <ul className="desktopNavMenu">
+          <h2 className="desktopNavBar__heading">Navigation Bar</h2>
+          <ul className="list desktopNavMenu">
             {
-              
+              true ?
+              <DesktopSignedInLinks /> :
+              <DesktopSignedOutLinks />
             }
           </ul>
         </nav>
