@@ -126,7 +126,6 @@ class Header extends Component {
           - purpose of this container: ordering the notification icon after the nav bar.
           - How: float the whole container to the right, and then float both navbar and notif icon to left.
           */}
-          {/* Always exists */}
           <div className="header__desktopRightComponentsContainer">
             {/* Desktop only */}
             <nav className="desktopNavBar header__desktopNavBar" role="navigation">
