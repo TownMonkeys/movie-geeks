@@ -3,16 +3,16 @@ import menu from '../../images/menu.svg';
 import './MenuIcon.scss';
 
 const MenuIcon = (props) => {
-  const {navSidebarOpened, openNavSidebar} = props; 
+  const {sideNavOpened, opensideNav} = props; 
 
   return (
     <button 
       className="button menuIcon header__menuIcon" 
       type="button" 
       aria-controls="mobileSideBar" 
-      aria-pressed={navSidebarOpened} 
-      aria-expanded={navSidebarOpened}
-      onClick={openNavSidebar}
+      aria-pressed={sideNavOpened} 
+      aria-expanded={sideNavOpened}
+      onClick={opensideNav}
     >
       <img src={menu} alt="Menu Icon" className="image"/>
     </button>

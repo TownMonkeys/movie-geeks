@@ -12,54 +12,90 @@ import MobileSignedOutLinks from './MobileSignedOutLinks';
 
 class Header extends Component {
   state = { 
-    navSidebarOpened: false 
+    sideNavOpened: false 
   }
 
-  openNavSidebar = () => {
+  // Refs
+  firstSideNavLink = React.createRef();
+  lastSideNavLink = React.createRef();
+
+  opensideNav = () => {
     this.setState({
-      navSidebarOpened: true
+      sideNavOpened: true
+    });
+
+    this.firstSideNavLink.current.focus();
+  }
+
+  closesideNav = () => {
+    this.setState({
+      sideNavOpened: false
     });
   }
 
-  closeNavSidebar = () => {
-    this.setState({
-      navSidebarOpened: false
-    });
+  handleKeyDownOnSideNav = (e) => {
+    const esc = e.keyCode === 27;
+    const tab = e.keyCode === 9;
+    if (esc) { 
+      this.closesideNav();
+    } else if (tab && e.shiftKey && e.target === this.firstSideNavLink.current) {
+      e.preventDefault();
+      this.lastSideNavLink.current.focus();
+    } else if (tab && !e.shiftKey && e.target === this.lastSideNavLink.current) {
+      e.preventDefault();
+      this.firstSideNavLink.current.focus();
+    }
   }
 
   render() {
-    const {navSidebarOpened} = this.state;
-    const signedIn = true;
+    const {firstSideNavLink, lastSideNavLink} = this;
+    const {sideNavOpened} = this.state;
+    const signedIn = false;
 
     return (
       <header className="header" role="banner">
         <div className="container">
-          <Logo />
+          {/* Always exists */}
+          <Logo /> 
+          {/* mobile only */}
           <MenuIcon 
-            navSidebarOpened={navSidebarOpened} 
-            openNavSidebar={this.openNavSidebar}
-          />
-          <div className="navSidebar header__navSidebar">
+            sideNavOpened={sideNavOpened} 
+            opensideNav={this.opensideNav}
+          /> 
+          {/* Mobile only when menu is clicked */}
+          <div 
+            className="sideNav header__sideNav"
+            onKeyDown={this.handleKeyDownOnSideNav}
+          >
             <nav className="mobileNavBar" role="navigation">
               <h2 className="mobileNavBar__heading">Navigation Bar</h2>
               <ul className="list mobileNavMenu">
                 {
                   signedIn ?
-                  <MobileSignedInLinks /> :
-                  <MobileSignedOutLinks />
+                  <MobileSignedInLinks 
+                    sideNavOpened={sideNavOpened} 
+                    ref={{firstSideNavLink, lastSideNavLink}}
+                  /> :
+                  <MobileSignedOutLinks 
+                    sideNavOpened={sideNavOpened} 
+                    ref={{firstSideNavLink, lastSideNavLink}}
+                  />
                 }
               </ul>
             </nav>
           </div>
+          {/* Mobile only when menu is clicked */}
           <div 
-            className="header__navSidebarOverlay"
-            onClick={this.closeNavSidebar}
+            className="header__sideNavOverlay"
+            onClick={this.closesideNav}
           ></div>
           {/*
           - purpose of this container: ordering the notification icon after the nav bar.
           - How: float the whole container to the right, and then float both navbar and notif icon to left.
           */}
+          {/* Always exists */}
           <div className="header__desktopRightComponentsContainer">
+            {/* Desktop only */}
             <nav className="desktopNavBar header__desktopNavBar" role="navigation">
               <h2 className="desktopNavBar__heading">Navigation Bar</h2>
               <ul className="list desktopNavMenu">
@@ -70,6 +106,7 @@ class Header extends Component {
                 }
               </ul>
             </nav>
+            {/* Always exists if signed in*/}
             {
               signedIn && 
               <NotificationIcon />

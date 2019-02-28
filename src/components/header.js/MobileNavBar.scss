@@ -4,11 +4,6 @@
 /* ==============================
   Mobile Navigation Bar
 ================================= */
-.mobileNavBar {
-  @media screen and (min-width: $break-header) {
-    display: none;
-  }
-}
 
 /* Elements --- */
 .mobileNavBar__heading {
