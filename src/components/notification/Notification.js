@@ -1,6 +1,7 @@
 import React from 'react';
 import user from '../../images/user.jpg';
 import './Notification.scss';
+import PropTypes from 'prop-types';
 
 const Notification = React.forwardRef((props, ref) => {
   const {notificationPanelOpened} = props;
@@ -21,5 +22,9 @@ const Notification = React.forwardRef((props, ref) => {
     </li>
   );
 });
+
+Notification.propTypes = {
+  notificationPanelOpened: PropTypes.bool
+}
 
 export default Notification;

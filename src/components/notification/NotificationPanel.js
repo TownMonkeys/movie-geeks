@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Notification from './Notification';
 import './NotificationPanel.scss';
+import PropTypes from 'prop-types';
 
 class NotificationsPanel extends Component {
   componentDidUpdate() {
@@ -38,6 +39,12 @@ class NotificationsPanel extends Component {
       </div>
     );
   }
+}
+
+NotificationsPanel.propTypes = {
+  refs: PropTypes.object,
+  notificationPanelOpened: PropTypes.bool,
+  trapFocus: PropTypes.func
 }
 
 export default React.forwardRef(

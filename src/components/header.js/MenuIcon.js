@@ -1,6 +1,7 @@
 import React from 'react';
 import menu from '../../images/menu.svg';
 import './MenuIcon.scss';
+import PropTypes from 'prop-types';
 
 const MenuIcon = React.forwardRef((props, menuIcon) => {
   const {sideNavOpened, openSideNav} = props; 
@@ -19,5 +20,10 @@ const MenuIcon = React.forwardRef((props, menuIcon) => {
     </button>
   );
 })
+
+MenuIcon.propTypes = {
+  sideNavOpened: PropTypes.bool,
+  openSideNav: PropTypes.func
+}
 
 export default MenuIcon;

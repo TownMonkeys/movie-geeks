@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const MobileSignedOutLinks = React.forwardRef((props, refs) => {
   const {navSidebarOpened} = props;
@@ -25,5 +26,9 @@ const MobileSignedOutLinks = React.forwardRef((props, refs) => {
     </React.Fragment>
   );
 })
+
+MobileSignedOutLinks.propTypes = {
+  navSidebarOpened: PropTypes.bool
+}
 
 export default MobileSignedOutLinks;

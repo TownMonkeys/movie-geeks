@@ -1,5 +1,6 @@
 import React from 'react';
 import user from '../../images/user.jpg';
+import PropTypes from 'prop-types';
 
 const MobileSignedInLinks = React.forwardRef((props, refs) => {
   const {navSidebarOpened} = props;
@@ -36,5 +37,9 @@ const MobileSignedInLinks = React.forwardRef((props, refs) => {
     </React.Fragment>
   );
 })
+
+MobileSignedInLinks.propTypes = {
+  navSidebarOpened: PropTypes.bool
+}
 
 export default MobileSignedInLinks;

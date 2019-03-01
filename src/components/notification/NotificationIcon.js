@@ -1,6 +1,7 @@
 import React from 'react';
 import notifications from '../../images/notifications.svg';
 import './NotificationIcon.scss';
+import PropTypes from 'prop-types';
 
 const NotificationIcon = React.forwardRef((props, notificationIcon) => {
   const {notificationPanelOpened, toggleNotificationPanel} = props;
@@ -19,6 +20,11 @@ const NotificationIcon = React.forwardRef((props, notificationIcon) => {
       <span className="notificationIcon__badge">7</span>
     </button>
   );
+})
+
+NotificationIcon.propTypes = {
+  notificationPanelOpened: PropTypes.bool,
+  toggleNotificationPanel: PropTypes.func
 }
-)
+
 export default NotificationIcon;
