@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 const NotificationIcon = React.forwardRef((props, notificationIcon) => {
   const {notificationPanelOpened, toggleNotificationPanel} = props;
+  const notificationsNum = 7;
 
   return (
     <button 
@@ -17,7 +18,9 @@ const NotificationIcon = React.forwardRef((props, notificationIcon) => {
       ref={notificationIcon}
     >
       <img src={notifications} alt="Notification Icon" className="image"/>
-      <span className="notificationIcon__badge">7</span>
+      <span className="notificationIcon__badge" aria-live="polite" aria-atomic="true">
+        {notificationsNum} <span className="notificationIcon__a11yContent">{(notificationsNum === 1) ? 'notification' : 'notifications'}</span>
+      </span>
     </button>
   );
 })
