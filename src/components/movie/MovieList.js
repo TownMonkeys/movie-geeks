@@ -1,5 +1,6 @@
 import React from 'react';
 import './MovieList.scss';
+import Movie from './Movie';
 
 const MovieList = () => {
   return (
@@ -7,7 +8,7 @@ const MovieList = () => {
       <h3 className="movieSection__heading">Movies</h3>
 
       <ul className="list movieList">
-        Movie List
+        <Movie />
       </ul>
     </section>
   );

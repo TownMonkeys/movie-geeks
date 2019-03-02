@@ -1,5 +1,5 @@
 import React from 'react';
-import user from '../../images/user.jpg';
+import user from '../../images/user.svg';
 import PropTypes from 'prop-types';
 
 const MobileSignedInLinks = React.forwardRef((props, refs) => {
@@ -16,7 +16,7 @@ const MobileSignedInLinks = React.forwardRef((props, refs) => {
           tabIndex={navSidebarOpened ? '0' : '1'}
         >
           <img src={user} alt="" className="image avatar avatar_size_small mobileNavMenu__avatar"/>
-          <span className="mobileNavMenu__userName">Moaaz</span>
+          <span className="mobileNavMenu__userName">Hajar</span>
         </a>
       </li>
       <li className="mobileNavMenu__item">

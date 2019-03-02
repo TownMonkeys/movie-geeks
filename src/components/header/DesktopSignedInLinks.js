@@ -1,5 +1,5 @@
 import React from 'react';
-import user from '../../images/user.jpg';
+import user from '../../images/user.svg';
 
 const DesktopSignedInLinks = () => {
   return (
@@ -7,7 +7,7 @@ const DesktopSignedInLinks = () => {
       <li className="desktopNavMenu__item">
         <a href="" className="desktopNavMenu__link">
           <img src={user} alt="" className="image avatar avatar_size_small desktopNavMenu__avatar"/>
-          <span className="desktopNavMenu__userName">Moaaz</span>
+          <span className="desktopNavMenu__userName">Hajar</span>
         </a>
       </li>
       <li className="desktopNavMenu__item">
