@@ -1,4 +1,4 @@
-# MovieGeeks
+# MovieGeeks (ongoing)
 A social media app for movie geeks.
 
 ## Aimed functionalities
