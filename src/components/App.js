@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import Header from './header.js/Header';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Header from './header/Header';
 import './App.scss';
 import './container.scss';
 import './list.scss';
 import './image.scss';
 import './avatar.scss';
 import './button.scss';
+import Dashboard from './dashboard/Dashboard';
 
 class App extends Component {
   state = { 
@@ -13,9 +15,14 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <Header />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <Switch>
+            <Route path="/" exact component={Dashboard} /> 
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
