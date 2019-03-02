@@ -1,0 +1,17 @@
+/* ==============================
+  Movie Section
+================================= */
+.movieSection {
+  background-color: #aaa;
+}
+
+.dashboard__movieSection {
+  display: inline-block;
+  width: 50%;
+}
+
+/* Elements --- */
+.movieSection__heading {
+  position: absolute;
+  left: -100rem;
+} 

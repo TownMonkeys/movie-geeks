@@ -3,7 +3,7 @@ import React from 'react';
 const MemberList = () => {
   return (
     <section className="memberSection">
-      Member List
+      <h3 className="memberSection__heading">Members</h3>
     </section>
   );
 }

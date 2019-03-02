@@ -101,7 +101,7 @@ class Header extends Component {
             onKeyDown={(e) => this.trapFocus(e, firstSideNavLink.current, lastSideNavLink.current, this.closeSideNav)}
           >
             <nav className="mobileNavBar" role="navigation">
-              <h2 className="mobileNavBar__heading">Navigation Bar</h2>
+              <h2 className="mobileNavBar__heading">Mobile Navigation Bar</h2>
               <ul className="list mobileNavMenu">
                 {
                   signedIn ?
@@ -129,7 +129,7 @@ class Header extends Component {
           <div className="header__desktopRightComponentsContainer">
             {/* Desktop only */}
             <nav className="desktopNavBar header__desktopNavBar" role="navigation">
-              <h2 className="desktopNavBar__heading">Navigation Bar</h2>
+              <h2 className="desktopNavBar__heading">Desktop Navigation Bar</h2>
               <ul className="list desktopNavMenu">
                 {
                   signedIn ?
