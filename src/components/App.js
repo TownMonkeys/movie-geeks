@@ -8,7 +8,9 @@ import './avatar.scss';
 import './button.scss';
 
 class App extends Component {
-  state = {  }
+  state = { 
+    test: 1
+  }
   render() {
     return (
       <div className="App">
