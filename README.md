@@ -5,6 +5,6 @@ A social media app for movie geeks.
 
 
 ## Aimed Quality Standards
-- Web Content Accessibility Guidelines.
+- Web Accessibility.
 - Cross-Browser Compatibility.
 - Code Modularity and Maintainability.
