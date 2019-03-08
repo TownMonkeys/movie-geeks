@@ -85,7 +85,7 @@ class Header extends Component {
     const signedIn = true;
 
     return (
-      <header className="header" role="banner">
+      <header className="header App__header" role="banner">
         <div className="container">
           {/* Always exists */}
           <Logo /> 

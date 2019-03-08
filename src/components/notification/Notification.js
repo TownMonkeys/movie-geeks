@@ -14,9 +14,9 @@ const Notification = React.forwardRef((props, ref) => {
         tabIndex={notificationPanelOpened ? '0' : '-1'}
         ref={ref}
       >
-        <img src={user} alt="Moaaz's Avatar" className="image avatar notification__avatar avatar_size_med"/>
+        <img src={user} alt="Hajar's Avatar" className="image avatar notification__avatar avatar_size_med"/>
         <p className="notification__content">
-          <span className="notification__name">Moaaz Bhnas</span> joined the party.
+          <span className="notification__name">Hajar Bhnas</span> joined the party.
         </p>
       </a>
     </li>

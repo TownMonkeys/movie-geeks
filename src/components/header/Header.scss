@@ -16,6 +16,11 @@
   }
 }
 
+.App__header {
+  position: relative;
+  z-index: 1;
+}
+
 /* Element --- */
 .header__desktopRightComponentsContainer {
   float: right;

@@ -1,0 +1,17 @@
+/* ===============================
+  Movie
+================================== */
+.movie {
+  background-color: #555;
+  max-width: 30rem;
+}
+
+/* Elements --- */
+.movie__imageButton {
+  border: none;
+  padding: 0;
+}
+
+.movie__likeButton {
+  width: 3rem;
+}
