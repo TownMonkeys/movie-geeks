@@ -8,7 +8,9 @@ const MovieList = () => {
       <h3 className="movieSection__heading">Movies</h3>
 
       <ul className="list movieList">
-        <Movie />
+        <li className="movieList__item">
+          <Movie />
+        </li>
       </ul>
     </section>
   );

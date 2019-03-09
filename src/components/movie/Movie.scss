@@ -1,17 +1,39 @@
+@import '../../sass-modules/colors';
+
 /* ===============================
   Movie
 ================================== */
 .movie {
-  background-color: #555;
   max-width: 30rem;
+  padding: 0 1rem;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
 }
 
-/* Elements --- */
+/* header --- */
+.movie__header {
+  padding: .5rem 0;
+}
+
+/* avatar link --- */
+.movie__userAvatarLink {
+  margin-right: .5rem;
+}
+
+/* user name link --- */
+.movie__userNameLink {
+  text-decoration: none;
+  color: $grey-dark-4;
+}
+
+/* image button --- */
 .movie__imageButton {
   border: none;
   padding: 0;
+  margin: 0 -1rem 0 -1rem;
 }
 
+/* like --- */
 .movie__likeButton {
   width: 3rem;
 }
