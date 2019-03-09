@@ -11,6 +11,9 @@ const MovieList = () => {
         <li className="movieList__item">
           <Movie />
         </li>
+        <li className="movieList__item">
+          <Movie />
+        </li>
       </ul>
     </section>
   );

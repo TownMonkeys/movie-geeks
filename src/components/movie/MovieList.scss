@@ -10,8 +10,13 @@
   // width: 50%;
 }
 
-/* Elements --- */
+/* movie section title --- */
 .movieSection__heading {
   position: absolute;
   left: -100rem;
 } 
+
+/* movie list item --- */
+.movieList__item {
+  margin-bottom: 2rem;
+}
