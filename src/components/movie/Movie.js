@@ -25,9 +25,12 @@ const Movie = () => {
       <button className="button movie__likeButton">
         <LikeSvg />
       </button> {/* Like */}
-      <p className="movie__likeNumber">Mohamed and 5 others liked your post</p> {/* Likes Number */}
-      <footer>
-        <time>28 minutes ago</time>
+      <p className="movie__likeNumber">
+        <a className="movie__liker" href="#">Mohamed</a> and <a className="movie__otherLikers" href="#">5 others</a> liked your post
+      </p> {/* Likes Number */}
+
+      <footer className="movie__footer">
+        <time className="movie__time">28 minutes ago</time>
       </footer>
     </article>
   );

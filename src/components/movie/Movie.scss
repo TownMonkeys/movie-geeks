@@ -49,5 +49,37 @@
 
 /* like --- */
 .movie__likeButton {
+  vertical-align: middle;
   width: 3rem;
+  padding: 1rem 1rem 1rem 0;
+  border: none;
+}
+
+/* like number --- */
+.movie__likeNumber {
+  display: inline-block;
+}
+
+/* footer --- */
+.movie__footer {
+  padding-bottom: .6rem;
+}
+
+/* liker --- */
+.movie__liker {
+  text-decoration: none;
+  font-weight: 500;
+  color: $grey-dark-4;
+}
+
+/* other likers --- */
+.movie__otherLikers {
+  text-decoration: none;
+  font-weight: 500;
+  color: $grey-dark-4;
+}
+
+/* time --- */
+.movie__time {
+  color: $grey-dark-2;
 }

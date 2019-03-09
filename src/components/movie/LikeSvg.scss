@@ -1,5 +1,7 @@
 @import '../../sass-modules/colors';
 
 .heart {
-  fill: $pink;
+  stroke: $grey-dark-4;
+  stroke-width: 2;
+  fill: #fff;
 }
