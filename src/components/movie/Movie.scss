@@ -39,7 +39,7 @@
   display: inline-block;
 
   font-size: 1.7rem;
-  margin: .5rem .7rem 0 0;
+  margin: .5rem .7rem .4rem 0;
 }
 
 /* movie genre --- */
@@ -82,4 +82,11 @@
 /* time --- */
 .movie__time {
   color: $grey-dark-2;
+}
+
+/* star item --- */
+.movie__starItem {
+  display: inline-block;
+  width: 1rem;
+  margin-right: .1rem;
 }

@@ -1,0 +1,13 @@
+@import '../../sass-modules/colors';
+
+/* star --- */
+
+/* star path --- */
+.movie__starPath {
+  fill: #D6D6D6;
+}
+
+// modifier
+.movie__starPath_filled {
+  fill: $pink-light-1;
+}

@@ -2,7 +2,9 @@ import React from 'react';
 import hxh from '../../images/hunterxhunter.jpg';
 import './Movie.scss';
 import LikeSvg from './LikeSvg';
-import user from '../../images/user.svg'
+import user from '../../images/user.svg';
+import star from '../../images/star.svg';
+import StarSvg from './StarSvg';
 
 const Movie = () => {
   return (
@@ -19,6 +21,15 @@ const Movie = () => {
       </button> {/* Image */}
       <h4 className="movie__name">Hunter x Hunter</h4> {/* Name */}
       <span className="movie__genre">Animation, Adventure</span> {/* Genre */}
+      <ul className="list movie__starList">
+      {
+        Array(5).fill(null).map(e => (
+          <li className="movie__starItem">
+            <StarSvg />
+          </li>
+        ))
+      }
+      </ul>
       <p className="movie__review">
         Fugit enim veniam mollitia ea illum voluptatem fuga aperiam. Esse dolorem nobis autem fuga non.
       </p> {/* Review */}
