@@ -1,7 +1,16 @@
 @import '../../sass-modules/colors';
 
 .movie__heartPath {
+  transition: .1s stroke-width, .1s fill;
+}
+
+// modifiers
+.movie__heartPath_empty {
   stroke: $grey-dark-4;
   stroke-width: 2;
   fill: #fff;
+}
+.movie__heartPath_filled {
+  stroke-width: 0;
+  fill: $pink;
 }
