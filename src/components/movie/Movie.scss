@@ -12,7 +12,7 @@
 
 /* header --- */
 .movie__header {
-  padding: .5rem 0;
+  padding: .6rem 0;
 }
 
 /* avatar link --- */
@@ -24,6 +24,7 @@
 .movie__userNameLink {
   text-decoration: none;
   color: $grey-dark-4;
+  font-weight: 500;
 }
 
 /* image button --- */
@@ -31,6 +32,19 @@
   border: none;
   padding: 0;
   margin: 0 -1rem 0 -1rem;
+}
+
+/* movie name --- */
+.movie__name {
+  display: inline-block;
+
+  font-size: 1.7rem;
+  margin: .5rem .7rem 0 0;
+}
+
+/* movie genre --- */
+.movie__genre {
+  color: $grey-dark-2;
 }
 
 /* like --- */
