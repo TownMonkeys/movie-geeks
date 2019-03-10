@@ -3,7 +3,6 @@ import hxh from '../../images/hunterxhunter.jpg';
 import './Movie.scss';
 import LikeSvg from './LikeSvg';
 import user from '../../images/user.svg';
-import star from '../../images/star.svg';
 import StarSvg from './StarSvg';
 
 class Movie extends Component {
