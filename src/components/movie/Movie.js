@@ -29,8 +29,8 @@ class Movie extends Component {
         <header className="movie__header">
           <a href="#" className="movie__userAvatarLink">
             <img src={user} alt="Hajar's avatar" className="image avatar avatar_size_med"/>
-          </a>
-          <a href="#" className="movie__userNameLink">Hajar Bhnas</a>
+          </a> {/* User's avatar */}
+          <a href="#" className="movie__userNameLink">Hajar Bhnas</a> {/* User's name */}
         </header> {/* Header */}
 
         <button 
@@ -39,8 +39,8 @@ class Movie extends Component {
           onDoubleClick={this.hitLike}
         >
           <img src={hxh} className="image movie__image"/>
-        </button> {/* Image */}
-        <h4 className="movie__name">Hunter x Hunter</h4> {/* Name */}
+        </button> {/* Movie image */}
+        <h4 className="movie__name">Hunter x Hunter</h4> {/* Movie name */}
         <span className="movie__genre">Animation, Adventure</span> {/* Genre */}
         <ul className="list movie__starList">
         {
@@ -50,7 +50,7 @@ class Movie extends Component {
             </li>
           ))
         }
-        </ul>
+        </ul> {/* Rating */}
         <p className="movie__review">
           Fugit enim veniam mollitia ea illum voluptatem fuga aperiam. Esse dolorem nobis autem fuga non.
         </p> {/* Review */}
@@ -58,12 +58,12 @@ class Movie extends Component {
           <LikeSvg clicked={this.state.likeClicked} />
         </button> {/* Like */}
         <p className="movie__likeNumber">
-          <a className="movie__liker" href="#">Mohamed</a> and <a className="movie__otherLikers" href="#">5 others</a> liked your post
+          <a className="movie__liker" href="#">Mohamed</a> and <a className="movie__otherLikers" href="#">5 others</a> liked your post.
         </p> {/* Likes Number */}
 
         <footer className="movie__footer">
           <time className="movie__time">28 minutes ago</time>
-        </footer>
+        </footer> {/* Time */}
       </article>
     );
   }
