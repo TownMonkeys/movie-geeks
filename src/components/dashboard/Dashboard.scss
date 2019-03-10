@@ -1,8 +1,14 @@
+@import '../../sass-modules/breakpoints';
+
 /* ==================================
   Dashboard
 ===================================== */
 .dashboard {
   padding: 2rem 0 0;
+
+  @media screen and (min-width: $break-dashboard) {
+    padding: 2rem 1rem 0;
+  }
 }
 
 /* Element --- */
