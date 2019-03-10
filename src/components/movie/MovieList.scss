@@ -1,13 +1,17 @@
+@import '../../sass-modules/breakpoints';
+
 /* ==============================
   Movie Section
 ================================= */
 .movieSection {
-  // background-color: #ccc;
+  max-width: 30rem;
 }
 
 .dashboard__movieSection {
-  // display: inline-block;
-  // width: 50%;
+  @media screen and (min-width: $break-large) {
+    display: inline-block;
+    width: 50%;
+  }
 }
 
 /* movie section title --- */
