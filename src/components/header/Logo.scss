@@ -1,10 +1,12 @@
+@import '../../sass-modules/colors';
+
 /* ==========================
   Logo
 ============================= */
 .logo {
   display: inline-block;
   text-decoration: none;
-  color: #fff;
+  color: $grey-dark-4;
 }
 
 .header__logo {

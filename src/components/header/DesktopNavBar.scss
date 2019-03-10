@@ -35,7 +35,7 @@
   display: block;
   line-height: 3.75rem;
   text-decoration: none;
-  color: #fff;
+  color: $grey-dark-4;
 
   padding: 0 .8rem;
 
@@ -43,7 +43,7 @@
 
   &:hover,
   &:focus {
-    background-color: $grey-dark-4;
+    background-color: $grey-light-2;
   }
 }
 
