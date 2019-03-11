@@ -4,15 +4,15 @@ import './MenuIcon.scss';
 import PropTypes from 'prop-types';
 
 const MenuIcon = React.forwardRef((props, menuIcon) => {
-  const {sideNavOpened, openSideNav} = props; 
+  const {menuButtonPressed, openSideNav} = props; 
 
   return (
     <button 
       className="button menuIcon header__menuIcon" 
       type="button" 
       aria-controls="mobileSideBar" 
-      aria-pressed={sideNavOpened} 
-      aria-expanded={sideNavOpened}
+      aria-pressed={menuButtonPressed} 
+      aria-expanded={menuButtonPressed}
       onClick={openSideNav}
       ref={menuIcon}
     >

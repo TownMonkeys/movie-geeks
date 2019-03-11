@@ -13,8 +13,8 @@ import NotificationPanel from '../notification/NotificationPanel';
 
 class Header extends Component {
   state = { 
-    sideNavOpened: false,
-    notificationPanelOpened: false 
+    menuButtonPressed: false,
+    notificationButtonPressed: false 
   }
 
   // Refs for managing focus
@@ -27,15 +27,13 @@ class Header extends Component {
 
   openSideNav = () => {
     this.setState({
-      sideNavOpened: true
+      menuButtonPressed: true
     });
-
-    this.firstSideNavLink.current.focus();
   }
 
   closeSideNav = () => {
     this.setState({
-      sideNavOpened: false
+      menuButtonPressed: false
     });
 
     this.menuIcon.current.focus();
@@ -43,22 +41,20 @@ class Header extends Component {
 
   openNotificationPanel = () => {
     this.setState({
-      notificationPanelOpened: true
+      notificationButtonPressed: true
     });
-
-    // I focused the first notification in componentDidMount method of NotificationsPanel component, but I can't focus it now bacause it wouldn't exist yet
   }
 
   closeNotificationPanel = () => {
     this.setState({
-      notificationPanelOpened: false
+      notificationButtonPressed: false
     });
 
     this.notificationIcon.current.focus();
   }
 
   toggleNotificationPanel = () => {
-    if (this.state.notificationPanelOpened) {
+    if (this.state.notificationButtonPressed) {
       this.closeNotificationPanel();
     } else {
       this.openNotificationPanel();
@@ -81,7 +77,7 @@ class Header extends Component {
 
   render() {
     const {menuIcon, firstSideNavLink, lastSideNavLink, notificationIcon, firstNotification, lastNotification} = this;
-    const {sideNavOpened, notificationPanelOpened} = this.state;
+    const {menuButtonPressed, notificationButtonPressed} = this.state;
     const signedIn = true;
 
     return (
@@ -91,38 +87,37 @@ class Header extends Component {
           <Logo /> 
           {/* mobile only */}
           <MenuIcon 
-            sideNavOpened={sideNavOpened} 
+            menuButtonPressed={menuButtonPressed} 
             openSideNav={this.openSideNav}
             ref={menuIcon}
           /> 
           {/* Mobile only when menu is clicked */}
           {
-            sideNavOpened &&
-            <React.Fragment>
+            menuButtonPressed &&
+            <div 
+              className="sideNav header__sideNav"
+              onKeyDown={(e) => this.trapFocus(e, firstSideNavLink.current, lastSideNavLink.current, this.closeSideNav)}
+            >
+              <nav className="mobileNavBar" role="navigation">
+                <h2 className="mobileNavBar__heading">Mobile Navigation Bar</h2>
+                <ul className="list mobileNavMenu">
+                  {
+                    signedIn ?
+                    <MobileSignedInLinks 
+                      ref={{firstSideNavLink, lastSideNavLink}}
+                    /> :
+                    <MobileSignedOutLinks 
+                      ref={{firstSideNavLink, lastSideNavLink}}
+                    />
+                  }
+                </ul>
+              </nav>
+
               <div 
-                className="sideNav header__sideNav"
-                onKeyDown={(e) => this.trapFocus(e, firstSideNavLink.current, lastSideNavLink.current, this.closeSideNav)}
-              >
-                <nav className="mobileNavBar" role="navigation">
-                  <h2 className="mobileNavBar__heading">Mobile Navigation Bar</h2>
-                  <ul className="list mobileNavMenu">
-                    {
-                      signedIn ?
-                      <MobileSignedInLinks 
-                        ref={{firstSideNavLink, lastSideNavLink}}
-                      /> :
-                      <MobileSignedOutLinks 
-                        ref={{firstSideNavLink, lastSideNavLink}}
-                      />
-                    }
-                  </ul>
-                </nav>
-              </div>
-              <div 
-                className="header__sideNavOverlay"
+                className="sideNav__overlay"
                 onClick={this.closeSideNav}
               ></div>
-            </React.Fragment>
+            </div>
           }
           {/*
           - purpose of this container: ordering the notification icon after the nav bar.
@@ -145,22 +140,16 @@ class Header extends Component {
               signedIn && 
               <React.Fragment>
                 <NotificationIcon 
-                  notificationPanelOpened={notificationPanelOpened}
+                  notificationButtonPressed={notificationButtonPressed}
                   toggleNotificationPanel={this.toggleNotificationPanel}
                   ref={notificationIcon}
                 />
                 {
-                  notificationPanelOpened &&
-                  <React.Fragment>
-                    <NotificationPanel 
-                      trapFocus={(e) => this.trapFocus(e, firstNotification.current, lastNotification.current, this.closeNotificationPanel)}
-                      ref={{firstNotification, lastNotification}}
-                    />
-                    <div 
-                      className="header__notificationOverlay"
-                      onClick={this.closeNotificationPanel}
-                    ></div>
-                  </React.Fragment>
+                  notificationButtonPressed &&
+                  <NotificationPanel 
+                    trapFocus={(e) => this.trapFocus(e, firstNotification.current, lastNotification.current, this.closeNotificationPanel)}
+                    ref={{firstNotification, lastNotification}}
+                  />
                 }
               </React.Fragment>
             }

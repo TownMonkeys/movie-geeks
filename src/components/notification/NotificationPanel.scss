@@ -1,9 +1,11 @@
+@import '../../sass-modules/colors';
+
 /* =============================================
   Notifications Panel
 ================================================ */
 .notificationPanel {
-  border: 1px solid #bdbdbd ;
-  box-shadow: 0 2px 20px -5px rgba(#000, .5);
+  border: 1px solid $grey-light-2;
+  box-shadow: 0 2px 20px -1px rgba(#000, .5);
 }
 
 .header__notificationPanel {
@@ -15,15 +17,16 @@
 
 /* Element --- */
 .notificationPanel__arrow {
-  width: 0; 
-  height: 0; 
-  border-left: .8rem solid transparent;
-  border-right: .8rem solid transparent;
-  border-bottom: .8rem solid #fff;
+  width: 1.6rem; 
+  height: 1.6rem; 
+  background-color: #fff;
+  transform: rotate(45deg);
+  box-shadow: 0 2px 20px -1px rgba(#000, .5);
 
   position: absolute;
   top: -.8rem;
-  right: .66rem
+  right: .66rem;
+  z-index: -1;
 }
 
 /* =============================================

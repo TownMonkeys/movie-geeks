@@ -4,7 +4,7 @@ import './NotificationIcon.scss';
 import PropTypes from 'prop-types';
 
 const NotificationIcon = React.forwardRef((props, notificationIcon) => {
-  const {notificationPanelOpened, toggleNotificationPanel} = props;
+  const {notificationButtonPressed, toggleNotificationPanel} = props;
   const notificationsNum = 7;
 
   return (
@@ -12,8 +12,8 @@ const NotificationIcon = React.forwardRef((props, notificationIcon) => {
       className="button notificationIcon header__notificationIcon" 
       type="button"
       aria-controls="notificationPanel" 
-      aria-pressed={notificationPanelOpened} 
-      aria-expanded={notificationPanelOpened}
+      aria-pressed={notificationButtonPressed} 
+      aria-expanded={notificationButtonPressed}
       onClick={toggleNotificationPanel}
       ref={notificationIcon}
     >
