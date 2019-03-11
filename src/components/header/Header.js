@@ -7,9 +7,8 @@ import DesktopSignedInLinks from './DesktopSignedInLinks';
 import DesktopSignedOutLinks from './DesktopSignedOutLinks';
 import NotificationIcon from '../notification/NotificationIcon';
 import MenuIcon from './MenuIcon';
-import MobileSignedInLinks from './MobileSignedInLinks';
-import MobileSignedOutLinks from './MobileSignedOutLinks';
 import NotificationPanel from '../notification/NotificationPanel';
+import SideNav from './SideNav';
 
 class Header extends Component {
   state = { 
@@ -19,8 +18,6 @@ class Header extends Component {
 
   // Refs for managing focus
   menuIcon          = React.createRef();
-  firstSideNavLink  = React.createRef();
-  lastSideNavLink   = React.createRef();
   notificationIcon  = React.createRef();
 
   openSideNav = () => {
@@ -59,22 +56,8 @@ class Header extends Component {
     }
   }
 
-  trapFocus = (e, firstElement, lastElement, closeFunc) => {
-    const esc = e.keyCode === 27;
-    const tab = e.keyCode === 9;
-    if (esc) { 
-      closeFunc();
-    } else if (tab && e.shiftKey && e.target === firstElement) {
-      e.preventDefault();
-      lastElement.focus();
-    } else if (tab && !e.shiftKey && e.target === lastElement) {
-      e.preventDefault();
-      firstElement.focus();
-    }
-  }
-
   render() {
-    const {menuIcon, firstSideNavLink, lastSideNavLink, notificationIcon} = this;
+    const {menuIcon, notificationIcon} = this;
     const {menuButtonPressed, notificationButtonPressed} = this.state;
     const signedIn = true;
 
@@ -89,33 +72,13 @@ class Header extends Component {
             openSideNav={this.openSideNav}
             ref={menuIcon}
           /> 
-          {/* Mobile only when menu is clicked */}
+          {/* Mobile only when menu button is clicked */}
           {
             menuButtonPressed &&
-            <div 
-              className="sideNav header__sideNav"
-              onKeyDown={(e) => this.trapFocus(e, firstSideNavLink.current, lastSideNavLink.current, this.closeSideNav)}
-            >
-              <nav className="mobileNavBar" role="navigation">
-                <h2 className="mobileNavBar__heading">Mobile Navigation Bar</h2>
-                <ul className="list mobileNavMenu">
-                  {
-                    signedIn ?
-                    <MobileSignedInLinks 
-                      ref={{firstSideNavLink, lastSideNavLink}}
-                    /> :
-                    <MobileSignedOutLinks 
-                      ref={{firstSideNavLink, lastSideNavLink}}
-                    />
-                  }
-                </ul>
-              </nav>
-
-              <div 
-                className="sideNav__overlay"
-                onClick={this.closeSideNav}
-              ></div>
-            </div>
+            <SideNav 
+              signedIn={signedIn} 
+              closeSideNav={this.closeSideNav}
+            />
           }
           {/*
           - purpose of this container: ordering the notification icon after the nav bar.
