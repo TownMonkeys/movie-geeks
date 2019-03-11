@@ -23,7 +23,12 @@ class SideNav extends Component {
   }
 
   componentDidMount() {
+    document.body.setAttribute('data-scroll', 'false');
     this.firstSideNavLink.current.focus();
+  }
+
+  componentWillUnmount() {
+    document.body.setAttribute('data-scroll', 'true');
   }
 
   render() {
