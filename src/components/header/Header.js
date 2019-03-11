@@ -22,8 +22,6 @@ class Header extends Component {
   firstSideNavLink  = React.createRef();
   lastSideNavLink   = React.createRef();
   notificationIcon  = React.createRef();
-  firstNotification = React.createRef();
-  lastNotification  = React.createRef();
 
   openSideNav = () => {
     this.setState({
@@ -76,7 +74,7 @@ class Header extends Component {
   }
 
   render() {
-    const {menuIcon, firstSideNavLink, lastSideNavLink, notificationIcon, firstNotification, lastNotification} = this;
+    const {menuIcon, firstSideNavLink, lastSideNavLink, notificationIcon} = this;
     const {menuButtonPressed, notificationButtonPressed} = this.state;
     const signedIn = true;
 
@@ -146,10 +144,7 @@ class Header extends Component {
                 />
                 {
                   notificationButtonPressed &&
-                  <NotificationPanel 
-                    trapFocus={(e) => this.trapFocus(e, firstNotification.current, lastNotification.current, this.closeNotificationPanel)}
-                    ref={{firstNotification, lastNotification}}
-                  />
+                  <NotificationPanel closeNotificationPanel={this.closeNotificationPanel} />
                 }
               </React.Fragment>
             }

@@ -1,36 +1,37 @@
 import React, { Component } from 'react';
 import Notification from './Notification';
 import './NotificationPanel.scss';
-import PropTypes from 'prop-types';
 
-class NotificationsPanel extends Component {
-  componentDidUpdate() {
-    this.props.refs.firstNotification.current.focus();
+class NotificationPanel extends Component {
+  notificationPanel = React.createRef();
+
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside)
+  }
+
+  handleClickOutside = (e) => {
+    if (!this.notificationPanel.current.contains(e.target)) {
+      this.props.closeNotificationPanel();
+    }
   }
 
   render() {
-    const {firstNotification, lastNotification} = this.props.refs;
-    const {trapFocus} = this.props;
-
     return (
       <div 
         className="notificationPanel header__notificationPanel" 
         id="notificationPanel"
-        onKeyDown={trapFocus}
+        ref={this.notificationPanel}
       >
         <span aria-label="Up Arrow" className="notificationPanel__arrow"></span>
 
         <ul className="list notificationList" role="menu">
           {
-            Array(7).fill(null).map((e, index, array) => (
-              <Notification 
-                key={index} 
-                ref={
-                  (index === 0)              ? firstNotification 
-                : (index === array.length-1) ? lastNotification 
-                : null
-                }
-              />
+            Array(7).fill(null).map((e, index) => (
+              <Notification key={index} />
             ))
           }
         </ul>
@@ -39,12 +40,4 @@ class NotificationsPanel extends Component {
   }
 }
 
-NotificationsPanel.propTypes = {
-  refs: PropTypes.object,
-  notificationPanelOpened: PropTypes.bool,
-  trapFocus: PropTypes.func
-}
-
-export default React.forwardRef(
-  (props, refs) => <NotificationsPanel refs={refs} {...props} />
-);
+export default NotificationPanel;
