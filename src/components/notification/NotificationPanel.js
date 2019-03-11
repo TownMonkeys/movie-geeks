@@ -10,13 +10,12 @@ class NotificationsPanel extends Component {
 
   render() {
     const {firstNotification, lastNotification} = this.props.refs;
-    const {notificationPanelOpened, trapFocus} = this.props;
+    const {trapFocus} = this.props;
 
     return (
       <div 
         className="notificationPanel header__notificationPanel" 
         id="notificationPanel"
-        // ref={this.notificationsPanel}
         onKeyDown={trapFocus}
       >
         <span aria-label="Up Arrow" className="notificationPanel__arrow"></span>
@@ -26,7 +25,6 @@ class NotificationsPanel extends Component {
             Array(7).fill(null).map((e, index, array) => (
               <Notification 
                 key={index} 
-                notificationPanelOpened={notificationPanelOpened}
                 ref={
                   (index === 0)              ? firstNotification 
                 : (index === array.length-1) ? lastNotification 

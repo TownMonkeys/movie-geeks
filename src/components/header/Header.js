@@ -96,32 +96,34 @@ class Header extends Component {
             ref={menuIcon}
           /> 
           {/* Mobile only when menu is clicked */}
-          <div 
-            className="sideNav header__sideNav"
-            onKeyDown={(e) => this.trapFocus(e, firstSideNavLink.current, lastSideNavLink.current, this.closeSideNav)}
-          >
-            <nav className="mobileNavBar" role="navigation">
-              <h2 className="mobileNavBar__heading">Mobile Navigation Bar</h2>
-              <ul className="list mobileNavMenu">
-                {
-                  signedIn ?
-                  <MobileSignedInLinks 
-                    sideNavOpened={sideNavOpened} 
-                    ref={{firstSideNavLink, lastSideNavLink}}
-                  /> :
-                  <MobileSignedOutLinks 
-                    sideNavOpened={sideNavOpened} 
-                    ref={{firstSideNavLink, lastSideNavLink}}
-                  />
-                }
-              </ul>
-            </nav>
-          </div>
-          {/* Mobile only when menu is clicked */}
-          <div 
-            className="header__sideNavOverlay"
-            onClick={this.closeSideNav}
-          ></div>
+          {
+            sideNavOpened &&
+            <React.Fragment>
+              <div 
+                className="sideNav header__sideNav"
+                onKeyDown={(e) => this.trapFocus(e, firstSideNavLink.current, lastSideNavLink.current, this.closeSideNav)}
+              >
+                <nav className="mobileNavBar" role="navigation">
+                  <h2 className="mobileNavBar__heading">Mobile Navigation Bar</h2>
+                  <ul className="list mobileNavMenu">
+                    {
+                      signedIn ?
+                      <MobileSignedInLinks 
+                        ref={{firstSideNavLink, lastSideNavLink}}
+                      /> :
+                      <MobileSignedOutLinks 
+                        ref={{firstSideNavLink, lastSideNavLink}}
+                      />
+                    }
+                  </ul>
+                </nav>
+              </div>
+              <div 
+                className="header__sideNavOverlay"
+                onClick={this.closeSideNav}
+              ></div>
+            </React.Fragment>
+          }
           {/*
           - purpose of this container: ordering the notification icon after the nav bar.
           - How: float the whole container to the right, and then float both navbar and notif icon to left.
@@ -147,15 +149,19 @@ class Header extends Component {
                   toggleNotificationPanel={this.toggleNotificationPanel}
                   ref={notificationIcon}
                 />
-                <NotificationPanel 
-                  trapFocus={(e) => this.trapFocus(e, firstNotification.current, lastNotification.current, this.closeNotificationPanel)}
-                  notificationPanelOpened={notificationPanelOpened}
-                  ref={{firstNotification, lastNotification}}
-                />
-                <div 
-                  className="header__notificationOverlay"
-                  onClick={this.closeNotificationPanel}
-                ></div>
+                {
+                  notificationPanelOpened &&
+                  <React.Fragment>
+                    <NotificationPanel 
+                      trapFocus={(e) => this.trapFocus(e, firstNotification.current, lastNotification.current, this.closeNotificationPanel)}
+                      ref={{firstNotification, lastNotification}}
+                    />
+                    <div 
+                      className="header__notificationOverlay"
+                      onClick={this.closeNotificationPanel}
+                    ></div>
+                  </React.Fragment>
+                }
               </React.Fragment>
             }
           </div>

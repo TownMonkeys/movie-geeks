@@ -2,12 +2,8 @@
   Notifications Panel
 ================================================ */
 .notificationPanel {
-  display: none;
   border: 1px solid #bdbdbd ;
   box-shadow: 0 2px 20px -5px rgba(#000, .5);
-}
-.notificationIcon[aria-pressed="true"] ~ .notificationPanel {
-  display: block;
 }
 
 .header__notificationPanel {

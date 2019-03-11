@@ -4,14 +4,11 @@ import './Notification.scss';
 import PropTypes from 'prop-types';
 
 const Notification = React.forwardRef((props, ref) => {
-  const {notificationPanelOpened} = props;
-
   return (
     <li className="notification">
       <a 
         href="#" 
         className="link notification__link" 
-        tabIndex={notificationPanelOpened ? '0' : '-1'}
         ref={ref}
       >
         <img src={user} alt="Hajar's Avatar" className="image avatar notification__avatar avatar_size_med"/>

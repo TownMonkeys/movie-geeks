@@ -63,18 +63,10 @@
   left: 0;
   bottom: 0;
   z-index: 2;
-
-  transform: translateX(-100%);
-  transition: transform .3s;
-}
-
-.menuIcon[aria-pressed="true"] ~ .header__sideNav {
-  transform: translateX(0);
 }
 
 /* Element --- */
 .header__sideNavOverlay {
-  display: none;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -82,8 +74,4 @@
   right: 0;
   z-index: 1;
   background-color: rgba($color: #000000, $alpha: .5);
-}
-
-.menuIcon[aria-pressed="true"] ~ .header__sideNavOverlay {
-  display: block;
 }
