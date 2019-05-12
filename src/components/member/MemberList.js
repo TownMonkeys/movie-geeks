@@ -4,7 +4,7 @@ import Member from './Member';
 
 const MemberList = () => {
   return (
-    <section className="memberSection dashboard__memberSection" aria="region" aria-labelledby="memberSection__heading">
+    <section className="memberSection dashboard__memberSection" role="region" aria-labelledby="memberSection__heading">
       <h3 className="memberSection__heading">Members</h3>
 
       <ul className="list memberSection__list">

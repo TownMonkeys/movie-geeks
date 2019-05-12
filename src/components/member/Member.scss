@@ -1,0 +1,19 @@
+@import '../../sass-modules/colors';
+
+/* member --- */
+.member__link {
+  display: block;
+  padding: .22rem 1rem;
+  text-decoration: none;
+  color: #212121;
+  font-weight: 500;
+  transition: background-color .1s;
+
+  &:hover {
+    background-color: $grey-light-2;
+  }
+}
+
+.member__avater {
+  margin-right: .7rem;
+}

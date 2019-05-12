@@ -44,8 +44,8 @@ class Movie extends Component {
         <span className="movie__genre">Animation, Adventure</span> {/* Genre */}
         <ul className="list movie__starList">
         {
-          Array(5).fill(null).map(e => (
-            <li className="movie__starItem">
+          Array(5).fill(null).map((e, i) => (
+            <li className="movie__starItem" key={i}>
               <StarSvg />
             </li>
           ))
