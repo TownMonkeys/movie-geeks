@@ -36,6 +36,7 @@ class Movie extends Component {
           className="button movie__imageButton" 
           type="button"
           onDoubleClick={this.hitLike}
+          onMouseDown={(e) => e.preventDefault()} 
         >
           <img src={hxh} className="image movie__image"/>
         </button> {/* Movie image */}
@@ -53,7 +54,12 @@ class Movie extends Component {
         <p className="movie__review">
           Fugit enim veniam mollitia ea illum voluptatem fuga aperiam. Esse dolorem nobis autem fuga non.
         </p> {/* Review */}
-        <button onClick={this.toggleLike} className="button movie__likeButton">
+        <button 
+          type="button"
+          onClick={this.toggleLike}
+          onMouseDown={(e) => e.preventDefault()} 
+          className="button movie__likeButton"
+        >
           <LikeSvg clicked={this.state.likeClicked} />
         </button> {/* Like */}
         <p className="movie__likeNumber">

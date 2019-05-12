@@ -1,0 +1,49 @@
+@import '../../sass-modules/breakpoints';
+@import '../../sass-modules/colors';
+
+/* ==============================
+  Member Section
+================================= */
+.memberSection {
+  background-color: #fff;
+  border: 1px solid $grey-light-2;
+  min-width: 14.5rem;
+  max-height: 20.5rem;
+  overflow: auto;
+}
+
+.dashboard__memberSection {
+  float: right;
+}
+
+// .dashboard__memberSection {
+//   @media screen and (min-width: $break-dashboard2) {
+//     display: inline-block;
+//     width: 50%;
+//   }
+// }
+
+/* member section title --- */
+.memberSection__heading {
+  color: $grey-dark-2;
+  margin: .6rem 1rem 1rem;
+} 
+
+/* member --- */
+.member__link {
+  display: block;
+  padding: .22rem 1rem;
+  text-decoration: none;
+  color: #212121;
+  font-weight: 500;
+  transition: background-color .1s;
+
+  &:hover {
+    background-color: $grey-light-2;
+  }
+}
+
+.member__avater {
+  margin-right: .7rem;
+}
+

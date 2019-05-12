@@ -8,7 +8,7 @@
 }
 
 .dashboard__movieSection {
-  @media screen and (min-width: $break-large) {
+  @media screen and (min-width: $break-dashboard2) {
     display: inline-block;
     width: 50%;
   }
