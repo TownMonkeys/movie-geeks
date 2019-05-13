@@ -8,6 +8,8 @@
 }
 
 .dashboard__movieSection {
+  margin: 0 auto;
+
   @media screen and (min-width: $break-dashboard2) {
     display: inline-block;
     width: 50%;
