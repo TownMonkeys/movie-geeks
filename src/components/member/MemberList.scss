@@ -15,8 +15,22 @@
 
   @media screen and (min-width: $break-dashboard2) {
     display: block;
+    
   }
-  float: right;
+}
+
+.dashboard__memberSection_position_absolute {
+  @media screen and (min-width: $break-dashboard2) {
+    position: absolute;
+    top: 0;
+  }
+}
+
+.dashboard__memberSection_position_fixed {
+  @media screen and (min-width: $break-dashboard2) {
+    position: fixed;
+    top: 5.57rem;
+  }
 }
 
 /* member section title --- */
