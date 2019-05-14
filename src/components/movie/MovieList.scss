@@ -5,15 +5,11 @@
 ================================= */
 .movieSection {
   max-width: 30rem;
+  text-align: left;
 }
 
 .dashboard__movieSection {
-  margin: 0 auto;
-
-  @media screen and (min-width: $break-dashboard2) {
-    display: inline-block;
-    width: 50%;
-  }
+  display: inline-block;
 }
 
 /* movie section title --- */

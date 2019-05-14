@@ -4,10 +4,15 @@
   Dashboard
 ===================================== */
 .dashboard {
+  text-align: center;
   padding: 2rem 0 0;
 
   @media screen and (min-width: $break-dashboard) {
     padding: 2rem 1rem 0;
+  }
+
+  @media screen and (min-width: $break-dashboard2) {
+    text-align: left;
   }
 }
 

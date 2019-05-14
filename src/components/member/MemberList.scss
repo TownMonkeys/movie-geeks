@@ -11,15 +11,13 @@
 }
 
 .dashboard__memberSection {
+  display: none;
+
+  @media screen and (min-width: $break-dashboard2) {
+    display: block;
+  }
   float: right;
 }
-
-// .dashboard__memberSection {
-//   @media screen and (min-width: $break-dashboard2) {
-//     display: inline-block;
-//     width: 50%;
-//   }
-// }
 
 /* member section title --- */
 .memberSection__heading {
