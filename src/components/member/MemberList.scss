@@ -15,21 +15,19 @@
 
   @media screen and (min-width: $break-dashboard2) {
     display: block;
-    
-  }
-}
-
-.dashboard__memberSection_position_absolute {
-  @media screen and (min-width: $break-dashboard2) {
     position: absolute;
     top: 0;
+    right: 0;
   }
-}
 
-.dashboard__memberSection_position_fixed {
-  @media screen and (min-width: $break-dashboard2) {
+  @media screen and (min-width: $break-dashboard2) and (min-height: 26rem) {
     position: fixed;
     top: 5.57rem;
+    right: calc((100vw - 60rem) / 2);
+  }
+
+  @media screen and (min-width: $break-dashboard2) and (min-height: 26rem) and (max-width: 62rem) {
+    right: 1rem!important;
   }
 }
 
