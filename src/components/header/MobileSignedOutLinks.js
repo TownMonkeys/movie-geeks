@@ -8,14 +8,14 @@ const MobileSignedOutLinks = React.forwardRef((props, refs) => {
       <li className="mobileNavMenu__item">
         <a 
           ref={firstSideNavLink} 
-          href="" 
+          href="#" 
           className="mobileNavMenu__link"
         >Sign Up</a>
       </li>
       <li className="mobileNavMenu__item">
         <a 
           ref={lastSideNavLink} 
-          href="" 
+          href="#" 
           className="mobileNavMenu__link"
         >Sign In</a>
       </li>

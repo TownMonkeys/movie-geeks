@@ -9,7 +9,7 @@ const MobileSignedInLinks = React.forwardRef((props, refs) => {
       <li className="mobileNavMenu__item">
         <a 
           ref={firstSideNavLink} 
-          href="" 
+          href="#" 
           className="mobileNavMenu__link" 
         >
           <img src={user} alt="" className="image avatar avatar_size_small mobileNavMenu__avatar"/>
@@ -18,14 +18,14 @@ const MobileSignedInLinks = React.forwardRef((props, refs) => {
       </li>
       <li className="mobileNavMenu__item">
         <a 
-          href="" 
+          href="#" 
           className="mobileNavMenu__link" 
         >Add Movie</a>
       </li>
       <li className="mobileNavMenu__item">
         <a 
           ref={lastSideNavLink} 
-          href="" 
+          href="#" 
           className="mobileNavMenu__link" 
         >Sign Out</a>
       </li>

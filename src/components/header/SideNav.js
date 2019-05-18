@@ -38,7 +38,7 @@ class SideNav extends Component {
     return (
       <div 
         className="sideNav header__sideNav"
-        onKeyDown={(e) => this.trapFocus(e, firstSideNavLink.current, lastSideNavLink.current, this.closeSideNav)}
+        onKeyDown={(e) => this.trapFocus(e, firstSideNavLink.current, lastSideNavLink.current, closeSideNav)}
       >
         <nav className="mobileNavBar" role="navigation">
           <h2 className="mobileNavBar__heading">Mobile Navigation Bar</h2>
