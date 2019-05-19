@@ -107,7 +107,10 @@ class Header extends Component {
                 />
                 {
                   notificationButtonPressed &&
-                  <NotificationPanel closeNotificationPanel={this.closeNotificationPanel} />
+                  <NotificationPanel 
+                    closeNotificationPanel={this.closeNotificationPanel} 
+                    notificationIcon={notificationIcon}
+                  />
                 }
               </React.Fragment>
             }

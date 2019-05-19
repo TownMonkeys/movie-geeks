@@ -14,7 +14,9 @@ class NotificationPanel extends Component {
   }
 
   handleClickOutside = (e) => {
-    if (!this.notificationPanel.current.contains(e.target)) {
+    const clickIsOnNotificationPanel = this.notificationPanel.current.contains(e.target);
+    const clickIsOnNotificationIcon = this.props.notificationIcon.current.contains(e.target);
+    if (!(clickIsOnNotificationPanel || clickIsOnNotificationIcon)) {
       this.props.closeNotificationPanel();
     }
   }
