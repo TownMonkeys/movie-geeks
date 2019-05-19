@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Notification from './Notification';
 import './NotificationPanel.scss';
+import PropTypes from 'prop-types';
 
 class NotificationPanel extends Component {
   notificationPanel = React.createRef();
@@ -40,6 +41,10 @@ class NotificationPanel extends Component {
       </div>
     );
   }
+}
+
+NotificationPanel.propTypes = {
+  notificationIcon: PropTypes.object
 }
 
 export default NotificationPanel;

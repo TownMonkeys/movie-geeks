@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const MobileSignedOutLinks = React.forwardRef((props, refs) => {
   const {firstSideNavLink, lastSideNavLink} = refs;
+  const {signIn} = props;
 
   return (
     <React.Fragment>
@@ -17,10 +19,15 @@ const MobileSignedOutLinks = React.forwardRef((props, refs) => {
           ref={lastSideNavLink} 
           href="#" 
           className="mobileNavMenu__link"
+          onClick={signIn}
         >Sign In</a>
       </li>
     </React.Fragment>
   );
 })
+
+MobileSignedOutLinks.propTypes = {
+  signIn: PropTypes.func
+}
 
 export default MobileSignedOutLinks;

@@ -33,7 +33,7 @@ class SideNav extends Component {
 
   render() {
     const {firstSideNavLink, lastSideNavLink} = this;
-    const {signedIn, closeSideNav} = this.props;
+    const {signedIn, closeSideNav, signIn, signOut} = this.props;
 
     return (
       <div 
@@ -47,9 +47,11 @@ class SideNav extends Component {
               signedIn ?
               <MobileSignedInLinks
                 ref={{firstSideNavLink, lastSideNavLink}}
+                signOut={signOut}
               /> :
               <MobileSignedOutLinks
                 ref={{firstSideNavLink, lastSideNavLink}}
+                signIn={signIn}
               />
             }
           </ul>
@@ -66,7 +68,10 @@ class SideNav extends Component {
 
 SideNav.propTypes = {
   signedIn: PropTypes.bool,
-  closeSideNav: PropTypes.func
+  closeSideNav: PropTypes.func,
+  signIn: PropTypes.func,
+  signOut: PropTypes.func
 }
+
 
 export default SideNav;

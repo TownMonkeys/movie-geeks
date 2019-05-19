@@ -10,9 +10,6 @@ import './sass/basic-components/button.scss';
 import Dashboard from './components/dashboard/Dashboard';
 
 class App extends Component {
-  state = { 
-    test: 1
-  }
   render() {
     return (
       <BrowserRouter>

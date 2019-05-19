@@ -13,12 +13,25 @@ import SideNav from './SideNav';
 class Header extends Component {
   state = { 
     menuButtonPressed: false,
-    notificationButtonPressed: false 
+    notificationButtonPressed: false,
+    signedIn: true
   }
 
   // Refs for managing focus
   menuIcon          = React.createRef();
   notificationIcon  = React.createRef();
+
+  signIn = () => {
+    this.setState({
+      signedIn: true
+    });
+  }
+
+  signOut = () => {
+    this.setState({
+      signedIn: false
+    });
+  }
 
   openSideNav = () => {
     this.setState({
@@ -58,8 +71,7 @@ class Header extends Component {
 
   render() {
     const {menuIcon, notificationIcon} = this;
-    const {menuButtonPressed, notificationButtonPressed} = this.state;
-    const signedIn = true;
+    const {menuButtonPressed, notificationButtonPressed, signedIn} = this.state;
 
     return (
       <header className="header App__header" role="banner">
@@ -78,6 +90,8 @@ class Header extends Component {
             <SideNav 
               signedIn={signedIn} 
               closeSideNav={this.closeSideNav}
+              signIn={this.signIn}
+              signOut={this.signOut}
             />
           }
           {/*
@@ -91,8 +105,8 @@ class Header extends Component {
               <ul className="list desktopNavMenu">
                 {
                   signedIn ?
-                  <DesktopSignedInLinks /> :
-                  <DesktopSignedOutLinks />
+                  <DesktopSignedInLinks signOut={this.signOut} /> :
+                  <DesktopSignedOutLinks signIn={this.signIn} />
                 }
               </ul>
             </nav>
