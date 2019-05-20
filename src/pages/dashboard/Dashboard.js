@@ -1,6 +1,6 @@
 import React from 'react';
-import MovieList from '../movie/MovieList';
-import MemberList from '../member/MemberList';
+import MovieList from '../../components/movie/MovieList';
+import MemberList from '../../components/member/MemberList';
 import './Dashboard.scss';
 
 const Dashboard = () => {

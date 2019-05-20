@@ -7,7 +7,7 @@ import './sass/basic-components/list.scss';
 import './sass/basic-components/image.scss';
 import './sass/basic-components/avatar.scss';
 import './sass/basic-components/button.scss';
-import Dashboard from './components/dashboard/Dashboard';
+import Dashboard from './pages/dashboard/Dashboard';
 
 class App extends Component {
   render() {
