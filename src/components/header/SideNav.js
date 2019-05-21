@@ -22,6 +22,13 @@ class SideNav extends Component {
     }
   }
 
+  handleClick = (e) => {
+    const linkIsClicked = (e.target.tagName === 'A');
+    if (linkIsClicked) {
+      this.props.closeSideNav();
+    }
+  }
+
   componentDidMount() {
     document.body.setAttribute('data-scroll', 'false');
     this.firstSideNavLink.current.focus();
@@ -42,7 +49,10 @@ class SideNav extends Component {
       >
         <nav className="mobileNavBar" role="navigation">
           <h2 className="mobileNavBar__heading">Mobile Navigation Bar</h2>
-          <ul className="list mobileNavMenu">
+          <ul 
+            className="list mobileNavMenu"
+            onClick={this.handleClick}
+          >
             {
               signedIn ?
               <MobileSignedInLinks

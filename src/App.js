@@ -8,6 +8,7 @@ import './sass/basic-components/image.scss';
 import './sass/basic-components/avatar.scss';
 import './sass/basic-components/button.scss';
 import Dashboard from './pages/dashboard/Dashboard';
+import Profile from './pages/profile/Profile';
 
 class App extends Component {
   render() {
@@ -17,7 +18,8 @@ class App extends Component {
           <Header />
           <main className="main" role="main">
             <Switch>
-              <Route path="/" exact component={Dashboard} /> 
+              <Route path="/" exact component={Dashboard} />
+              <Route path="/profile" component={Profile} />
             </Switch>
           </main>
         </div>

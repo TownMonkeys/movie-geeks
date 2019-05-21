@@ -1,6 +1,7 @@
 import React from 'react';
 import user from '../../images/user.svg';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const DesktopSignedInLinks = (props) => {
   const {signOut} = props;
@@ -8,10 +9,13 @@ const DesktopSignedInLinks = (props) => {
   return (
     <React.Fragment>
       <li className="desktopNavMenu__item">
-        <a href="#" className="desktopNavMenu__link">
+        <Link
+          to='/profile'
+          className="desktopNavMenu__link" 
+        >
           <img src={user} alt="" className="image avatar avatar_size_small desktopNavMenu__avatar"/>
           <span className="desktopNavMenu__userName">Hajar</span>
-        </a>
+        </Link>
       </li>
       <li className="desktopNavMenu__item">
         <a href="#" className="desktopNavMenu__link">Add Movie</a>
