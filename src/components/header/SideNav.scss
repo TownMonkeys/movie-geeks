@@ -2,14 +2,19 @@
 
 .sideNav {
   display: block;
-
   text-align: left;
-
-  width: 18rem;
   background-color: #fff;
 
   @media screen and (min-width: $break-header) {
     display: none;
+  }
+
+  @media screen and (min-width: $break-sidebar1) {
+    width: 50%;
+  }
+
+  @media screen and (min-width: $break-sidebar2) {
+    width: 18rem;
   }
 }
 

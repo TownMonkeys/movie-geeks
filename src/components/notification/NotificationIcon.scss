@@ -1,4 +1,5 @@
 @import '../../sass/sass-modules/colors';
+@import '../../sass/sass-modules/breakpoints';
 
 /* ==========================
   Notification Icon
@@ -13,7 +14,10 @@
 
 .header__notificationIcon {
   float: left;
-  margin-left: 1rem;
+
+  @media screen and (min-width: $break-header) {
+    margin-left: 1rem;
+  }
 }
 
 /* Element --- */

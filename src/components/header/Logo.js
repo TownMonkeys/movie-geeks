@@ -5,7 +5,10 @@ import './Logo.scss';
 const Logo = () => {
   return (
     <Link to="/" className="logo header__logo">
-      <h1 className="logo__heading">MovieGeeks</h1>
+      <h1 className="logo__heading">
+        <abbr className="logo__headingAbbreviated" title="Movie Geeks">MG</abbr>
+        <span className="logo__headingExpanded">MovieGeeks</span>
+      </h1>
     </Link>
   );
 }

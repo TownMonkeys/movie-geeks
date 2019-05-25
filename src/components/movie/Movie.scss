@@ -62,6 +62,8 @@
 /* like number --- */
 .movie__likeNumber {
   display: inline-block;
+  width: calc(100% - 3rem);
+  vertical-align: middle;
 }
 
 /* footer --- */

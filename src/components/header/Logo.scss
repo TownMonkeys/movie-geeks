@@ -1,4 +1,5 @@
 @import '../../sass/sass-modules/colors';
+@import '../../sass/sass-modules/breakpoints';
 
 /* ==========================
   Logo
@@ -16,4 +17,18 @@
 /* Elements --- */
 .logo__heading {
   margin: 0;
+}
+
+.logo__headingAbbreviated {
+  text-decoration: none;
+  @media screen and (min-width: $break-logo) {
+    display: none;
+  }
+}
+
+.logo__headingExpanded {
+  display: none;
+  @media screen and (min-width: $break-logo) {
+    display: block;
+  }
 }
