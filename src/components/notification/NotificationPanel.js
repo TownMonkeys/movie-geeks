@@ -22,11 +22,19 @@ class NotificationPanel extends Component {
     }
   }
 
+  handleEscKey = (e) => {
+    const escIsPressed = e.keyCode === 27;
+    if (escIsPressed) {
+      this.props.closeNotificationPanel();
+    }
+  }
+
   render() {
     return (
       <div 
         className="notificationPanel header__notificationPanel" 
         id="notificationPanel"
+        onKeyDown={this.handleEscKey}
         ref={this.notificationPanel}
       >
         <span aria-label="Up Arrow" className="notificationPanel__arrow"></span>

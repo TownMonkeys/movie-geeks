@@ -117,6 +117,7 @@ class Header extends Component {
                 <NotificationIcon 
                   notificationButtonPressed={notificationButtonPressed}
                   toggleNotificationPanel={this.toggleNotificationPanel}
+                  closeNotificationPanel={this.closeNotificationPanel} 
                   ref={notificationIcon}
                 />
                 {
