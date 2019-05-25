@@ -1,4 +1,5 @@
 @import './sass/sass-modules/colors';
+@import './sass/sass-modules/breakpoints';
 
 * {
   box-sizing: border-box;
@@ -13,4 +14,7 @@ body {
 
 body[data-scroll="false"] {
   overflow: hidden;
+  @media screen and (min-width: $break-header) {
+    overflow: initial;
+  }
 }

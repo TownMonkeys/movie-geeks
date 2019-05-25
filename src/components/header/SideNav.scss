@@ -9,12 +9,9 @@
     display: none;
   }
 
-  @media screen and (min-width: $break-sidebar1) {
+  @media screen and (min-width: $break-sidebar) {
     width: 50%;
-  }
-
-  @media screen and (min-width: $break-sidebar2) {
-    width: 18rem;
+    max-width: 18rem;
   }
 }
 

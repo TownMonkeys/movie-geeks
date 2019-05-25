@@ -31,7 +31,7 @@ class NotificationPanel extends Component {
       >
         <span aria-label="Up Arrow" className="notificationPanel__arrow"></span>
 
-        <ul className="list notificationList" role="menu">
+        <ul className="list notificationList">
           {
             Array(7).fill(null).map((e, index) => (
               <Notification key={index} />

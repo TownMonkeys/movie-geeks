@@ -34,7 +34,9 @@
 ================================================ */
 .notificationList {
   text-align: left;
-  width: 21rem;
+  width: calc(100vw - 2.1rem);
+  max-width: 21rem;
+  height: 70vh;
   max-height: 32rem;
   overflow-y: auto;
   background: #fff;
