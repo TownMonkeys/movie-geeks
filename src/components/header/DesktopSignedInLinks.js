@@ -14,7 +14,7 @@ const DesktopSignedInLinks = (props) => {
           className="desktopNavMenu__link" 
         >
           <img src={user} alt="" className="image avatar avatar_size_small desktopNavMenu__avatar"/>
-          <span className="desktopNavMenu__userName">Hajar</span>
+          <span className="desktopNavMenu__userName">Yurio</span>
         </Link>
       </li>
       <li className="desktopNavMenu__item">

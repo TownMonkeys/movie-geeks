@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Logo from './Logo';
 import './Header.scss';
 import './DesktopNavBar.scss';
@@ -10,130 +10,110 @@ import MenuIcon from './MenuIcon';
 import NotificationPanel from '../notification/NotificationPanel';
 import SideNav from './SideNav';
 
-class Header extends Component {
-  state = { 
-    menuButtonPressed: false,
-    notificationButtonPressed: false,
-    signedIn: true
+const Header = () => {
+  /* state */
+  const [menuButtonPressed, setMenuButtonPressed] = useState(false);
+  const [notificationButtonPressed, setNotificationButtonPressed] = useState(false);
+  const [signedIn, setSignedIn] = useState(true);
+
+  /* refs */
+  const menuIcon          = React.createRef();
+  const notificationIcon  = React.createRef(); 
+
+  const signIn = () => {
+    setSignedIn(true);
   }
 
-  // Refs for managing focus
-  menuIcon          = React.createRef();
-  notificationIcon  = React.createRef();
-
-  signIn = () => {
-    this.setState({
-      signedIn: true
-    });
+  const signOut = () => {
+    setSignedIn(false);
   }
 
-  signOut = () => {
-    this.setState({
-      signedIn: false
-    });
+  const openSideNav = () => {
+    setMenuButtonPressed(true);
   }
 
-  openSideNav = () => {
-    this.setState({
-      menuButtonPressed: true
-    });
+  const closeSideNav = () => {
+    setMenuButtonPressed(false);
+    menuIcon.current.focus();
   }
 
-  closeSideNav = () => {
-    this.setState({
-      menuButtonPressed: false
-    });
-
-    this.menuIcon.current.focus();
+  const openNotificationPanel = () => {
+    setNotificationButtonPressed(true);
   }
 
-  openNotificationPanel = () => {
-    this.setState({
-      notificationButtonPressed: true
-    });
+  const closeNotificationPanel = () => {
+    setNotificationButtonPressed(false);
+    notificationIcon.current.focus();
   }
 
-  closeNotificationPanel = () => {
-    this.setState({
-      notificationButtonPressed: false
-    });
-
-    this.notificationIcon.current.focus();
-  }
-
-  toggleNotificationPanel = () => {
-    if (this.state.notificationButtonPressed) {
-      this.closeNotificationPanel();
+  const toggleNotificationPanel = () => {
+    if (notificationButtonPressed) {
+      closeNotificationPanel();
     } else {
-      this.openNotificationPanel();
+      openNotificationPanel();
     }
   }
 
-  render() {
-    const {menuIcon, notificationIcon} = this;
-    const {menuButtonPressed, notificationButtonPressed, signedIn} = this.state;
-
-    return (
-      <header className="header App__header" role="banner">
-        <div className="container">
-          {/* Always exists */}
-          <Logo /> 
-          {/* mobile only */}
-          <MenuIcon 
-            menuButtonPressed={menuButtonPressed} 
-            openSideNav={this.openSideNav}
-            ref={menuIcon}
-          /> 
-          {/* Mobile only when menu button is clicked */}
+  return (
+    <header className="header App__header" role="banner">
+      <div className="container">
+        {/* Always exists */}
+        <Logo /> 
+        {/* mobile only */}
+        <MenuIcon 
+          menuButtonPressed={menuButtonPressed} 
+          openSideNav={openSideNav}
+          ref={menuIcon}
+        /> 
+        {/* Mobile only when menu button is clicked */}
+        {
+          menuButtonPressed &&
+          <SideNav 
+            signedIn={signedIn} 
+            closeSideNav={closeSideNav}
+            signIn={signIn}
+            signOut={signOut}
+          />
+        }
+        {/*
+        - purpose of this container: ordering the notification icon after the nav bar.
+        - How: float the whole container to the right, and then float both navbar and notif icon to left.
+        */}
+        <div className="header__desktopRightComponentsContainer">
+          {/* Desktop only */}
+          <nav className="desktopNavBar header__desktopNavBar" role="navigation">
+            <h2 className="desktopNavBar__heading">Desktop Navigation Bar</h2>
+            <ul className="list desktopNavMenu">
+              {
+                signedIn ?
+                <DesktopSignedInLinks signOut={signOut} /> :
+                <DesktopSignedOutLinks signIn={signIn} />
+              }
+            </ul>
+          </nav>
+          {/* Always exists if signed in*/}
           {
-            menuButtonPressed &&
-            <SideNav 
-              signedIn={signedIn} 
-              closeSideNav={this.closeSideNav}
-              signIn={this.signIn}
-              signOut={this.signOut}
-            />
-          }
-          {/*
-          - purpose of this container: ordering the notification icon after the nav bar.
-          - How: float the whole container to the right, and then float both navbar and notif icon to left.
-          */}
-          <div className="header__desktopRightComponentsContainer">
-            {/* Desktop only */}
-            <nav className="desktopNavBar header__desktopNavBar" role="navigation">
-              <h2 className="desktopNavBar__heading">Desktop Navigation Bar</h2>
-              <ul className="list desktopNavMenu">
-                {
-                  signedIn ?
-                  <DesktopSignedInLinks signOut={this.signOut} /> :
-                  <DesktopSignedOutLinks signIn={this.signIn} />
-                }
-              </ul>
-            </nav>
-            {/* Always exists if signed in*/}
-            {
-              signedIn && 
-              <React.Fragment>
-                <NotificationIcon 
-                  notificationButtonPressed={notificationButtonPressed}
-                  toggleNotificationPanel={this.toggleNotificationPanel}
-                  closeNotificationPanel={this.closeNotificationPanel} 
-                  ref={notificationIcon}
+            signedIn && 
+            <React.Fragment>
+              <NotificationIcon 
+                notificationButtonPressed={notificationButtonPressed}
+                toggleNotificationPanel={toggleNotificationPanel}
+                closeNotificationPanel={closeNotificationPanel} 
+                ref={notificationIcon}
+              />
+              {
+                notificationButtonPressed &&
+                <NotificationPanel 
+                  closeNotificationPanel={closeNotificationPanel} 
+                  notificationIcon={notificationIcon}
                 />
-                {
-                  notificationButtonPressed &&
-                  <NotificationPanel 
-                    closeNotificationPanel={this.closeNotificationPanel} 
-                    notificationIcon={notificationIcon}
-                  />
-                }
-              </React.Fragment>
-            }
-          </div>
+              }
+            </React.Fragment>
+          }
         </div>
-      </header>
-    );
-  }
+      </div>
+    </header>
+  );
 }
 
 export default Header;

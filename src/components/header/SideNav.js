@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import MobileSignedInLinks from './MobileSignedInLinks';
 import MobileSignedOutLinks from './MobileSignedOutLinks';
 import PropTypes from 'prop-types';
 import './SideNav.scss';
 
-class SideNav extends Component {
-  firstSideNavLink  = React.createRef();
-  lastSideNavLink   = React.createRef();
+const SideNav = (props) => {
+  /* refs */
+  const firstSideNavLink  = React.createRef();
+  const lastSideNavLink   = React.createRef();
 
-  trapFocus = (e, firstElement, lastElement, closeFunc) => {
+  const trapFocus = (e, firstElement, lastElement, closeFunc) => {
     const esc = e.keyCode === 27;
     const tab = e.keyCode === 9;
     if (esc) { 
@@ -22,58 +23,55 @@ class SideNav extends Component {
     }
   }
 
-  handleClick = (e) => {
+  const handleClick = (e) => {
     const linkIsClicked = (e.target.tagName === 'A');
     if (linkIsClicked) {
-      this.props.closeSideNav();
+      props.closeSideNav();
     }
   }
 
-  componentDidMount() {
+  useEffect(function preventBodyScrollAndFocusFirstLink() {
     document.body.setAttribute('data-scroll', 'false');
-    this.firstSideNavLink.current.focus();
-  }
+    firstSideNavLink.current.focus();
 
-  componentWillUnmount() {
-    document.body.setAttribute('data-scroll', 'true');
-  }
+    return function allowBodyScroll() {
+      document.body.setAttribute('data-scroll', 'true');
+    }
+  }, []);
 
-  render() {
-    const {firstSideNavLink, lastSideNavLink} = this;
-    const {signedIn, closeSideNav, signIn, signOut} = this.props;
+  const {signedIn, closeSideNav, signIn, signOut} = props;
 
-    return (
+  return (
+    <div 
+      className="sideNav header__sideNav"
+      onKeyDown={(e) => trapFocus(e, firstSideNavLink.current, lastSideNavLink.current, closeSideNav)}
+    >
+      <nav className="mobileNavBar" role="navigation">
+        <h2 className="mobileNavBar__heading">Mobile Navigation Bar</h2>
+        <ul 
+          className="list mobileNavMenu"
+          onClick={handleClick}
+        >
+          {
+            signedIn ?
+            <MobileSignedInLinks
+              ref={{firstSideNavLink, lastSideNavLink}}
+              signOut={signOut}
+            /> :
+            <MobileSignedOutLinks
+              ref={{firstSideNavLink, lastSideNavLink}}
+              signIn={signIn}
+            />
+          }
+        </ul>
+      </nav>
+
       <div 
-        className="sideNav header__sideNav"
-        onKeyDown={(e) => this.trapFocus(e, firstSideNavLink.current, lastSideNavLink.current, closeSideNav)}
-      >
-        <nav className="mobileNavBar" role="navigation">
-          <h2 className="mobileNavBar__heading">Mobile Navigation Bar</h2>
-          <ul 
-            className="list mobileNavMenu"
-            onClick={this.handleClick}
-          >
-            {
-              signedIn ?
-              <MobileSignedInLinks
-                ref={{firstSideNavLink, lastSideNavLink}}
-                signOut={signOut}
-              /> :
-              <MobileSignedOutLinks
-                ref={{firstSideNavLink, lastSideNavLink}}
-                signIn={signIn}
-              />
-            }
-          </ul>
-        </nav>
-
-        <div 
-          className="sideNav__overlay"
-          onClick={closeSideNav}
-        ></div>
-      </div>
-    );
-  }
+        className="sideNav__overlay"
+        onClick={closeSideNav}
+      ></div>
+    </div>
+  );
 }
 
 SideNav.propTypes = {
@@ -82,6 +80,5 @@ SideNav.propTypes = {
   signIn: PropTypes.func,
   signOut: PropTypes.func
 }
-
 
 export default SideNav;

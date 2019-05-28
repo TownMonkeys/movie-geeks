@@ -16,7 +16,7 @@ const MobileSignedInLinks = React.forwardRef((props, refs) => {
           className="mobileNavMenu__link" 
         >
           <img src={user} alt="" className="image avatar avatar_size_small mobileNavMenu__avatar"/>
-          <span className="mobileNavMenu__userName">Hajar</span>
+          <span className="mobileNavMenu__userName">Yurio</span>
         </Link>
       </li>
       <li className="mobileNavMenu__item">

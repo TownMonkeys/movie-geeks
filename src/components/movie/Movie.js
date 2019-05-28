@@ -27,9 +27,9 @@ class Movie extends Component {
       <article className="movie">
         <header className="movie__header">
           <a href="#" className="movie__userAvatarLink">
-            <img src={user} alt="Hajar's avatar" className="image avatar avatar_size_med"/>
+            <img src={user} alt="Yurio's avatar" className="image avatar avatar_size_med"/>
           </a> {/* User's avatar */}
-          <a href="#" className="movie__userNameLink">Hajar Bhnas</a> {/* User's name */}
+          <a href="#" className="movie__userNameLink">Yurio</a> {/* User's name */}
         </header> {/* Header */}
 
         <button 

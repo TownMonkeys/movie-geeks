@@ -11,9 +11,9 @@ const Notification = React.forwardRef((props, ref) => {
         className="link notification__link" 
         ref={ref}
       >
-        <img src={user} alt="Hajar's Avatar" className="image avatar notification__avatar avatar_size_med"/>
+        <img src={user} alt="Yurio's Avatar" className="image avatar notification__avatar avatar_size_med"/>
         <p className="notification__content">
-          <span className="notification__name">Hajar Bhnas</span> joined the party.
+          <span className="notification__name">Yurio</span> joined the party.
         </p>
       </a>
     </li>

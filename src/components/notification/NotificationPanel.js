@@ -1,54 +1,55 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import Notification from './Notification';
 import './NotificationPanel.scss';
 import PropTypes from 'prop-types';
 
-class NotificationPanel extends Component {
-  notificationPanel = React.createRef();
+const NotificationPanel = (props) => {
+  const notificationPanel = React.createRef();
 
-  componentDidMount() {
-    document.addEventListener('mousedown', this.handleClickOutside)
-  }
+  /* props */
+  const {closeNotificationPanel} = props;
 
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClickOutside)
-  }
-
-  handleClickOutside = (e) => {
-    const clickIsOnNotificationPanel = this.notificationPanel.current.contains(e.target);
-    const clickIsOnNotificationIcon = this.props.notificationIcon.current.contains(e.target);
+  const handleClickOutside = (e) => {
+    const clickIsOnNotificationPanel = notificationPanel.current.contains(e.target);
+    const clickIsOnNotificationIcon = props.notificationIcon.current.contains(e.target);
     if (!(clickIsOnNotificationPanel || clickIsOnNotificationIcon)) {
-      this.props.closeNotificationPanel();
+      closeNotificationPanel();
     }
   }
 
-  handleEscKey = (e) => {
+  const handleEscKey = (e) => {
     const escIsPressed = e.keyCode === 27;
     if (escIsPressed) {
-      this.props.closeNotificationPanel();
+      closeNotificationPanel();
     }
   }
 
-  render() {
-    return (
-      <div 
-        className="notificationPanel header__notificationPanel" 
-        id="notificationPanel"
-        onKeyDown={this.handleEscKey}
-        ref={this.notificationPanel}
-      >
-        <span aria-label="Up Arrow" className="notificationPanel__arrow"></span>
+  useEffect(function addOutsideClickHandler() {
+    document.addEventListener('mousedown', handleClickOutside);
 
-        <ul className="list notificationList">
-          {
-            Array(7).fill(null).map((e, index) => (
-              <Notification key={index} />
-            ))
-          }
-        </ul>
-      </div>
-    );
-  }
+    return function removeHandler() {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, []);
+
+  return (
+    <div 
+      className="notificationPanel header__notificationPanel" 
+      id="notificationPanel"
+      onKeyDown={handleEscKey}
+      ref={notificationPanel}
+    >
+      <span aria-label="Up Arrow" className="notificationPanel__arrow"></span>
+
+      <ul className="list notificationList">
+        {
+          Array(7).fill(null).map((e, index) => (
+            <Notification key={index} />
+          ))
+        }
+      </ul>
+    </div>
+  );
 }
 
 NotificationPanel.propTypes = {
