@@ -10,6 +10,10 @@ import MenuIcon from './MenuIcon';
 import NotificationPanel from '../notification/NotificationPanel';
 import SideNav from './SideNav';
 
+const signIn = (setSignedIn) => {
+  setSignedIn(true);
+}
+
 const Header = () => {
   /* state */
   const [menuButtonPressed, setMenuButtonPressed] = useState(false);
