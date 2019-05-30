@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Logo from './Logo';
 import './Header.scss';
 import './DesktopNavBar.scss';
@@ -17,8 +17,8 @@ const Header = () => {
   const [signedIn, setSignedIn] = useState(true);
 
   /* refs */
-  const menuIcon          = React.createRef();
-  const notificationIcon  = React.createRef(); 
+  const menuIcon          = React.useRef();
+  const notificationIcon  = React.useRef(); 
 
   const signIn = () => {
     setSignedIn(true);

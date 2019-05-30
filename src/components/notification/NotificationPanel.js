@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Notification from './Notification';
 import './NotificationPanel.scss';
 import PropTypes from 'prop-types';
 
 const NotificationPanel = (props) => {
-  const notificationPanel = React.createRef();
+  const notificationPanel = React.useRef();
 
   /* props */
   const {closeNotificationPanel} = props;
 
   const handleClickOutside = (e) => {
+    e.preventDefault();
     const clickIsOnNotificationPanel = notificationPanel.current.contains(e.target);
     const clickIsOnNotificationIcon = props.notificationIcon.current.contains(e.target);
     if (!(clickIsOnNotificationPanel || clickIsOnNotificationIcon)) {

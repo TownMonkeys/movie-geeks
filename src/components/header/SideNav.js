@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import MobileSignedInLinks from './MobileSignedInLinks';
 import MobileSignedOutLinks from './MobileSignedOutLinks';
 import PropTypes from 'prop-types';
@@ -6,8 +6,8 @@ import './SideNav.scss';
 
 const SideNav = (props) => {
   /* refs */
-  const firstSideNavLink  = React.createRef();
-  const lastSideNavLink   = React.createRef();
+  const firstSideNavLink  = React.useRef();
+  const lastSideNavLink   = React.useRef();
 
   const trapFocus = (e, firstElement, lastElement, closeFunc) => {
     const esc = e.keyCode === 27;
