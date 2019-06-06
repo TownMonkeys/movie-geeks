@@ -40,13 +40,14 @@
 /* movie name --- */
 .movie__name {
   display: inline-block;
-
+  line-height: 1;
   font-size: 1.7rem;
-  margin: .5rem .7rem .4rem 0;
+  margin: .7rem .7rem 0 0;
 }
 
 /* movie genre --- */
 .movie__genre {
+  display: inline-block;
   color: $grey-dark-2;
 }
 
