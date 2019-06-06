@@ -36,8 +36,11 @@
   text-align: left;
   width: calc(100vw - 2.1rem);
   max-width: 21rem;
-  height: 70vh;
-  max-height: 32rem;
+  max-height: 70vh;
   overflow-y: auto;
   background: #fff;
+
+  @media screen and (min-height: 45.7rem) {
+    max-height: 32rem;
+  }
 }
