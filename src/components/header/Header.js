@@ -47,7 +47,6 @@ const Header = () => {
 
   const closeNotificationPanel = () => {
     setNotificationButtonPressed(false);
-    notificationIcon.current.focus();
   }
 
   const toggleNotificationPanel = () => {

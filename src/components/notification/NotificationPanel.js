@@ -10,7 +10,6 @@ const NotificationPanel = (props) => {
   const {closeNotificationPanel} = props;
 
   const handleClickOutside = (e) => {
-    e.preventDefault();
     const clickIsOnNotificationPanel = notificationPanel.current.contains(e.target);
     const clickIsOnNotificationIcon = props.notificationIcon.current.contains(e.target);
     if (!(clickIsOnNotificationPanel || clickIsOnNotificationIcon)) {
