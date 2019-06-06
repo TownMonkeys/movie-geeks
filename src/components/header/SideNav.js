@@ -52,6 +52,7 @@ const SideNav = (props) => {
           type="button"
           className="button sideNav__closeButton"
           ref={firstInteractiveElement}
+          onClick={closeSideNav}
         >
           <img className="image sideNav__closeIcon" src={close} alt="Close"/>
         </button>
