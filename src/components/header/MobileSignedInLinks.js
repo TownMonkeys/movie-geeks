@@ -3,8 +3,7 @@ import user from '../../images/user.svg';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const MobileSignedInLinks = React.forwardRef((props, refs) => {
-  const {firstSideNavLink, lastSideNavLink} = refs;
+const MobileSignedInLinks = React.forwardRef((props, lastInteractiveElement) => {
   const {signOut} = props;
 
   return (
@@ -12,7 +11,6 @@ const MobileSignedInLinks = React.forwardRef((props, refs) => {
       <li className="mobileNavMenu__item">
         <Link
           to='/profile'
-          innerRef={firstSideNavLink} 
           className="mobileNavMenu__link" 
         >
           <img src={user} alt="" className="image avatar avatar_size_small mobileNavMenu__avatar"/>
@@ -27,7 +25,7 @@ const MobileSignedInLinks = React.forwardRef((props, refs) => {
       </li>
       <li className="mobileNavMenu__item">
         <a 
-          ref={lastSideNavLink} 
+          ref={lastInteractiveElement} 
           href="#" 
           className="mobileNavMenu__link" 
           onClick={signOut}

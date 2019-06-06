@@ -23,6 +23,30 @@
   z-index: 2;
 }
 
+/* close --- */
+.sideNav__closeButtonContainer {
+  text-align: right;
+  background-color: #fff;
+}
+
+.sideNav__closeButton {
+  width: 3rem;
+  padding: .7rem;
+  border: none;
+
+  &:hover,
+  &:focus {
+    .sideNav__closeIcon {
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+.sideNav__closeIcon {
+  vertical-align: top;
+  transition: transform .3s;
+}
+
 /* overlay --- */
 .sideNav__overlay {
   position: fixed;

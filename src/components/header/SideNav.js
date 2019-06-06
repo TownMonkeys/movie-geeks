@@ -3,11 +3,12 @@ import MobileSignedInLinks from './MobileSignedInLinks';
 import MobileSignedOutLinks from './MobileSignedOutLinks';
 import PropTypes from 'prop-types';
 import './SideNav.scss';
+import close from '../../images/close.svg';
 
 const SideNav = (props) => {
   /* refs */
-  const firstSideNavLink  = React.useRef();
-  const lastSideNavLink   = React.useRef();
+  const firstInteractiveElement  = React.useRef();
+  const lastInteractiveElement   = React.useRef();
 
   const trapFocus = (e, firstElement, lastElement, closeFunc) => {
     const esc = e.keyCode === 27;
@@ -32,7 +33,7 @@ const SideNav = (props) => {
 
   useEffect(function preventBodyScrollAndFocusFirstLink() {
     document.body.setAttribute('data-scroll', 'false');
-    firstSideNavLink.current.focus();
+    firstInteractiveElement.current.focus();
 
     return function allowBodyScroll() {
       document.body.setAttribute('data-scroll', 'true');
@@ -44,8 +45,18 @@ const SideNav = (props) => {
   return (
     <div 
       className="sideNav header__sideNav"
-      onKeyDown={(e) => trapFocus(e, firstSideNavLink.current, lastSideNavLink.current, closeSideNav)}
+      onKeyDown={(e) => trapFocus(e, firstInteractiveElement.current, lastInteractiveElement.current, closeSideNav)}
     >
+      <div className="sideNav__closeButtonContainer">
+        <button 
+          type="button"
+          className="button sideNav__closeButton"
+          ref={firstInteractiveElement}
+        >
+          <img className="image sideNav__closeIcon" src={close} alt="Close"/>
+        </button>
+      </div>
+
       <nav className="mobileNavBar" role="navigation">
         <h2 className="mobileNavBar__heading">Mobile Navigation Bar</h2>
         <ul 
@@ -55,11 +66,11 @@ const SideNav = (props) => {
           {
             signedIn ?
             <MobileSignedInLinks
-              ref={{firstSideNavLink, lastSideNavLink}}
+              ref={lastInteractiveElement}
               signOut={signOut}
             /> :
             <MobileSignedOutLinks
-              ref={{firstSideNavLink, lastSideNavLink}}
+              ref={lastInteractiveElement}
               signIn={signIn}
             />
           }

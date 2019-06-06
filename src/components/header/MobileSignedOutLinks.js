@@ -1,22 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MobileSignedOutLinks = React.forwardRef((props, refs) => {
-  const {firstSideNavLink, lastSideNavLink} = refs;
+const MobileSignedOutLinks = React.forwardRef((props, lastInteractiveElement) => {
   const {signIn} = props;
 
   return (
     <React.Fragment>
       <li className="mobileNavMenu__item">
         <a 
-          ref={firstSideNavLink} 
           href="#" 
           className="mobileNavMenu__link"
         >Sign Up</a>
       </li>
       <li className="mobileNavMenu__item">
         <a 
-          ref={lastSideNavLink} 
+          ref={lastInteractiveElement} 
           href="#" 
           className="mobileNavMenu__link"
           onClick={signIn}
