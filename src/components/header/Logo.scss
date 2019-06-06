@@ -5,13 +5,21 @@
   Logo
 ============================= */
 .logo {
-  display: inline-block;
   text-decoration: none;
   color: $grey-dark-4;
 }
 
 .header__logo {
   line-height: 3.75rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @media screen and (min-width: $break-header) {
+    position: static;
+    display: inline-block;
+    transform: translateX(0);
+  }
 }
 
 /* Elements --- */
