@@ -1,20 +1,13 @@
 @import '../../sass/sass-modules/colors';
-@import '../../sass/sass-modules/breakpoints';
 
 /* ================================
   Header
 =================================== */
 .header {
-  text-align: center;
-
   height: 3.75rem;
   padding: 0 1rem;
   background-color: #fff;
   border-bottom: 1px solid $grey-light-2;
-
-  @media screen and (min-width: $break-header) {
-    text-align: left;
-  }
 }
 
 .App__header {
