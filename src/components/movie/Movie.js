@@ -30,8 +30,9 @@ const Movie = () => {
         type="button"
         onDoubleClick={hitLike}
         onMouseDown={(e) => e.preventDefault()} 
+        aria-label="double click to like"
       >
-        <img src={hxh} className="image movie__image"/>
+        <img src={hxh} alt="movie image" className="image movie__image"/>
       </button> {/* Movie image */}
       <h4 className="movie__name">Hunter x Hunter</h4> {/* Movie name */}
       <span className="movie__genre">Animation, Adventure</span> {/* Genre */}
