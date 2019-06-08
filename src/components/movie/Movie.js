@@ -5,16 +5,16 @@ import LikeSvg from './LikeSvg';
 import user from '../../images/user.svg';
 import StarSvg from './StarSvg';
 
+const hitLike = (setLiked) => {
+  setLiked(true);
+}
+
+const toggleLike = (liked, setLiked) => {
+  setLiked(!liked);
+}
+
 const Movie = () => {
   const [liked, setLiked] = useState(false);
-
-  const hitLike = () => {
-    setLiked(true);
-  }
-
-  const toggleLike = () => {
-    setLiked(!liked);
-  }
 
   return (
     <article className="movie">
@@ -28,7 +28,7 @@ const Movie = () => {
       <button 
         className="button movie__imageButton" 
         type="button"
-        onDoubleClick={hitLike}
+        onDoubleClick={() => hitLike(setLiked)}
         onMouseDown={(e) => e.preventDefault()} 
         aria-label="double click to like"
       >
@@ -50,7 +50,7 @@ const Movie = () => {
       </p> {/* Review */}
       <button 
         type="button"
-        onClick={toggleLike}
+        onClick={() => toggleLike(liked, setLiked)}
         onMouseDown={(e) => e.preventDefault()} 
         className="button movie__likeButton"
       >

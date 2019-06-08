@@ -14,6 +14,35 @@ const signIn = (setSignedIn) => {
   setSignedIn(true);
 }
 
+const signOut = (setSignedIn) => {
+  setSignedIn(false);
+}
+
+const openSideNav = (setMenuButtonPressed) => {
+  setMenuButtonPressed(true);
+}
+
+const closeSideNav = (setMenuButtonPressed, menuElement) => {
+  setMenuButtonPressed(false);
+  menuElement.focus();
+}
+
+const openNotificationPanel = (setNotificationButtonPressed) => {
+  setNotificationButtonPressed(true);
+}
+
+const closeNotificationPanel = (setNotificationButtonPressed) => {
+  setNotificationButtonPressed(false);
+}
+
+const toggleNotificationPanel = (notificationButtonPressed, setNotificationButtonPressed) => {
+  if (notificationButtonPressed) {
+    closeNotificationPanel(setNotificationButtonPressed);
+  } else {
+    openNotificationPanel(setNotificationButtonPressed);
+  }
+}
+
 const Header = () => {
   /* state */
   const [menuButtonPressed, setMenuButtonPressed] = useState(false);
@@ -24,39 +53,6 @@ const Header = () => {
   const menuIcon          = React.useRef();
   const notificationIcon  = React.useRef(); 
 
-  const signIn = () => {
-    setSignedIn(true);
-  }
-
-  const signOut = () => {
-    setSignedIn(false);
-  }
-
-  const openSideNav = () => {
-    setMenuButtonPressed(true);
-  }
-
-  const closeSideNav = () => {
-    setMenuButtonPressed(false);
-    menuIcon.current.focus();
-  }
-
-  const openNotificationPanel = () => {
-    setNotificationButtonPressed(true);
-  }
-
-  const closeNotificationPanel = () => {
-    setNotificationButtonPressed(false);
-  }
-
-  const toggleNotificationPanel = () => {
-    if (notificationButtonPressed) {
-      closeNotificationPanel();
-    } else {
-      openNotificationPanel();
-    }
-  }
-
   return (
     <header className="header App__header" role="banner">
       <div className="container">
@@ -65,7 +61,7 @@ const Header = () => {
         {/* mobile only */}
         <MenuIcon 
           menuButtonPressed={menuButtonPressed} 
-          openSideNav={openSideNav}
+          openSideNav={() => openSideNav(setMenuButtonPressed)}
           ref={menuIcon}
         /> 
         {/* Mobile only when menu button is clicked */}
@@ -73,9 +69,9 @@ const Header = () => {
           menuButtonPressed &&
           <SideNav 
             signedIn={signedIn} 
-            closeSideNav={closeSideNav}
-            signIn={signIn}
-            signOut={signOut}
+            closeSideNav={() => closeSideNav(setMenuButtonPressed, menuIcon.current)}
+            signIn={() => signIn(setSignedIn)}
+            signOut={() => signOut(setSignedIn)}
           />
         }
         {/*
@@ -89,8 +85,8 @@ const Header = () => {
             <ul className="list desktopNavMenu">
               {
                 signedIn ?
-                <DesktopSignedInLinks signOut={signOut} /> :
-                <DesktopSignedOutLinks signIn={signIn} />
+                <DesktopSignedInLinks signOut={() => signOut(setSignedIn)} /> :
+                <DesktopSignedOutLinks signIn={() => signIn(setSignedIn)} />
               }
             </ul>
           </nav>
@@ -100,14 +96,14 @@ const Header = () => {
             <React.Fragment>
               <NotificationIcon 
                 notificationButtonPressed={notificationButtonPressed}
-                toggleNotificationPanel={toggleNotificationPanel}
-                closeNotificationPanel={closeNotificationPanel} 
+                toggleNotificationPanel={() => toggleNotificationPanel(notificationButtonPressed, setNotificationButtonPressed)}
+                closeNotificationPanel={() => closeNotificationPanel(setNotificationButtonPressed)} 
                 ref={notificationIcon}
               />
               {
                 notificationButtonPressed &&
                 <NotificationPanel 
-                  closeNotificationPanel={closeNotificationPanel} 
+                  closeNotificationPanel={() => closeNotificationPanel(setNotificationButtonPressed)} 
                   notificationIcon={notificationIcon}
                 />
               }

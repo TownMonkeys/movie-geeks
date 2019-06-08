@@ -3,6 +3,13 @@ import Notification from './Notification';
 import './NotificationPanel.scss';
 import PropTypes from 'prop-types';
 
+const handleKeyDown = (e, close) => {
+  const escIsPressed = e.keyCode === 27;
+  if (escIsPressed) {
+    close();
+  }
+}
+
 const NotificationPanel = (props) => {
   const notificationPanel = React.useRef();
 
@@ -13,13 +20,6 @@ const NotificationPanel = (props) => {
     const clickIsOnNotificationPanel = notificationPanel.current.contains(e.target);
     const clickIsOnNotificationIcon = props.notificationIcon.current.contains(e.target);
     if (!(clickIsOnNotificationPanel || clickIsOnNotificationIcon)) {
-      closeNotificationPanel();
-    }
-  }
-
-  const handleEscKey = (e) => {
-    const escIsPressed = e.keyCode === 27;
-    if (escIsPressed) {
       closeNotificationPanel();
     }
   }
@@ -36,7 +36,7 @@ const NotificationPanel = (props) => {
     <div 
       className="notificationPanel header__notificationPanel" 
       id="notificationPanel"
-      onKeyDown={handleEscKey}
+      onKeyDown={(e) => handleKeyDown(e, closeNotificationPanel)}
       ref={notificationPanel}
     >
       <span aria-label="Up Arrow" className="notificationPanel__arrow"></span>
