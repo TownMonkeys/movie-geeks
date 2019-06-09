@@ -20,7 +20,8 @@ const trapFocus = (e, firstElement, lastElement, closeFunc) => {
 }
 
 const handleClick = (e, close) => {
-  const linkIsClicked = (e.target.tagName === 'A');
+  const {target} = e;
+  const linkIsClicked = (target.tagName === 'A') || (target.parentNode.tagName === 'A');
   if (linkIsClicked) {
     close();
   }
@@ -28,8 +29,8 @@ const handleClick = (e, close) => {
 
 const SideNav = (props) => {
   /* refs */
-  const firstInteractiveElement  = React.useRef();
-  const lastInteractiveElement   = React.useRef();
+  const firstInteractiveElement = useRef();
+  const lastInteractiveElement  = useRef();
 
   useEffect(function preventBodyScrollAndFocusFirstLink() {
     document.body.setAttribute('data-scroll', 'false');

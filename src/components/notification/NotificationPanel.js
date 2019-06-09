@@ -11,7 +11,7 @@ const handleKeyDown = (e, close) => {
 }
 
 const NotificationPanel = (props) => {
-  const notificationPanel = React.useRef();
+  const notificationPanel = useRef();
 
   /* props */
   const {closeNotificationPanel} = props;

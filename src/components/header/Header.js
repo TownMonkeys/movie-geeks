@@ -23,6 +23,7 @@ const openSideNav = (setMenuButtonPressed) => {
 }
 
 const closeSideNav = (setMenuButtonPressed, menuElement) => {
+  console.log('close');
   setMenuButtonPressed(false);
   menuElement.focus();
 }
@@ -50,8 +51,8 @@ const Header = () => {
   const [signedIn, setSignedIn] = useState(true);
 
   /* refs */
-  const menuIcon          = React.useRef();
-  const notificationIcon  = React.useRef(); 
+  const menuIcon          = useRef();
+  const notificationIcon  = useRef(); 
 
   return (
     <header className="header App__header" role="banner">
