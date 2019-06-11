@@ -11,11 +11,18 @@ import Dashboard from './pages/dashboard/Dashboard';
 import Profile from './pages/profile/Profile';
 
 const App = () => {
+  const [state, setState] = React.useState(1);
+
+  const handleClick = () => {
+    setState(state+1);
+  }
+
   return (
     <BrowserRouter>
       <div className="App">
+        {state}
         <Header />
-        <main className="main" role="main">
+        <main onClick={handleClick} className="main" role="main">
           <Switch>
             <Route path="/" exact component={Dashboard} />
             <Route path="/profile" component={Profile} />

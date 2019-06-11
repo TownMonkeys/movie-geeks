@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { memo } from 'react';
 import notifications from '../../images/notifications.svg';
 import './NotificationIcon.scss';
 import PropTypes from 'prop-types';
 
+const handleEscKey = (e, close) => {
+  const escIsPressed = e.keyCode === 27;
+  if (escIsPressed) {
+    close();
+  }
+}
+
 const NotificationIcon = React.forwardRef((props, notificationIcon) => {
   const {notificationButtonPressed, toggleNotificationPanel, closeNotificationPanel} = props;
   const notificationsNum = 7;
-
-  const handleEscKey = (e) => {
-    const escIsPressed = e.keyCode === 27;
-    if (escIsPressed) {
-      closeNotificationPanel();
-    }
-  }
 
   return (
     <button 
@@ -22,7 +22,7 @@ const NotificationIcon = React.forwardRef((props, notificationIcon) => {
       aria-pressed={notificationButtonPressed} 
       aria-expanded={notificationButtonPressed}
       onClick={toggleNotificationPanel}
-      onKeyDown={handleEscKey}
+      onKeyDown={(e) => handleEscKey(e, closeNotificationPanel)}
       ref={notificationIcon}
     >
       <img src={notifications} alt="Notification Icon" className="image"/>
@@ -38,4 +38,4 @@ NotificationIcon.propTypes = {
   toggleNotificationPanel: PropTypes.func
 }
 
-export default NotificationIcon;
+export default memo(NotificationIcon);

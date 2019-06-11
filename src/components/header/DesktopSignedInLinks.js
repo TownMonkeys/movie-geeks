@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import user from '../../images/user.svg';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -35,4 +35,4 @@ DesktopSignedInLinks.propTypes = {
   signOut: PropTypes.func
 }
 
-export default DesktopSignedInLinks;
+export default memo(DesktopSignedInLinks);

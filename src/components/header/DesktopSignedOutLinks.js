@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
 const DesktopSignedOutLinks = (props) => {
@@ -24,4 +24,4 @@ DesktopSignedOutLinks.propTypes = {
   signIn: PropTypes.func
 }
 
-export default DesktopSignedOutLinks;
+export default memo(DesktopSignedOutLinks);

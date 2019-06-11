@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, memo } from 'react';
 import Logo from './Logo';
 import './Header.scss';
 import './DesktopNavBar.scss';
@@ -23,7 +23,6 @@ const openSideNav = (setMenuButtonPressed) => {
 }
 
 const closeSideNav = (setMenuButtonPressed, menuElement) => {
-  console.log('close');
   setMenuButtonPressed(false);
   menuElement.focus();
 }
@@ -51,8 +50,8 @@ const Header = () => {
   const [signedIn, setSignedIn] = useState(true);
 
   /* refs */
-  const menuIcon          = useRef();
-  const notificationIcon  = useRef(); 
+  const menuIcon         = useRef();
+  const notificationIcon = useRef(); 
 
   return (
     <header className="header App__header" role="banner">
@@ -116,4 +115,4 @@ const Header = () => {
   );
 }
 
-export default Header;
+export default memo(Header);
