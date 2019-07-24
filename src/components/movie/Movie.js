@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import hxh from '../../images/hunterxhunter.jpg';
 import './Movie.scss';
 import LikeSvg from './LikeSvg';
@@ -67,4 +67,4 @@ const Movie = () => {
   );
 }
 
-export default React.memo(Movie);
+export default memo(Movie);

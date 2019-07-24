@@ -20,7 +20,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="App">
-        {state}
+        {/* {state} */}
         <Header />
         <main onClick={handleClick} className="main" role="main">
           <Switch>

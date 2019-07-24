@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './MemberList.scss';
 import Member from './Member';
 
@@ -22,4 +22,4 @@ const MemberList = () => {
   );
 }
 
-export default MemberList;
+export default memo(MemberList);

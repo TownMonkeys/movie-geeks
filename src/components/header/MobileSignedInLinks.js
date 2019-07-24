@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import user from '../../images/user.svg';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -39,4 +39,4 @@ MobileSignedInLinks.propTypes = {
   signOut: PropTypes.func
 }
 
-export default MobileSignedInLinks;
+export default memo(MobileSignedInLinks);

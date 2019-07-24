@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './StarSvg.scss';
 
 const StarSvg = () => {
@@ -10,4 +10,4 @@ const StarSvg = () => {
   );
 }
 
-export default StarSvg;
+export default memo(StarSvg);

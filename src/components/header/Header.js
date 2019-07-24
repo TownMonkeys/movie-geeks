@@ -1,4 +1,4 @@
-import React, { useState, useRef, memo } from 'react';
+import React, { useState, useRef, useCallback, memo } from 'react';
 import Logo from './Logo';
 import './Header.scss';
 import './DesktopNavBar.scss';
@@ -10,39 +10,6 @@ import MenuIcon from './MenuIcon';
 import NotificationPanel from '../notification/NotificationPanel';
 import SideNav from './SideNav';
 
-const signIn = (setSignedIn) => {
-  setSignedIn(true);
-}
-
-const signOut = (setSignedIn) => {
-  setSignedIn(false);
-}
-
-const openSideNav = (setMenuButtonPressed) => {
-  setMenuButtonPressed(true);
-}
-
-const closeSideNav = (setMenuButtonPressed, menuElement) => {
-  setMenuButtonPressed(false);
-  menuElement.focus();
-}
-
-const openNotificationPanel = (setNotificationButtonPressed) => {
-  setNotificationButtonPressed(true);
-}
-
-const closeNotificationPanel = (setNotificationButtonPressed) => {
-  setNotificationButtonPressed(false);
-}
-
-const toggleNotificationPanel = (notificationButtonPressed, setNotificationButtonPressed) => {
-  if (notificationButtonPressed) {
-    closeNotificationPanel(setNotificationButtonPressed);
-  } else {
-    openNotificationPanel(setNotificationButtonPressed);
-  }
-}
-
 const Header = () => {
   /* state */
   const [menuButtonPressed, setMenuButtonPressed] = useState(false);
@@ -51,7 +18,41 @@ const Header = () => {
 
   /* refs */
   const menuIcon         = useRef();
-  const notificationIcon = useRef(); 
+  const notificationIcon = useRef();
+
+  /* functions */
+  const signIn = useCallback(() => {
+    setSignedIn(true);
+  }, [])
+  
+  const signOut = useCallback(() => {
+    setSignedIn(false);
+  }, [])
+  
+  const openSideNav = useCallback(() => {
+    setMenuButtonPressed(true);
+  }, [])
+  
+  const closeSideNav = useCallback(() => {
+    setMenuButtonPressed(false);
+    menuIcon.current.focus();
+  }, [])
+  
+  const openNotificationPanel = useCallback(() => {
+    setNotificationButtonPressed(true);
+  }, []);
+  
+  const closeNotificationPanel = useCallback(() => {
+    setNotificationButtonPressed(false);
+  }, []);
+  
+  const toggleNotificationPanel = useCallback(() => {
+    if (notificationButtonPressed) {
+      closeNotificationPanel();
+    } else {
+      openNotificationPanel();
+    }
+  }, [notificationButtonPressed])
 
   return (
     <header className="header App__header" role="banner">
@@ -61,7 +62,7 @@ const Header = () => {
         {/* mobile only */}
         <MenuIcon 
           menuButtonPressed={menuButtonPressed} 
-          openSideNav={() => openSideNav(setMenuButtonPressed)}
+          openSideNav={openSideNav}
           ref={menuIcon}
         /> 
         {/* Mobile only when menu button is clicked */}
@@ -69,9 +70,9 @@ const Header = () => {
           menuButtonPressed &&
           <SideNav 
             signedIn={signedIn} 
-            closeSideNav={() => closeSideNav(setMenuButtonPressed, menuIcon.current)}
-            signIn={() => signIn(setSignedIn)}
-            signOut={() => signOut(setSignedIn)}
+            closeSideNav={closeSideNav}
+            signIn={signIn}
+            signOut={signOut}
           />
         }
         {/*
@@ -85,8 +86,8 @@ const Header = () => {
             <ul className="list desktopNavMenu">
               {
                 signedIn ?
-                <DesktopSignedInLinks signOut={() => signOut(setSignedIn)} /> :
-                <DesktopSignedOutLinks signIn={() => signIn(setSignedIn)} />
+                <DesktopSignedInLinks signOut={signOut} /> :
+                <DesktopSignedOutLinks signIn={signIn} />
               }
             </ul>
           </nav>
@@ -96,14 +97,14 @@ const Header = () => {
             <React.Fragment>
               <NotificationIcon 
                 notificationButtonPressed={notificationButtonPressed}
-                toggleNotificationPanel={() => toggleNotificationPanel(notificationButtonPressed, setNotificationButtonPressed)}
-                closeNotificationPanel={() => closeNotificationPanel(setNotificationButtonPressed)} 
+                toggleNotificationPanel={toggleNotificationPanel}
+                closeNotificationPanel={closeNotificationPanel} 
                 ref={notificationIcon}
               />
               {
                 notificationButtonPressed &&
                 <NotificationPanel 
-                  closeNotificationPanel={() => closeNotificationPanel(setNotificationButtonPressed)} 
+                  closeNotificationPanel={closeNotificationPanel} 
                   notificationIcon={notificationIcon}
                 />
               }

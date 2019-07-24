@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import user from '../../images/user.svg';
 import './Member.scss';
 
@@ -13,4 +13,4 @@ const Member = () => {
   );
 }
 
-export default Member;
+export default memo(Member);

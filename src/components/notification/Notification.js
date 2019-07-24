@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import user from '../../images/user.svg';
 import './Notification.scss';
 import PropTypes from 'prop-types';
@@ -24,4 +24,4 @@ Notification.propTypes = {
   notificationPanelOpened: PropTypes.bool
 }
 
-export default Notification;
+export default memo(Notification);

@@ -1,36 +1,40 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useCallback, memo } from 'react';
 import MobileSignedInLinks from './MobileSignedInLinks';
 import MobileSignedOutLinks from './MobileSignedOutLinks';
 import PropTypes from 'prop-types';
 import './SideNav.scss';
 import close from '../../images/close.svg';
 
-const trapFocus = (e, firstElement, lastElement, closeFunc) => {
-  const esc = e.keyCode === 27;
-  const tab = e.keyCode === 9;
-  if (esc) { 
-    closeFunc();
-  } else if (tab && e.shiftKey && e.target === firstElement) {
-    e.preventDefault();
-    lastElement.focus();
-  } else if (tab && !e.shiftKey && e.target === lastElement) {
-    e.preventDefault();
-    firstElement.focus();
-  }
-}
-
-const handleClick = (e, close) => {
-  const {target} = e;
-  const linkIsClicked = (target.tagName === 'A') || (target.parentNode.tagName === 'A');
-  if (linkIsClicked) {
-    close();
-  }
-}
-
 const SideNav = (props) => {
+  /* props */
+  const {signedIn, closeSideNav, signIn, signOut} = props;
+
   /* refs */
   const firstInteractiveElement = useRef();
   const lastInteractiveElement  = useRef();
+
+  /* functions */
+  const trapFocus = useCallback((e, firstElement, lastElement, closeFunc) => {
+    const esc = e.keyCode === 27;
+    const tab = e.keyCode === 9;
+    if (esc) { 
+      closeFunc();
+    } else if (tab && e.shiftKey && e.target === firstElement) {
+      e.preventDefault();
+      lastElement.focus();
+    } else if (tab && !e.shiftKey && e.target === lastElement) {
+      e.preventDefault();
+      firstElement.focus();
+    }
+  }, [])
+  
+  const handleClick = useCallback((e) => {
+    const { target } = e;
+    const linkIsClicked = (target.tagName === 'A') || (target.parentNode.tagName === 'A');
+    if (linkIsClicked) {
+      closeSideNav();
+    }
+  }, [])
 
   useEffect(function preventBodyScrollAndFocusFirstLink() {
     document.body.setAttribute('data-scroll', 'false');
@@ -40,8 +44,6 @@ const SideNav = (props) => {
       document.body.setAttribute('data-scroll', 'true');
     }
   }, []);
-
-  const {signedIn, closeSideNav, signIn, signOut} = props;
 
   return (
     <div 
@@ -63,7 +65,7 @@ const SideNav = (props) => {
         <h2 className="mobileNavBar__heading">Mobile Navigation Bar</h2>
         <ul 
           className="list mobileNavMenu"
-          onClick={(e) => handleClick(e, props.closeSideNav)}
+          onClick={(e) => handleClick(e)}
         >
           {
             signedIn ?
@@ -94,4 +96,4 @@ SideNav.propTypes = {
   signOut: PropTypes.func
 }
 
-export default SideNav;
+export default memo(SideNav);

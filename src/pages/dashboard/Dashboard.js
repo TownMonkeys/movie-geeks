@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import MovieList from '../../components/movie/MovieList';
 import MemberList from '../../components/member/MemberList';
 import './Dashboard.scss';
@@ -15,4 +15,4 @@ const Dashboard = () => {
   );
 }
 
-export default Dashboard;
+export default memo(Dashboard);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
 const MobileSignedOutLinks = React.forwardRef((props, lastInteractiveElement) => {
@@ -28,4 +28,4 @@ MobileSignedOutLinks.propTypes = {
   signIn: PropTypes.func
 }
 
-export default MobileSignedOutLinks;
+export default memo(MobileSignedOutLinks);

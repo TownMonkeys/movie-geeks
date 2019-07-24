@@ -4,7 +4,6 @@ import './MenuIcon.scss';
 import PropTypes from 'prop-types';
 
 const MenuIcon = React.forwardRef((props, menuIcon) => {
-  console.log('menu icon', props);
   const {menuButtonPressed, openSideNav} = props; 
 
   return (

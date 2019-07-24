@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './MovieList.scss';
 import Movie from './Movie';
 
@@ -19,4 +19,4 @@ const MovieList = () => {
   );
 }
 
-export default MovieList;
+export default memo(MovieList);

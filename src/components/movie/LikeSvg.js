@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import './LikeSvg.scss';
 
@@ -20,4 +20,4 @@ LikeSvg.propTypes = {
   clicked: PropTypes.bool
 }
 
-export default LikeSvg;
+export default memo(LikeSvg);
