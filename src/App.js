@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Header from './components/header/Header';
 import './App.scss';
 import './sass/basic-components/container.scss';
@@ -18,7 +18,7 @@ const App = () => {
   }
 
   return (
-    <HashRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
       <div className="App">
         {/* {state} */}
         <Header />
@@ -29,7 +29,7 @@ const App = () => {
           </Switch>
         </main>
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
