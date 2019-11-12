@@ -2,7 +2,9 @@
   "name": "movie-geeks",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://moviegeeks.com",
   "dependencies": {
+    "gh-pages": "^2.1.1",
     "lodash": "^4.17.15",
     "node-sass": "^4.11.0",
     "prop-types": "^15.7.2",
@@ -12,6 +14,8 @@
     "react-scripts": "3.0.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
