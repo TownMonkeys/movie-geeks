@@ -16,4 +16,5 @@ A social media app that allows movie geeks to share their experience with one an
 ## Aimed Quality Standards
 - Web Accessibility.
 - Cross-Browser Compatibility.
+- Responsive from 320.
 - Code Modularity and Maintainability.
