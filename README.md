@@ -8,6 +8,9 @@ A social media app that allows movie geeks to share their experience with one an
 - Users can get movie recommendations from the app based on their preferences.
 - The app should have an updated panel for the new movies, so users can keep track.
 
+## Framework / Design patterns Used
+- [ReactJS](https://reactjs.org/).
+- [BEM](https://en.bem.info/methodology/quick-start/) design pattern.
 
 ## Aimed Quality Standards
 - Web Accessibility.
