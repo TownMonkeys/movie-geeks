@@ -11,7 +11,7 @@ const App = () => {
       <div className="App">
         {/* {state} */}
         <Header />
-        <main onClick={handleClick} className="main" role="main">
+        <main className="main" role="main">
           <Switch>
             <Route path="/" exact component={Dashboard} />
             <Route path="/profile" component={Profile} />
