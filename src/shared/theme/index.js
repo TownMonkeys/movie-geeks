@@ -12,3 +12,5 @@ export const theme = {
     dark: '#bdbdbd'
   }
 }
+
+export default theme;

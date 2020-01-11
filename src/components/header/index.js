@@ -1,24 +1,20 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { 
   Hdr,
-  AppName,
-  Container,
-  LogoLink,
-  Logo
+  Title,
+  Container
 } from './style';
-import logo from '../../images/yuri.jpg';
+import Logo from './logo';
 
 const Header = () => {
   return (
     <Hdr>
-      <AppName>Movie Geeks</AppName>
+      <Title>Movie Geeks</Title>
       <Container>
-        <LogoLink>
-          <Logo src={logo} alt="Movie Geeks" />
-        </LogoLink>
+        <Logo />
       </Container>
     </Hdr>
   );
 }
 
-export default Header;
+export default memo(Header);
