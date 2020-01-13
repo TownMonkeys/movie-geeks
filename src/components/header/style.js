@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
+import theme from '../../shared/theme';
 
-export const Hdr = styled.header``;
+export const StyledHeader = styled.header`
+  border-bottom: 1px solid ${theme.border.light};
+`;
 
 export const Title = styled.h1`
   position: absolute;
@@ -12,6 +15,7 @@ export const Container = styled.div`
   margin: auto;
 
   display: flex;
+  align-items: center;
 `;
 
 export const LogoLink = styled.a`
@@ -22,4 +26,38 @@ export const LogoImg = styled.img`
   width: 3rem;
   height: auto
   padding: .35rem;
+  margin-left: -.35rem; // To be aligned with the content
+`;
+
+export const StyledSearchForm = styled.form`
+  display: flex;
+  border: 1px solid ${theme.border.light};
+  border-radius: .2rem;
+`;
+
+export const SearchInput = styled.input`
+  width: 15rem;
+  padding-left: .5rem;
+  border: none;
+  border-right: 1px solid ${theme.border.light};
+`;
+
+export const SearchBtn = styled.button`
+  display: flex;
+  padding: 0;
+  padding: .2rem .8rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color .1s;
+
+  &:hover {
+    background-color: ${theme.bg.grey};
+  }
+`;
+
+export const SearchIcon = styled.img`
+  width: 1.5rem;
+  height: auto;
+  padding: .2rem;
 `;

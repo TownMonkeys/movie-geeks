@@ -1,19 +1,22 @@
 import React, { memo } from 'react';
 import { 
-  Hdr,
+  StyledHeader,
   Title,
   Container
 } from './style';
 import Logo from './logo';
+import SearchForm from './searchForm';
 
 const Header = () => {
   return (
-    <Hdr>
+    <StyledHeader>
       <Title>Movie Geeks</Title>
       <Container>
         <Logo />
+
+        <SearchForm />
       </Container>
-    </Hdr>
+    </StyledHeader>
   );
 }
 
