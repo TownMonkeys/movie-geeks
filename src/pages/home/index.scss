@@ -1,9 +1,9 @@
 @import '../../sass/sass-modules/breakpoints';
 
 /* ==================================
-  Dashboard
+  Home
 ===================================== */
-.dashboard {
+.home {
   text-align: center;
   padding: 2rem 0 0;
 
@@ -11,13 +11,13 @@
     padding: 2rem 1rem 0;
   }
 
-  @media screen and (min-width: $break-dashboard2) {
+  @media screen and (min-width: $break-dashboard) {
     text-align: left;
   }
 }
 
 /* Element --- */
-.dashboard__heading {
+.home__heading {
   position: absolute;
   left: -100rem;
 } 

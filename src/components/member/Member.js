@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import user from '../../images/user.svg';
+import user from '../../images/avatar.svg';
 import './Member.scss';
 
 const Member = () => {
