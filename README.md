@@ -11,7 +11,6 @@ A social media app that allows movie geeks to share their experience with one an
 ## Framework / Design patterns Used
 - [ReactJS](https://reactjs.org/).
 - [Sass](https://sass-lang.com/).
-- [BEM Methodology](https://en.bem.info/methodology/quick-start/).
 
 ## Aimed Quality Standards
 - Web Accessibility.
