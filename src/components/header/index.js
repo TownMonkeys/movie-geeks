@@ -2,20 +2,23 @@ import React, { memo } from 'react';
 import { 
   StyledHeader,
   Title,
-  Container
+  Navigation
 } from './style';
 import Logo from './logo';
 import SearchForm from './searchForm';
+import FeaturesList from './featuresList';
 
 const Header = () => {
   return (
     <StyledHeader>
       <Title>Movie Geeks</Title>
-      <Container>
+      <Navigation aria-label="main navigation">
         <Logo />
 
         <SearchForm />
-      </Container>
+
+        <FeaturesList />
+      </Navigation>
     </StyledHeader>
   );
 }

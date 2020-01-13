@@ -10,7 +10,7 @@ export const Title = styled.h1`
   left: -200rem;
 `;
 
-export const Container = styled.div`
+export const Navigation = styled.nav`
   max-width: 60rem;
   margin: auto;
 
@@ -33,6 +33,7 @@ export const StyledSearchForm = styled.form`
   display: flex;
   border: 1px solid ${theme.border.light};
   border-radius: .2rem;
+  margin-right: auto;
 `;
 
 export const SearchInput = styled.input`
@@ -61,3 +62,9 @@ export const SearchIcon = styled.img`
   height: auto;
   padding: .2rem;
 `;
+
+export const StyledFeaturesList = styled.ul``;
+
+export const Feature = styled.li``;
+
+export const StyledAvatar = styled.img``;
