@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { 
   StyledFeaturesList,
   Feature
-} from './style';
+} from '../style';
 
 const FeaturesList = () => {
   return (

@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import {
   LogoLink,
   LogoImg
-} from './style';
+} from '../style';
 import logo from '../../images/logo.svg';
 
 const Logo = () => {

@@ -4,7 +4,7 @@ import {
   SearchInput,
   SearchBtn,
   SearchIcon
-} from './style';
+} from '../style';
 import searchIcon from '../../images/search.svg';
 
 const SearchForm = () => {

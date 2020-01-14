@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { 
   StyledMoviesList
-} from './style';
+} from '../style';
 import Movie from './movie';
 import avatar from '../../images/avatar.svg';
 import harryPotterCover from '../../images/harry-potter.jpeg';

@@ -3,7 +3,7 @@ import {
   MoviesSection,
   Title
 } from './style';
-import MoviesList from './moviesList';
+import MoviesList from './components/moviesList';
 
 const Movies = () => {
   return (

@@ -4,9 +4,9 @@ import {
   Title,
   Navigation
 } from './style';
-import Logo from './logo';
-import SearchForm from './searchForm';
-import FeaturesList from './featuresList';
+import Logo from './components/logo';
+import SearchForm from './components/searchForm';
+import FeaturesList from './components/featuresList';
 
 const Header = () => {
   return (

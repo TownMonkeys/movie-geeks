@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { 
   StyledMovie
-} from './style';
+} from '../style';
 
 const Movie = (props) => {
   const { movie } = props;
