@@ -3,13 +3,14 @@ import {
   StyledFeaturesList,
   Feature
 } from '../style';
+import AccountDropdown from './accountDropdown';
 
 const FeaturesList = () => {
   return (
     <StyledFeaturesList>
-      {/* <Feature>
-        
-      </Feature> */}
+      <Feature>
+        <AccountDropdown />
+      </Feature>
     </StyledFeaturesList>
   );
 }

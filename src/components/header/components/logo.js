@@ -3,7 +3,7 @@ import {
   LogoLink,
   LogoImg
 } from '../style';
-import logo from '../../images/logo.svg';
+import logo from '../../../images/logo.svg';
 
 const Logo = () => {
   return (

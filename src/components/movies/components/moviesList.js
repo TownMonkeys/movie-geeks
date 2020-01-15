@@ -3,9 +3,9 @@ import {
   StyledMoviesList
 } from '../style';
 import Movie from './movie';
-import avatar from '../../images/avatar.svg';
-import harryPotterCover from '../../images/harry-potter.jpeg';
-import beautifulMindCover from '../../images/beautiful-mind.jpeg';
+import avatar from '../../../images/avatar.svg';
+import harryPotterCover from '../../../images/harry-potter.jpeg';
+import beautifulMindCover from '../../../images/beautiful-mind.jpeg';
 
 const movies = [
   {

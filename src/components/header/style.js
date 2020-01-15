@@ -63,8 +63,21 @@ export const SearchIcon = styled.img`
   padding: .2rem;
 `;
 
-export const StyledFeaturesList = styled.ul``;
+export const StyledFeaturesList = styled.ul`
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+`;
 
 export const Feature = styled.li``;
 
-export const StyledAvatar = styled.img``;
+export const DropdownToggler = styled.button`
+  display: flex;
+  background: transparent;
+`;
+
+export const UserName = styled.span``;
+
+export const DownArrow = styled.img`
+  width: 1rem;
+`; 
