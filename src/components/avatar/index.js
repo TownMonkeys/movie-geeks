@@ -8,7 +8,11 @@ const Avatar = (props) => {
   const { name, avatar } = user;
 
   return (
-    <StyledAvatar src={avatar} alt="" />
+    <StyledAvatar 
+      src={avatar} 
+      alt="" 
+      size={size}
+    />
   );
 }
 

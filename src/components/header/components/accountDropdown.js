@@ -22,7 +22,7 @@ const AccountDropdown = () => {
         aria-expanded={false} 
         aria-controls="accountMenu"
       >
-        <Avatar user={user} />
+        <Avatar user={user} size={'small'} />
 
         <UserName>{user.name}</UserName>
 
