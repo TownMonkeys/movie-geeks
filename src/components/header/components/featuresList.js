@@ -12,9 +12,9 @@ const FeaturesList = () => {
       <Feature>
         <AccountDropdown />
       </Feature>
-      <Feature>
+      {/* <Feature>
 
-      </Feature>
+      </Feature> */}
     </StyledFeaturesList>
   );
 }
