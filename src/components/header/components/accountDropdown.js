@@ -2,14 +2,16 @@ import React, { memo } from 'react';
 import { 
   DropdownToggler,
   UserName,
-  DownArrow
+  DownArrow,
+  DropdownMenu,
+  MenuItem
 } from '../style';
 import avatar from '../../../images/avatar.svg';
 import downArrow from '../../../images/down-arrow.svg';
 import Avatar from '../../avatar';
 
 const user = {
-  name: 'Yuri',
+  name: 'Yurio',
   avatar
 };
 
@@ -23,11 +25,18 @@ const AccountDropdown = () => {
         aria-controls="accountMenu"
       >
         <Avatar user={user} size={'small'} />
-
         <UserName>{user.name}</UserName>
-
         <DownArrow src={downArrow} alt="Down arrow" />
       </DropdownToggler>
+
+      {/* <DropdownMenu 
+        id="accountMenu"
+        role="menu"
+      >
+        <MenuItem>Profile</MenuItem>
+        <MenuItem>Watchlist</MenuItem>
+        <MenuItem>Logout</MenuItem>
+      </DropdownMenu> */}
     </React.Fragment>
   );
 }

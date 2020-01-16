@@ -1,7 +1,8 @@
 import React, { memo } from 'react';
 import { 
   StyledFeaturesList,
-  Feature
+  Feature,
+  FeatureButton
 } from '../style';
 import AccountDropdown from './accountDropdown';
 
@@ -10,6 +11,9 @@ const FeaturesList = () => {
     <StyledFeaturesList>
       <Feature>
         <AccountDropdown />
+      </Feature>
+      <Feature>
+
       </Feature>
     </StyledFeaturesList>
   );

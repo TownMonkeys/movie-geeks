@@ -52,7 +52,8 @@ export const SearchBtn = styled.button`
   cursor: pointer;
   transition: background-color .1s;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: ${theme.bg.grey};
   }
 `;
@@ -63,21 +64,57 @@ export const SearchIcon = styled.img`
   padding: .2rem;
 `;
 
-export const StyledFeaturesList = styled.ul`
+const listStyles = css`
   list-style: none;
   padding-left: 0;
   margin: 0;
 `;
 
-export const Feature = styled.li``;
-
-export const DropdownToggler = styled.button`
-  display: flex;
-  background: transparent;
+export const StyledFeaturesList = styled.ul`
+  ${listStyles}
 `;
 
-export const UserName = styled.span``;
+export const Feature = styled.li`
+  height: 3rem;
+  display: flex;
+
+  &:not(:last-child) {
+    border-right: 1px solid ${theme.border.light};
+  }
+`;
+
+const buttonStyles = css`
+  display: flex;
+  align-items: center;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  transition: background-color .1s;
+
+  &:hover,
+  &:focus {
+    background-color: ${theme.bg.grey};
+  }
+`;
+
+export const DropdownToggler = styled.button`
+  ${buttonStyles}
+`;
+
+export const UserName = styled.span`
+  margin: 0 .4rem 0 .3rem;
+`;
 
 export const DownArrow = styled.img`
-  width: 1rem;
-`; 
+  width: .6rem;
+`;
+
+export const DropdownMenu = styled.ul`
+  ${listStyles}
+`;
+
+export const MenuItem = styled.li``;
+
+export const FeatureButton = styled.button`
+  ${buttonStyles}
+`;
