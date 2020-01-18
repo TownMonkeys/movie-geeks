@@ -77,10 +77,6 @@ export const StyledFeaturesList = styled.ul`
 `;
 
 export const Feature = styled.li`
-  position: relative;
-  height: 3rem;
-  display: flex;
-
   &:not(:last-child) {
     border-right: 1px solid ${theme.border.light};
   }
@@ -100,6 +96,12 @@ const buttonStyles = css`
   }
 `;
 
+export const DropdownContainer = styled.div`
+  position: relative;
+  height: 3rem;
+  display: flex;
+`;
+
 export const DropdownToggler = styled.button`
   ${buttonStyles}
 `;
@@ -115,9 +117,11 @@ export const DownArrow = styled.img`
 
 export const DropdownMenu = styled.ul`
   ${listStyles}
+  display: ${(props) => props.visible ? 'block' : 'none'};
   background-color: #fff;
+  border: 1px solid ${theme.border.light};
   position: absolute;
-  top: calc(3rem + 1px);
+  top: 3rem;
   right: 0;
   min-width: 100%;
   box-shadow: 0 5px 5px rgba(0,0,0,.2);
@@ -128,7 +132,7 @@ export const MenuItem = styled.li`
   cursor: pointer;
 
   &:hover,
-  &[data-active="true"] {
+  &[tabindex="0"] {
     background-color: ${theme.bg.grey};
   }
 `;

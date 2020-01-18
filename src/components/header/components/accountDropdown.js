@@ -1,5 +1,6 @@
-import React, { memo } from 'react';
+import React, { memo, useState, useCallback, useEffect } from 'react';
 import { 
+  DropdownContainer,
   DropdownToggler,
   UserName,
   DownArrow,
@@ -16,13 +17,39 @@ const user = {
 };
 
 const AccountDropdown = () => {
+  // Account menu expanded / collapsed
+  const [ menuExpanded, setMenuExpanded ] = useState(false);
+
+  const expandMenu = useCallback(
+    () => {
+      setMenuExpanded(true);
+    },
+    []
+  )
+
+  const collapseMenu = useCallback(
+    () => {
+      setMenuExpanded(false);
+    },
+    []
+  )
+
+  // active menu item
+  const [ activeIndex, setActiveIndex ] = useState(0);
+
+  // useEffect();
+
   return (
-    <React.Fragment>
+    <DropdownContainer
+      onMouseEnter={expandMenu}
+      onMouseLeave={collapseMenu}
+    >
       <DropdownToggler
         aria-label="toggle account menu" 
         aria-haspopup="true" 
-        aria-expanded={false} 
+        aria-expanded={menuExpanded} 
         aria-controls="accountMenu"
+        onFocus={expandMenu}
       >
         <Avatar user={user} size={'small'} />
         <UserName>{user.name}</UserName>
@@ -32,16 +59,15 @@ const AccountDropdown = () => {
       <DropdownMenu 
         id="accountMenu"
         role="menu"
-        tabIndex="0"
         aria-label="account menu"
-        aria-activedescendant={""}
-        visible={false}
+        aria-activedescendant={`item${activeIndex+1}`}
+        visible={menuExpanded}
       >
-        <MenuItem role="menuitem" id="item1">Profile</MenuItem>
-        <MenuItem role="menuitem" id="item2">Watchlist</MenuItem>
-        <MenuItem role="menuitem" id="item3">Sign Out</MenuItem>
+        <MenuItem role="menuitem" id="item1" tabIndex={activeIndex === 0 ? 0 : -1}>Profile</MenuItem>
+        <MenuItem role="menuitem" id="item2" tabIndex={activeIndex === 1 ? 0 : -1}>Watchlist</MenuItem>
+        <MenuItem role="menuitem" id="item3" tabIndex={activeIndex === 2 ? 0 : -1}>Sign Out</MenuItem>
       </DropdownMenu>
-    </React.Fragment>
+    </DropdownContainer>
   );
 }
 
