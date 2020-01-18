@@ -3,6 +3,8 @@ import theme from '../../shared/theme';
 
 export const StyledHeader = styled.header`
   border-bottom: 1px solid ${theme.border.light};
+  position: relative;
+  z-index: 1;
 `;
 
 export const Title = styled.h1`
@@ -75,6 +77,7 @@ export const StyledFeaturesList = styled.ul`
 `;
 
 export const Feature = styled.li`
+  position: relative;
   height: 3rem;
   display: flex;
 
@@ -111,9 +114,23 @@ export const DownArrow = styled.img`
 
 export const DropdownMenu = styled.ul`
   ${listStyles}
+  background-color: #fff;
+  position: absolute;
+  top: calc(3rem + 1px);
+  right: 0;
+  min-width: 100%;
+  box-shadow: 0 5px 5px rgba(0,0,0,.2);
 `;
 
-export const MenuItem = styled.li``;
+export const MenuItem = styled.li`
+  padding: .5rem 1.2rem;
+  cursor: pointer;
+
+  &:hover,
+  &[data-active="true"] {
+    background-color: ${theme.bg.grey};
+  }
+`;
 
 export const FeatureButton = styled.button`
   ${buttonStyles}

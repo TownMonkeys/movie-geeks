@@ -29,14 +29,18 @@ const AccountDropdown = () => {
         <DownArrow src={downArrow} alt="Down arrow" />
       </DropdownToggler>
 
-      {/* <DropdownMenu 
+      <DropdownMenu 
         id="accountMenu"
         role="menu"
+        tabIndex="0"
+        aria-label="account menu"
+        aria-activedescendant={""}
+        visible={false}
       >
-        <MenuItem>Profile</MenuItem>
-        <MenuItem>Watchlist</MenuItem>
-        <MenuItem>Logout</MenuItem>
-      </DropdownMenu> */}
+        <MenuItem role="menuitem" id="item1">Profile</MenuItem>
+        <MenuItem role="menuitem" id="item2">Watchlist</MenuItem>
+        <MenuItem role="menuitem" id="item3">Sign Out</MenuItem>
+      </DropdownMenu>
     </React.Fragment>
   );
 }
