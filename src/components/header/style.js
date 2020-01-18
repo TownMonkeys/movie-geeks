@@ -106,6 +106,7 @@ export const DropdownToggler = styled.button`
 
 export const UserName = styled.span`
   margin: 0 .4rem 0 .3rem;
+  font-weight: bold;
 `;
 
 export const DownArrow = styled.img`
@@ -123,7 +124,7 @@ export const DropdownMenu = styled.ul`
 `;
 
 export const MenuItem = styled.li`
-  padding: .5rem 1.2rem;
+  padding: .5rem .8rem;
   cursor: pointer;
 
   &:hover,
