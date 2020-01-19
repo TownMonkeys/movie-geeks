@@ -14,7 +14,7 @@ const movies = [
     avatar,
     cover: harryPotterCover,
     name: 'Harry Potter and the Sorcerer\'s Stone',
-    genre: ['Adventure', 'Family'],
+    genre: ['Adventure,', 'Family'],
     rating: 5,
     review: 'As good an adaption as could ever be expected',
     Likes: 24
@@ -25,7 +25,7 @@ const movies = [
     avatar,
     cover: beautifulMindCover,
     name: 'A Beautiful Mind',
-    genre: ['Biography', 'Drama'],
+    genre: ['Biography,', 'Drama'],
     rating: 4,
     review: 'A beautifully written, acted, and crafted movie.',
     Likes: 13
