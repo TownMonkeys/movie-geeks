@@ -1,4 +1,4 @@
-import React, { memo, useState, useCallback, useEffect } from 'react';
+import React, { memo, useState, useCallback, useEffect, useRef } from 'react';
 import { 
   DropdownContainer,
   DropdownToggler,
@@ -16,7 +16,19 @@ const user = {
   avatar
 };
 
+// Custom hook to get old values
+function usePrevious(value) {
+  const ref = useRef();
+  useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
+}
+
 const AccountDropdown = () => {
+  // Refs
+  const itemsRefs = [useRef(), useRef(), useRef()];
+
   // Account menu expanded / collapsed
   const [ menuExpanded, setMenuExpanded ] = useState(false);
 
@@ -34,10 +46,49 @@ const AccountDropdown = () => {
     []
   )
 
+  const prevMenuExpanded = usePrevious(menuExpanded);
+  useEffect(() => {
+    if (menuExpanded && !prevMenuExpanded) {
+      itemsRefs[activeIndex].current.focus();
+    }
+  }, [menuExpanded]);
+
   // active menu item
   const [ activeIndex, setActiveIndex ] = useState(0);
+  
+  const handleKeyDown = useCallback((event) => {
+    const keys = {
+      up: 38,
+      down: 40,
+      tab: 9,
+      esc: 27
+    };
+    const { keyCode } = event;
 
-  // useEffect();
+    const moveToIndex = (newActiveIndex) => {
+      event.preventDefault();
+      setActiveIndex(newActiveIndex);
+      itemsRefs[newActiveIndex].current.focus();
+    };
+    
+    if (keyCode === keys.up) {
+      const isFirstIndex = activeIndex === 0;
+      if (isFirstIndex) {
+        moveToIndex(2);
+      } else {
+        moveToIndex(activeIndex - 1);
+      }
+    } else if (keyCode === keys.down) {
+      const isLastIndex = activeIndex === 2;
+      if (isLastIndex) {
+        moveToIndex(0);
+      } else {
+        moveToIndex(activeIndex + 1);
+      }
+    } else if (keyCode === keys.esc || keyCode === keys.tab) {
+      collapseMenu();
+    }
+  }, [ activeIndex ]);
 
   return (
     <DropdownContainer
@@ -62,10 +113,11 @@ const AccountDropdown = () => {
         aria-label="account menu"
         aria-activedescendant={`item${activeIndex+1}`}
         visible={menuExpanded}
+        onKeyDown={handleKeyDown}
       >
-        <MenuItem role="menuitem" id="item1" tabIndex={activeIndex === 0 ? 0 : -1}>Profile</MenuItem>
-        <MenuItem role="menuitem" id="item2" tabIndex={activeIndex === 1 ? 0 : -1}>Watchlist</MenuItem>
-        <MenuItem role="menuitem" id="item3" tabIndex={activeIndex === 2 ? 0 : -1}>Sign Out</MenuItem>
+        <MenuItem role="menuitem" id="item1" tabIndex={activeIndex === 0 ? 0 : -1} ref={itemsRefs[0]}>Profile</MenuItem>
+        <MenuItem role="menuitem" id="item2" tabIndex={activeIndex === 1 ? 0 : -1} ref={itemsRefs[1]}>Watchlist</MenuItem>
+        <MenuItem role="menuitem" id="item3" tabIndex={activeIndex === 2 ? 0 : -1} ref={itemsRefs[2]}>Sign Out</MenuItem>
       </DropdownMenu>
     </DropdownContainer>
   );

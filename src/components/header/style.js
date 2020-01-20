@@ -104,6 +104,10 @@ export const DropdownContainer = styled.div`
 
 export const DropdownToggler = styled.button`
   ${buttonStyles}
+
+  &[aria-expanded="true"] {
+    background-color: ${theme.bg.grey};
+  }
 `;
 
 export const UserName = styled.span`
