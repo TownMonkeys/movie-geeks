@@ -58,10 +58,11 @@ const AccountDropdown = () => {
   
   const handleKeyDown = useCallback((event) => {
     const keys = {
-      up: 38,
-      down: 40,
-      tab: 9,
-      esc: 27
+      up   : 38,
+      down : 40,
+      tab  : 9,
+      shift: 16,
+      esc  : 27
     };
     const { keyCode } = event;
 
@@ -87,7 +88,10 @@ const AccountDropdown = () => {
       }
     } else if (keyCode === keys.esc || keyCode === keys.tab) {
       collapseMenu();
-    }
+      if (event.shiftKey) {
+        console.log('test');
+      }
+    } 
   }, [ activeIndex ]);
 
   return (
