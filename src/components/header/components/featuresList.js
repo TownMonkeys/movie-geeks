@@ -6,11 +6,13 @@ import {
 } from '../style';
 import AccountDropdown from './accountDropdown';
 
-const FeaturesList = () => {
+const FeaturesList = (props) => {
+  const { searchBtnRef } = props;
+
   return (
     <StyledFeaturesList>
       <Feature>
-        <AccountDropdown />
+        <AccountDropdown searchBtnRef={searchBtnRef} />
       </Feature>
       {/* <Feature>
 

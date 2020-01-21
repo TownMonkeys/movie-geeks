@@ -25,9 +25,12 @@ function usePrevious(value) {
   return ref.current;
 }
 
-const AccountDropdown = () => {
+const AccountDropdown = (props) => {
+  // Props
+  const { searchBtnRef } = props;
+
   // Refs
-  const itemsRefs = [useRef(), useRef(), useRef()];
+  const itemsRefs = useRef([]);
 
   // Account menu expanded / collapsed
   const [ menuExpanded, setMenuExpanded ] = useState(false);
@@ -49,7 +52,7 @@ const AccountDropdown = () => {
   const prevMenuExpanded = usePrevious(menuExpanded);
   useEffect(() => {
     if (menuExpanded && !prevMenuExpanded) {
-      itemsRefs[activeIndex].current.focus();
+      itemsRefs.current[activeIndex].focus();
     }
   }, [menuExpanded]);
 
@@ -69,7 +72,7 @@ const AccountDropdown = () => {
     const moveToIndex = (newActiveIndex) => {
       event.preventDefault();
       setActiveIndex(newActiveIndex);
-      itemsRefs[newActiveIndex].current.focus();
+      itemsRefs.current[newActiveIndex].focus();
     };
     
     if (keyCode === keys.up) {
@@ -86,11 +89,12 @@ const AccountDropdown = () => {
       } else {
         moveToIndex(activeIndex + 1);
       }
-    } else if (keyCode === keys.esc || keyCode === keys.tab) {
+    } else if (keyCode === keys.esc || (keyCode === keys.tab && event.shiftKey)) {
+      event.preventDefault();
       collapseMenu();
-      if (event.shiftKey) {
-        console.log('test');
-      }
+      searchBtnRef.current.focus();
+    } else if (keyCode === keys.tab) {
+      collapseMenu();
     } 
   }, [ activeIndex ]);
 
@@ -119,9 +123,17 @@ const AccountDropdown = () => {
         visible={menuExpanded}
         onKeyDown={handleKeyDown}
       >
-        <MenuItem role="menuitem" id="item1" tabIndex={activeIndex === 0 ? 0 : -1} ref={itemsRefs[0]}>Profile</MenuItem>
-        <MenuItem role="menuitem" id="item2" tabIndex={activeIndex === 1 ? 0 : -1} ref={itemsRefs[1]}>Watchlist</MenuItem>
-        <MenuItem role="menuitem" id="item3" tabIndex={activeIndex === 2 ? 0 : -1} ref={itemsRefs[2]}>Sign Out</MenuItem>
+        {
+          ['Profile', 'Watchlist', 'Sign Out'].map((item, index) => (
+            <MenuItem
+              key={index}
+              role="menuitem"
+              id={`item${index+1}`}
+              tabIndex={activeIndex === index ? 0 : -1}
+              ref={(el) => itemsRefs.current[index] = el}
+            >{item}</MenuItem>
+          ))
+        }
       </DropdownMenu>
     </DropdownContainer>
   );

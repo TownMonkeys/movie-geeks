@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, forwardRef } from 'react';
 import { 
   StyledSearchForm,
   SearchInput,
@@ -7,16 +7,16 @@ import {
 } from '../style';
 import searchIcon from '../../../images/search.svg';
 
-const SearchForm = () => {
+const SearchForm = forwardRef((props, ref) => {
   return (
     <StyledSearchForm>
       <SearchInput type="search" placeholder="Search" aria-label="search" />
 
-      <SearchBtn type="submit">
+      <SearchBtn type="submit" ref={ref}>
         <SearchIcon src={searchIcon} alt="Search" />
       </SearchBtn>
     </StyledSearchForm>
   );
-}
+})
 
 export default memo(SearchForm);

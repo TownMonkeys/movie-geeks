@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useRef } from 'react';
 import { 
   StyledHeader,
   Title,
@@ -9,15 +9,18 @@ import SearchForm from './components/searchForm';
 import FeaturesList from './components/featuresList';
 
 const Header = () => {
+  const searchBtnRef = useRef();
+  console.log(searchBtnRef);
+
   return (
     <StyledHeader>
       <Title>Movie Geeks</Title>
       <Navigation aria-label="main navigation">
         <Logo />
 
-        <SearchForm />
+        <SearchForm ref={searchBtnRef} />
 
-        <FeaturesList />
+        <FeaturesList searchBtnRef={searchBtnRef} />
       </Navigation>
     </StyledHeader>
   );
