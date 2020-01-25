@@ -22,9 +22,9 @@ const AccountDropdown = (props) => {
   const { searchBtnRef } = props;
 
   /* refs --- */
-  const togglerRef = useRef();
-  const itemsRefs = useRef([]);
   const containerRef = useRef();
+  const togglerRef   = useRef();
+  const itemsRefs    = useRef([]);
 
   /* functionalities --- */
   // Account menu expanded / collapsed
@@ -98,7 +98,8 @@ const AccountDropdown = (props) => {
 
   const handleTogglerKeyDown = useCallback((event) => {
     const keys = {
-      down: 40,
+      down : 40,
+      tab  : 9,
       space: 32
     };
     const { keyCode } = event;
@@ -106,8 +107,10 @@ const AccountDropdown = (props) => {
       event.preventDefault();
       itemsRefs.current[0].focus();
       setActiveIndex(0);
+    } else if (keyCode === keys.tab && menuExpanded) {
+      collapseMenu();
     }
-  }, []);
+  }, [menuExpanded]);
 
   const onTogglerMouseEnter = useCallback(() => {
     if (!activeIndex) {

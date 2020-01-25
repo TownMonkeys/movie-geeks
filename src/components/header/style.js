@@ -20,6 +20,11 @@ export const Navigation = styled.nav`
   align-items: center;
 `;
 
+export const NavTitle = styled.h2`
+  position: absolute;
+  left: -200rem;
+`;
+
 export const LogoLink = styled.a`
   display: flex;
 `;
@@ -74,11 +79,28 @@ const listStyles = css`
 
 export const StyledFeaturesList = styled.ul`
   ${listStyles}
+  
+  height: 3rem;
+  display: flex;
 `;
 
 export const Feature = styled.li`
+  height: 100%;
+  display: flex;
+
   &:not(:last-child) {
-    border-right: 1px solid ${theme.border.light};
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 22px;
+      background-color: ${theme.border.light};
+    }
   }
 `;
 
@@ -89,6 +111,8 @@ const buttonStyles = css`
   cursor: pointer;
   border: none;
   transition: background-color .1s;
+  font-weight: bold;
+  padding: 0 1.1rem;
 
   &:hover,
   &:focus {
@@ -98,7 +122,7 @@ const buttonStyles = css`
 
 export const DropdownContainer = styled.div`
   position: relative;
-  height: 3rem;
+  height: 100%;
   display: flex;
 `;
 
@@ -112,7 +136,6 @@ export const DropdownToggler = styled.button`
 
 export const UserName = styled.span`
   margin: 0 .4rem 0 .3rem;
-  font-weight: bold;
 `;
 
 export const DownArrow = styled.img`

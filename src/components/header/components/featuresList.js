@@ -14,9 +14,9 @@ const FeaturesList = (props) => {
       <Feature>
         <AccountDropdown searchBtnRef={searchBtnRef} />
       </Feature>
-      {/* <Feature>
-
-      </Feature> */}
+      <Feature>
+        <FeatureButton>Recommend</FeatureButton>
+      </Feature>
     </StyledFeaturesList>
   );
 }

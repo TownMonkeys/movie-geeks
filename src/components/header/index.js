@@ -2,7 +2,8 @@ import React, { memo, useRef } from 'react';
 import { 
   StyledHeader,
   Title,
-  Navigation
+  Navigation,
+  NavTitle
 } from './style';
 import Logo from './components/logo';
 import SearchForm from './components/searchForm';
@@ -14,7 +15,9 @@ const Header = () => {
   return (
     <StyledHeader>
       <Title>Movie Geeks</Title>
-      <Navigation aria-label="main navigation">
+      <Navigation>
+        <NavTitle>Main Navigation</NavTitle>
+
         <Logo />
 
         <SearchForm ref={searchBtnRef} />
