@@ -31,23 +31,18 @@ const AccountDropdown = (props) => {
 
   // Refs
   const itemsRefs = useRef([]);
+  const containerRef = useRef();
 
-  // Account menu expanded / collapsed
+  /* Account menu expanded / collapsed --- */
   const [ menuExpanded, setMenuExpanded ] = useState(false);
 
-  const expandMenu = useCallback(
-    () => {
-      setMenuExpanded(true);
-    },
-    []
-  )
+  const expandMenu = useCallback(() => {
+    setMenuExpanded(true);
+  }, []);
 
-  const collapseMenu = useCallback(
-    () => {
-      setMenuExpanded(false);
-    },
-    []
-  )
+  const collapseMenu = useCallback(() => {
+    setMenuExpanded(false);
+  }, []);
 
   const prevMenuExpanded = usePrevious(menuExpanded);
   useEffect(() => {
@@ -56,7 +51,7 @@ const AccountDropdown = (props) => {
     }
   }, [menuExpanded]);
 
-  // active menu item
+  /* active menu item --- */
   const [ activeIndex, setActiveIndex ] = useState(0);
   
   const handleKeyDown = useCallback((event) => {
@@ -98,10 +93,25 @@ const AccountDropdown = (props) => {
     } 
   }, [ activeIndex ]);
 
+  // handle click outside
+  const handleClickOutside = useCallback((event) => {
+    const { target } = event;
+    if (!containerRef.current.contains(target) && menuExpanded) {
+      collapseMenu();
+    }
+  }, [ menuExpanded ])
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [menuExpanded])
+
   return (
     <DropdownContainer
       onMouseEnter={expandMenu}
       onMouseLeave={collapseMenu}
+      ref={containerRef}
     >
       <DropdownToggler
         aria-label="toggle account menu" 

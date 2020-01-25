@@ -10,7 +10,6 @@ import FeaturesList from './components/featuresList';
 
 const Header = () => {
   const searchBtnRef = useRef();
-  console.log(searchBtnRef);
 
   return (
     <StyledHeader>
