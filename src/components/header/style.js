@@ -112,7 +112,7 @@ const buttonStyles = css`
   border: none;
   transition: background-color .1s;
   font-weight: bold;
-  padding: 0 1.1rem;
+  padding: 0 .8rem;
 
   &:hover,
   &:focus {

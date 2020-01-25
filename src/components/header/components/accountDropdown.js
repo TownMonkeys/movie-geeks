@@ -105,6 +105,9 @@ const AccountDropdown = (props) => {
     const { keyCode } = event;
     if (keyCode === keys.down || keyCode === keys.space) {
       event.preventDefault();
+      if (!menuExpanded) {
+        expandMenu();
+      }
       itemsRefs.current[0].focus();
       setActiveIndex(0);
     } else if (keyCode === keys.tab && menuExpanded) {
