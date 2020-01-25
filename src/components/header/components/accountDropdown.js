@@ -109,6 +109,12 @@ const AccountDropdown = (props) => {
     }
   }, []);
 
+  const onTogglerMouseEnter = useCallback(() => {
+    if (!activeIndex) {
+      togglerRef.current.focus();
+    }
+  }, []);
+
   // handle click outside
   const handleClickOutside = useCallback((event) => {
     const { target } = event;
@@ -136,6 +142,7 @@ const AccountDropdown = (props) => {
         aria-controls="accountMenu"
         onFocus={expandMenu}
         onKeyDown={handleTogglerKeyDown}
+        onMouseEnter={onTogglerMouseEnter}
         ref={togglerRef}
       >
         <Avatar user={user} size={'small'} />
