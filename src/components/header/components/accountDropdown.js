@@ -22,6 +22,7 @@ const AccountDropdown = (props) => {
   const { searchBtnRef } = props;
 
   /* refs --- */
+  const togglerRef = useRef();
   const itemsRefs = useRef([]);
   const containerRef = useRef();
 
@@ -39,7 +40,7 @@ const AccountDropdown = (props) => {
 
   const prevMenuExpanded = usePrevious(menuExpanded);
   useEffect(() => {
-    if (menuExpanded && !prevMenuExpanded) {
+    if (menuExpanded && !prevMenuExpanded && Number.isInteger(activeIndex)) {
       itemsRefs.current[activeIndex].focus();
     }
   }, [menuExpanded]);
@@ -47,7 +48,7 @@ const AccountDropdown = (props) => {
   // active menu item 
   const [ activeIndex, setActiveIndex ] = useState(0);
   
-  const handleKeyDown = useCallback((event) => {
+  const handleMenuKeyDown = useCallback((event) => {
     const keys = {
       up   : 38,
       down : 40,
@@ -86,6 +87,28 @@ const AccountDropdown = (props) => {
     } 
   }, [ activeIndex ]);
 
+  const handleMenuMouseEnter = useCallback(() => {
+    const thereIsFocusedItem = Number.isInteger(activeIndex);
+    if (thereIsFocusedItem) {
+      itemsRefs.current[activeIndex].blur();
+      setActiveIndex(null);
+      togglerRef.current.focus();
+    }
+  }, [activeIndex]);
+
+  const handleTogglerKeyDown = useCallback((event) => {
+    const keys = {
+      down: 40,
+      space: 32
+    };
+    const { keyCode } = event;
+    if (keyCode === keys.down || keyCode === keys.space) {
+      event.preventDefault();
+      itemsRefs.current[0].focus();
+      setActiveIndex(0);
+    }
+  }, []);
+
   // handle click outside
   const handleClickOutside = useCallback((event) => {
     const { target } = event;
@@ -112,6 +135,8 @@ const AccountDropdown = (props) => {
         aria-expanded={menuExpanded} 
         aria-controls="accountMenu"
         onFocus={expandMenu}
+        onKeyDown={handleTogglerKeyDown}
+        ref={togglerRef}
       >
         <Avatar user={user} size={'small'} />
         <UserName>{user.name}</UserName>
@@ -124,7 +149,8 @@ const AccountDropdown = (props) => {
         aria-label="account menu"
         aria-activedescendant={`item${activeIndex+1}`}
         visible={menuExpanded}
-        onKeyDown={handleKeyDown}
+        onKeyDown={handleMenuKeyDown}
+        onMouseEnter={handleMenuMouseEnter}
       >
         {
           ['Profile', 'Watchlist', 'Sign Out'].map((item, index) => (
