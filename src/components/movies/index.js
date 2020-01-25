@@ -10,7 +10,7 @@ const Movies = () => {
     <MoviesSection>
       <Title>Movies Section</Title>
 
-      {/* <MoviesList /> */}
+      <MoviesList />
     </MoviesSection>
   );
 }
