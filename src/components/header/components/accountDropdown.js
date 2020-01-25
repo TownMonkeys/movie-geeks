@@ -7,6 +7,7 @@ import {
   DropdownMenu,
   MenuItem
 } from '../style';
+import usePrevious from '../../../hooks/usePrevious';
 import avatar from '../../../images/avatar.svg';
 import downArrow from '../../../images/down-arrow.svg';
 import Avatar from '../../avatar';
@@ -16,24 +17,16 @@ const user = {
   avatar
 };
 
-// Custom hook to get old values
-function usePrevious(value) {
-  const ref = useRef();
-  useEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
-}
-
 const AccountDropdown = (props) => {
-  // Props
+  /* props --- */
   const { searchBtnRef } = props;
 
-  // Refs
+  /* refs --- */
   const itemsRefs = useRef([]);
   const containerRef = useRef();
 
-  /* Account menu expanded / collapsed --- */
+  /* functionalities --- */
+  // Account menu expanded / collapsed
   const [ menuExpanded, setMenuExpanded ] = useState(false);
 
   const expandMenu = useCallback(() => {
@@ -51,7 +44,7 @@ const AccountDropdown = (props) => {
     }
   }, [menuExpanded]);
 
-  /* active menu item --- */
+  // active menu item 
   const [ activeIndex, setActiveIndex ] = useState(0);
   
   const handleKeyDown = useCallback((event) => {
