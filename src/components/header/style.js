@@ -107,12 +107,16 @@ export const Feature = styled.li`
 const buttonStyles = css`
   display: flex;
   align-items: center;
+  justify-content: center;
   background: transparent;
   cursor: pointer;
   border: none;
-  transition: background-color .1s;
+`;
+
+const featureButtonStyles = css`
   font-weight: bold;
   padding: 0 .8rem;
+  transition: background-color .1s;
 
   &:hover,
   &:focus {
@@ -128,6 +132,7 @@ export const DropdownContainer = styled.div`
 
 export const DropdownToggler = styled.button`
   ${buttonStyles}
+  ${featureButtonStyles}
 
   &[aria-expanded="true"] {
     background-color: ${theme.bg.grey};
@@ -166,4 +171,9 @@ export const MenuItem = styled.li`
 
 export const FeatureButton = styled.button`
   ${buttonStyles}
+  ${featureButtonStyles}
+`;
+
+export const StyledInteractionMeans = styled.ul`
+  ${listStyles}
 `;
