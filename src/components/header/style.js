@@ -174,6 +174,8 @@ export const FeatureButton = styled.button`
   ${featureButtonStyles}
 `;
 
-export const StyledInteractionMeans = styled.ul`
+export const StyledInteractionMediums = styled.ul`
   ${listStyles}
 `;
+
+export const InteractionMedium = styled.li``;
