@@ -1,17 +1,20 @@
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import { 
   StyledInteractionMediums,
-  InteractionMedium
+  InteractionMedium,
+  NotificationsBtn,
+  NotificationsIcon
 } from '../style';
+import Notifications from './notifications';
 
 const InteractionMediums = () => {
   return (
     <StyledInteractionMediums>
       <InteractionMedium>
-
+        <Notifications />
       </InteractionMedium>
       <InteractionMedium>
-
+        
       </InteractionMedium>
     </StyledInteractionMediums>
   );

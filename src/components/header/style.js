@@ -179,3 +179,16 @@ export const StyledInteractionMediums = styled.ul`
 `;
 
 export const InteractionMedium = styled.li``;
+
+export const NotificationsBtn = styled.button`
+`;
+// ${buttonStyles}
+
+export const NotificationsIcon = styled.img``;
+
+export const NotificationsNumber = styled.span``;
+
+export const NotificationsWord = styled.span`
+  position: absolute;
+  left: -200rem;
+`;
