@@ -1,11 +1,9 @@
-@import './sass/sass-modules/colors';
-
-/* ============================
-  App
-=============================== */
-.App {
-  padding-top: 3.75rem;
-}
+@import './sass/sass-modules/colors',
+        './sass/basic-components/avatar.scss',
+        './sass/basic-components/button.scss',
+        './sass/basic-components/container.scss',
+        './sass/basic-components/image.scss',
+        './sass/basic-components/list.scss';
 
 /* ============================
   Main

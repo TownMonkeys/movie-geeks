@@ -1,20 +1,22 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Header from './components/header/Header';
+import GlobalStyles from './global.css';
 import './App.scss';
-import Dashboard from './pages/dashboard/Dashboard';
-import Profile from './pages/profile/Profile';
+import Header from './components/header';
+import Home from './pages/home';
+// import Profile from './pages/profile/Profile';
 
 const App = () => {
   return (
     <BrowserRouter>
+      <GlobalStyles />
       <div className="App">
         {/* {state} */}
         <Header />
         <main className="main" role="main">
           <Switch>
-            <Route path="/" exact component={Dashboard} />
-            <Route path="/profile" component={Profile} />
+            <Route path="/" exact component={Home} />
+            {/* <Route path="/profile" component={Profile} /> */}
           </Switch>
         </main>
       </div>

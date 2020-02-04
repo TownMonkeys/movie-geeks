@@ -2,7 +2,7 @@ import React, { useState, memo } from 'react';
 import hxh from '../../images/hunterxhunter.jpg';
 import './Movie.scss';
 import LikeSvg from './LikeSvg';
-import user from '../../images/user.svg';
+import user from '../../images/avatar.svg';
 import StarSvg from './StarSvg';
 
 const hitLike = (setLiked) => {
