@@ -174,19 +174,39 @@ export const FeatureButton = styled.button`
   ${featureButtonStyles}
 `;
 
-export const StyledInteractionMediums = styled.ul`
+export const StyledCommunicationMediums = styled.ul`
   ${listStyles}
+
+  height: 3rem;
+  display: flex;
+  margin-left: 2rem;
 `;
 
-export const InteractionMedium = styled.li``;
-
-export const NotificationsBtn = styled.button`
+export const CommunicationMedium = styled.li`
+  height: 100%;
+  display: flex;
 `;
-// ${buttonStyles}
 
-export const NotificationsIcon = styled.img``;
+export const CommunicationBtn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+`;
 
-export const NotificationsNumber = styled.span``;
+export const StyledBellSvg = styled.svg`
+  width: 1.5rem;
+  height: auto;
+`;
+
+export const CommunicationIcon = styled.img`
+  width: 1.5rem;
+  height: auto;
+`;
+
+export const NotificationsNumber = styled.span`
+  position: absolute;
+`;
 
 export const NotificationsWord = styled.span`
   position: absolute;

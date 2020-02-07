@@ -1,8 +1,8 @@
 import React, { memo, useState, useCallback } from 'react';
 import icon from '../../../images/bell.svg';
 import {
-  NotificationsBtn,
-  NotificationsIcon,
+  CommunicationBtn,
+  CommunicationIcon,
   NotificationsNumber,
   NotificationsWord
 } from '../style';
@@ -16,21 +16,21 @@ const Notifications = (props) => {
 
   return (
     <>
-      <NotificationsBtn
+      <CommunicationBtn
         aria-label="toggle notifications panel"
         aria-controls="notificationPanel"
         aria-pressed={expanded} 
         aria-expanded={expanded}
         onClick={toggle}
       >
-        <NotificationsIcon src={icon} alt="bell" />
+        <CommunicationIcon src={icon} alt="bell" />
         <NotificationsNumber
           aria-live="polite"
           aria-atomic="true"
         >
           7 <NotificationsWord>notifications</NotificationsWord>
         </NotificationsNumber>
-      </NotificationsBtn>
+      </CommunicationBtn>
     </>
   );
 }

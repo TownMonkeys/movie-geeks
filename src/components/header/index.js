@@ -8,7 +8,7 @@ import {
 import Logo from './components/logo';
 import SearchForm from './components/searchForm';
 import FeaturesList from './components/featuresList';
-import InteractionMediums from './components/interactionMediums';
+import CommunicationMediums from './components/communicationMediums';
 
 const Header = () => {
   const searchBtnRef = useRef();
@@ -25,7 +25,7 @@ const Header = () => {
 
         <FeaturesList searchBtnRef={searchBtnRef} />
 
-        <InteractionMediums />
+        <CommunicationMediums />
       </Navigation>
     </StyledHeader>
   );
