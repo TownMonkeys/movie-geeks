@@ -6,6 +6,7 @@ import {
   NotificationsNumber,
   NotificationsWord
 } from '../style';
+import Icon from './bellSvg';
 
 const Notifications = (props) => {
   const [ expanded, setExpanded ] = useState(false);
@@ -23,7 +24,7 @@ const Notifications = (props) => {
         aria-expanded={expanded}
         onClick={toggle}
       >
-        <CommunicationIcon src={icon} alt="bell" />
+        <Icon />
         <NotificationsNumber
           aria-live="polite"
           aria-atomic="true"

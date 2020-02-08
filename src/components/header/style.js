@@ -188,15 +188,27 @@ export const CommunicationMedium = styled.li`
 `;
 
 export const CommunicationBtn = styled.button`
+  ${buttonStyles}
   display: flex;
   justify-content: center;
   align-items: center;
   width: 3rem;
+
+  &:hover,
+  &:focus {
+    .bellSvgPath {
+      fill: ${theme.text.default};
+    }
+  }
 `;
 
 export const StyledBellSvg = styled.svg`
   width: 1.5rem;
   height: auto;
+`;
+
+export const BellSvgPath = styled.path`
+  fill: #424242;
 `;
 
 export const CommunicationIcon = styled.img`
@@ -206,6 +218,7 @@ export const CommunicationIcon = styled.img`
 
 export const NotificationsNumber = styled.span`
   position: absolute;
+  display: none;
 `;
 
 export const NotificationsWord = styled.span`
