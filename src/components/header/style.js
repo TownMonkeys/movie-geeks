@@ -209,6 +209,7 @@ export const StyledBellSvg = styled.svg`
 
 export const BellSvgPath = styled.path`
   fill: #424242;
+  transition: .1s fill;
 `;
 
 export const CommunicationIcon = styled.img`
@@ -218,7 +219,8 @@ export const CommunicationIcon = styled.img`
 
 export const NotificationsNumber = styled.span`
   position: absolute;
-  display: none;
+
+  color: #fff;
 `;
 
 export const NotificationsWord = styled.span`
