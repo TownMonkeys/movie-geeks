@@ -1,8 +1,6 @@
 import React, { memo, useState, useCallback } from 'react';
-import icon from '../../../images/bell.svg';
 import {
   CommunicationBtn,
-  CommunicationIcon,
   NotificationsNumber,
   NotificationsWord
 } from '../style';

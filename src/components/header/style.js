@@ -193,34 +193,35 @@ export const CommunicationBtn = styled.button`
   justify-content: center;
   align-items: center;
   width: 3rem;
+  position: relative;
 
   &:hover,
   &:focus {
-    .bellSvgPath {
+    .communicationSvgPath {
       fill: ${theme.text.default};
     }
   }
 `;
 
-export const StyledBellSvg = styled.svg`
+export const CommunicationSvg = styled.svg`
   width: 1.5rem;
   height: auto;
 `;
 
-export const BellSvgPath = styled.path`
+export const CommunicationSvgPath = styled.path`
   fill: #424242;
   transition: .1s fill;
-`;
-
-export const CommunicationIcon = styled.img`
-  width: 1.5rem;
-  height: auto;
 `;
 
 export const NotificationsNumber = styled.span`
   position: absolute;
 
   color: #fff;
+  background-color: ${theme.bg.pink};
+  padding: .1rem;
+  border-radius: .2rem;
+  top: .3rem;
+  right: .65rem;
 `;
 
 export const NotificationsWord = styled.span`

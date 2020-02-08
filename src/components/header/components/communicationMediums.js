@@ -6,15 +6,16 @@ import {
   NotificationsIcon
 } from '../style';
 import Notifications from './notifications';
+import Chat from './chat';
 
 const InteractionMediums = () => {
   return (
     <StyledCommunicationMediums>
       <CommunicationMedium>
-        <Notifications />
+        <Chat />
       </CommunicationMedium>
       <CommunicationMedium>
-        
+        <Notifications />
       </CommunicationMedium>
     </StyledCommunicationMediums>
   );

@@ -15,7 +15,7 @@ const FeaturesList = (props) => {
         <AccountDropdown searchBtnRef={searchBtnRef} />
       </Feature>
       <Feature>
-        <FeatureButton>Recommend</FeatureButton>
+        <FeatureButton>Find a movie</FeatureButton>
       </Feature>
     </StyledFeaturesList>
   );
