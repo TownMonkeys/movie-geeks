@@ -93,7 +93,8 @@ export const Side = styled.div`
       width:100%;
       background-color:#fff;
       overflow-y:scroll;
-      height:50vh;   
+      height:auto;  
+ 
       padding:0 0.7em 0.7em 0.7em;
       margin-top:2em;
       color:#999;
@@ -107,4 +108,11 @@ export const Container = styled.div`
    margin-bottom:0.4em;
    position:relative;
   padding-left:0.4em;
+  position:relative;
+`;
+export const Join = styled.a`
+  color:#f00;
+  text-decoration:none;
+  margin-left:10px;
+  margin-top:30px;
 `;
