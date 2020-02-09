@@ -3,7 +3,11 @@ import theme from '../../shared/theme';
 
 export const StyledHeader = styled.header`
   border-bottom: 1px solid ${theme.border.light};
-  position: relative;
+  background-color: ${theme.bg.default};
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1;
 `;
 
