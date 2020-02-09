@@ -8,7 +8,7 @@ import {
 import Notifications from './notifications';
 import Chat from './chat';
 
-const InteractionMediums = () => {
+const CommunicationMediums = () => {
   return (
     <StyledCommunicationMediums>
       <CommunicationMedium>
@@ -21,4 +21,4 @@ const InteractionMediums = () => {
   );
 }
 
-export default memo(InteractionMediums);
+export default memo(CommunicationMediums);

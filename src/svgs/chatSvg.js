@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { 
   CommunicationSvg,
   CommunicationSvgPath
-} from '../style';
+} from './style';
 
 const ChatSvg = () => {
   return (

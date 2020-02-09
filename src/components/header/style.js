@@ -203,16 +203,6 @@ export const CommunicationBtn = styled.button`
   }
 `;
 
-export const CommunicationSvg = styled.svg`
-  width: 1.5rem;
-  height: auto;
-`;
-
-export const CommunicationSvgPath = styled.path`
-  fill: #424242;
-  transition: .1s fill;
-`;
-
 export const NotificationsNumber = styled.span`
   position: absolute;
 
