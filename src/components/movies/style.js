@@ -1,15 +1,12 @@
 import styled from 'styled-components';
 
-export const MoviesSection = styled.section`
-  height:100%;
-  width:100%;
-
-`;
+export const MoviesSection = styled.section``;
 
 export const Title = styled.h3`
   position: absolute;
   left: -200rem;
 `;
+
 export const GridConatiner = styled.div`
       height:100%;
       width:100%;     
@@ -87,32 +84,4 @@ export const Tags = styled.span`
 export const Time = styled.p`
    color:#555;
    padding-left:1em;
-`;
-/*start movie side*/
-export const Side = styled.div`
-      width:100%;
-      background-color:#fff;
-      overflow-y:scroll;
-      height:auto;  
- 
-      padding:0 0.7em 0.7em 0.7em;
-      margin-top:2em;
-      color:#999;
-      border:1px solid #f1f1f1;
-`;
-export const H1 = styled.h1`
-    margin-top:0;        
-`;
-export const Container = styled.div`
-   width:100%;
-   margin-bottom:0.4em;
-   position:relative;
-  padding-left:0.4em;
-  position:relative;
-`;
-export const Join = styled.a`
-  color:#f00;
-  text-decoration:none;
-  margin-left:10px;
-  margin-top:30px;
 `;

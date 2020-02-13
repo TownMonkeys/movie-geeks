@@ -3,7 +3,7 @@ import avatar from '../../../images/avatar.svg';
 
 import { 
   Side,H1,ContainerMovie,StyledMovieHeadImg,Container,H2,P,Join
-} from '../style';
+} from './style';
 
 const movieSide = () => {
 

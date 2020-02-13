@@ -9,7 +9,7 @@ export const Form = styled.form`
   border-radius: .1rem;
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h2`
   margin: 0;
   padding: .5rem;
   font-size: 1rem;
