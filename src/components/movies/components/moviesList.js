@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { 
-  StyledMoviesList
+  List,
+  Item
 } from '../style';
 import Movie from './movie';
 import avatar from '../../../images/avatar.svg';
@@ -14,7 +15,7 @@ const movies = [
     avatar,
     cover: harryPotterCover,
     name: 'Harry Potter and the Sorcerer\'s Stone',
-    genre: ['Adventure,', 'Family'],
+    genre: ['Adventure', 'Family'],
     rating: 5,
     review: 'As good an adaption as could ever be expected',
     Likes: 24
@@ -25,7 +26,7 @@ const movies = [
     avatar,
     cover: beautifulMindCover,
     name: 'A Beautiful Mind',
-    genre: ['Biography,', 'Drama'],
+    genre: ['Biography', 'Drama'],
     rating: 4,
     review: 'A beautifully written, acted, and crafted movie.',
     Likes: 13
@@ -34,13 +35,15 @@ const movies = [
 
 const MoviesList = () => {
   return (
-    <StyledMoviesList>
+    <List>
       {
         movies.map((movie) => (
-          <Movie movie={movie} key={movie.id} />
+          <Item key={movie.id}>
+            <Movie movie={movie} />
+          </Item>
         ))
       }
-    </StyledMoviesList>
+    </List>
   );
 }
 

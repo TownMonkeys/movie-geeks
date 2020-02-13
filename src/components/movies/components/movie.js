@@ -1,37 +1,55 @@
 import React, { memo } from 'react';
 import { 
   StyledMovie,
-  StyledMovieHead,
-  StyledMovieHeadImg,
+  Header,
+  AvatarLink,
+  UserNameLink,
+  Body,
+  MovieCoverButton,
+  MovieCover,
+  MovieName,
+  Genre,
   P,
   P2,
   H2,
   Tags,
   StyledMovieBody,
   StyledMovieImg,
+  Footer,
   Time
 } from '../style';
+import Avatar from '../../avatar';
+import avatar from '../../../images/avatar.svg';
+
+const user = {
+  name: 'Yurio',
+  avatar
+};
 
 const Movie = (props) => {
   const { movie } = props;
   
   return (
     <StyledMovie>
-     <StyledMovieHead>
-      <StyledMovieHeadImg  src={movie.avatar}/>
-        <P>{movie.user}</P>
-      </StyledMovieHead>
-      <StyledMovieBody>
-         <StyledMovieImg  src={movie.cover}/>
-         <H2>{movie.name}</H2>
-         {
-        movie['genre'].map((tag) => (
-          <Tags>{tag}</Tags>
-        ))
-      }
-         <P2>{movie.review}</P2>
-         <Time>25 minutes ago</Time>
-      </StyledMovieBody>
+      <Header>
+        <AvatarLink href="#">
+          <Avatar user={user} size={'medium'} />
+        </AvatarLink>
+        <UserNameLink href="#">{movie.user}</UserNameLink>
+      </Header>
+
+      <Body>
+        <MovieCoverButton aria-label="double click to like">
+          <MovieCover src={movie.cover} alt="" />
+        </MovieCoverButton>
+        <MovieName>{movie.name}</MovieName>
+        <Genre>{movie.genre.join(', ')}</Genre>
+        <P2>{movie.review}</P2>
+      </Body>
+
+      <Footer>
+        <Time>25 minutes ago</Time>
+      </Footer>
     </StyledMovie>
   );
 }

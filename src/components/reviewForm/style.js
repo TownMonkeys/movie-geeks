@@ -3,9 +3,10 @@ import theme from '../../shared/theme';
 
 export const Form = styled.form`
   display: inline-block;
+  width: 30rem;
   background-color: ${theme.bg.default};
   border: 1px solid ${theme.border.light};
-  margin-top: 1rem;
+  margin: 1rem 0;
   border-radius: .1rem;
 `;
 
@@ -19,7 +20,7 @@ export const Title = styled.h2`
 
 export const MovieNameInput = styled.input`
   padding: 1rem;
-  width: 20rem;
+  width: 100%;
 
   &::placeholder {
     font-size: 1.5rem;

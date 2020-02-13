@@ -1,66 +1,71 @@
 import styled from 'styled-components';
+import theme from '../../shared/theme';
 
-export const MoviesSection = styled.section``;
+export const MoviesSection = styled.section`
+  width: 30rem;
+`;
 
 export const Title = styled.h3`
   position: absolute;
   left: -200rem;
 `;
 
-export const GridConatiner = styled.div`
-      height:100%;
-      width:100%;     
-      display:grid;
-      -webkit-grid-template-columns:2fr 1fr;
-      grid-gap:20px;
-`;
-export const ContainerMovie = styled.div`
-       width:100%;
-       height:100%;
-`;
-export const StyledMoviesList = styled.ul`
+export const List = styled.ul`
   list-style: none;
   padding-left: 0;
   margin: 0;
-  padding-top:2em;
-  padding-bottom:2em;
-  width:100%;
 `;
 
-export const StyledMovie = styled.li`
- background-color:#fff;
- height:auto;
-      border:1px solid #f1f1f1;
+export const Item = styled.li``;
 
- width:95%;
- margin-bottom:2em;
- padding-bottom:0.5em;
+export const StyledMovie = styled.article`
+  padding: 0 1rem;
+  background-color: ${theme.bg.default};
+  border: 1px solid ${theme.border.light};
+  margin-bottom: 1rem;
 `;
-export const StyledMovieHead =styled.div`
-   width:100%;
-   height:80px;
-   position:relative;
-   padding:0.5em 1em;
+
+export const Header = styled.header`
+  padding: .6rem 0;
+  display: flex;
+  align-items: center;
 `;
-export const StyledMovieHeadImg = styled.img`
-    width:60px;
-    height:60px;
-    border-radius:100%;
-    box-shadow:0px 0px 7px 0px rgba(23, 50, 50, 0.75);
+
+export const AvatarLink = styled.a`
+  margin-right: .5rem;
 `;
-export const P = styled.p`
-    color:#000;
-    display:inline-block;
-    position:absolute;
-    padding-left:0.5em;
-    font-size:1.2em;
-    font-weight:bold;
+
+export const UserNameLink = styled.a`
+  text-decoration: none;
+  color: ${theme.text.default};
+  font-weight: 500;
 `;
-export const StyledMovieBody = styled.div`
-   width:100%;
-   height:calc(100% - 80px);
-   
+
+export const Body = styled.div``;
+
+export const MovieCoverButton = styled.button`
+  border: none;
+  padding: 0;
+  margin: 0 -1rem 0 -1rem;
 `;
+
+export const MovieCover = styled.img`
+  max-width: 100%;
+`;
+
+export const MovieName = styled.h4`
+  display: inline-block;
+  line-height: 1.2;
+  font-size: 1.7rem;
+  margin: .7rem .7rem 0 0;
+`;
+
+export const Genre = styled.p`
+  display: inline-block;
+  color: ${theme.text.grey};
+  margin-bottom: .5rem;
+`;
+
 export const H2 = styled.h3`
    color:#000;
    margin-left:1em;
@@ -81,6 +86,9 @@ export const Tags = styled.span`
    color:#555;
    padding-left:0.5em;
 `;
+
+export const Footer = styled.footer``;
+
 export const Time = styled.p`
    color:#555;
    padding-left:1em;
