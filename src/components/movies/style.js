@@ -13,11 +13,11 @@ export const Title = styled.h3`
 const listStyles = css`
   list-style: none;
   padding-left: 0;
-  margin: 0;
 `;
 
 export const List = styled.ul`
   ${listStyles}
+  margin: 0;
 `;
 
 export const Item = styled.li``;
@@ -73,9 +73,15 @@ export const Genre = styled.p`
 
 export const Rating = styled.ul`
   ${listStyles}
+
+  display: flex;
+  margin: .7rem 0 0;
 `;
 
-export const StarItem = styled.li``;
+export const StarItem = styled.li`
+  width: 1rem;
+  margin-right: .1rem;
+`;
 
 export const H2 = styled.h3`
    color:#000;

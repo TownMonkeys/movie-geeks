@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import theme from '../shared/theme';
 
 export const CommunicationSvg = styled.svg`
   width: 1.5rem;
@@ -10,8 +11,12 @@ export const CommunicationSvgPath = styled.path`
   transition: .1s fill;
 `;
 
-export const StyledStarSvg = styled.svg``;
+export const StyledStarSvg = styled.svg`
+  width: 100%;
+`;
 
 export const Title = styled.title``;
 
-export const StarSvgPath = styled.path``;
+export const StarSvgPath = styled.path`
+  fill: ${theme.bg.pink};
+`;
