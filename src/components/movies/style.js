@@ -47,8 +47,14 @@ export const UserNameLink = styled.a`
 
 export const Body = styled.div``;
 
-export const MovieCoverButton = styled.button`
+const buttonStyles = css`
   border: none;
+  background-color: transparent;
+  cursor: pointer;
+`;
+
+export const MovieCoverButton = styled.button`
+  ${buttonStyles}
   padding: 0;
   margin: 0 -1rem .8rem -1rem;
 `;
@@ -83,25 +89,13 @@ export const StarItem = styled.li`
   margin-right: .1rem;
 `;
 
-export const H2 = styled.h3`
-   color:#000;
-   margin-left:1em;
-   display:inline-block;
-`;
-export const StyledMovieImg = styled.img`
-  width:100%;
-  height:300px;
-`;
+export const Review = styled.p``;
 
-export const P2 = styled.p`
-    color:#000;
-    padding-left:1em;
-    font-size:1.2em;
-    font-weight:bold;
-`;
-export const Tags = styled.span`
-   color:#555;
-   padding-left:0.5em;
+export const LikeButton = styled.button`
+  width: 3rem;
+  padding: .407rem .5rem;
+  margin-left: -.5rem;
+  ${buttonStyles}
 `;
 
 export const Footer = styled.footer``;

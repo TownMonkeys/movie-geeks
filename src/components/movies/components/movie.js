@@ -11,17 +11,14 @@ import {
   Genre,
   Rating,
   StarItem,
-  P,
-  P2,
-  H2,
-  Tags,
-  StyledMovieBody,
-  StyledMovieImg,
+  Review,
+  LikeButton,
   Footer,
   Time
 } from '../style';
 import Avatar from '../../avatar';
 import StarSvg from '../../../svgs/star';
+import LikeSvg from '../../../svgs/like';
 import avatar from '../../../images/avatar.svg';
 
 const user = {
@@ -42,7 +39,10 @@ const Movie = (props) => {
       </Header>
 
       <Body>
-        <MovieCoverButton aria-label="double click to like">
+        <MovieCoverButton 
+          aria-label="double click to like"
+          onMouseDown={(e) => e.preventDefault()}
+        >
           <MovieCover src={movie.cover} alt="" />
         </MovieCoverButton>
         <MovieName>{movie.name}</MovieName>
@@ -56,7 +56,12 @@ const Movie = (props) => {
             ))
           }
         </Rating>
-        <P2>{movie.review}</P2>
+        <Review>{movie.review}</Review>
+        <LikeButton
+          onMouseDown={(e) => e.preventDefault()} 
+        >
+          <LikeSvg filled={false} />
+        </LikeButton>
       </Body>
 
       <Footer>

@@ -20,3 +20,20 @@ export const Title = styled.title``;
 export const StarSvgPath = styled.path`
   fill: ${theme.bg.pink};
 `;
+
+export const StyledLikeSvg = styled.svg`
+  width: 100%;
+`;
+
+export const LikeSvgPath = styled.path`
+  transition: .1s stroke-width, .1s fill;
+
+  stroke: #212121;
+  stroke-width: 2;
+  fill: ${theme.bg.default};
+
+  &[data-filled="true"] {
+    stroke-width: 0;
+    fill: ${theme.bg.pink};
+  }
+`;
