@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import theme from '../../shared/theme';
 
 export const MoviesSection = styled.section`
@@ -10,10 +10,14 @@ export const Title = styled.h3`
   left: -200rem;
 `;
 
-export const List = styled.ul`
+const listStyles = css`
   list-style: none;
   padding-left: 0;
   margin: 0;
+`;
+
+export const List = styled.ul`
+  ${listStyles}
 `;
 
 export const Item = styled.li``;
@@ -46,25 +50,32 @@ export const Body = styled.div``;
 export const MovieCoverButton = styled.button`
   border: none;
   padding: 0;
-  margin: 0 -1rem 0 -1rem;
+  margin: 0 -1rem .8rem -1rem;
 `;
 
 export const MovieCover = styled.img`
+  display: block;
   max-width: 100%;
 `;
 
 export const MovieName = styled.h4`
-  display: inline-block;
+  display: inline;
   line-height: 1.2;
   font-size: 1.7rem;
-  margin: .7rem .7rem 0 0;
+  margin: 0;
 `;
 
 export const Genre = styled.p`
-  display: inline-block;
+  display: inline;
   color: ${theme.text.grey};
-  margin-bottom: .5rem;
+  margin-left: 1rem;
 `;
+
+export const Rating = styled.ul`
+  ${listStyles}
+`;
+
+export const StarItem = styled.li``;
 
 export const H2 = styled.h3`
    color:#000;

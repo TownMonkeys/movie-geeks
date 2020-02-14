@@ -9,6 +9,8 @@ import {
   MovieCover,
   MovieName,
   Genre,
+  Rating,
+  StarItem,
   P,
   P2,
   H2,
@@ -19,6 +21,7 @@ import {
   Time
 } from '../style';
 import Avatar from '../../avatar';
+import StarSvg from '../../../svgs/star';
 import avatar from '../../../images/avatar.svg';
 
 const user = {
@@ -44,6 +47,15 @@ const Movie = (props) => {
         </MovieCoverButton>
         <MovieName>{movie.name}</MovieName>
         <Genre>{movie.genre.join(', ')}</Genre>
+        <Rating>
+          {
+            Array(movie.rating).fill(null).map((e, i) => (
+              <StarItem>
+                <StarSvg />
+              </StarItem>
+            ))
+          }
+        </Rating>
         <P2>{movie.review}</P2>
       </Body>
 

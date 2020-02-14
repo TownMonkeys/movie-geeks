@@ -4,7 +4,7 @@ import {
   NotificationsNumber,
   NotificationsWord
 } from '../style';
-import Icon from '../../../svgs/bellSvg';
+import Icon from '../../../svgs/bell';
 
 const Notifications = (props) => {
   const [ expanded, setExpanded ] = useState(false);

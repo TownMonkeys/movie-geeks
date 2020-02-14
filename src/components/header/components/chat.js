@@ -2,7 +2,7 @@ import React, { memo, useState, useCallback  } from 'react';
 import {
   CommunicationBtn,
 } from '../style';
-import Icon from '../../../svgs/chatSvg';
+import Icon from '../../../svgs/chat';
 
 const Chat = (props) => {
   const [ expanded, setExpanded ] = useState(false);
