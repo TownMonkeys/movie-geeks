@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useState, useCallback } from 'react';
 import { 
   StyledMovie,
   Header,
@@ -29,7 +29,19 @@ const user = {
 };
 
 const Movie = (props) => {
+  // props
   const { movie } = props;
+
+  // state
+  const [ liked, setLiked ] = useState(false);
+
+  const like = useCallback(() => {
+    setLiked(true);
+  }, []);
+
+  const toggleLike = useCallback(() => {
+    setLiked(!liked);
+  }, [ liked ]);
   
   return (
     <StyledMovie>
@@ -43,6 +55,7 @@ const Movie = (props) => {
       <Body>
         <MovieCoverButton 
           aria-label="double click to like"
+          onDoubleClick={like}
           onMouseDown={(e) => e.preventDefault()}
         >
           <MovieCover src={movie.cover} alt="" />
@@ -65,9 +78,10 @@ const Movie = (props) => {
 
       <Footer>
         <LikeButton
+          onClick={toggleLike}
           onMouseDown={(e) => e.preventDefault()} 
         >
-          <LikeSvg filled={false} />
+          <LikeSvg filled={liked} />
         </LikeButton>
         <Likers href="#">
           {movie.lastLiker} and {movie.likes} others
