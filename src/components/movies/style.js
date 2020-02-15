@@ -89,18 +89,36 @@ export const StarItem = styled.li`
   margin-right: .1rem;
 `;
 
-export const Review = styled.p``;
+export const Review = styled.p`
+  margin-top: .7rem;
+`;
+
+export const Hr = styled.hr`
+  margin: 1.3rem 0 .7rem;
+`;
+
+export const Footer = styled.footer``;
 
 export const LikeButton = styled.button`
+  vertical-align: middle;
   width: 3rem;
   padding: .407rem .5rem;
   margin-left: -.5rem;
   ${buttonStyles}
 `;
 
-export const Footer = styled.footer``;
+export const Likers = styled.a`
+  display: inline-block;
+  width: calc(100% - 3rem);
+  vertical-align: middle;
+  color: ${theme.text.grey};
+  text-decoration: none;
+  padding: .25rem 0;
+`;
 
-export const Time = styled.p`
-   color:#555;
-   padding-left:1em;
+export const PostDate = styled.time`
+  display: block;
+  color: ${theme.text.grey};
+  margin-top: .4rem;
+  margin-bottom: 1rem;
 `;

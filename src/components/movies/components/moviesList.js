@@ -18,7 +18,8 @@ const movies = [
     genre: ['Adventure', 'Family'],
     rating: 5,
     review: 'As good an adaption as could ever be expected',
-    Likes: 24
+    likes: 24,
+    lastLiker: 'Waleed'
   },
   {
     id: 2,
@@ -29,7 +30,8 @@ const movies = [
     genre: ['Biography', 'Drama'],
     rating: 4,
     review: 'A beautifully written, acted, and crafted movie.',
-    Likes: 13
+    likes: 13,
+    lastLiker: 'Erik'
   }
 ];
 

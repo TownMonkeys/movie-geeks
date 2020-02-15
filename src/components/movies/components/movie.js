@@ -12,9 +12,11 @@ import {
   Rating,
   StarItem,
   Review,
-  LikeButton,
+  Hr,
   Footer,
-  Time
+  LikeButton,
+  Likers,
+  PostDate
 } from '../style';
 import Avatar from '../../avatar';
 import StarSvg from '../../../svgs/star';
@@ -57,15 +59,20 @@ const Movie = (props) => {
           }
         </Rating>
         <Review>{movie.review}</Review>
+      </Body>
+
+      <Hr />
+
+      <Footer>
         <LikeButton
           onMouseDown={(e) => e.preventDefault()} 
         >
           <LikeSvg filled={false} />
         </LikeButton>
-      </Body>
-
-      <Footer>
-        <Time>25 minutes ago</Time>
+        <Likers href="#">
+          {movie.lastLiker} and {movie.likes} others
+        </Likers>
+        <PostDate>25 minutes ago</PostDate>
       </Footer>
     </StyledMovie>
   );
