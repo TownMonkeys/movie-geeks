@@ -11,11 +11,11 @@ import App from './app';
 class Root extends React.Component {
   render() {
     return  (
-     <Router>
-      <Switch>
-        <Route  path="/" component={App} />
-      </Switch>
-     </Router>  
+      <Router>
+        <Switch>
+          <Route  path="/" component={App} />
+        </Switch>
+      </Router>  
     );
   }
 }
