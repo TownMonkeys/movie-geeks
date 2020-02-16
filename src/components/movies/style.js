@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import theme from '../../shared/theme';
+import measurements from '../../shared/measurements';
 
 export const MoviesSection = styled.section`
   width: 30rem;
@@ -27,6 +28,7 @@ export const StyledMovie = styled.article`
   background-color: ${theme.bg.default};
   border: 1px solid ${theme.border.light};
   margin-bottom: 1rem;
+  border-radius: ${measurements.borderRadius.default};
 `;
 
 export const Header = styled.header`

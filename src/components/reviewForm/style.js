@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../shared/theme';
+import measurements from '../../shared/measurements';
 
 export const Form = styled.form`
   display: inline-block;
@@ -7,7 +8,7 @@ export const Form = styled.form`
   background-color: ${theme.bg.default};
   border: 1px solid ${theme.border.light};
   margin: 1rem 0;
-  border-radius: .1rem;
+  border-radius: ${measurements.borderRadius.default};
 `;
 
 export const Title = styled.h2`
