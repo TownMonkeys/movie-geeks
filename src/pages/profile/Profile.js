@@ -1,9 +1,8 @@
 import React, { memo } from 'react';
-import './Profile.scss';
 
 const Profile = () => {
   return (
-    <div></div>
+    <div />
   );
 }
 

@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import theme from '../../shared/theme';
+import measurements from '../../shared/measurements';
 
 export const StyledHeader = styled.header`
   border-bottom: 1px solid ${theme.border.light};
@@ -17,7 +18,7 @@ export const Title = styled.h1`
 `;
 
 export const Navigation = styled.nav`
-  max-width: 60rem;
+  max-width: ${measurements.maxWidth.default};
   margin: auto;
 
   display: flex;

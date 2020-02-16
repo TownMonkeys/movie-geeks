@@ -12,11 +12,4 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
   }
-
-  body[data-scroll="false"] {
-    overflow: hidden;
-    @media screen and (min-width: $break-header) {
-      overflow: initial;
-    }
-  }
 `;

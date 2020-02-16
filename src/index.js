@@ -6,10 +6,7 @@ import {
   Route,
   withRouter
 } from "react-router-dom";
-
-import './index.scss';
-import App from './App';
-import Login from './components/login/Login';
+import App from './app';
 
 class Root extends React.Component {
   render() {
@@ -17,7 +14,6 @@ class Root extends React.Component {
      <Router>
       <Switch>
         <Route  path="/" component={App} />
-        <Route exact path="/login" component={Login} />
       </Switch>
      </Router>  
     );
