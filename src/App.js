@@ -1,8 +1,9 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import GlobalStyles from './global.css';
 import Header from './components/header';
 import Home from './pages/home';
+import Auth from './pages/auth';
 import { 
   StyledApp,
   Main
@@ -10,17 +11,21 @@ import {
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <Router>
       <GlobalStyles />
       <StyledApp>
         <Header />
         <Main>
           <Switch>
             <Route path="/" exact component={Home} />
+            <Route 
+              path="/signup" 
+              component={props => <Auth {...props} signIn={false} />} 
+            />
           </Switch>
         </Main>
       </StyledApp>
-    </BrowserRouter>
+    </Router>
   );
 }
 
