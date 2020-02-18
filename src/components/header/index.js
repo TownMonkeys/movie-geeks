@@ -10,15 +10,13 @@ import SearchForm from './components/searchForm';
 import FeaturesList from './components/featuresList';
 import CommunicationMediums from './components/communicationMediums';
 
-const user = null;
-
 const Header = () => {
   const searchButtonRef = useRef();
 
   return (
     <StyledHeader>
       <Title>Movie Geeks</Title>
-      {user && <Navigation>
+      <Navigation>
         <NavTitle>Main Navigation</NavTitle>
 
         <Logo />
@@ -28,7 +26,7 @@ const Header = () => {
         <FeaturesList searchButtonRef={searchButtonRef} />
 
         <CommunicationMediums />
-      </Navigation>}
+      </Navigation>
     </StyledHeader>
   );
 }
