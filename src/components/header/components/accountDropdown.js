@@ -19,7 +19,7 @@ const user = {
 
 const AccountDropdown = (props) => {
   /* props --- */
-  const { searchBtnRef } = props;
+  const { searchButtonRef } = props;
 
   /* refs --- */
   const containerRef = useRef();
@@ -81,7 +81,7 @@ const AccountDropdown = (props) => {
     } else if (keyCode === keys.esc || (keyCode === keys.tab && event.shiftKey)) {
       event.preventDefault();
       collapseMenu();
-      searchBtnRef.current.focus();
+      searchButtonRef.current.focus();
     } else if (keyCode === keys.tab) {
       collapseMenu();
     } 

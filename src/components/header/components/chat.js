@@ -1,6 +1,6 @@
 import React, { memo, useState, useCallback  } from 'react';
 import {
-  CommunicationBtn,
+  CommunicationButton,
 } from '../style';
 import Icon from '../../../svgs/chat';
 
@@ -13,7 +13,7 @@ const Chat = (props) => {
 
   return (
     <>
-      <CommunicationBtn
+      <CommunicationButton
         aria-label="toggle chat panel"
         aria-controls="chatPanel"
         aria-pressed={expanded} 
@@ -21,7 +21,7 @@ const Chat = (props) => {
         onClick={toggle}
       >
         <Icon />
-      </CommunicationBtn>
+      </CommunicationButton>
     </>
   );
 }

@@ -1,9 +1,7 @@
 import React, { memo } from 'react';
 import { 
   StyledCommunicationMediums,
-  CommunicationMedium,
-  NotificationsBtn,
-  NotificationsIcon
+  CommunicationMedium
 } from '../style';
 import Notifications from './notifications';
 import Chat from './chat';

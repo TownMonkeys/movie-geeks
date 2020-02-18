@@ -20,7 +20,7 @@ const App = () => {
             <Route path="/" exact component={Home} />
             <Route 
               path="/signup" 
-              component={props => <Auth {...props} signIn={false} />} 
+              component={props => <Auth {...props} action={'signup'} />} 
             />
           </Switch>
         </Main>

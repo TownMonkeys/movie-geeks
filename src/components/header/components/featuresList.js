@@ -7,12 +7,12 @@ import {
 import AccountDropdown from './accountDropdown';
 
 const FeaturesList = (props) => {
-  const { searchBtnRef } = props;
+  const { searchButtonRef } = props;
 
   return (
     <StyledFeaturesList>
       <Feature>
-        <AccountDropdown searchBtnRef={searchBtnRef} />
+        <AccountDropdown searchButtonRef={searchButtonRef} />
       </Feature>
       <Feature>
         <FeatureButton>Find Movie</FeatureButton>

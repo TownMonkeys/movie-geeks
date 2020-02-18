@@ -7,7 +7,8 @@ export const theme = {
   bg: {
     default: '#ffffff',
     grey: '#f5f5f5',
-    pink: '#e91e63'
+    pink: '#e91e63',
+    facebook: '#4267B2'
   },
   border: {
     light: '#e0e0e0',

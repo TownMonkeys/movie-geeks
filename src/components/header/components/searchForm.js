@@ -2,7 +2,7 @@ import React, { memo, forwardRef } from 'react';
 import { 
   StyledSearchForm,
   SearchInput,
-  SearchBtn,
+  SearchButton,
   SearchIcon
 } from '../style';
 import searchIcon from '../../../images/search.svg';
@@ -12,9 +12,9 @@ const SearchForm = forwardRef((props, ref) => {
     <StyledSearchForm>
       <SearchInput type="search" placeholder="Search" aria-label="search" />
 
-      <SearchBtn type="submit" ref={ref}>
+      <SearchButton type="submit" ref={ref}>
         <SearchIcon src={searchIcon} alt="Search" />
-      </SearchBtn>
+      </SearchButton>
     </StyledSearchForm>
   );
 })

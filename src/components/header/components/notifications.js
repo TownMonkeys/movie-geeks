@@ -1,6 +1,6 @@
 import React, { memo, useState, useCallback } from 'react';
 import {
-  CommunicationBtn,
+  CommunicationButton,
   NotificationsNumber,
   NotificationsWord
 } from '../style';
@@ -15,7 +15,7 @@ const Notifications = (props) => {
 
   return (
     <>
-      <CommunicationBtn
+      <CommunicationButton
         aria-label="toggle notifications panel"
         aria-controls="notificationPanel"
         aria-pressed={expanded} 
@@ -29,7 +29,7 @@ const Notifications = (props) => {
         >
           7 <NotificationsWord>notifications</NotificationsWord>
         </NotificationsNumber>
-      </CommunicationBtn>
+      </CommunicationButton>
     </>
   );
 }

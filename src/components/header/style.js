@@ -55,7 +55,7 @@ export const SearchInput = styled.input`
   border-right: 1px solid ${theme.border.light};
 `;
 
-export const SearchBtn = styled.button`
+export const SearchButton = styled.button`
   display: flex;
   padding: 0;
   padding: .2rem .8rem;
@@ -192,7 +192,7 @@ export const CommunicationMedium = styled.li`
   display: flex;
 `;
 
-export const CommunicationBtn = styled.button`
+export const CommunicationButton = styled.button`
   ${buttonStyles}
   display: flex;
   justify-content: center;
