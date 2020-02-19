@@ -5,7 +5,9 @@ export const measurements = {
     input: '.2rem'
   },
   maxWidth: {
-    default: '60rem',
+    default: '60rem'
+  },
+  width: {
     auth: '24rem'
   }
 };

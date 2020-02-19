@@ -7,7 +7,7 @@ import logo from '../../../images/logo.svg';
 
 const Logo = () => {
   return (
-    <LogoLink href="#">
+    <LogoLink to="/">
       <LogoImg src={logo} alt="Movie Geeks" />
     </LogoLink>
   );

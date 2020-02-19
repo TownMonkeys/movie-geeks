@@ -22,6 +22,10 @@ const App = () => {
               path="/signup" 
               component={props => <Auth {...props} action={'signup'} />} 
             />
+            <Route 
+              path="/login" 
+              component={props => <Auth {...props} action={'login'} />} 
+            />
           </Switch>
         </Main>
       </StyledApp>

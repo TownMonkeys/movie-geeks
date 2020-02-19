@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 import theme from '../../shared/theme';
 import measurements from '../../shared/measurements';
 
@@ -30,7 +31,7 @@ export const NavTitle = styled.h2`
   left: -200rem;
 `;
 
-export const LogoLink = styled.a`
+export const LogoLink = styled(Link)`
   display: flex;
 `;
 

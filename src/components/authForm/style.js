@@ -10,7 +10,7 @@ export const Container = styled.div`
   border-radius: ${measurements.borderRadius.default};
   text-align: center;
   padding: 1rem 3rem;
-  max-width: ${measurements.maxWidth.auth};
+  width: ${measurements.width.auth};
 
   display: flex;
   flex-direction: column;
@@ -22,13 +22,14 @@ export const Container = styled.div`
 
 export const Title = styled.h2`
   font-size: 2.5rem;
-  margin: 0;
+  margin: 0 0 1rem;
 `;
 
 export const EncouragingStatement = styled.p`
   color: ${theme.text.grey};
   font-size: 1.07rem;
   font-weight: 600;
+  margin: 0;
 `;
 
 export const Button = styled.button`
@@ -39,6 +40,7 @@ export const Button = styled.button`
   padding: .6rem 0;
   border-radius: ${measurements.borderRadius.button};
   background-color: ${props => props.bg === 'pink' ? theme.bg.pink : null};
+  margin-top: 1rem;
 `;
 
 export const FacebookButton = styled(Button)`
