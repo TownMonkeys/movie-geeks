@@ -7,7 +7,6 @@ import {
   DropdownMenu,
   MenuItem
 } from '../style';
-import usePrevious from '../../../hooks/usePrevious';
 import avatar from '../../../images/avatar.svg';
 import downArrow from '../../../images/down-arrow.svg';
 import Avatar from '../../avatar';
@@ -27,7 +26,7 @@ const AccountDropdown = (props) => {
   const itemsRefs    = useRef([]);
 
   /* functionalities --- */
-  // Account menu expanded / collapsed
+  // Menu toggling
   const [ menuExpanded, setMenuExpanded ] = useState(false);
 
   const expandMenu = useCallback(() => {
@@ -38,25 +37,31 @@ const AccountDropdown = (props) => {
     setMenuExpanded(false);
   }, []);
 
-  const prevMenuExpanded = usePrevious(menuExpanded);
   useEffect(() => {
-    if (menuExpanded && !prevMenuExpanded && Number.isInteger(activeIndex)) {
-      itemsRefs.current[activeIndex].focus();
+    const togglerIsFocused = togglerRef.current === document.activeElement;
+    const thereIsActiveIndex = Number.isInteger(activeIndex);
+    if (togglerIsFocused) {
+      if (thereIsActiveIndex) {
+        itemsRefs.current[activeIndex].focus();
+      } else {
+        setActiveIndex(0);
+        itemsRefs.current[0].focus();
+      }
     }
   }, [menuExpanded]);
 
   // active menu item 
-  const [ activeIndex, setActiveIndex ] = useState(0);
+  const [ activeIndex, setActiveIndex ] = useState(null);
   
   const handleMenuKeyDown = useCallback((event) => {
     const keys = {
       up   : 38,
       down : 40,
       tab  : 9,
-      shift: 16,
       esc  : 27
     };
     const { keyCode } = event;
+    const lastIndex = itemsRefs.current.length - 1;
 
     const moveToIndex = (newActiveIndex) => {
       event.preventDefault();
@@ -64,25 +69,25 @@ const AccountDropdown = (props) => {
       itemsRefs.current[newActiveIndex].focus();
     };
     
-    if (keyCode === keys.up) {
+    if (keyCode === keys.up) { // up
       const isFirstIndex = activeIndex === 0;
       if (isFirstIndex) {
-        moveToIndex(2);
+        moveToIndex(lastIndex);
       } else {
         moveToIndex(activeIndex - 1);
       }
-    } else if (keyCode === keys.down) {
-      const isLastIndex = activeIndex === 2;
+    } else if (keyCode === keys.down) { // down
+      const isLastIndex = activeIndex === lastIndex;
       if (isLastIndex) {
         moveToIndex(0);
       } else {
         moveToIndex(activeIndex + 1);
       }
-    } else if (keyCode === keys.esc || (keyCode === keys.tab && event.shiftKey)) {
+    } else if (keyCode === keys.esc || (keyCode === keys.tab && event.shiftKey)) { // esc || tab+shift
       event.preventDefault();
       collapseMenu();
       searchButtonRef.current.focus();
-    } else if (keyCode === keys.tab) {
+    } else if (keyCode === keys.tab) { // tab
       collapseMenu();
     } 
   }, [ activeIndex ]);
@@ -90,35 +95,14 @@ const AccountDropdown = (props) => {
   const handleMenuMouseEnter = useCallback(() => {
     const thereIsFocusedItem = Number.isInteger(activeIndex);
     if (thereIsFocusedItem) {
-      itemsRefs.current[activeIndex].blur();
       setActiveIndex(null);
-      togglerRef.current.focus();
+      itemsRefs.current[activeIndex].blur();
     }
   }, [activeIndex]);
 
-  const handleTogglerKeyDown = useCallback((event) => {
-    const keys = {
-      down : 40,
-      tab  : 9,
-      space: 32
-    };
-    const { keyCode } = event;
-    if (keyCode === keys.down || keyCode === keys.space) {
-      event.preventDefault();
-      if (!menuExpanded) {
-        expandMenu();
-      }
-      itemsRefs.current[0].focus();
-      setActiveIndex(0);
-    } else if (keyCode === keys.tab && menuExpanded) {
-      collapseMenu();
-    }
-  }, [menuExpanded]);
-
-  const onTogglerMouseEnter = useCallback(() => {
-    if (!activeIndex) {
-      togglerRef.current.focus();
-    }
+  const handleTogglerMouseEnter = useCallback(() => {
+    setActiveIndex(null);
+    expandMenu();
   }, []);
 
   // handle click outside
@@ -147,8 +131,7 @@ const AccountDropdown = (props) => {
         aria-expanded={menuExpanded} 
         aria-controls="accountMenu"
         onFocus={expandMenu}
-        onKeyDown={handleTogglerKeyDown}
-        onMouseEnter={onTogglerMouseEnter}
+        onMouseEnter={handleTogglerMouseEnter}
         ref={togglerRef}
       >
         <Avatar user={user} size={'small'} />
