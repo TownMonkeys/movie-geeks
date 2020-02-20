@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import theme from '../../shared/theme';
 import measurements from '../../shared/measurements';
 

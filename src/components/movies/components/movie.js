@@ -65,7 +65,7 @@ const Movie = (props) => {
         <Rating>
           {
             Array(movie.rating).fill(null).map((e, i) => (
-              <StarItem>
+              <StarItem key={i}>
                 <StarSvg />
               </StarItem>
             ))

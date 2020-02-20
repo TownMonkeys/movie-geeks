@@ -143,7 +143,7 @@ const AccountDropdown = (props) => {
         id="accountMenu"
         role="menu"
         aria-label="account menu"
-        aria-activedescendant={`item${activeIndex+1}`}
+        aria-activedescendant={Number.isInteger(activeIndex) ? `item${activeIndex+1}` : null}
         visible={menuExpanded}
         onKeyDown={handleMenuKeyDown}
         onMouseEnter={handleMenuMouseEnter}
