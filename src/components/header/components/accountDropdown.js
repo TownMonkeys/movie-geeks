@@ -29,7 +29,7 @@ const AccountDropdown = (props) => {
   const dropdownCollapseTimer = useRef();
 
   /* functionalities --- */
-  // Mouse hover
+  // Mouse enter / leave
   const [ dropdownHovered, setDropdownHovered ] = useState(false);
   const dropdownHoveredRef = useRef(dropdownHovered); // For its use inside a setTimeOut callback
 
@@ -48,7 +48,7 @@ const AccountDropdown = (props) => {
       if (!dropdownHoveredRef.current) {
         collapseMenu();
       }
-    }, 750);
+    }, 600);
   }, [dropdownHovered]);
 
   // Menu toggling
