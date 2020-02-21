@@ -78,6 +78,7 @@ const Movie = (props) => {
 
       <Footer>
         <LikeButton
+          aria-label="like"
           onClick={toggleLike}
           onMouseDown={(e) => e.preventDefault()} 
         >

@@ -10,7 +10,7 @@ const Avatar = (props) => {
   return (
     <StyledAvatar 
       src={avatar} 
-      alt="" 
+      alt="User's avatar" 
       size={size}
     />
   );
