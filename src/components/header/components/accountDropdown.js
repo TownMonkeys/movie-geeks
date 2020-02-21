@@ -20,12 +20,37 @@ const AccountDropdown = (props) => {
   /* props --- */
   const { searchButtonRef } = props;
 
-  /* refs --- */
+  /* dom refs --- */
   const containerRef = useRef();
   const togglerRef   = useRef();
   const itemsRefs    = useRef([]);
 
+  /* dropdown collapse timer --- */
+  const dropdownCollapseTimer = useRef();
+
   /* functionalities --- */
+  // Mouse hover
+  const [ dropdownHovered, setDropdownHovered ] = useState(false);
+  const dropdownHoveredRef = useRef(dropdownHovered); // For its use inside a setTimeOut callback
+
+  const handleMouseEnter = useCallback(() => {
+    clearTimeout(dropdownCollapseTimer.current);
+    setDropdownHovered(true);
+    dropdownHoveredRef.current = true; 
+    expandMenu();
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setDropdownHovered(false);
+    dropdownHoveredRef.current = false;
+
+    dropdownCollapseTimer.current = setTimeout(() => {
+      if (!dropdownHoveredRef.current) {
+        collapseMenu();
+      }
+    }, 750);
+  }, [dropdownHovered]);
+
   // Menu toggling
   const [ menuExpanded, setMenuExpanded ] = useState(false);
 
@@ -121,8 +146,8 @@ const AccountDropdown = (props) => {
 
   return (
     <DropdownContainer
-      onMouseEnter={expandMenu}
-      onMouseLeave={collapseMenu}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       ref={containerRef}
     >
       <DropdownToggler
