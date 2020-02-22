@@ -20,7 +20,8 @@ export const Title = styled.h2`
 `;
 
 export const MovieNameInput = styled.input`
-  padding: 1rem;
+  font-size: 1.5rem;
+  padding: .5rem .6rem .75rem;
   width: 100%;
 
   &::placeholder {
