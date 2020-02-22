@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://moviegeeks.com",
   "dependencies": {
+    "dotenv": "^8.2.0",
+    "firebase": "^7.9.1",
     "gh-pages": "^2.2.0",
     "lodash": "^4.17.15",
     "node-sass": "^4.13.1",
