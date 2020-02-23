@@ -1,23 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  withRouter
-} from "react-router-dom";
 import App from './app';
+// Redux
+import { createStore } from 'redux';
+import rootReducer from './store/reducers/rootReducer';
+import { Provider } from 'react-redux';
 
-class Root extends React.Component {
-  render() {
-    return  (
-      <Router>
-        <Switch>
-          <Route  path="/" component={App} />
-        </Switch>
-      </Router>  
-    );
-  }
-}
+const store = createStore(rootReducer);
 
-ReactDOM.render(<Root />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={store}><App /></Provider>, 
+  document.getElementById('root')
+);
