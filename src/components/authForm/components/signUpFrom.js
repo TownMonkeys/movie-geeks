@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useState, useCallback } from 'react';
 import {
   Form,
   Container,
@@ -15,8 +15,21 @@ import {
 import facebookIcon from '../../../images/facebook.svg';
 
 const SignUpFrom = () => {
+  const [ email, setEmail ] = useState('');
+  const [ username, setUsername ] = useState('');
+  const [ password, setPassword ] = useState('');
+
+  const handleSubmit = useCallback((event) => {
+    event.preventDefault();
+    console.log({
+      email,
+      username,
+      password
+    });
+  }, [ email, username, password ]);
+
   return (
-    <Form>
+    <Form onSubmit={handleSubmit} >
       <Container>
         <Title>Sign up</Title>
 
@@ -35,18 +48,24 @@ const SignUpFrom = () => {
           type="email" 
           aria-label="email"
           placeholder="Email"
+          value={email}
+          onChange={event => setEmail(event.target.value)}
         />
 
         <Input 
           type="text"
           aria-label="user name"
           placeholder="Username"
+          value={username}
+          onChange={event => setUsername(event.target.value)}
         />
 
         <Input 
           type="password"
           aria-label="password"
           placeholder="Password"
+          value={password}
+          onChange={event => setPassword(event.target.value)}
         />
 
         <Button 
