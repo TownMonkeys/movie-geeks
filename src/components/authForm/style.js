@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import theme from '../../shared/theme';
 import measurements from '../../shared/measurements';
+import { Link } from 'react-router-dom';
 
 export const Form = styled.form``;
 
@@ -95,9 +96,21 @@ export const Input = styled.input`
   }
 `;
 
+export const AuthError = styled.p`
+  color: ${theme.text.warning};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ErrorIcon = styled.img`
+  width: 1rem;
+  margin-left: .5rem;
+`;
+
 export const P = styled.p``;
 
-export const Link = styled.a`
+export const StyledLink = styled(Link)`
   color: ${theme.text.pink};
   margin-left: .25rem;
 `;

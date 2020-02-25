@@ -2,7 +2,8 @@ export const theme = {
   text: {
     default: '#212121',
     grey: '#616161',
-    pink: '#e91e63'
+    pink: '#e91e63',
+    warning: '#A63232'
   },
   bg: {
     default: '#ffffff',

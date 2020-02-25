@@ -1,22 +1,37 @@
-import React, { memo } from 'react';
+import React, { memo, useState, useCallback } from 'react';
 import {
   Form,
   Container,
   Title,
-  EncouragingStatement,
   FacebookButton,
   FacebookIcon,
   Divider,
   Input,
+  AuthError,
+  ErrorIcon,
   Button,
   P,
-  Link
+  StyledLink
 } from '../style';
 import facebookIcon from '../../../images/facebook.svg';
+import errorIcon from '../../../images/alert.svg';
+import { connect } from 'react-redux';
+import { logIn } from '../../../store/actions/authActions';
 
-const LoginForm = () => {
+const LoginForm = (props) => {
+  // props
+  const { logIn, authError } = props;
+
+  const [ email, setEmail ] = useState('');
+  const [ password, setPassword ] = useState('');
+
+  const handleSubmit = useCallback((event) => {
+    event.preventDefault();
+    logIn({ email, password });
+  }, [ email, password ]);
+
   return (
-    <Form>
+    <Form onSubmit={handleSubmit} >
       <Container>
         <Title>Log in</Title>
 
@@ -31,13 +46,24 @@ const LoginForm = () => {
           type="email" 
           aria-label="email"
           placeholder="Email"
+          value={email}
+          required
+          onChange={event => setEmail(event.target.value)}
         />
 
         <Input 
           type="password"
           aria-label="password"
           placeholder="Password"
+          value={password}
+          required
+          onChange={event => setPassword(event.target.value)}
         />
+
+        {authError && <AuthError>
+          {'login failed'}
+          <ErrorIcon src={errorIcon} alt="" />
+        </AuthError>}
 
         <Button 
           type="submit"
@@ -48,11 +74,23 @@ const LoginForm = () => {
       <Container>
         <P>
           Don't have an account?
-          <Link href="#">Sign up</Link>
+          <StyledLink to="/signup">Sign up</StyledLink>
         </P>
       </Container>
     </Form>
   );
 }
 
-export default memo(LoginForm);
+const mapStateToProps = (state) => {
+  return {
+    authError: state.auth.authError
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logIn: creds => dispatch(logIn(creds))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(memo(LoginForm));

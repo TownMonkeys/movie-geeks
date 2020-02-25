@@ -8,24 +8,28 @@ import {
   FacebookIcon,
   Divider,
   Input,
+  AuthError,
+  ErrorIcon,
   Button,
   P,
-  Link
+  StyledLink
 } from '../style';
 import facebookIcon from '../../../images/facebook.svg';
+import errorIcon from '../../../images/alert.svg';
+import { connect } from 'react-redux';
+import { signUp } from '../../../store/actions/authActions';
 
-const SignUpFrom = () => {
-  const [ email, setEmail ] = useState('');
+const SignUpFrom = (props) => {
+  // props
+  const { signUp, authError } = props;
+
   const [ username, setUsername ] = useState('');
+  const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
 
   const handleSubmit = useCallback((event) => {
     event.preventDefault();
-    console.log({
-      email,
-      username,
-      password
-    });
+    signUp({ username, email, password });
   }, [ email, username, password ]);
 
   return (
@@ -45,19 +49,21 @@ const SignUpFrom = () => {
         <Divider>or</Divider>
 
         <Input 
-          type="email" 
-          aria-label="email"
-          placeholder="Email"
-          value={email}
-          onChange={event => setEmail(event.target.value)}
-        />
-
-        <Input 
           type="text"
           aria-label="user name"
           placeholder="Username"
           value={username}
+          required
           onChange={event => setUsername(event.target.value)}
+        />
+
+        <Input 
+          type="email" 
+          aria-label="email"
+          placeholder="Email"
+          value={email}
+          required
+          onChange={event => setEmail(event.target.value)}
         />
 
         <Input 
@@ -65,8 +71,14 @@ const SignUpFrom = () => {
           aria-label="password"
           placeholder="Password"
           value={password}
+          required
           onChange={event => setPassword(event.target.value)}
         />
+
+        {authError && <AuthError>
+          {'login failed'}
+          <ErrorIcon src={errorIcon} alt="" />
+        </AuthError>}
 
         <Button 
           type="submit"
@@ -77,11 +89,23 @@ const SignUpFrom = () => {
       <Container>
         <P>
           Have an account?
-          <Link href="#">Log in</Link>
+          <StyledLink to="login">Log in</StyledLink>
         </P>
       </Container>
     </Form>
   );
 }
 
-export default memo(SignUpFrom);
+const mapStateToProps = (state) => {
+  return {
+    authError: state.auth.authError
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signUp: creds => dispatch(signUp(creds))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(memo(SignUpFrom));

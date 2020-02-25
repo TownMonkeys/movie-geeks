@@ -10,6 +10,8 @@ import {
 import avatar from '../../../images/avatar.svg';
 import downArrow from '../../../images/down-arrow.svg';
 import Avatar from '../../avatar';
+import { connect } from 'react-redux';
+import { signOut } from '../../../store/actions/authActions';
 
 const user = {
   name: 'Yurio',
@@ -18,7 +20,7 @@ const user = {
 
 const AccountDropdown = (props) => {
   /* props --- */
-  const { searchButtonRef } = props;
+  const { searchButtonRef, signOut } = props;
 
   /* dom refs --- */
   const containerRef = useRef();
@@ -181,6 +183,7 @@ const AccountDropdown = (props) => {
               id={`item${index+1}`}
               tabIndex={activeIndex === index ? 0 : -1}
               ref={(el) => itemsRefs.current[index] = el}
+              onClick={index === 2 ? signOut : null}
             >{item}</MenuItem>
           ))
         }
@@ -189,4 +192,10 @@ const AccountDropdown = (props) => {
   );
 }
 
-export default memo(AccountDropdown);
+const mapDispatchToProps = (dipatch) => {
+  return {
+    signOut: () => dipatch(signOut())
+  };
+}
+
+export default connect(null, mapDispatchToProps)(memo(AccountDropdown));
