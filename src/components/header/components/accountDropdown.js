@@ -20,7 +20,7 @@ const user = {
 
 const AccountDropdown = (props) => {
   /* props --- */
-  const { searchButtonRef, signOut } = props;
+  const { searchButtonRef, signOut, profile } = props;
 
   /* dom refs --- */
   const containerRef = useRef();
@@ -162,7 +162,7 @@ const AccountDropdown = (props) => {
         ref={togglerRef}
       >
         <Avatar user={user} size={'small'} />
-        <UserName>{user.name}</UserName>
+        <UserName>{profile.username}</UserName>
         <DownArrow src={downArrow} alt="Down arrow" />
       </DropdownToggler>
 
@@ -192,10 +192,16 @@ const AccountDropdown = (props) => {
   );
 }
 
+const mapStateToProps = (state) => {
+  return {
+    profile: state.firebase.profile
+  }
+}
+
 const mapDispatchToProps = (dipatch) => {
   return {
     signOut: () => dipatch(signOut())
   };
 }
 
-export default connect(null, mapDispatchToProps)(memo(AccountDropdown));
+export default connect(mapStateToProps, mapDispatchToProps)(memo(AccountDropdown));

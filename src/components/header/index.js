@@ -37,7 +37,7 @@ const Header = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  console.log('auth', state.firebase.auth);
+  console.log('state: ', state);
   return {
     auth: state.firebase.auth
   }

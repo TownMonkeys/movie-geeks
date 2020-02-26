@@ -1,11 +1,16 @@
 export const signUp = (credentials) => {
-  return (dispatch, getState, { getFirebase }) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firebase = getFirebase();
+    const firestore = getFirestore();
 
     firebase.auth().createUserWithEmailAndPassword(
       credentials.email,
       credentials.password
-    ).then(() => {
+    ).then((response) => {
+      return firestore.collection('users').doc(response.user.uid).set({
+        username: credentials.username
+      })
+    }).then(() => {
       dispatch({ type: 'SIGNUP_SUCCESS' });
     }).catch((err) => {
       dispatch({ type: 'SIGNUP_ERROR', err });
