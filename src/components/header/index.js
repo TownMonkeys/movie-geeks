@@ -21,7 +21,7 @@ const Header = (props) => {
   return (
     <StyledHeader>
       <Title>Movie Geeks</Title>
-      {auth.isLoaded && <Navigation>
+      {auth.uid && <Navigation>
         <NavTitle>Main Navigation</NavTitle>
 
         <Logo />
@@ -37,7 +37,7 @@ const Header = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.firebase);
+  console.log('auth', state.firebase.auth);
   return {
     auth: state.firebase.auth
   }

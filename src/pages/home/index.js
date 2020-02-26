@@ -4,8 +4,16 @@ import ReviewForm from '../../components/reviewForm';
 import { 
   HomePage
 } from './style';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const Home = () => {
+const Home = (props) => {
+  const { auth } = props;
+  
+  if (!auth.uid) {
+    return <Redirect to="login" />
+  }
+
   return (
     <HomePage>
       <ReviewForm />
@@ -14,4 +22,10 @@ const Home = () => {
   );
 }
 
-export default memo(Home);
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
+export default connect(mapStateToProps)(memo(Home));
