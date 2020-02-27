@@ -1,20 +1,12 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo } from 'react';
 import {
   AuthPage
 } from './style';
 import AuthForm from '../../components/authForm';
-import usePrevious from '../../hooks/usePrevious';
 import { connect } from 'react-redux';
 
 const Auth = (props) => {
-  const { action, auth, history } = props;
-
-  const prevAuthorized = usePrevious(auth.uid);
-  useEffect(function redirectToHomeIfAuthorized () {
-    if (auth.uid && !prevAuthorized) {
-      history.push('/');
-    }
-  }, [auth.uid]);
+  const { action } = props;
 
   return (
     <AuthPage>

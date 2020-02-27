@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import PrivateRoute from './privateRoute';
 import GlobalStyles from './global.css';
 import Header from './components/header';
 import Home from './pages/home';
@@ -17,7 +18,7 @@ const App = () => {
         <Header />
         <Main>
           <Switch>
-            <Route path="/" exact component={Home} />
+            <PrivateRoute path="/" exact component={Home} />
             <Route 
               path="/signup" 
               component={props => <Auth {...props} action={'signup'} />} 

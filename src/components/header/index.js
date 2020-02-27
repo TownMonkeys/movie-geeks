@@ -1,4 +1,4 @@
-import React, { memo, useRef } from 'react';
+import React, { memo, useRef, useContext } from 'react';
 import { 
   StyledHeader,
   Title,
@@ -10,18 +10,20 @@ import SearchForm from './components/searchForm';
 import FeaturesList from './components/featuresList';
 import CommunicationMediums from './components/communicationMediums';
 import { connect } from 'react-redux';
+import { AuthContext } from '../../auth';
 
-const Header = (props) => {
-  // props
-  const { auth } = props;
-
+const Header = () => {
   // ref
   const searchButtonRef = useRef();
+
+  // user state
+  const { user } = useContext(AuthContext);
+  console.log('(header) user: ', user);
 
   return (
     <StyledHeader>
       <Title>Movie Geeks</Title>
-      {auth.uid && <Navigation>
+      {user && <Navigation>
         <NavTitle>Main Navigation</NavTitle>
 
         <Logo />
@@ -36,11 +38,4 @@ const Header = (props) => {
   );
 }
 
-const mapStateToProps = (state) => {
-  console.log('state: ', state);
-  return {
-    auth: state.firebase.auth
-  }
-}
-
-export default connect(mapStateToProps)(memo(Header));
+export default connect()(memo(Header));

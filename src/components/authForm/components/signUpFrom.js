@@ -1,4 +1,5 @@
 import React, { memo, useState, useCallback } from 'react';
+import { withRouter } from 'react-router-dom';
 import {
   Form,
   Container,
@@ -21,15 +22,18 @@ import { signUp } from '../../../store/actions/authActions';
 
 const SignUpFrom = (props) => {
   // props
-  const { signUp, authError } = props;
+  const { signUp, authError, history } = props;
 
+  // inputs
   const [ username, setUsername ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
 
   const handleSubmit = useCallback((event) => {
     event.preventDefault();
-    signUp({ username, email, password });
+
+    const credentials = { username, email, password }
+    signUp(credentials, history);
   }, [ email, username, password ]);
 
   return (
@@ -104,8 +108,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signUp: creds => dispatch(signUp(creds))
+    signUp: (credentials, history) => dispatch(signUp(credentials, history))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(memo(SignUpFrom));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(memo(SignUpFrom)));

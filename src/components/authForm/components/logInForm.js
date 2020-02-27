@@ -1,4 +1,5 @@
 import React, { memo, useState, useCallback } from 'react';
+import { withRouter } from 'react-router-dom';
 import {
   Form,
   Container,
@@ -20,14 +21,17 @@ import { logIn } from '../../../store/actions/authActions';
 
 const LoginForm = (props) => {
   // props
-  const { logIn, authError } = props;
+  const { logIn, authError, history } = props;
 
+  // inputs
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
-
+  
   const handleSubmit = useCallback((event) => {
     event.preventDefault();
-    logIn({ email, password });
+    
+    const credentials = { email, password }
+    logIn(credentials, history);
   }, [ email, password ]);
 
   return (
@@ -89,8 +93,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logIn: creds => dispatch(logIn(creds))
+    logIn: (credentials, history) => dispatch(logIn(credentials, history))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(memo(LoginForm));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(memo(LoginForm)));
