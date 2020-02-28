@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './app';
+import GlobalStyles from './global.css';
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './store/reducers/rootReducer';
 import { Provider } from 'react-redux';
@@ -47,6 +48,7 @@ ReactDOM.render(
     <ReactReduxFirebaseProvider {...rrfProps} >
       <Router>
         <AuthProvider>
+          <GlobalStyles />
           <App />
         </AuthProvider>
       </Router>

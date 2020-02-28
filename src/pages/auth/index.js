@@ -1,13 +1,15 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import {
   AuthPage
 } from './style';
 import AuthForm from '../../components/authForm';
 import { connect } from 'react-redux';
+import { resetError } from '../../store/actions/authActions';
 
 const Auth = (props) => {
-  const { action } = props;
-  console.log('auth page: ', props);
+  const { action, resetAuthError } = props;
+
+  useEffect(resetAuthError, [ action ]);
 
   return (
     <AuthPage>
@@ -22,4 +24,12 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(memo(Auth));
+const mapDispatchToProps = (dispatch) => {
+  return {
+    resetAuthError: () => {
+      dispatch(resetError())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(memo(Auth));

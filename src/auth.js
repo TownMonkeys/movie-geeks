@@ -1,24 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import firebase from 'firebase/app';
 import { useHistory } from 'react-router-dom';
-import { isLoaded } from 'react-redux-firebase'
 
 export const AuthContext = React.createContext();
 
-export const AuthProvider = (props) => {
-  // props
-  const { children } = props;
-  
-  // user state
-  const [ user, setUser ] = useState('userNotSet');
-  console.log('auth provider: ', user);
+export const AuthProvider = ({ children }) => {
+  const [ user, setUser ] = useState('notSet');
   
   // Add auth listener
   useEffect(function addAuthStateListener() {
-    firebase.auth().onAuthStateChanged((user) => {
-      console.log('auth change');
-      setUser(user);
-    });
+    firebase.auth().onAuthStateChanged(setUser);
   }, []);
   
   // Redirect based on the user state
@@ -35,7 +26,7 @@ export const AuthProvider = (props) => {
         user
       }}
     >
-      {!(user === 'userNotSet') && 
+      {user !== 'notSet' && 
         children
       }
     </AuthContext.Provider>
