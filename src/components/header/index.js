@@ -18,7 +18,6 @@ const Header = () => {
 
   // user state
   const { user } = useContext(AuthContext);
-  console.log('(header) user: ', user);
 
   return (
     <StyledHeader>

@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 
 const Auth = (props) => {
   const { action } = props;
+  console.log('auth page: ', props);
 
   return (
     <AuthPage>

@@ -44,3 +44,7 @@ export const signOut = () => {
     });
   }
 }
+
+export const resetError = () => {
+  return { type: 'RESET_ERROR' }
+}
