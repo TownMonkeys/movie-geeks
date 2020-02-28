@@ -12,7 +12,6 @@ export const signUp = (credentials, history) => {
       })
     }).then(() => {
       dispatch({ type: 'SIGNUP_SUCCESS' });
-      // history.push('/');
     }).catch((err) => {
       dispatch({ type: 'SIGNUP_ERROR', err });
     });
@@ -28,7 +27,6 @@ export const logIn = (credentials, history) => {
       credentials.password
     ).then(() => {
       dispatch({ type: 'LOGIN_SUCCESS' });
-      // history.push('/');
     }).catch((err) => {
       dispatch({ type: 'LOGIN_ERROR', err });
     });
