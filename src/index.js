@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import App from './app';
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './store/reducers/rootReducer';
@@ -51,9 +52,11 @@ ReactDOM.render(
   <Provider store={store}>
     <ReactReduxFirebaseProvider {...rrfProps} >
       <AuthIsLoaded>
-        <AuthProvider>
-          <App />
-        </AuthProvider>
+        <Router>
+          <AuthProvider>
+            <App />
+          </AuthProvider>
+        </Router>
       </AuthIsLoaded>
     </ReactReduxFirebaseProvider>
   </Provider>, 

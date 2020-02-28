@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import PrivateRoute from './privateRoute';
 import GlobalStyles from './global.css';
 import Header from './components/header';
@@ -12,7 +12,7 @@ import {
 
 const App = () => {
   return (
-    <Router>
+    <>
       <GlobalStyles />
       <StyledApp>
         <Header />
@@ -30,7 +30,7 @@ const App = () => {
           </Switch>
         </Main>
       </StyledApp>
-    </Router>
+    </>
   );
 }
 
