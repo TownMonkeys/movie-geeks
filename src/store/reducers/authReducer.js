@@ -31,6 +31,18 @@ const authReducer = (state = initState, action) => {
     case 'SIGNOUT_SUCCESS':
       console.log('signout success');
       return state;
+    case 'LOGIN_SUCCESS_FACEBOOK':
+      console.log('facebook sign in success');
+      return {
+        ...state,
+        authError: null
+      }
+    case 'LOGIN_ERROR_FACEBOOK':
+      console.log('facebook login error');
+      return {
+        ...state,
+        authError: 'login failed'
+      }
     case 'RESET_ERROR':
       return {
         ...state,

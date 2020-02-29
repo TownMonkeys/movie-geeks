@@ -50,10 +50,8 @@ export const logInWithFacebook = () => {
     const firebase = getFirebase();
 
     firebase.auth().signInWithPopup(facebookAuthProvider).then((result) => {
-      console.log(result);
       dispatch({ type: 'LOGIN_SUCCESS_FACEBOOK' })
     }).catch((err) => {
-      console.log(err);
       dispatch({ type: 'LOGIN_ERROR_FACEBOOK', err })
     })
   }
