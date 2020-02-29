@@ -22,7 +22,7 @@ import { signUp } from '../../../store/actions/authActions';
 
 const SignUpFrom = (props) => {
   // props
-  const { signUp, authError, history } = props;
+  const { signUp, authError } = props;
 
   // inputs
   const [ username, setUsername ] = useState('');
@@ -33,7 +33,7 @@ const SignUpFrom = (props) => {
     event.preventDefault();
 
     const credentials = { username, email, password }
-    signUp(credentials, history);
+    signUp(credentials);
   }, [ email, username, password ]);
 
   return (
@@ -108,8 +108,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signUp: (credentials, history) => dispatch(signUp(credentials, history))
+    signUp: (credentials) => dispatch(signUp(credentials))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(memo(SignUpFrom)));
+export default connect(mapStateToProps, mapDispatchToProps)(memo(SignUpFrom));

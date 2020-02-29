@@ -17,11 +17,11 @@ import {
 import facebookIcon from '../../../images/facebook.svg';
 import errorIcon from '../../../images/alert.svg';
 import { connect } from 'react-redux';
-import { logIn } from '../../../store/actions/authActions';
+import { logIn, logInWithFacebook } from '../../../store/actions/authActions';
 
 const LoginForm = (props) => {
   // props
-  const { logIn, authError, history } = props;
+  const { logIn, logInWithFacebook, authError } = props;
 
   // inputs
   const [ email, setEmail ] = useState('');
@@ -31,7 +31,7 @@ const LoginForm = (props) => {
     event.preventDefault();
     
     const credentials = { email, password }
-    logIn(credentials, history);
+    logIn(credentials);
   }, [ email, password ]);
 
   return (
@@ -39,7 +39,7 @@ const LoginForm = (props) => {
       <Container>
         <Title>Log in</Title>
 
-        <FacebookButton>
+        <FacebookButton onClick={logInWithFacebook} >
           <FacebookIcon src={facebookIcon} alt="Facebook icon" />
           Log in with Facebook
         </FacebookButton>
@@ -93,8 +93,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logIn: (credentials, history) => dispatch(logIn(credentials, history))
+    logIn: (credentials) => dispatch(logIn(credentials)),
+    logInWithFacebook: () => dispatch(logInWithFacebook())
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(memo(LoginForm)));
+export default connect(mapStateToProps, mapDispatchToProps)(memo(LoginForm));

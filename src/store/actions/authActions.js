@@ -1,4 +1,6 @@
-export const signUp = (credentials, history) => {
+import { facebookAuthProvider } from '../../auth';
+
+export const signUp = (credentials) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firebase = getFirebase();
     const firestore = getFirestore();
@@ -18,7 +20,7 @@ export const signUp = (credentials, history) => {
   }
 }
 
-export const logIn = (credentials, history) => {
+export const logIn = (credentials) => {
   return (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();
 
@@ -40,6 +42,20 @@ export const signOut = () => {
     firebase.auth().signOut().then(() => {
       dispatch({ type: 'SIGNOUT_SUCCESS' })
     });
+  }
+}
+
+export const logInWithFacebook = () => {
+  return (dispatch, getState, { getFirebase }) => {
+    const firebase = getFirebase();
+
+    firebase.auth().signInWithPopup(facebookAuthProvider).then((result) => {
+      console.log(result);
+      dispatch({ type: 'LOGIN_SUCCESS_FACEBOOK' })
+    }).catch((err) => {
+      console.log(err);
+      dispatch({ type: 'LOGIN_ERROR_FACEBOOK', err })
+    })
   }
 }
 

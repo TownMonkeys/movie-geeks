@@ -8,9 +8,7 @@ import rootReducer from './store/reducers/rootReducer';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import dotenv from 'dotenv';
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/firestore';
+import firebase from './config/firebaseConfig';
 import { ReactReduxFirebaseProvider, getFirebase } from 'react-redux-firebase';
 import { reduxFirestore, createFirestoreInstance, getFirestore } from 'redux-firestore';
 import firebaseConfig from './config/firebaseConfig';
@@ -18,10 +16,6 @@ import { AuthProvider } from './auth';
 
 // Environment variables
 dotenv.config();
-
-// initialize firebase
-firebase.initializeApp(firebaseConfig);
-firebase.firestore();
 
 // redux
 const store = createStore(rootReducer,
