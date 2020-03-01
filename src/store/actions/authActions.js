@@ -46,10 +46,19 @@ export const signOut = () => {
 }
 
 export const logInWithFacebook = () => {
-  return (dispatch, getState, { getFirebase }) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firebase = getFirebase();
+    const firestore = getFirestore();
 
-    firebase.auth().signInWithPopup(facebookAuthProvider).then((result) => {
+    firebase.auth().signInWithPopup(facebookAuthProvider).then(({user, additionalUserInfo}) => {
+      (function addUsername() {
+        const { isNewUser } = additionalUserInfo;
+        if (isNewUser) {
+          return firestore.collection('users').doc(user.uid).set({
+            username: user.displayName.split(' ')[0]
+          }) 
+        }
+      })();
       dispatch({ type: 'LOGIN_SUCCESS_FACEBOOK' })
     }).catch((err) => {
       dispatch({ type: 'LOGIN_ERROR_FACEBOOK', err })
