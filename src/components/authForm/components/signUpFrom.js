@@ -1,12 +1,9 @@
 import React, { memo, useState, useCallback } from 'react';
-import { withRouter } from 'react-router-dom';
 import {
   Form,
   Container,
   Title,
   EncouragingStatement,
-  FacebookButton,
-  FacebookIcon,
   Divider,
   Input,
   AuthError,
@@ -15,7 +12,7 @@ import {
   P,
   StyledLink
 } from '../style';
-import facebookIcon from '../../../images/facebook.svg';
+import FacebookButton from './facebookButton';
 import errorIcon from '../../../images/alert.svg';
 import { connect } from 'react-redux';
 import { signUp } from '../../../store/actions/authActions';
@@ -45,10 +42,7 @@ const SignUpFrom = (props) => {
           Sign up to discover new movies from your friends.
         </EncouragingStatement>
 
-        <FacebookButton>
-          <FacebookIcon src={facebookIcon} alt="Facebook icon" />
-          Sign up with Facebook
-        </FacebookButton>
+        <FacebookButton />
 
         <Divider>or</Divider>
 

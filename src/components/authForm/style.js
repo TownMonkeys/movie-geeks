@@ -44,7 +44,7 @@ export const Button = styled.button`
   margin-top: 1rem;
 `;
 
-export const FacebookButton = styled(Button)`
+export const StyledFacebookButton = styled(Button)`
   background-color: ${theme.bg.facebook};
 
   display: flex;

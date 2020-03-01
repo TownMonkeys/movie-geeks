@@ -1,11 +1,8 @@
 import React, { memo, useState, useCallback } from 'react';
-import { withRouter } from 'react-router-dom';
 import {
   Form,
   Container,
   Title,
-  FacebookButton,
-  FacebookIcon,
   Divider,
   Input,
   AuthError,
@@ -14,14 +11,14 @@ import {
   P,
   StyledLink
 } from '../style';
-import facebookIcon from '../../../images/facebook.svg';
+import FacebookButton from './facebookButton';
 import errorIcon from '../../../images/alert.svg';
 import { connect } from 'react-redux';
-import { logIn, logInWithFacebook } from '../../../store/actions/authActions';
+import { logIn } from '../../../store/actions/authActions';
 
 const LoginForm = (props) => {
   // props
-  const { logIn, logInWithFacebook, authError } = props;
+  const { logIn, authError } = props;
 
   // inputs
   const [ email, setEmail ] = useState('');
@@ -39,10 +36,7 @@ const LoginForm = (props) => {
       <Container>
         <Title>Log in</Title>
 
-        <FacebookButton onClick={logInWithFacebook} >
-          <FacebookIcon src={facebookIcon} alt="Facebook icon" />
-          Log in with Facebook
-        </FacebookButton>
+        <FacebookButton />
 
         <Divider>or</Divider>
 
@@ -93,8 +87,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logIn: (credentials) => dispatch(logIn(credentials)),
-    logInWithFacebook: () => dispatch(logInWithFacebook())
+    logIn: (credentials) => dispatch(logIn(credentials))
   }
 }
 
