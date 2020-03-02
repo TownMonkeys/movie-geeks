@@ -34,8 +34,8 @@ export const AuthProvider = ({ children }) => {
   )
 }
 
-export const facebookAuthProvider = new firebase.auth.FacebookAuthProvider();
+// export const facebookAuthProvider = new firebase.auth.FacebookAuthProvider();
 
-facebookAuthProvider.setCustomParameters({
-  'display': 'popup'
-});
+// facebookAuthProvider.setCustomParameters({
+//   'display': 'popup'
+// });

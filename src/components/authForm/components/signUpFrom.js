@@ -73,7 +73,7 @@ const SignUpFrom = (props) => {
           onChange={event => setPassword(event.target.value)}
         />
 
-        {authError && <AuthError>
+        {authError && <AuthError role="alert" >
           {authError}
           <ErrorIcon src={errorIcon} alt="" />
         </AuthError>}
