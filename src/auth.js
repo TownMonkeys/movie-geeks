@@ -16,7 +16,6 @@ export const AuthProvider = ({ children }) => {
   // Redirect based on the user state
   const history = useHistory();
   useEffect(function redirectBasedOnAuthState() {
-    console.log(user);
     if (user) {
       history.push('/');
     }

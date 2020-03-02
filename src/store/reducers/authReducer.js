@@ -8,7 +8,7 @@ const authReducer = (state = initState, action) => {
       console.log('signup error');
       return {
         ...state,
-        authError: 'Signup failed'
+        authError: action.err.message
       }
     case 'SIGNUP_SUCCESS':
       console.log('signup success');
@@ -20,7 +20,7 @@ const authReducer = (state = initState, action) => {
       console.log('login error');
       return {
         ...state,
-        authError: 'Login failed'
+        authError: action.err.message
       }
     case 'LOGIN_SUCCESS':
       console.log('login success');
@@ -31,6 +31,12 @@ const authReducer = (state = initState, action) => {
     case 'SIGNOUT_SUCCESS':
       console.log('signout success');
       return state;
+    case 'SIGNOUT_ERROR':
+      console.log('signout error');
+      return {
+        ...state,
+        authError: action.err.message
+      }
     case 'LOGIN_SUCCESS_FACEBOOK':
       console.log('facebook sign in success');
       return {
@@ -41,7 +47,7 @@ const authReducer = (state = initState, action) => {
       console.log('facebook login error');
       return {
         ...state,
-        authError: 'login failed'
+        authError: action.err.message
       }
     case 'RESET_ERROR':
       return {
