@@ -74,7 +74,7 @@ const SignUpFrom = (props) => {
         />
 
         {authError && <AuthError>
-          {'login failed'}
+          {authError}
           <ErrorIcon src={errorIcon} alt="" />
         </AuthError>}
 
