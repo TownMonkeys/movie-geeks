@@ -30,7 +30,7 @@ export const EncouragingStatement = styled.p`
   color: ${theme.text.grey};
   font-size: 1.07rem;
   font-weight: 600;
-  margin: 0;
+  margin: 0 0 1rem;
 `;
 
 export const Button = styled.button`

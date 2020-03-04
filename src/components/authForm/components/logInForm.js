@@ -36,9 +36,9 @@ const LoginForm = (props) => {
       <Container>
         <Title>Log in</Title>
 
-        <FacebookButton />
+        {/* <FacebookButton />
 
-        <Divider>or</Divider>
+        <Divider>or</Divider> */}
 
         <Input 
           type="email" 

@@ -42,9 +42,9 @@ const SignUpFrom = (props) => {
           Sign up to discover new movies from your friends.
         </EncouragingStatement>
 
-        <FacebookButton />
+        {/* <FacebookButton />
 
-        <Divider>or</Divider>
+        <Divider>or</Divider> */}
 
         <Input 
           type="text"
