@@ -2,8 +2,9 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import PrivateRoute from './privateRoute';
 import Header from './components/header';
-import Home from './pages/home';
 import Auth from './pages/auth';
+import Home from './pages/home';
+import Profile from './pages/profile';
 import { 
   StyledApp,
   Main
@@ -16,6 +17,7 @@ const App = () => {
       <Main>
         <Switch>
           <PrivateRoute path="/" exact component={Home} />
+          <PrivateRoute path="/user" component={Profile} />
           <Route 
             path="/signup" 
             component={props => <Auth {...props} action={'signup'} />} 
