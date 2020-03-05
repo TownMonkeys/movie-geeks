@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import theme from '../../shared/theme';
 import measurements from '../../shared/measurements';
+import { Link } from 'react-router-dom';
 
 export const MoviesSection = styled.section`
   width: 30rem;
@@ -37,11 +38,11 @@ export const Header = styled.header`
   align-items: center;
 `;
 
-export const AvatarLink = styled.a`
+export const AvatarLink = styled(Link)`
   margin-right: .5rem;
 `;
 
-export const UserNameLink = styled.a`
+export const UserNameLink = styled(Link)`
   text-decoration: none;
   color: ${theme.text.default};
   font-weight: 500;
