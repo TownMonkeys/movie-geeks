@@ -1,4 +1,6 @@
-import React, { memo, useState, useCallback, useEffect, useRef } from 'react';
+import React, { memo, useState, useCallback, useEffect, useRef, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../auth';
 import { 
   DropdownContainer,
   DropdownToggler,
@@ -13,10 +15,30 @@ import Avatar from '../../avatar';
 import { connect } from 'react-redux';
 import { signOut } from '../../../store/actions/authActions';
 
-const user = {
+const dummyUser = {
   name: 'Yurio',
   avatar
 };
+
+const Item = (props) => {
+  const { index, activeIndex, itemsRefs, type, handleClick, to, value } = props;
+
+  return (
+    <MenuItem
+      role='menuitem'
+      id={`item${index+1}`}
+      tabIndex={activeIndex === index ? 0 : -1}
+      ref={(el) => itemsRefs.current[index] = el}
+      onClick={type === 'action' ? handleClick : null}
+    >
+      {
+        type === 'link' ?
+        <Link to={to}>{value}</Link> :
+        value
+      }
+    </MenuItem>
+  )
+}
 
 const AccountDropdown = (props) => {
   /* props --- */
@@ -26,6 +48,9 @@ const AccountDropdown = (props) => {
   const containerRef = useRef();
   const togglerRef   = useRef();
   const itemsRefs    = useRef([]);
+
+  /* user --- */
+  const { user } = useContext(AuthContext);
 
   /* dropdown collapse timer --- */
   const dropdownCollapseTimer = useRef();
@@ -146,6 +171,12 @@ const AccountDropdown = (props) => {
     };
   }, [menuExpanded])
 
+  const items = [
+    { value: 'Profile',   type: 'link',   to: user.uid },
+    { value: 'Watchlist', type: 'link',   to: `` },
+    { value: 'signout',   type: 'action', handleClick: signOut }
+  ];
+
   return (
     <DropdownContainer
       onMouseEnter={handleMouseEnter}
@@ -161,7 +192,7 @@ const AccountDropdown = (props) => {
         onMouseEnter={handleTogglerMouseEnter}
         ref={togglerRef}
       >
-        <Avatar user={user} size={'small'} />
+        <Avatar user={dummyUser} size={'small'} />
         <UserName>{profile.username}</UserName>
         <DownArrow src={downArrow} alt="Down arrow" />
       </DropdownToggler>
@@ -176,15 +207,17 @@ const AccountDropdown = (props) => {
         onMouseEnter={handleMenuMouseEnter}
       >
         {
-          ['Profile', 'Watchlist', 'Sign Out'].map((item, index) => (
-            <MenuItem
+          items.map((item, index) => (
+            <Item
               key={index}
-              role="menuitem"
+              index={index}
               id={`item${index+1}`}
-              tabIndex={activeIndex === index ? 0 : -1}
-              ref={(el) => itemsRefs.current[index] = el}
-              onClick={index === 2 ? signOut : null}
-            >{item}</MenuItem>
+              itemsRefs={itemsRefs}
+              type={item.type}
+              to={item.to}
+              handleClick={item.handleClick}
+              value={item.value}
+            >{item.value}</Item>
           ))
         }
       </DropdownMenu>
