@@ -7,13 +7,15 @@ import {
   UserName,
   DownArrow,
   DropdownMenu,
-  MenuItem
+  MenuItem,
+  MenuItemLink
 } from '../style';
 import avatar from '../../../images/avatar.svg';
 import downArrow from '../../../images/down-arrow.svg';
 import Avatar from '../../avatar';
 import { connect } from 'react-redux';
 import { signOut } from '../../../store/actions/authActions';
+import { ConditionalWrapper } from '../../../helpers';
 
 const dummyUser = {
   name: 'Yurio',
@@ -21,7 +23,7 @@ const dummyUser = {
 };
 
 const Item = (props) => {
-  const { index, activeIndex, itemsRefs, type, handleClick, to, value } = props;
+  const { index, activeIndex, itemsRefs, link, handleClick, value } = props;
 
   return (
     <MenuItem
@@ -29,13 +31,9 @@ const Item = (props) => {
       id={`item${index+1}`}
       tabIndex={activeIndex === index ? 0 : -1}
       ref={(el) => itemsRefs.current[index] = el}
-      onClick={type === 'action' ? handleClick : null}
+      onClick={!link ? handleClick : null}
     >
-      {
-        type === 'link' ?
-        <Link to={to}>{value}</Link> :
-        value
-      }
+      {value}
     </MenuItem>
   )
 }
@@ -172,9 +170,9 @@ const AccountDropdown = (props) => {
   }, [menuExpanded])
 
   const items = [
-    { value: 'Profile',   type: 'link',   to: user.uid },
-    { value: 'Watchlist', type: 'link',   to: `` },
-    { value: 'signout',   type: 'action', handleClick: signOut }
+    { value: 'Profile',   link: true,   to: `user/${user.uid}` },
+    { value: 'Watchlist', link: true,   to: `` },
+    { value: 'signout',   link: false,  handleClick: signOut }
   ];
 
   return (
@@ -208,16 +206,21 @@ const AccountDropdown = (props) => {
       >
         {
           items.map((item, index) => (
-            <Item
+            <ConditionalWrapper
               key={index}
-              index={index}
-              id={`item${index+1}`}
-              itemsRefs={itemsRefs}
-              type={item.type}
-              to={item.to}
-              handleClick={item.handleClick}
-              value={item.value}
-            >{item.value}</Item>
+              condition={item.link}
+              wrapper={children => <MenuItemLink to={item.to}>{children}</MenuItemLink>}
+            >
+              <Item
+                index={index}
+                id={`item${index+1}`}
+                itemsRefs={itemsRefs}
+                type={item.type}
+                to={item.to}
+                handleClick={item.handleClick}
+                value={item.value}
+              >{item.value}</Item>
+            </ConditionalWrapper>
           ))
         }
       </DropdownMenu>
