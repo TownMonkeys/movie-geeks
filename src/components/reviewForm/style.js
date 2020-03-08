@@ -4,8 +4,8 @@ import measurements from '../../shared/measurements';
 
 
 export const Container = styled.div`
-  position:relative;
-  width:30rem;
+  position: relative;
+  width: 30rem;
 `;
 export const Form = styled.form`
   display: inline-block;
@@ -40,33 +40,40 @@ export const FormBody = styled.div`
 export const ResultNameInput = styled.ul`
   width: 100%;
     height: auto;
-    background: #f00;
+    background: ${theme.bg.default};
     z-index: 9999;
     position: absolute;
     top:77%;
 `;
-export const ResultNameInputLi = styled.li`
-   background:#111;
-   width:30rem;
-   height:auto;
-   padding:0.2em;
-   list-style:none;
-   margin-left:-40px;
+export const Movie = styled.li`
+   background: ${theme.bg.grey};
+   width: 30rem;
+   height: auto;
+   padding: 0.2em;
+   list-style: none;
+   margin-left: -40px;
     position: relative;
-   border-bottom:1px solid #f2f2f2;
+   border-bottom:1px solid #000;
+   border-radius:1px;
 
 `;
-export const SpanConatiner = styled.span`
+export const MovieConatiner = styled.div`
     position: absolute;
     padding-left: 0.8em;
     padding-right: 0.3em;
     padding-top: 0.5em;
-    color: #fff;
     font-size:1em;
+    display:inline-block;
 `;
-export const Ptitle = styled.p`
+export const MovieInfo = styled.p`
+    color: ${theme.text.grey};
+    text-transform:capitalize;
+
+`;
+
+export const MovieTitle = styled.p`
    font-weight:bolder;
-   color:#f1f1f1;
+   color: ${theme.text.default};
 `;
 export const Img = styled.img`
    max-width:100px;
