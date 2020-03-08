@@ -6,4 +6,4 @@ const header = () => {
   );
 }
 
-export default header;
+export default memo(header);
