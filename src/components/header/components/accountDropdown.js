@@ -1,5 +1,4 @@
 import React, { memo, useState, useCallback, useEffect, useRef, useContext } from 'react';
-import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../auth';
 import { 
   DropdownContainer,
