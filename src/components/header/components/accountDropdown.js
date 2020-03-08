@@ -1,8 +1,4 @@
 import React, { memo, useState, useCallback, useEffect, useRef, useContext } from 'react';
-<<<<<<< HEAD
-=======
-import { Link } from 'react-router-dom';
->>>>>>> e072c20eca628ba003a6dac4c8395c08b898ae6d
 import { AuthContext } from '../../../auth';
 import { 
   DropdownContainer,
@@ -20,7 +16,6 @@ import { connect } from 'react-redux';
 import { signOut } from '../../../store/actions/authActions';
 import { ConditionalWrapper } from '../../../helpers';
 
-<<<<<<< HEAD
 const Item = (props) => {
   const { index, activeIndex, itemsRefs, link, handleClick, value } = props;
 
@@ -36,12 +31,6 @@ const Item = (props) => {
     </MenuItem>
   )
 }
-=======
-const dummyUser = {
-  name: 'Yurio',
-  avatar
-};
->>>>>>> e072c20eca628ba003a6dac4c8395c08b898ae6d
 
 const Item = (props) => {
   const { index, activeIndex, itemsRefs, type, handleClick, to, value } = props;
@@ -195,15 +184,9 @@ const AccountDropdown = (props) => {
   }, [menuExpanded])
 
   const items = [
-<<<<<<< HEAD
     { value: 'Profile',   link: true,   to: `user/${user.uid}` },
     { value: 'Watchlist', link: true,   to: `` },
     { value: 'signout',   link: false,  handleClick: signOut }
-=======
-    { value: 'Profile',   type: 'link',   to: user.uid },
-    { value: 'Watchlist', type: 'link',   to: `` },
-    { value: 'signout',   type: 'action', handleClick: signOut }
->>>>>>> e072c20eca628ba003a6dac4c8395c08b898ae6d
   ];
 
   return (
@@ -221,11 +204,7 @@ const AccountDropdown = (props) => {
         onMouseEnter={handleTogglerMouseEnter}
         ref={togglerRef}
       >
-<<<<<<< HEAD
         <Avatar email={user.email} size={'2rem'} />
-=======
-        <Avatar user={dummyUser} size={'small'} />
->>>>>>> e072c20eca628ba003a6dac4c8395c08b898ae6d
         <UserName>{profile.username}</UserName>
         <DownArrow src={downArrow} alt="Down arrow" />
       </DropdownToggler>
@@ -241,7 +220,6 @@ const AccountDropdown = (props) => {
       >
         {
           items.map((item, index) => (
-<<<<<<< HEAD
             <ConditionalWrapper
               key={index}
               condition={item.link}
@@ -257,18 +235,6 @@ const AccountDropdown = (props) => {
                 value={item.value}
               >{item.value}</Item>
             </ConditionalWrapper>
-=======
-            <Item
-              key={index}
-              index={index}
-              id={`item${index+1}`}
-              itemsRefs={itemsRefs}
-              type={item.type}
-              to={item.to}
-              handleClick={item.handleClick}
-              value={item.value}
-            >{item.value}</Item>
->>>>>>> e072c20eca628ba003a6dac4c8395c08b898ae6d
           ))
         }
       </DropdownMenu>
