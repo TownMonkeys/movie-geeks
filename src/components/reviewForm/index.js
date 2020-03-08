@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, { memo, useState, useRef  } from 'react';
-=======
 import React, { memo,useState,useRef ,Fragment  } from 'react';
->>>>>>> beb3344d306d757eab5d6cbbd74f318ec8304d26
 import axios from 'axios';
 
 import { 
@@ -19,21 +15,6 @@ import {
 } from './style';
 
 const ReviewForm = () => {
-<<<<<<< HEAD
-  const [movies, setMovies] = useState();
-  const inputElMovie = useRef(null);
-
-  function moviesFetch(e){
-    e.preventDefault();
-    
-    axios.get(`https://api.themoviedb.org/3/search/multi?query=${inputElMovie.current.value}&api_key=400225a1886f38d9cf3c934d6a756c4d`)
-    .then(res => {
-      const newMovies = res.data;
-      setMovies({ newMovies });
-      console.log(newMovies);
-    })
-  }
-=======
     const [movies, setMovies] = useState([]);
     const inputElMovie = useRef(null);
 
@@ -47,7 +28,6 @@ const ReviewForm = () => {
         console.log(newMovies);
       })
     }
->>>>>>> beb3344d306d757eab5d6cbbd74f318ec8304d26
    
   return (
    <Container> 
