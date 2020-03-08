@@ -1,21 +1,28 @@
 import React, { memo } from 'react';
-import ReactAvatar from 'react-avatar';
 import { 
   StyledAvatar
 } from './style';
+import fallbackAvatar from '../../images/avatar.svg';
+import { connect } from 'react-redux';
 
 const Avatar = (props) => {
-  const { user, size } = props;
-  const { name, avatar } = user;
+  const { size, email } = props;
 
   return (
-    // <StyledAvatar 
-    //   src={avatar} 
-    //   alt="User's avatar" 
-    //   size={size}
-    // />
-    <ReactAvatar email="moaaz_bs@yahoo.com" name="Moaaz Bhnas" />
+    <StyledAvatar 
+      email={email}
+      src={fallbackAvatar}
+      alt="User's avatar" 
+      size={size}
+      round
+    />
   );
 }
 
-export default memo(Avatar);
+const mapStateToProps = (state) => {
+  return {
+    email: state.firebase.auth.email
+  }
+}
+
+export default connect(mapStateToProps)(memo(Avatar));

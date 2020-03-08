@@ -189,7 +189,7 @@ const AccountDropdown = (props) => {
         onMouseEnter={handleTogglerMouseEnter}
         ref={togglerRef}
       >
-        <Avatar user={dummyUser} size={'small'} />
+        <Avatar user={dummyUser} size={'2rem'} />
         <UserName>{profile.username}</UserName>
         <DownArrow src={downArrow} alt="Down arrow" />
       </DropdownToggler>
