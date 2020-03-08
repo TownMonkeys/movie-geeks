@@ -3,9 +3,9 @@ import {
   StyledAvatar
 } from './style';
 import fallbackAvatar from '../../images/avatar.svg';
-import { connect } from 'react-redux';
 
 const Avatar = (props) => {
+  // props
   const { size, email } = props;
 
   return (
@@ -19,10 +19,4 @@ const Avatar = (props) => {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    email: state.firebase.auth.email
-  }
-}
-
-export default connect(mapStateToProps)(memo(Avatar));
+export default memo(Avatar);

@@ -16,11 +16,6 @@ import { connect } from 'react-redux';
 import { signOut } from '../../../store/actions/authActions';
 import { ConditionalWrapper } from '../../../helpers';
 
-const dummyUser = {
-  name: 'Yurio',
-  avatar
-};
-
 const Item = (props) => {
   const { index, activeIndex, itemsRefs, link, handleClick, value } = props;
 
@@ -189,7 +184,7 @@ const AccountDropdown = (props) => {
         onMouseEnter={handleTogglerMouseEnter}
         ref={togglerRef}
       >
-        <Avatar user={dummyUser} size={'2rem'} />
+        <Avatar email={user.email} size={'2rem'} />
         <UserName>{profile.username}</UserName>
         <DownArrow src={downArrow} alt="Down arrow" />
       </DropdownToggler>
