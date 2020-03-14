@@ -1,20 +1,25 @@
 // import { facebookAuthProvider } from '../../auth';
 
 export const signUp = (credentials) => {
-  return (dispatch, getState, { getFirebase, getFirestore }) => {
+  return async function(dispatch, getState, { getFirebase, getFirestore }) {
     const firebase = getFirebase();
     const firestore = getFirestore();
 
-    firebase.auth().createUserWithEmailAndPassword(
+    const response = await firebase.auth().createUserWithEmailAndPassword(
       credentials.email,
       credentials.password
-    ).then((response) => {
-      return firestore.collection('users').doc(response.user.uid).set({
-        username: credentials.username
+    );
+
+    firestore.collection('users').doc(response.user.uid).set({
+      username: credentials.username
+    }).then(() => {
+      return firestore.collection('usernames').doc(credentials.username).set({
+        id: response.user.uid
       })
     }).then(() => {
       dispatch({ type: 'SIGNUP_SUCCESS' });
     }).catch((err) => {
+      console.log(err);
       dispatch({ type: 'SIGNUP_ERROR', err });
     });
   }
