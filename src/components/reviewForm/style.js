@@ -44,6 +44,7 @@ export const ResultNameInput = styled.ul`
     z-index: 9999;
     position: absolute;
     top:77%;
+    z-index:1;
 `;
 export const Movie = styled.li`
    background: ${theme.bg.grey};
@@ -52,10 +53,9 @@ export const Movie = styled.li`
    padding: 0.2em;
    list-style: none;
    margin-left: -40px;
-    position: relative;
+   position: relative;
    border-bottom:1px solid #000;
    border-radius:1px;
-
 `;
 export const MovieConatiner = styled.div`
     position: absolute;
@@ -68,7 +68,6 @@ export const MovieConatiner = styled.div`
 export const MovieInfo = styled.p`
     color: ${theme.text.grey};
     text-transform:capitalize;
-
 `;
 
 export const MovieTitle = styled.p`
@@ -77,4 +76,6 @@ export const MovieTitle = styled.p`
 `;
 export const Img = styled.img`
    max-width:100px;
+   max-height:80px;
+
 `;
