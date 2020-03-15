@@ -3,7 +3,8 @@ export const theme = {
     default: '#212121',
     grey: '#616161',
     pink: '#e91e63',
-    warning: '#A63232'
+    warning: '#A63232',
+    valid: '#7AB600'
   },
   bg: {
     default: '#ffffff',

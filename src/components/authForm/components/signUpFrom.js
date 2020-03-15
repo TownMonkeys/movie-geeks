@@ -6,25 +6,31 @@ import {
   EncouragingStatement,
   Divider,
   Input,
+  UsernameFeedback,
   AuthError,
   ErrorIcon,
   Button,
   P,
   StyledLink
 } from '../style';
-import FacebookButton from './facebookButton';
+// import FacebookButton from './facebookButton';
 import errorIcon from '../../../images/alert.svg';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { signUp } from '../../../store/actions/authActions';
+import { firestoreConnect } from 'react-redux-firebase';
 
 const SignUpFrom = (props) => {
   // props
-  const { signUp, authError } = props;
+  const { signUp, authError, firestore } = props;
+  const { usernames } = firestore.data;
+  console.log(usernames);
 
   // inputs
   const [ username, setUsername ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
+  const [ validUsername, setValidUsername ] = useState(null);
 
   const handleSubmit = useCallback((event) => {
     event.preventDefault();
@@ -32,6 +38,16 @@ const SignUpFrom = (props) => {
     const credentials = { username, email, password }
     signUp(credentials);
   }, [ email, username, password ]);
+
+  const handleUsernameChange = useCallback((event) => {
+    const username = event.target.value;
+    setUsername(username)
+    setValidUsername(
+      username !== '' ?
+      !usernames[username] : 
+      null
+    )
+  }, [ usernames ]);
 
   return (
     <Form onSubmit={handleSubmit} >
@@ -52,8 +68,16 @@ const SignUpFrom = (props) => {
           placeholder="Username"
           value={username}
           required
-          onChange={event => setUsername(event.target.value)}
+          onChange={handleUsernameChange}
         />
+
+        {validUsername !== null && <UsernameFeedback aria-live="polite" aria-atomic="true" valid={validUsername}>
+          {
+            validUsername ?
+            'Valid username' :
+            <>Invalid username <ErrorIcon src={errorIcon} alt="" /></>
+          }
+        </UsernameFeedback>}
 
         <Input 
           type="email" 
@@ -96,7 +120,8 @@ const SignUpFrom = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    authError: state.auth.authError
+    authError: state.auth.authError,
+    firestore: state.firestore
   }
 }
 
@@ -106,4 +131,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(memo(SignUpFrom));
+export default compose(
+  firestoreConnect(() => ['usernames']),
+  connect(mapStateToProps, mapDispatchToProps)
+)(memo(SignUpFrom));

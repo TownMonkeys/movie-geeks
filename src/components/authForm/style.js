@@ -96,6 +96,14 @@ export const Input = styled.input`
   }
 `;
 
+export const UsernameFeedback = styled.p`
+  color: ${props => props.valid ? theme.text.valid : theme.text.warning}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+`;
+
 export const AuthError = styled.p`
   color: ${theme.text.warning};
   display: flex;
