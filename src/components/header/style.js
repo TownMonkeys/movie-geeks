@@ -168,6 +168,7 @@ export const DropdownMenu = styled.ul`
 export const MenuItem = styled.li`
   padding: .5rem .8rem;
   cursor: pointer;
+  position: relative;
 
   &:hover,
   &[tabindex="0"] {

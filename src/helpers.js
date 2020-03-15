@@ -6,4 +6,8 @@ export const ConditionalWrapper = (props) => {
     wrapper(children) :
     children
   )
+<<<<<<< HEAD
 } 
+=======
+}
+>>>>>>> 1381882650cf298c3d6f2a2070fe6466b9f2f953

@@ -7,6 +7,7 @@ export const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
   const [ user, setUser ] = useState('notSet');
+  console.log(user);
   
   // Add auth listener
   useEffect(function addAuthStateListener() {
