@@ -46,10 +46,10 @@ const Movie = (props) => {
   return (
     <StyledMovie>
       <Header>
-        <AvatarLink href="#">
-          <Avatar user={user} size={'medium'} />
+        <AvatarLink to={``}>
+          <Avatar user={user} size={'3rem'} />
         </AvatarLink>
-        <UserNameLink href="#">{movie.user}</UserNameLink>
+        <UserNameLink to={``}>{movie.user}</UserNameLink>
       </Header>
 
       <Body>

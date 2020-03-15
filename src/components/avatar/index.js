@@ -1,17 +1,19 @@
 import React, { memo } from 'react';
+import fallbackAvatar from '../../images/avatar.svg';
 import { 
   StyledAvatar
 } from './style';
 
 const Avatar = (props) => {
-  const { user, size } = props;
-  const { name, avatar } = user;
+  const { size, email } = props;
 
   return (
     <StyledAvatar 
-      src={avatar} 
+      email={email}
+      src={fallbackAvatar}
       alt="User's avatar" 
       size={size}
+      round
     />
   );
 }

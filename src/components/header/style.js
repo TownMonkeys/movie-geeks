@@ -175,6 +175,11 @@ export const MenuItem = styled.li`
   }
 `;
 
+export const MenuItemLink = styled(Link)`
+  text-decoration: none;
+  color: ${theme.text.default};
+`;
+
 export const FeatureButton = styled.button`
   ${buttonStyles}
   ${featureButtonStyles}

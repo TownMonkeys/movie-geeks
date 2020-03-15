@@ -1,22 +1,36 @@
-import React, { memo, useState, useCallback, useEffect, useRef } from 'react';
+import React, { memo, useState, useCallback, useEffect, useRef, useContext } from 'react';
+import { AuthContext } from '../../../auth';
 import { 
   DropdownContainer,
   DropdownToggler,
   UserName,
   DownArrow,
   DropdownMenu,
-  MenuItem
+  MenuItem,
+  MenuItemLink
 } from '../style';
 import avatar from '../../../images/avatar.svg';
 import downArrow from '../../../images/down-arrow.svg';
 import Avatar from '../../avatar';
 import { connect } from 'react-redux';
 import { signOut } from '../../../store/actions/authActions';
+import { ConditionalWrapper } from '../../../helpers';
 
-const user = {
-  name: 'Yurio',
-  avatar
-};
+const Item = (props) => {
+  const { index, activeIndex, itemsRefs, link, handleClick, value } = props;
+
+  return (
+    <MenuItem
+      role='menuitem'
+      id={`item${index+1}`}
+      tabIndex={activeIndex === index ? 0 : -1}
+      ref={(el) => itemsRefs.current[index] = el}
+      onClick={!link ? handleClick : null}
+    >
+      {value}
+    </MenuItem>
+  )
+}
 
 const AccountDropdown = (props) => {
   /* props --- */
@@ -26,6 +40,9 @@ const AccountDropdown = (props) => {
   const containerRef = useRef();
   const togglerRef   = useRef();
   const itemsRefs    = useRef([]);
+
+  /* user --- */
+  const { user } = useContext(AuthContext);
 
   /* dropdown collapse timer --- */
   const dropdownCollapseTimer = useRef();
@@ -146,6 +163,12 @@ const AccountDropdown = (props) => {
     };
   }, [menuExpanded])
 
+  const items = [
+    { value: 'Profile',   link: true,   to: `user/${user.uid}` },
+    { value: 'Watchlist', link: true,   to: `` },
+    { value: 'signout',   link: false,  handleClick: signOut }
+  ];
+
   return (
     <DropdownContainer
       onMouseEnter={handleMouseEnter}
@@ -161,7 +184,7 @@ const AccountDropdown = (props) => {
         onMouseEnter={handleTogglerMouseEnter}
         ref={togglerRef}
       >
-        <Avatar user={user} size={'small'} />
+        <Avatar email={user.email} size={'2rem'} />
         <UserName>{profile.username}</UserName>
         <DownArrow src={downArrow} alt="Down arrow" />
       </DropdownToggler>
@@ -176,15 +199,22 @@ const AccountDropdown = (props) => {
         onMouseEnter={handleMenuMouseEnter}
       >
         {
-          ['Profile', 'Watchlist', 'Sign Out'].map((item, index) => (
-            <MenuItem
+          items.map((item, index) => (
+            <ConditionalWrapper
               key={index}
-              role="menuitem"
-              id={`item${index+1}`}
-              tabIndex={activeIndex === index ? 0 : -1}
-              ref={(el) => itemsRefs.current[index] = el}
-              onClick={index === 2 ? signOut : null}
-            >{item}</MenuItem>
+              condition={item.link}
+              wrapper={children => <MenuItemLink to={item.to}>{children}</MenuItemLink>}
+            >
+              <Item
+                index={index}
+                id={`item${index+1}`}
+                itemsRefs={itemsRefs}
+                type={item.type}
+                to={item.to}
+                handleClick={item.handleClick}
+                value={item.value}
+              >{item.value}</Item>
+            </ConditionalWrapper>
           ))
         }
       </DropdownMenu>
