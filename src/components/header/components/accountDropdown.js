@@ -31,29 +31,6 @@ const Item = (props) => {
     </MenuItem>
   )
 }
-<<<<<<< HEAD
-=======
-
-const Item = (props) => {
-  const { index, activeIndex, itemsRefs, type, handleClick, to, value } = props;
-
-  return (
-    <MenuItem
-      role='menuitem'
-      id={`item${index+1}`}
-      tabIndex={activeIndex === index ? 0 : -1}
-      ref={(el) => itemsRefs.current[index] = el}
-      onClick={type === 'action' ? handleClick : null}
-    >
-      {
-        type === 'link' ?
-        <Link to={to}>{value}</Link> :
-        value
-      }
-    </MenuItem>
-  )
-}
->>>>>>> 1381882650cf298c3d6f2a2070fe6466b9f2f953
 
 const AccountDropdown = (props) => {
   /* props --- */
