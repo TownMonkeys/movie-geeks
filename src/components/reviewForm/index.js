@@ -1,4 +1,4 @@
-import React, { memo,useState,useRef,Fragment  } from 'react';
+import React, { memo,useState,useRef,Fragment,useEffect } from 'react';
 import axios from 'axios';
 
 import { 
@@ -21,13 +21,23 @@ const ReviewForm = () => {
 
     function moviesFetch(e){
       e.preventDefault();
-      
+      if (inputElMovie.current.value) {
       axios.get(`https://api.themoviedb.org/3/search/multi?query=${inputElMovie.current.value}&api_key=400225a1886f38d9cf3c934d6a756c4d`)
       .then(res => {
         const newMovies = res.data.results;
+        console.log(newMovies);
         setMovies(newMovies);
       })
+      }else{
+        setMovies([]);
+      }
+}
+useEffect(() => {
+    if ( movies && inputElMovie.current ) {
+      inputElMovie.current.focus();
+      return () => inputElMovie.current.blur();
     }
+  }, [movies]);
    
   return (
    <Container> 
