@@ -11,6 +11,8 @@ export const signUp = (credentials) => {
     );
 
     firestore.collection('users').doc(response.user.uid).set({
+      firstName: credentials.firstName,
+      lastName: credentials.lastName,
       username: credentials.username
     }).then(() => {
       return firestore.collection('usernames').doc(credentials.username).set({

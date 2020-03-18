@@ -5,6 +5,7 @@ import {
   Title,
   EncouragingStatement,
   Divider,
+  InputContainer,
   Input,
   UsernameFeedback,
   AuthError,
@@ -25,6 +26,8 @@ const SignUpFrom = (props) => {
   const { signUp, authError, usernames } = props;
 
   // inputs
+  const [ firstName, setFirstName ] = useState('');
+  const [ lastName, setLastName ] = useState('');
   const [ username, setUsername ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
@@ -33,17 +36,20 @@ const SignUpFrom = (props) => {
   const handleSubmit = useCallback((event) => {
     event.preventDefault();
 
-    const credentials = { username, email, password }
+    const credentials = { firstName, lastName, username, email, password }
     signUp(credentials);
-  }, [ email, username, password ]);
+  }, [ firstName, lastName, username, email, password ]);
 
   const handleUsernameChange = useCallback((event) => {
-    const username = event.target.value;
-    setUsername(username)
+    const { value } = event.target;
+    setUsername(value)
+
     setValidUsername(
-      username !== '' ?
-      !usernames[username] : 
-      null
+      value === '' ? // Remove the feedback when the input is cleared
+      null :
+      usernames ? // For the 1st username, the collection won't exist and any name will be valid
+      !usernames[value] : 
+      true
     )
   }, [ usernames ]);
 
@@ -60,6 +66,28 @@ const SignUpFrom = (props) => {
 
         <Divider>or</Divider> */}
 
+        <InputContainer>
+          <Input 
+            type="text"
+            aria-label="First name"
+            placeholder="First name"
+            value={firstName}
+            required
+            onChange={event => setFirstName(event.target.value)}
+            inline
+          />
+
+          <Input 
+            type="text"
+            aria-label="Last name"
+            placeholder="Last name"
+            value={lastName}
+            required
+            onChange={event => setLastName(event.target.value)}
+            inline
+          />
+        </InputContainer>
+
         <Input 
           type="text"
           aria-label="user name"
@@ -67,9 +95,15 @@ const SignUpFrom = (props) => {
           value={username}
           required
           onChange={handleUsernameChange}
+          className="signupForm__usernameInput"
         />
 
-        {validUsername !== null && <UsernameFeedback aria-live="polite" aria-atomic="true" valid={validUsername}>
+        {validUsername !== null && <UsernameFeedback 
+          aria-live="polite" 
+          aria-atomic="true" 
+          valid={validUsername}
+          className="signupForm__usernameFeedback"
+        >
           {
             validUsername ?
             'Valid username' :
@@ -93,6 +127,7 @@ const SignUpFrom = (props) => {
           value={password}
           required
           onChange={event => setPassword(event.target.value)}
+          last
         />
 
         {authError && <AuthError role="alert" >

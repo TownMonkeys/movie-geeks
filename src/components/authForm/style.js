@@ -84,21 +84,27 @@ export const Divider = styled.p`
   }
 `;
 
+export const InputContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const Input = styled.input`
   background-color: ${theme.bg.grey};
   border: 1px solid ${theme.border.light};
   padding: .5rem 0 .5rem .5rem;
   border-radius: ${measurements.borderRadius.input};
-  margin-bottom: .375rem;
+  margin-bottom: ${props => props.last ? '.875rem' : '.375rem'};
+  width: ${props => props.inline ? '48.8%' : 'auto'};
 
-  &:last-of-type {
-    margin-bottom: .875rem;
+  &.signupForm__usernameInput:focus + .signupForm__usernameFeedback {
+    display: flex;
   }
 `;
 
 export const UsernameFeedback = styled.p`
+  display: none;
   color: ${props => props.valid ? theme.text.valid : theme.text.warning}
-  display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 0;
