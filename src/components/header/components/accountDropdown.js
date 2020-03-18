@@ -164,7 +164,7 @@ const AccountDropdown = (props) => {
   }, [menuExpanded])
 
   const items = [
-    { value: 'Profile',   link: true,   to: `user/${user.uid}` },
+    { value: 'Profile',   link: true,   to: `user/${profile.username}` },
     { value: 'Watchlist', link: true,   to: `` },
     { value: 'signout',   link: false,  handleClick: signOut }
   ];

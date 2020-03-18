@@ -1,8 +1,17 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect } from 'react'
+import {
+  ProfilePage
+} from './style';
 
-const Profile = () => {
+const Profile = (props) => {
+  useEffect(() => {
+    console.log('profile page props: ', props);
+  }, []);
+
   return (
-    <></>
+    <ProfilePage>
+
+    </ProfilePage>
   );
 }
 

@@ -17,7 +17,7 @@ const App = () => {
       <Main>
         <Switch>
           <PrivateRoute path="/" exact component={Home} />
-          <PrivateRoute path="/user" component={Profile} />
+          <PrivateRoute path="/user/:username" component={Profile} />
           <Route 
             path="/signup" 
             component={props => <Auth {...props} action={'signup'} />} 
