@@ -22,9 +22,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 
 const SignUpFrom = (props) => {
   // props
-  const { signUp, authError, firestore } = props;
-  const { usernames } = firestore.data;
-  console.log(usernames);
+  const { signUp, authError, usernames } = props;
 
   // inputs
   const [ username, setUsername ] = useState('');
@@ -121,7 +119,7 @@ const SignUpFrom = (props) => {
 const mapStateToProps = (state) => {
   return {
     authError: state.auth.authError,
-    firestore: state.firestore
+    usernames: state.firestore.data.usernames
   }
 }
 
