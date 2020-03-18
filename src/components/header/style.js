@@ -168,11 +168,17 @@ export const DropdownMenu = styled.ul`
 export const MenuItem = styled.li`
   padding: .5rem .8rem;
   cursor: pointer;
+  position: relative;
 
   &:hover,
   &[tabindex="0"] {
     background-color: ${theme.bg.grey};
   }
+`;
+
+export const MenuItemLink = styled(Link)`
+  text-decoration: none;
+  color: ${theme.text.default};
 `;
 
 export const FeatureButton = styled.button`

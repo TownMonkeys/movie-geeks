@@ -1,17 +1,9 @@
 import styled from 'styled-components';
 import theme from '../../shared/theme';
+import ReactAvatar from 'react-avatar';
 
-const determineAvatarDimensionsBasedOnSize = (props) => (
-  props.size === 'small' ? '2rem' 
-  : props.size === 'medium' ? '3rem'
-  : '5rem' 
-);
-
-export const StyledAvatar = styled.img`
-  width: ${determineAvatarDimensionsBasedOnSize};
-  height: ${determineAvatarDimensionsBasedOnSize};
-  background-color: #fff;
-  padding-top: .15rem;
-  border: 1px solid ${theme.border.dark};
-  border-radius: 50%;
+export const StyledAvatar = styled(ReactAvatar)`  
+  .sb-avatar__image {
+    border: 1px solid ${theme.border.dark};
+  }
 `;

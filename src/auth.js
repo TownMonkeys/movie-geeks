@@ -2,11 +2,20 @@ import React, { useEffect, useState } from 'react';
 import firebase from './config/firebaseConfig';
 // import 'firebase/auth';
 import { useHistory } from 'react-router-dom';
+import usePrevious from './hooks/usePrevious';
+// use router
+// اظبط المستحة اللي تحت
 
 export const AuthContext = React.createContext();
 
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = (props) => {
+  // props
+  const { children } = props;
+  // console.log(props);
+
+  // state
   const [ user, setUser ] = useState('notSet');
+  console.log('user: ', user);
   
   // Add auth listener
   useEffect(function addAuthStateListener() {
@@ -15,8 +24,9 @@ export const AuthProvider = ({ children }) => {
   
   // Redirect based on the user state
   const history = useHistory();
+  const prevUser = usePrevious(user);
   useEffect(function redirectBasedOnAuthState() {
-    if (user) {
+    if (!prevUser && user.uid) { // to redirect only if a user wasn't authenticated, and then signed in
       history.push('/');
     }
   }, [ user ]);
