@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import user from '../../images/avatar.svg';
+import user from '../../images/avatar-fallback.png';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 

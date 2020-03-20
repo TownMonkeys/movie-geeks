@@ -147,6 +147,11 @@ export const DropdownToggler = styled.button`
 
 export const UserName = styled.span`
   margin: 0 .4rem 0 .3rem;
+  text-transform: lowercase;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
 `;
 
 export const DownArrow = styled.img`

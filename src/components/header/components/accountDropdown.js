@@ -9,7 +9,6 @@ import {
   MenuItem,
   MenuItemLink
 } from '../style';
-import avatar from '../../../images/avatar.svg';
 import downArrow from '../../../images/down-arrow.svg';
 import Avatar from '../../avatar';
 import { connect } from 'react-redux';
@@ -185,7 +184,7 @@ const AccountDropdown = (props) => {
         ref={togglerRef}
       >
         <Avatar email={user.email} size={'2rem'} />
-        <UserName>{profile.username}</UserName>
+        <UserName>{profile.firstName}</UserName>
         <DownArrow src={downArrow} alt="Down arrow" />
       </DropdownToggler>
 

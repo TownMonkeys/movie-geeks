@@ -1,20 +1,31 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo, useEffect, useContext } from 'react';
 import {
   AuthPage
 } from './style';
 import AuthForm from '../../components/authForm';
 import { connect } from 'react-redux';
 import { resetError } from '../../store/actions/authActions';
+import { AuthContext } from '../../auth';
+import { Redirect } from 'react-router-dom';
 
 const Auth = (props) => {
   const { action, resetAuthError } = props;
 
+  // user state
+  const { user } = useContext(AuthContext);
+
   useEffect(resetAuthError, [ action ]);
 
   return (
-    <AuthPage>
-      <AuthForm action={action} />
-    </AuthPage>
+    <>
+      {
+        user ?
+        <Redirect to="/" /> :
+        <AuthPage>
+          <AuthForm action={action} />
+        </AuthPage>
+      }
+    </>
   );
 }
 

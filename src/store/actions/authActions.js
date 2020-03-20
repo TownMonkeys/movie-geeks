@@ -15,10 +15,12 @@ export const signUp = (credentials) => {
       lastName: credentials.lastName,
       username: credentials.username
     }).then(() => {
+      console.log('document created');
       return firestore.collection('usernames').doc(credentials.username).set({
         id: response.user.uid
       })
     }).then(() => {
+      console.log('username added');
       dispatch({ type: 'SIGNUP_SUCCESS' });
     }).catch((err) => {
       console.log(err);

@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import fallbackAvatar from '../../images/avatar.svg';
+import fallbackAvatar from '../../images/avatar-fallback.png';
 import { 
   StyledAvatar
 } from './style';
