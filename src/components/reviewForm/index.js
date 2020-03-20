@@ -18,26 +18,33 @@ import {
 const ReviewForm = () => {
     const [movies,setMovies] = useState([]);
     const inputElMovie = useRef(null);
-
+    
     function moviesFetch(e){
       e.preventDefault();
       if (inputElMovie.current.value) {
       axios.get(`https://api.themoviedb.org/3/search/multi?query=${inputElMovie.current.value}&api_key=400225a1886f38d9cf3c934d6a756c4d`)
       .then(res => {
-        const newMovies = res.data.results;
-        console.log(newMovies);
+        let newMovies = res.data.results;
         setMovies(newMovies);
       })
       }else{
         setMovies([]);
       }
 }
+function blurInput(){
+      setMovies([]);
+}
+function focusInput(){
+     axios.get(`https://api.themoviedb.org/3/search/multi?query=${inputElMovie.current.value}&api_key=400225a1886f38d9cf3c934d6a756c4d`)
+      .then(res => {
+        let newMovies = res.data.results;
+        setMovies(newMovies);
+     })
+}
 useEffect(() => {
-    if ( movies && inputElMovie.current ) {
-      inputElMovie.current.focus();
-      return () => inputElMovie.current.blur();
-    }
-  }, [movies]);
+   
+
+  }, [movies,inputElMovie]);
    
   return (
    <Container> 
@@ -50,6 +57,9 @@ useEffect(() => {
           placeholder="Type the movie name .."
           ref={inputElMovie}
           onKeyUp={moviesFetch}
+         onFocus={focusInput} 
+          onBlur={blurInput}
+         
         />
        
       </FormBody>
