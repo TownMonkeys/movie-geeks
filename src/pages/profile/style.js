@@ -7,3 +7,7 @@ export const ProfilePage = styled.div`
   max-width: ${measurements.maxWidth.default};
   margin: 0 auto;
 `;
+
+export const StyledHeader = styled.header`
+
+`;

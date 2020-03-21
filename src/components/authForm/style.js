@@ -84,11 +84,6 @@ export const Divider = styled.p`
   }
 `;
 
-export const InputContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
 export const Input = styled.input`
   background-color: ${theme.bg.grey};
   border: 1px solid ${theme.border.light};

@@ -26,8 +26,6 @@ const SignUpFrom = (props) => {
   const { signUp, authError, usernames } = props;
 
   // inputs
-  const [ firstName, setFirstName ] = useState('');
-  const [ lastName, setLastName ] = useState('');
   const [ username, setUsername ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
@@ -36,9 +34,9 @@ const SignUpFrom = (props) => {
   const handleSubmit = useCallback((event) => {
     event.preventDefault();
 
-    const credentials = { firstName, lastName, username, email, password }
+    const credentials = { username, email, password }
     signUp(credentials);
-  }, [ firstName, lastName, username, email, password ]);
+  }, [ username, email, password ]);
 
   const handleUsernameChange = useCallback((event) => {
     const { value } = event.target;
@@ -65,28 +63,6 @@ const SignUpFrom = (props) => {
         {/* <FacebookButton />
 
         <Divider>or</Divider> */}
-
-        <InputContainer>
-          <Input 
-            type="text"
-            aria-label="First name"
-            placeholder="First name"
-            value={firstName}
-            required
-            onChange={event => setFirstName(event.target.value)}
-            inline
-          />
-
-          <Input 
-            type="text"
-            aria-label="Last name"
-            placeholder="Last name"
-            value={lastName}
-            required
-            onChange={event => setLastName(event.target.value)}
-            inline
-          />
-        </InputContainer>
 
         <Input 
           type="text"

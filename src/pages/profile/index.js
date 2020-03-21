@@ -2,6 +2,7 @@ import React, { memo, useEffect } from 'react'
 import {
   ProfilePage
 } from './style';
+import Header from './components/header';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
@@ -18,7 +19,7 @@ const Profile = (props) => {
 
   return (
     <ProfilePage>
-
+      <Header />
     </ProfilePage>
   );
 }
