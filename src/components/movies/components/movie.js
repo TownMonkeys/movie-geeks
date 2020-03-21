@@ -21,7 +21,7 @@ import {
 import Avatar from '../../avatar';
 import StarSvg from '../../../svgs/star';
 import LikeSvg from '../../../svgs/like';
-import avatar from '../../../images/avatar.svg';
+import avatar from '../../../images/avatar-fallback.png';
 
 const user = {
   name: 'Yurio',

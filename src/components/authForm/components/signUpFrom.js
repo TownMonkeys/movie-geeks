@@ -5,6 +5,7 @@ import {
   Title,
   EncouragingStatement,
   Divider,
+  InputContainer,
   Input,
   UsernameFeedback,
   AuthError,
@@ -22,9 +23,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 
 const SignUpFrom = (props) => {
   // props
-  const { signUp, authError, firestore } = props;
-  const { usernames } = firestore.data;
-  console.log(usernames);
+  const { signUp, authError, usernames } = props;
 
   // inputs
   const [ username, setUsername ] = useState('');
@@ -37,15 +36,18 @@ const SignUpFrom = (props) => {
 
     const credentials = { username, email, password }
     signUp(credentials);
-  }, [ email, username, password ]);
+  }, [ username, email, password ]);
 
   const handleUsernameChange = useCallback((event) => {
-    const username = event.target.value;
-    setUsername(username)
+    const { value } = event.target;
+    setUsername(value)
+
     setValidUsername(
-      username !== '' ?
-      !usernames[username] : 
-      null
+      value === '' ? // Remove the feedback when the input is cleared
+      null :
+      usernames ? // For the 1st username, the collection won't exist and any name will be valid
+      !usernames[value] : 
+      true
     )
   }, [ usernames ]);
 
@@ -69,9 +71,15 @@ const SignUpFrom = (props) => {
           value={username}
           required
           onChange={handleUsernameChange}
+          className="signupForm__usernameInput"
         />
 
-        {validUsername !== null && <UsernameFeedback aria-live="polite" aria-atomic="true" valid={validUsername}>
+        {validUsername !== null && <UsernameFeedback 
+          aria-live="polite" 
+          aria-atomic="true" 
+          valid={validUsername}
+          className="signupForm__usernameFeedback"
+        >
           {
             validUsername ?
             'Valid username' :
@@ -95,6 +103,7 @@ const SignUpFrom = (props) => {
           value={password}
           required
           onChange={event => setPassword(event.target.value)}
+          last
         />
 
         {authError && <AuthError role="alert" >
@@ -121,7 +130,7 @@ const SignUpFrom = (props) => {
 const mapStateToProps = (state) => {
   return {
     authError: state.auth.authError,
-    firestore: state.firestore
+    usernames: state.firestore.data.usernames
   }
 }
 

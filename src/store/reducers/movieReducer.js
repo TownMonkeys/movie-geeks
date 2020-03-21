@@ -1,4 +1,4 @@
-import avatar from '../../images/avatar.svg';
+import avatar from '../../images/avatar-fallback.png';
 import harryPotterCover from '../../images/harry-potter.jpeg';
 import beautifulMindCover from '../../images/beautiful-mind.jpeg';
 

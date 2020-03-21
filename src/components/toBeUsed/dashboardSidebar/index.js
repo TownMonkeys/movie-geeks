@@ -1,5 +1,5 @@
 import React, { memo,fragment } from 'react';
-import avatar from '../../../images/avatar.svg';
+import avatar from '../../../images/avatar-fallback.png';
 
 import { 
   Side,H1,ContainerMovie,StyledMovieHeadImg,Container,H2,P,Join

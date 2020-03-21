@@ -13,10 +13,12 @@ export const signUp = (credentials) => {
     firestore.collection('users').doc(response.user.uid).set({
       username: credentials.username
     }).then(() => {
+      console.log('document created');
       return firestore.collection('usernames').doc(credentials.username).set({
         id: response.user.uid
       })
     }).then(() => {
+      console.log('username added');
       dispatch({ type: 'SIGNUP_SUCCESS' });
     }).catch((err) => {
       console.log(err);

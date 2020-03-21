@@ -1,9 +1,29 @@
-import React, { memo } from 'react';
+import React, { memo, useContext } from 'react';
+import { AuthContext } from '../../../auth';
+import {
+  StyledHeader,
+  Username
+} from '../style';
+import Avatar from '../../../components/avatar';
+import { connect } from 'react-redux';
 
-const header = () => {
+const Header = (props) => {
+  const { profile } = props;
+
+  const { user } = useContext(AuthContext);
+
   return (
-    <></>
+    <StyledHeader>
+      <Avatar email={user.email} size="10rem" />
+      <Username>{profile.username}</Username>
+    </StyledHeader>
   );
 }
 
-export default memo(header);
+const mapStateToProps = (state) => {
+  return {
+    profile: state.firebase.profile
+  }
+}
+
+export default connect(mapStateToProps)(memo(Header));
