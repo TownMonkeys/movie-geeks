@@ -184,7 +184,7 @@ const AccountDropdown = (props) => {
         ref={togglerRef}
       >
         <Avatar email={user.email} size={'2rem'} />
-        <UserName>{profile.firstName}</UserName>
+        <UserName>{profile.username}</UserName>
         <DownArrow src={downArrow} alt="Down arrow" />
       </DropdownToggler>
 
