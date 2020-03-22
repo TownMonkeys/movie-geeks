@@ -165,9 +165,11 @@ export const DropdownMenu = styled.ul`
   box-shadow: 0 5px 5px rgba(0,0,0,.2);
 `;
 
-export const MenuItemContainer = styled.li`
-  cursor: pointer;
-  position: relative;
+export const MenuItemContainer = styled.li``;
+
+const menuItemStyles = css`
+  display: block;
+  padding: .5rem .8rem;
 
   &:hover,
   &[tabindex="0"] {
@@ -176,22 +178,26 @@ export const MenuItemContainer = styled.li`
 `;
 
 export const MenuItemLink = styled(Link)`
-  display: block;
+  ${menuItemStyles}
   padding: .5rem .8rem;
   text-decoration: none;
   color: ${theme.text.default};
 `;
 
 export const MenuItemButton = styled.button`
+  ${menuItemStyles}
   width: 100%;
-  justify-content: flex-start;
   text-align: left;
   font-size: 1rem;
   font-family: inherit;
   background-color: transparent;
   border: none;
-  padding: .5rem .8rem;
   cursor: pointer;
+
+  &:hover,
+  &[tabindex="0"] {
+    background-color: ${theme.bg.grey};
+  }
 `;
 
 export const FeatureButton = styled.button`
