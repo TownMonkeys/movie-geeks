@@ -165,8 +165,7 @@ export const DropdownMenu = styled.ul`
   box-shadow: 0 5px 5px rgba(0,0,0,.2);
 `;
 
-export const MenuItem = styled.li`
-  padding: .5rem .8rem;
+export const MenuItemContainer = styled.li`
   cursor: pointer;
   position: relative;
 
@@ -177,8 +176,22 @@ export const MenuItem = styled.li`
 `;
 
 export const MenuItemLink = styled(Link)`
+  display: block;
+  padding: .5rem .8rem;
   text-decoration: none;
   color: ${theme.text.default};
+`;
+
+export const MenuItemButton = styled.button`
+  width: 100%;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: transparent;
+  border: none;
+  padding: .5rem .8rem;
+  cursor: pointer;
 `;
 
 export const FeatureButton = styled.button`

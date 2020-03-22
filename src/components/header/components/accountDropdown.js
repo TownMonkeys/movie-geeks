@@ -6,28 +6,35 @@ import {
   UserName,
   DownArrow,
   DropdownMenu,
-  MenuItem,
-  MenuItemLink
+  MenuItemContainer,
+  MenuItemLink,
+  MenuItemButton
 } from '../style';
 import downArrow from '../../../images/down-arrow.svg';
 import Avatar from '../../avatar';
 import { connect } from 'react-redux';
 import { signOut } from '../../../store/actions/authActions';
-import { ConditionalWrapper } from '../../../helpers';
 
-const Item = (props) => {
-  const { index, activeIndex, itemsRefs, link, handleClick, value } = props;
+const MenuItem = (props) => {
+  const { index, activeIndex, itemsRefs, link, to, handleClick, value } = props;
+
+  const menuItemProps = {
+    role     : 'menuitem',
+    id       : `item${index+1}`,
+    tabIndex : activeIndex === index ? 0 : -1,
+    ref      : el => itemsRefs.current[index] = el,
+  }
+
+  console.log(activeIndex, index);
 
   return (
-    <MenuItem
-      role='menuitem'
-      id={`item${index+1}`}
-      tabIndex={activeIndex === index ? 0 : -1}
-      ref={(el) => itemsRefs.current[index] = el}
-      onClick={!link ? handleClick : null}
-    >
-      {value}
-    </MenuItem>
+    <>
+      {
+        link ?
+        <MenuItemLink { ...menuItemProps } to={to}>{value}</MenuItemLink> :
+        <MenuItemButton { ...menuItemProps } onClick={handleClick}>{value}</MenuItemButton>
+      }
+    </>
   )
 }
 
@@ -199,21 +206,19 @@ const AccountDropdown = (props) => {
       >
         {
           items.map((item, index) => (
-            <ConditionalWrapper
-              key={index}
-              condition={item.link}
-              wrapper={children => <MenuItemLink to={item.to}>{children}</MenuItemLink>}
-            >
-              <Item
+            <MenuItemContainer key={index} >
+              <MenuItem
                 index={index}
+                activeIndex={activeIndex}
                 id={`item${index+1}`}
                 itemsRefs={itemsRefs}
                 type={item.type}
+                link={item.link}
                 to={item.to}
                 handleClick={item.handleClick}
                 value={item.value}
-              >{item.value}</Item>
-            </ConditionalWrapper>
+              />
+            </MenuItemContainer>
           ))
         }
       </DropdownMenu>

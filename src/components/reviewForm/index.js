@@ -20,8 +20,10 @@ const ReviewForm = () => {
     const inputElMovie = useRef(null);
     
     function moviesFetch(e){
+      console.log('test');
       e.preventDefault();
       if (inputElMovie.current.value) {
+        console.log(inputElMovie.current.value);
       axios.get(`https://api.themoviedb.org/3/search/multi?query=${inputElMovie.current.value}&api_key=400225a1886f38d9cf3c934d6a756c4d`)
       .then(res => {
         let newMovies = res.data.results;
@@ -56,7 +58,7 @@ useEffect(() => {
           aria-label="movie name"
           placeholder="Type the movie name .."
           ref={inputElMovie}
-          onKeyUp={moviesFetch}
+          onChange={moviesFetch}
          onFocus={focusInput} 
           onBlur={blurInput}
          
