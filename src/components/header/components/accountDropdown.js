@@ -25,8 +25,6 @@ const MenuItem = (props) => {
     ref      : el => itemsRefs.current[index] = el,
   }
 
-  console.log(activeIndex, index);
-
   return (
     <>
       {
@@ -170,7 +168,7 @@ const AccountDropdown = (props) => {
   }, [menuExpanded])
 
   const items = [
-    { value: 'Profile',   link: true,   to: `user/${profile.username}` },
+    { value: 'Profile',   link: true,   to: `/user/${profile.username}` },
     { value: 'Watchlist', link: true,   to: `` },
     { value: 'signout',   link: false,  handleClick: signOut }
   ];
