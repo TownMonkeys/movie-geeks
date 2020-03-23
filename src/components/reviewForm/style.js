@@ -54,28 +54,33 @@ export const Movie = styled.li`
    list-style: none;
    margin-left: -40px;
    position: relative;
-   border-bottom:1px solid #000;
-   border-radius:1px;
+   border-bottom: 1px solid #000;
+   border-radius: 1px;
 `;
 export const MovieConatiner = styled.div`
-    position: absolute;
-    padding-left: 0.8em;
-    padding-right: 0.3em;
-    padding-top: 0.5em;
-    font-size:1em;
-    display:inline-block;
+  position: absolute;
+  padding-left: 0.8em;
+  padding-right: 0.3em;
+  padding-top: 0.5em;
+  font-size: 1em;
+  display: inline-block;
 `;
-export const MovieInfo = styled.p`
-    color: ${theme.text.grey};
-    text-transform:capitalize;
+
+export const Thumbnail = styled.img`
+  max-width: 100px;
+  max-height: 80px;
 `;
+
 
 export const MovieTitle = styled.p`
-   font-weight:bolder;
-   color: ${theme.text.default};
+  font-weight: 500;
 `;
-export const Img = styled.img`
-   max-width:100px;
-   max-height:80px;
 
+export const MovieReleaseDate = styled.p`
+  
+`;
+
+export const MovieInfo = styled.p`
+    color: ${theme.text.grey};
+    text-transform: capitalize;
 `;
