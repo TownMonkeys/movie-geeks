@@ -42,6 +42,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "babel-plugin-styled-components": "^1.10.7",
     "postcss-styled": "^0.34.0"
   }
 }

@@ -3,8 +3,6 @@ import firebase from './config/firebaseConfig';
 // import 'firebase/auth';
 import { useHistory } from 'react-router-dom';
 import usePrevious from './hooks/usePrevious';
-// use router
-// اظبط المستحة اللي تحت
 
 export const AuthContext = React.createContext();
 
