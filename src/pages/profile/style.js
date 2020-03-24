@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import dimensions from '../../shared/dimensions';
 import measurements from '../../shared/measurements';
 

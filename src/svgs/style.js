@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import theme from '../shared/theme';
 
 export const CommunicationSvg = styled.svg`
