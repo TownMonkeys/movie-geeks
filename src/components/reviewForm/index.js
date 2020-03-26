@@ -3,15 +3,16 @@ import axios from 'axios';
 import MoviesResults from './components/moviesResults';
 
 import { 
-  Container,
   Form,
   Title,
   MovieNameInput,
-  FormBody
+  FormBody,
+  Overlay
 } from './style';
 
 const ReviewForm = () => {
-  const [movies, setMovies] = useState([]);
+  const [ formFocused, setFormFocused ] = useState(false);
+  const [ movies, setMovies ] = useState([]);
   const inputElMovie = useRef(null);
   
   function moviesFetch(e){
@@ -31,10 +32,14 @@ const ReviewForm = () => {
   }
 
   function blurInput(){
+    setFormFocused(false);
+
     setMovies([]);
   }
 
   function focusInput(){
+    setFormFocused(true);
+
     axios.get(`https://api.themoviedb.org/3/search/multi?query=${inputElMovie.current.value}&api_key=400225a1886f38d9cf3c934d6a756c4d`)
       .then(res => {
         let newMovies = res.data.results;
@@ -48,9 +53,11 @@ const ReviewForm = () => {
   }, [movies.inputElMovie]);
    
   return (
-    <Container> 
+    <>
+      <Overlay data-focused={formFocused} role="presentation" />
       <Form>
         <Title>Review Movie</Title>
+
         <FormBody>
           <MovieNameInput 
             type="search"
@@ -65,7 +72,7 @@ const ReviewForm = () => {
           <MoviesResults movies={movies} />
         </FormBody>
       </Form>
-    </Container>
+    </>
   );
 }
 

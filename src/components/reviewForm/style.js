@@ -2,18 +2,33 @@ import styled from 'styled-components/macro';
 import theme from '../../shared/theme';
 import measurements from '../../shared/measurements';
 
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 100%;
+  background-color: #000;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity .15s;
 
-export const Container = styled.div`
-  position: relative;
-  width: 30rem;
+  &[data-focused="true"] {
+    bottom: 0;
+    opacity: .6;
+  }
 `;
+
 export const Form = styled.form`
   display: inline-block;
-  width: 100%;
+  width: 30rem;
   background-color: ${theme.bg.default};
   border: 1px solid ${theme.border.light};
   margin: 1rem 0;
   border-radius: ${measurements.borderRadius.default};
+
+  position: relative;
+  z-index: 3;
 `;
 
 export const Title = styled.h2`
@@ -22,6 +37,10 @@ export const Title = styled.h2`
   font-size: 1rem;
   font-weight: 600;
   border-bottom: 1px solid ${theme.border.light};
+`;
+
+export const FormBody = styled.div`
+  padding: .5rem;
 `;
 
 export const MovieNameInput = styled.input`
@@ -34,11 +53,6 @@ export const MovieNameInput = styled.input`
   }
 `;
 
-export const FormBody = styled.div`
-  position: relative;
-  padding: .5rem;
-`;
-
 export const StyledMoviesResults = styled.ul`
   padding-left: 0;
   list-style: none;
@@ -46,6 +60,8 @@ export const StyledMoviesResults = styled.ul`
   left: .5em;
   right: .5em;
   margin: 0;
+  max-height: 26rem;
+  overflow: auto;
 `;
 
 export const Movie = styled.li`
