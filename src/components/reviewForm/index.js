@@ -1,19 +1,13 @@
 import React, { memo, useState, useRef, useEffect } from 'react';
 import axios from 'axios';
+import MoviesResults from './components/moviesResults';
 
 import { 
   Container,
   Form,
   Title,
   MovieNameInput,
-  FormBody,
-  ResultNameInput,
-  Movie,
-  MovieConatiner,
-  MovieTitle,
-  Thumbnail,
-  MovieInfo,
-  MovieReleaseDate
+  FormBody
 } from './style';
 
 const ReviewForm = () => {
@@ -21,7 +15,6 @@ const ReviewForm = () => {
   const inputElMovie = useRef(null);
   
   function moviesFetch(e){
-    console.log('test');
     e.preventDefault();
 
     if (inputElMovie.current.value) {
@@ -68,29 +61,10 @@ const ReviewForm = () => {
             onFocus={focusInput} 
             onBlur={blurInput}
           />
+
+          <MoviesResults movies={movies} />
         </FormBody>
       </Form>
-
-      <ResultNameInput>
-        { 
-          movies.map((movie,i) => 
-            <Movie key={i}>
-              <Thumbnail 
-                src={
-                    movie.poster_path ?   `https://image.tmdb.org/t/p/original/${movie.poster_path}` :
-                    movie.backdrop_path ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` :
-                                          "https://media.falsoo.com/large/2019/12/16/201912160311591159.jpg"
-                } 
-                alt="Movie Poster" 
-              />     
-              <MovieConatiner>
-                <MovieTitle>{movie.title || movie.name}</MovieTitle>
-                <MovieReleaseDate>{movie.release_date || movie.first_air_date}</MovieReleaseDate>
-              </MovieConatiner> 
-            </Movie>
-          )
-        }
-      </ResultNameInput>
     </Container>
   );
 }
