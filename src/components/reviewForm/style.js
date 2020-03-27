@@ -28,7 +28,10 @@ export const Form = styled.form`
   border-radius: ${measurements.borderRadius.default};
 
   position: relative;
-  z-index: 3;
+
+  &[data-focused="true"] {
+    z-index: 3;
+  }
 `;
 
 export const Title = styled.h2`
@@ -60,13 +63,13 @@ export const StyledMoviesResults = styled.ul`
   left: .5em;
   right: .5em;
   margin: 0;
-  max-height: 26rem;
+  max-height: ${5 * measurements.height.movieOption}em;
   overflow: auto;
 `;
 
 export const Movie = styled.li`
   background-color: ${theme.bg.default};
-  height: auto;
+  height: ${measurements.height.movieOption}em;
   padding: 0.35em .5em;
   border-bottom: 1px solid ${theme.border.light};
   transition: background-color .1s;
@@ -80,8 +83,8 @@ export const Movie = styled.li`
 `;
 
 export const Thumbnail = styled.img`
-max-width: 100px;
-max-height: 80px;
+  max-width: 100px;
+  max-height: 100%;
 `;
 
 export const MovieInfo = styled.div`
