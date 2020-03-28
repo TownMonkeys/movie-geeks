@@ -5,7 +5,7 @@ import {
   Navigation,
   NavTitle
 } from './style';
-import Logo from './components/logo';
+import Logo from '../logo/logo';
 import SearchForm from './components/searchForm';
 import FeaturesList from './components/featuresList';
 import CommunicationMediums from './components/communicationMediums';
@@ -24,9 +24,9 @@ const Header = () => {
       <Title>Movie Geeks</Title>
       {user && <Navigation>
         <NavTitle>Main Navigation</NavTitle>
-
-        <Logo />
-
+        <a href="/">
+        <Logo w="25%" h="100%" />
+        </a>   
         <SearchForm ref={searchButtonRef} />
 
         <FeaturesList searchButtonRef={searchButtonRef} />
