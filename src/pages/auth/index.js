@@ -1,8 +1,10 @@
 import React, { memo, useEffect, useContext } from 'react';
 import {
-  AuthPage
+  AuthPage,
+  LogoContainer
 } from './style';
 import AuthForm from '../../components/authForm';
+import Logo from '../../components/logo';
 import { connect } from 'react-redux';
 import { resetError } from '../../store/actions/authActions';
 import { AuthContext } from '../../contexts/auth';
@@ -22,6 +24,9 @@ const Auth = (props) => {
         user ?
         <Redirect to="/" /> :
         <AuthPage>
+          <LogoContainer>
+            <Logo width="4rem" />
+          </LogoContainer>
           <AuthForm action={action} />
         </AuthPage>
       }

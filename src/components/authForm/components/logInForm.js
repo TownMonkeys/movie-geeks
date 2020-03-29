@@ -12,7 +12,6 @@ import {
   StyledLink
 } from '../style';
 import FacebookButton from './facebookButton';
-import Logo from '../../logo/logo';
 import errorIcon from '../../../images/alert.svg';
 import { connect } from 'react-redux';
 import { logIn } from '../../../store/actions/authActions';
@@ -32,7 +31,6 @@ const LoginForm = ({logIn,authError}) => {
   return (
     <Form onSubmit={handleSubmit} >
       <Container>
-        <Logo w="45%" />
         <Title>Log in</Title>
 
         {/* <FacebookButton />

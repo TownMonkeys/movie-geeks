@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const StyledDashboard = styled.section``;
-
 export const LogoImg = styled.img`
- width: ${props => props.wit};
+  vertical-align: top;
+  width: ${props => props.width};
+  height: auto;
 `;

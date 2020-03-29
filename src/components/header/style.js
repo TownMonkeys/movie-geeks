@@ -33,13 +33,7 @@ export const NavTitle = styled.h2`
 
 export const LogoLink = styled(Link)`
   display: flex;
-`;
-
-export const LogoImg = styled.img`
-  width: 3rem;
-  height: auto;
-  padding: .35rem;
-  margin-left: -.35rem; // To be aligned with the content
+  padding: .35rem .7rem .35rem 0;
 `;
 
 export const StyledSearchForm = styled.form`

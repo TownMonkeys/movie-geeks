@@ -1,11 +1,13 @@
 import React, { memo, useRef, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   StyledHeader,
   Title,
   Navigation,
-  NavTitle
+  NavTitle,
+  LogoLink
 } from './style';
-import Logo from '../logo/logo';
+import Logo from '../logo';
 import SearchForm from './components/searchForm';
 import FeaturesList from './components/featuresList';
 import CommunicationMediums from './components/communicationMediums';
@@ -24,9 +26,11 @@ const Header = () => {
       <Title>Movie Geeks</Title>
       {user && <Navigation>
         <NavTitle>Main Navigation</NavTitle>
-        <a href="/">
-        <Logo w="25%" h="100%" />
-        </a>   
+
+        <LogoLink to="/">
+          <Logo width="2.3rem" />
+        </LogoLink>
+
         <SearchForm ref={searchButtonRef} />
 
         <FeaturesList searchButtonRef={searchButtonRef} />
