@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, createContext } from 'react';
 import firebase from '../config/firebaseConfig';
 // import 'firebase/auth';
 import { useHistory } from 'react-router-dom';
 import usePrevious from '../hooks/usePrevious';
 
-export const AuthContext = React.createContext();
+export const AuthContext = createContext();
 
 export const AuthProvider = (props) => {
   // props
