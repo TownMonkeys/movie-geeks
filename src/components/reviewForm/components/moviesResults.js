@@ -10,10 +10,11 @@ import {
 } from '../style';
 
 const MoviesResults = (props) => {
-  const { movies } = props;
+  const { movies, expanded } = props;
+  console.log(expanded);
 
   return (
-    <StyledMoviesResults>
+    <StyledMoviesResults data-expanded={expanded} >
       {movies.map((movie, i) => {
         const movieName = movie.title || movie.name;
         const releaseDate = movie.release_date || movie.first_air_date; // year-month-day

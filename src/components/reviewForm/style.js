@@ -13,7 +13,7 @@ export const Overlay = styled.div`
   opacity: 0;
   transition: opacity .15s;
 
-  &[data-focused="true"] {
+  &[data-form-focused="true"] {
     bottom: 0;
     opacity: .6;
   }
@@ -27,9 +27,8 @@ export const Form = styled.form`
   margin: 1rem 0;
   border-radius: ${measurements.borderRadius.default};
 
-  position: relative;
-
   &[data-focused="true"] {
+    position: relative;
     z-index: 3;
   }
 `;
@@ -46,6 +45,10 @@ export const FormBody = styled.div`
   padding: .5rem;
 `;
 
+export const MovieNameInputContainer = styled.div`
+  position: relative;
+`;
+
 export const MovieNameInput = styled.input`
   font-size: 1.5rem;
   padding: .5rem .6rem .75rem;
@@ -60,11 +63,15 @@ export const StyledMoviesResults = styled.ul`
   padding-left: 0;
   list-style: none;
   position: absolute;
-  left: .5em;
-  right: .5em;
+  left: 0;
+  right: 0;
   margin: 0;
   max-height: ${5 * measurements.height.movieOption}em;
   overflow: auto;
+
+  &[data-expanded="false"] {
+    display: none;
+  }
 `;
 
 export const Movie = styled.li`

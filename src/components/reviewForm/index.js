@@ -5,74 +5,78 @@ import MoviesResults from './components/moviesResults';
 import { 
   Form,
   Title,
+  MovieNameInputContainer,
   MovieNameInput,
   FormBody,
   Overlay
 } from './style';
 
 const ReviewForm = () => {
+  // refs
+  const MovieNameInputContainerRef = useRef(null);
+
+  // state
+  /* form */
   const [ formFocused, setFormFocused ] = useState(false);
+  
+  /* movie name input */
+  const [ movieName, setMovieName ] = useState('');
   const [ movies, setMovies ] = useState([]);
-  const inputElMovie = useRef(null);
-  const genres = useRef(null);
-
-  const moviesFetch = useCallback(async (event) => {
-    event.preventDefault();
+  useEffect(function fetchMovies() {
+    if (movieName === '') return;
+    
     const apiKey = process.env.REACT_APP_TMDB_API_KEY;
+    axios.get(`https://api.themoviedb.org/3/search/multi?query=${movieName}&api_key=${apiKey}`)
+    .then(response => {
+      setMovies(response.data.results)
+    });
+  }, [ movieName ]);
+  
+  /* movies list */
+  const [ moviesListExpanded, setMoviesListExpanded ] = useState(false);
+  const handleMoviesListClickOutside = useCallback((event) => {
+    const { target } = event;
 
-    if (!genres.current) {
-      const fetchedGenres = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`);
-      genres.current = fetchedGenres.data;
+    if (!MovieNameInputContainerRef.current.contains(target) && moviesListExpanded) {
+      setMoviesListExpanded(false);
     }
-
-    if (inputElMovie.current.value) {
-      const movies = await axios.get(`https://api.themoviedb.org/3/search/multi?query=${inputElMovie.current.value}&api_key=400225a1886f38d9cf3c934d6a756c4d`);
-      setMovies(movies.data.results);
-    } else {
-      setMovies([]);
-    }
-  }, []);
-
-  function blurInput(){
-    setFormFocused(false);
-
-    setMovies([]);
-  }
-
-  function focusInput(){
-    setFormFocused(true);
-
-    axios.get(`https://api.themoviedb.org/3/search/multi?query=${inputElMovie.current.value}&api_key=400225a1886f38d9cf3c934d6a756c4d`)
-      .then(res => {
-        let newMovies = res.data.results;
-        setMovies(newMovies);
-    })
-  }
-
+  }, [ moviesListExpanded ]);
   useEffect(() => {
-   
+    document.addEventListener('click', handleMoviesListClickOutside);
+    return () => {
+      document.removeEventListener('click', handleMoviesListClickOutside);
+    }
+  }, [ moviesListExpanded ]);
 
-  }, [movies.inputElMovie]);
+  const handleMovieNameInputFocus = useCallback(() => {
+    setFormFocused(true);
+    setMoviesListExpanded(true);
+  }, []);
    
   return (
     <>
-      <Overlay data-focused={formFocused} role="presentation" />
+      <Overlay 
+        data-form-focused={formFocused} 
+        role="presentation" 
+        onClick={() => setFormFocused(false)}
+      />
 
       <Form data-focused={formFocused}>
         <Title>Review Movie</Title>
 
         <FormBody>
-          <MovieNameInput 
-            type="search"
-            aria-label="movie name"
-            placeholder="Type the movie name .."
-            ref={inputElMovie}
-            onChange={moviesFetch}
-            onFocus={focusInput} 
-            onBlur={blurInput}
-          />
+          <MovieNameInputContainer ref={MovieNameInputContainerRef} >
+            <MovieNameInput 
+              type="search"
+              aria-label="movie name"
+              placeholder="Type the movie name .."
+              value={movieName}
+              onChange={event => setMovieName(event.target.value)}
+              onFocus={handleMovieNameInputFocus} 
+            />
 
-          <MoviesResults movies={movies} />
+            <MoviesResults movies={movies} expanded={moviesListExpanded} />
+          </MovieNameInputContainer>
         </FormBody>
       </Form>
     </>
