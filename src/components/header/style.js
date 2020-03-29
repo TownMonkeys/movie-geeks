@@ -11,6 +11,11 @@ export const StyledHeader = styled.header`
   left: 0;
   right: 0;
   z-index: 1;
+
+  &[data-position-fixed="false"] {
+    position: static;
+    margin-bottom: -3rem;
+  }
 `;
 
 export const Title = styled.h1`

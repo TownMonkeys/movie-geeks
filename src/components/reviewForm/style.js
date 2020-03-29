@@ -50,8 +50,8 @@ export const MovieNameInputContainer = styled.div`
 `;
 
 export const MovieNameInput = styled.input`
-  font-size: 1.5rem;
-  padding: .5rem .6rem .75rem;
+  font-size: 1.2rem;
+  padding: .5rem .6rem .7rem;
   width: 100%;
 
   &::placeholder {
@@ -59,50 +59,6 @@ export const MovieNameInput = styled.input`
   }
 `;
 
-export const StyledMoviesResults = styled.ul`
-  padding-left: 0;
-  list-style: none;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: 0;
-  max-height: ${5 * measurements.height.movieOption}em;
-  overflow: auto;
+export const StyledMoviesResults = styled.datalist``;
 
-  &[data-expanded="false"] {
-    display: none;
-  }
-`;
-
-export const Movie = styled.li`
-  background-color: ${theme.bg.default};
-  height: ${measurements.height.movieOption}em;
-  padding: 0.35em .5em;
-  border-bottom: 1px solid ${theme.border.light};
-  transition: background-color .1s;
-  cursor: pointer;
-
-  display: flex;
-
-  &:hover {
-    background-color: ${theme.bg.grey};
-  }
-`;
-
-export const Thumbnail = styled.img`
-  max-width: 100px;
-  max-height: 100%;
-`;
-
-export const MovieInfo = styled.div`
-  margin-left: 0.8em;
-`;
-
-export const MovieTitle = styled.p`
-  font-weight: 500;
-  margin: 0;
-`;
-
-export const MovieReleaseDate = styled.p`
-  margin: .5em 0 0;
-`;
+export const Movie = styled.option``;

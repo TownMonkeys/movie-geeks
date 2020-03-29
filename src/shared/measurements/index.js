@@ -11,7 +11,7 @@ export const measurements = {
     auth: '24rem'
   },
   height: {
-    movieOption: 5.57
+    // movieOption: 5.57
   }
 };
 
