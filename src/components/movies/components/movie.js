@@ -66,7 +66,7 @@ const Movie = (props) => {
           {
             Array(movie.rating).fill(null).map((e, i) => (
               <StarItem key={i}>
-                <StarSvg />
+                <StarSvg fullness="full" />
               </StarItem>
             ))
           }

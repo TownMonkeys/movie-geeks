@@ -17,8 +17,22 @@ export const StyledStarSvg = styled.svg`
 
 export const Title = styled.title``;
 
-export const StarSvgPath = styled.path`
-  fill: ${theme.bg.pink};
+export const HalfStarSvgPath = styled.path`
+  &:first-of-type {
+    fill: ${props =>
+      props.fullness === 'empty' ? 
+      theme.bg.lightPink :
+      theme.bg.pink
+    };
+  }
+
+  &:last-of-type   {
+    fill: ${props =>
+      props.fullness === 'full' ? 
+      theme.bg.pink :
+      theme.bg.lightPink
+    };
+  }
 `;
 
 export const StyledLikeSvg = styled.svg`

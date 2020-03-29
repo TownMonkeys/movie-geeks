@@ -2,14 +2,17 @@ import React, { memo } from 'react';
 import { 
   StyledStarSvg,
   Title,
-  StarSvgPath
+  HalfStarSvgPath
 } from './style';
 
-const StarSvg = () => {
+const StarSvg = (props) => {
+  const { fullness } = props;
+
   return (
-    <StyledStarSvg role="img" aria-labelledby="starSvgTitle" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.481 19.481" xmlnsXlink="http://www.w3.org/1999/xlink" style={{enableBackground: "new 0 0 19.481 19.481"}}>
-      <Title id="starSvgTitle">star</Title>
-      <StarSvgPath d="m10.201,.758l2.478,5.865 6.344,.545c0.44,0.038 0.619,0.587 0.285,0.876l-4.812,4.169 1.442,6.202c0.1,0.431-0.367,0.77-0.745,0.541l-5.452-3.288-5.452,3.288c-0.379,0.228-0.845-0.111-0.745-0.541l1.442-6.202-4.813-4.17c-0.334-0.289-0.156-0.838 0.285-0.876l6.344-.545 2.478-5.864c0.172-0.408 0.749-0.408 0.921,0z"/>
+    <StyledStarSvg role="img" aria-labelledby="starSvgTitle" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style={{enableBackground: "new 0 0 24 24"}}>
+      <Title id="starSvgTitle">{fullness} star</Title>
+      <HalfStarSvgPath fullness={fullness} d="m12 .03v20.23l-6.59 3.65c-.529.297-1.212-.153-1.1-.78l1.26-7.77-5.36-5.49c-.413-.435-.187-1.16.43-1.27l7.37-1.12 3.31-7.05c.12-.27.4-.4.68-.4z"/>
+      <HalfStarSvgPath fullness={fullness} d="m23.79 9.87-5.36 5.49 1.26 7.77c.111.62-.562 1.074-1.1.78l-6.59-3.65v-20.23c.28 0 .56.13.68.4l3.31 7.05 7.37 1.12c.616.11.843.835.43 1.27z"/>
     </StyledStarSvg>
   );
 }

@@ -1,21 +1,15 @@
 import React, { memo } from 'react';
 
 import {
-  Movie,
-  MovieInfo,
-  MovieTitle,
-  Thumbnail,
-  MovieReleaseDate,
-  StyledMoviesResults
+  StyledMoviesResults,
+  Movie
 } from '../style';
 
 const MoviesResults = (props) => {
-  const { movies, expanded } = props;
-  console.log(expanded);
+  const { movies } = props;
 
   return (
     <StyledMoviesResults 
-      data-expanded={expanded} 
       id="reviewForm__moviesResults"
     >
       {movies.map((movie, i) => {

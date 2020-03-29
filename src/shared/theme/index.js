@@ -10,6 +10,7 @@ export const theme = {
     default: '#ffffff',
     grey: '#f5f5f5',
     pink: '#e91e63',
+    lightPink: '#fce4ec',
     facebook: '#4267B2'
   },
   border: {

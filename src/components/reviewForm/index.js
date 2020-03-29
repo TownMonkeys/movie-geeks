@@ -48,7 +48,7 @@ const ReviewForm = () => {
               list="reviewForm__moviesResults"
             />
 
-            <MoviesResults movies={movies.slice(0, 8)} expanded={moviesListExpanded} />
+            <MoviesResults movies={movies.slice(0, 10)} />
           </MovieNameInputContainer>
         </FormBody>
       </Form>
