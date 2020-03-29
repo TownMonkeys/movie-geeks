@@ -10,7 +10,7 @@ import SearchForm from './components/searchForm';
 import FeaturesList from './components/featuresList';
 import CommunicationMediums from './components/communicationMediums';
 import { connect } from 'react-redux';
-import { AuthContext } from '../../auth';
+import { AuthContext } from '../../contexts/auth';
 
 const Header = () => {
   // ref

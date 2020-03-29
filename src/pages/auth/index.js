@@ -5,7 +5,7 @@ import {
 import AuthForm from '../../components/authForm';
 import { connect } from 'react-redux';
 import { resetError } from '../../store/actions/authActions';
-import { AuthContext } from '../../auth';
+import { AuthContext } from '../../contexts/auth';
 import { Redirect } from 'react-router-dom';
 
 const Auth = (props) => {

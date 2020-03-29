@@ -12,7 +12,7 @@ import firebase from './config/firebaseConfig';
 import { ReactReduxFirebaseProvider, getFirebase } from 'react-redux-firebase';
 import { reduxFirestore, createFirestoreInstance, getFirestore } from 'redux-firestore';
 import firebaseConfig from './config/firebaseConfig';
-import { AuthProvider } from './auth';
+import { AuthProvider } from './contexts/auth';
 
 // Environment variables
 dotenv.config();

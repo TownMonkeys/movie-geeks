@@ -1,5 +1,5 @@
 import React, { memo, useContext } from 'react';
-import { AuthContext } from '../../../auth';
+import { AuthContext } from '../../../contexts/auth';
 import {
   StyledHeader,
   Username

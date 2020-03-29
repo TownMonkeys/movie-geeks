@@ -1,5 +1,5 @@
 import React, { memo, useState, useCallback, useEffect, useRef, useContext } from 'react';
-import { AuthContext } from '../../../auth';
+import { AuthContext } from '../../../contexts/auth';
 import { 
   DropdownContainer,
   DropdownToggler,
