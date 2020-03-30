@@ -15,8 +15,10 @@ import {
 
 const ReviewForm = () => {
   const [ formFocused, setFormFocused ] = useState(false);
-  const [ movieName, setMovieName ] = useState('');
   const [ movies, setMovies ] = useState([]);
+  const [ movieName, setMovieName ] = useState('');
+  const [ movieId, setMovieId ] = useState(null);
+  const [ rating, setRating ] = useState(0);
 
   useEffect(function fetchMovies() {
     if (movieName === '') return;
@@ -27,6 +29,14 @@ const ReviewForm = () => {
       setMovies(response.data.results)
     });
   }, [ movieName ]);
+
+  const handleMovieNameInputChange = useCallback(event => {
+    const { target: { value } } = event;
+    
+    const movie = movies.find(movie => value.includes(movie.name || movie.title));
+    setMovieId(movie ? movie.id : null);
+    setMovieName(value);
+  });
    
   return (
     <>
@@ -45,7 +55,7 @@ const ReviewForm = () => {
               aria-label="movie name"
               placeholder="Type the movie name .."
               value={movieName}
-              onChange={event => setMovieName(event.target.value)}
+              onChange={handleMovieNameInputChange}
               onFocus={() => setFormFocused(true)}
               list="reviewForm__moviesResults"
             />
@@ -60,6 +70,8 @@ const ReviewForm = () => {
             emptyIcon={<Star fullness="empty" width="2rem" />}
             halfIcon={<Star fullness="half" width="2rem" />}
             filledIcon={<Star fullness="filled" width="2rem" />}
+            value={rating}
+            onChange={newRating => setRating(newRating)}
           />
         </FormBody>
       </Form>
