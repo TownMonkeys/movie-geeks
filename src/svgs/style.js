@@ -12,7 +12,7 @@ export const CommunicationSvgPath = styled.path`
 `;
 
 export const StyledStarSvg = styled.svg`
-  width: 100%;
+  width: ${props => props.width};
 `;
 
 export const Title = styled.title``;
@@ -28,7 +28,7 @@ export const HalfStarSvgPath = styled.path`
 
   &:last-of-type   {
     fill: ${props =>
-      props.fullness === 'full' ? 
+      props.fullness === 'filled' ? 
       theme.bg.pink :
       theme.bg.lightPink
     };

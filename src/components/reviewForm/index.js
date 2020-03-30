@@ -1,6 +1,8 @@
 import React, { memo, useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import MoviesResults from './components/moviesResults';
+import ReactStars from 'react-rating-stars-component';
+import Star from '../../svgs/star';
 
 import { 
   Form,
@@ -50,6 +52,15 @@ const ReviewForm = () => {
 
             <MoviesResults movies={movies.slice(0, 10)} />
           </MovieNameInputContainer>
+
+          <ReactStars
+            size={32}
+            count={5}
+            half={true}
+            emptyIcon={<Star fullness="empty" width="2rem" />}
+            halfIcon={<Star fullness="half" width="2rem" />}
+            filledIcon={<Star fullness="filled" width="2rem" />}
+          />
         </FormBody>
       </Form>
     </>

@@ -53,6 +53,7 @@ export const MovieNameInput = styled.input`
   font-size: 1.2rem;
   padding: .5rem .6rem .7rem;
   width: 100%;
+  margin-bottom: 1rem;
 
   &::placeholder {
     font-size: 1.5rem;
