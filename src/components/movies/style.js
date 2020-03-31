@@ -69,7 +69,9 @@ export const MovieCoverButton = styled.button`
 
 export const MovieCover = styled.img`
   display: block;
-  max-width: 100%;
+  width: 100%;
+  max-height: 20rem;
+  object-fit: cover;
 `;
 
 export const MovieName = styled.h4`

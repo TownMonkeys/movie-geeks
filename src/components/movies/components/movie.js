@@ -42,7 +42,7 @@ const Movie = (props) => {
     axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`)
     .then(response => {
       const movieData = response.data;
-      setMovieData(response.data);
+      setMovieData(movieData);
     })
   }, []);
 
