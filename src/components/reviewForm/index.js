@@ -10,7 +10,9 @@ import {
   MovieNameInputContainer,
   MovieNameInput,
   FormBody,
-  Overlay
+  Overlay,
+  ReviewInput,
+  SubmitButton
 } from './style';
 
 const ReviewForm = () => {
@@ -19,6 +21,7 @@ const ReviewForm = () => {
   const [ movieName, setMovieName ] = useState('');
   const [ movieId, setMovieId ] = useState(null);
   const [ rating, setRating ] = useState(0);
+  const [ review, setReview ] = useState('');
 
   useEffect(function fetchMovies() {
     if (movieName === '') return;
@@ -37,6 +40,12 @@ const ReviewForm = () => {
     setMovieId(movie ? movie.id : null);
     setMovieName(value);
   });
+
+  const handleSubmit = useCallback((event) => {
+    event.preventDefault();
+
+
+  }, [ movieId, rating, review ])
    
   return (
     <>
@@ -46,7 +55,10 @@ const ReviewForm = () => {
         onClick={() => setFormFocused(false)}
       />
 
-      <Form data-focused={formFocused}>
+      <Form 
+        data-focused={formFocused}
+        onSubmit={handleSubmit}
+      >
         <Title>Review Movie</Title>
 
         <FormBody>
@@ -73,6 +85,15 @@ const ReviewForm = () => {
             value={rating}
             onChange={newRating => setRating(newRating)}
           />
+
+          <ReviewInput
+            aria-label="Add a review"
+            placeholder="Add a review..."
+            value={review}
+            onChange={event => setReview(event.target.value)}
+          />
+
+          <SubmitButton type="submit">Submit</SubmitButton>
         </FormBody>
       </Form>
     </>

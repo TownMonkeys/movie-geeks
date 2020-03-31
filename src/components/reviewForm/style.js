@@ -47,13 +47,13 @@ export const FormBody = styled.div`
 
 export const MovieNameInputContainer = styled.div`
   position: relative;
+  margin-bottom: 1rem;
 `;
 
 export const MovieNameInput = styled.input`
   font-size: 1.2rem;
   padding: .5rem .6rem .7rem;
   width: 100%;
-  margin-bottom: 1rem;
 
   &::placeholder {
     font-size: 1.5rem;
@@ -63,3 +63,22 @@ export const MovieNameInput = styled.input`
 export const StyledMoviesResults = styled.datalist``;
 
 export const Movie = styled.option``;
+
+export const ReviewInput = styled.textarea`
+  margin-top: 1rem;
+  width: 100%;
+  min-height: 7rem;
+  padding: .3rem .5rem;
+`;
+
+export const SubmitButton = styled.button`
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+  padding: .6rem 0;
+  border-radius: ${measurements.borderRadius.button};
+  background-color: ${theme.bg.pink};
+  margin-top: 1rem;
+  width: 100%;
+`;
