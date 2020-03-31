@@ -48,7 +48,11 @@ export const UserNameLink = styled(Link)`
   font-weight: 500;
 `;
 
-export const Body = styled.div``;
+export const Body = styled.div`
+  .ratingStars {
+    margin-top: .7rem;
+  }
+`;
 
 const buttonStyles = css`
   border: none;
@@ -58,6 +62,7 @@ const buttonStyles = css`
 
 export const MovieCoverButton = styled.button`
   ${buttonStyles}
+  // width: 100%;
   padding: 0;
   margin: 0 -1rem .8rem -1rem;
 `;
@@ -78,18 +83,6 @@ export const Genre = styled.p`
   display: inline;
   color: ${theme.text.grey};
   margin-left: 1rem;
-`;
-
-export const Rating = styled.ul`
-  ${listStyles}
-
-  display: flex;
-  margin: .7rem 0 0;
-`;
-
-export const StarItem = styled.li`
-  width: 1rem;
-  margin-right: .1rem;
 `;
 
 export const Review = styled.p`

@@ -15,8 +15,8 @@ const MoviesList = (props) => {
   return (
     <List>
       {
-        movies && movies.length && movies.map((movie) => (
-          <Item key={movie.id}>
+        movies && Object.values(movies).map((movie) => (
+          <Item key={movie.movieId}>
             <Movie movie={movie} />
           </Item>
         ))
