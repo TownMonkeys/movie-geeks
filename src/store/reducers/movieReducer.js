@@ -3,36 +3,26 @@ import harryPotterCover from '../../images/harry-potter.jpeg';
 import beautifulMindCover from '../../images/beautiful-mind.jpeg';
 
 const initState = {
-  movies: [
-    {
-      id: 1,
-      user: 'Mohammed Shahawy',
-      avatar,
-      cover: harryPotterCover,
-      name: 'Harry Potter and the Sorcerer\'s Stone',
-      genre: ['Adventure', 'Family'],
-      rating: 5,
-      review: 'As good an adaption as could ever be expected',
-      likes: 24,
-      lastLiker: 'Waleed'
-    },
-    {
-      id: 2,
-      user: 'Saher Elgendy',
-      avatar,
-      cover: beautifulMindCover,
-      name: 'A Beautiful Mind',
-      genre: ['Biography', 'Drama'],
-      rating: 4,
-      review: 'A beautifully written, acted, and crafted movie.',
-      likes: 13,
-      lastLiker: 'Erik'
-    }
-  ]
+  movieError: null
 };
 
 const movieReducer = (state = initState, action) => {
-  return state;
+  switch (action.type) {
+    case 'MOVIE_ADDITION_SUCCESS':
+      console.log('MOVIE_ADDITION_SUCCESS');
+      return {
+        ...state,
+        movieError: null
+      }
+    case 'MOVIE_ADDITION_ERROR':
+      console.log('MOVIE_ADDITION_SUCCESS');
+      return {
+        ...state,
+        movieError: action.err.message
+      }
+    default:
+      return state;
+  }
 };
 
 export default movieReducer;

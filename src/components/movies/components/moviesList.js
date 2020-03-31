@@ -10,12 +10,12 @@ import { connect } from 'react-redux';
 
 const MoviesList = (props) => {
   const { movies } = props;
-  console.log(props);
+  console.log('movies: ', movies && Object.values(movies));
 
   return (
     <List>
       {
-        movies && movies.map((movie) => (
+        movies && movies.length && movies.map((movie) => (
           <Item key={movie.id}>
             <Movie movie={movie} />
           </Item>

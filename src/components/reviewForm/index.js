@@ -1,8 +1,11 @@
-import React, { memo, useState, useEffect, useCallback } from 'react';
+import React, { memo, useState, useEffect, useCallback, useContext } from 'react';
 import axios from 'axios';
 import MoviesResults from './components/moviesResults';
 import ReactStars from 'react-rating-stars-component';
 import Star from '../../svgs/star';
+import { addMovie } from '../../store/actions/movieActions';
+import { connect } from 'react-redux';
+import { AuthContext } from '../../contexts/auth';
 
 import { 
   Form,
@@ -15,7 +18,9 @@ import {
   SubmitButton
 } from './style';
 
-const ReviewForm = () => {
+const ReviewForm = ({ username, addMovie }) => {
+  const { user: { email } } = useContext(AuthContext);
+
   const [ formFocused, setFormFocused ] = useState(false);
   const [ movies, setMovies ] = useState([]);
   const [ movieName, setMovieName ] = useState('');
@@ -44,7 +49,10 @@ const ReviewForm = () => {
   const handleSubmit = useCallback((event) => {
     event.preventDefault();
 
+    const user = { name: username, email };
+    const movie = { id: movieId, rating, review };
 
+    addMovie(user, movie);
   }, [ movieId, rating, review ])
    
   return (
@@ -100,4 +108,16 @@ const ReviewForm = () => {
   );
 }
 
-export default memo(ReviewForm);
+const mapStateToProps = (state) => {
+  return {
+    username: state.firebase.profile.username
+  };
+}
+
+const mapDispatchToProps = (dipatch) => {
+  return {
+    addMovie: (user, movie) => dipatch(addMovie(user, movie))
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(memo(ReviewForm));
