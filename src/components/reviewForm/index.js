@@ -1,7 +1,7 @@
 import React, { memo, useState, useEffect, useCallback, useContext } from 'react';
 import axios from 'axios';
 import MoviesResults from './components/moviesResults';
-import ReactStars from 'react-rating-stars-component';
+import ReactStars from '../reactStars';
 import Star from '../../svgs/star';
 import { addMovie } from '../../store/actions/movieActions';
 import { connect } from 'react-redux';

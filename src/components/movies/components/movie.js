@@ -21,7 +21,7 @@ import Avatar from '../../avatar';
 import Star from '../../../svgs/star';
 import LikeSvg from '../../../svgs/like';
 import avatar from '../../../images/avatar-fallback.png';
-import ReactStars from 'react-rating-stars-component';
+import ReactStars from '../../reactStars';
 
 const user = {
   name: 'Yurio',
