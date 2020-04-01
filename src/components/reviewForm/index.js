@@ -46,6 +46,13 @@ const ReviewForm = ({ username, addMovie }) => {
     setMovieName(value);
   });
 
+  const handleSubmitButtonKeyDown = useCallback((event) => {
+    const tabKeyHit = event.keyCode === 9;
+    if (tabKeyHit) {
+      setFormFocused(false);
+    }
+  }, [ review ]);
+
   const handleSubmit = useCallback((event) => {
     event.preventDefault();
 
@@ -114,7 +121,10 @@ const ReviewForm = ({ username, addMovie }) => {
             required
           />
 
-          <SubmitButton type="submit">Submit</SubmitButton></>}
+          <SubmitButton 
+            type="submit"
+            onKeyDown={handleSubmitButtonKeyDown}
+          >Submit</SubmitButton></>}
         </FormBody>
       </Form>
     </>
