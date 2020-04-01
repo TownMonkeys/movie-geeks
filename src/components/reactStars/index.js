@@ -202,10 +202,10 @@ class ReactStars extends Component {
         value = keyNumber;
       }
     } else { // string
-      if (key === 'ArrowUp' || key === 'ArrowRight') {
+      if ((key === 'ArrowUp' || key === 'ArrowRight') && value < 5) {
         event.preventDefault();
         value += config.half ? 0.5 : 1;
-      } else if (key === 'ArrowDown' || key === 'ArrowLeft') {
+      } else if ((key === 'ArrowDown' || key === 'ArrowLeft') && value >.5) {
         event.preventDefault();
         value -= config.half ? 0.5 : 1;
       }
