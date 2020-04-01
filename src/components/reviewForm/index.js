@@ -53,7 +53,17 @@ const ReviewForm = ({ username, addMovie }) => {
     const movie = { id: movieId, rating, review };
 
     addMovie(user, movie);
+
+    resetForm();
+    setFormFocused(false);
   }, [ movieId, rating, review ])
+
+  const resetForm = useCallback(() => {
+    setMovieName('');
+    setMovieId(null);
+    setRating(0);
+    setReview('');
+  }, [])
    
   return (
     <>
@@ -78,12 +88,13 @@ const ReviewForm = ({ username, addMovie }) => {
               onChange={handleMovieNameInputChange}
               onFocus={() => setFormFocused(true)}
               list="reviewForm__moviesResults"
+              required
             />
 
             <MoviesResults movies={movies.slice(0, 10)} />
           </MovieNameInputContainer>
 
-          <ReactStars
+          {formFocused && <><ReactStars
             size={32}
             count={5}
             half={true}
@@ -92,6 +103,7 @@ const ReviewForm = ({ username, addMovie }) => {
             filledIcon={<Star fullness="filled" width="2rem" />}
             value={rating}
             onChange={newRating => setRating(newRating)}
+            className="reviewForm__ratingStars"
           />
 
           <ReviewInput
@@ -99,9 +111,10 @@ const ReviewForm = ({ username, addMovie }) => {
             placeholder="Add a review..."
             value={review}
             onChange={event => setReview(event.target.value)}
+            required
           />
 
-          <SubmitButton type="submit">Submit</SubmitButton>
+          <SubmitButton type="submit">Submit</SubmitButton></>}
         </FormBody>
       </Form>
     </>

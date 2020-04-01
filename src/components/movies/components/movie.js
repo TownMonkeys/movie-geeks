@@ -70,7 +70,7 @@ const Movie = (props) => {
             onDoubleClick={like}
             onMouseDown={(e) => e.preventDefault()}
           >
-            <MovieCover src={`http://image.tmdb.org/t/p/w500/${movieData.poster_path}`} alt="" />
+            <MovieCover className="movie__cover" src={`http://image.tmdb.org/t/p/w500/${movieData.poster_path}`} alt="" />
           </MovieCoverButton>
           <MovieName>{movieData.title || movieData.name}</MovieName>
           <Genre>{movieData.genres.map(genre => genre.name).join(', ')}</Genre>

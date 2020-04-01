@@ -70,7 +70,7 @@ export const MovieCoverButton = styled.button`
 export const MovieCover = styled.img`
   display: block;
   width: 100%;
-  max-height: 20rem;
+  max-height: 16rem;
   object-fit: cover;
 `;
 

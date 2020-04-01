@@ -43,11 +43,14 @@ export const Title = styled.h2`
 
 export const FormBody = styled.div`
   padding: .5rem;
+
+  .reviewForm__ratingStars {
+    margin: 1rem 0;
+  }
 `;
 
 export const MovieNameInputContainer = styled.div`
   position: relative;
-  margin-bottom: 1rem;
 `;
 
 export const MovieNameInput = styled.input`
@@ -65,7 +68,6 @@ export const StyledMoviesResults = styled.datalist``;
 export const Movie = styled.option``;
 
 export const ReviewInput = styled.textarea`
-  margin-top: 1rem;
   width: 100%;
   min-height: 7rem;
   padding: .3rem .5rem;
