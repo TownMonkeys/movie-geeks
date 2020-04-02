@@ -4,9 +4,6 @@ import {
   Item
 } from '../style';
 import Movie from './movie';
-import { firestoreConnect } from 'react-redux-firebase';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
 
 const MoviesList = (props) => {
   const { movies } = props;
@@ -15,7 +12,7 @@ const MoviesList = (props) => {
   return (
     <List>
       {
-        movies && Object.values(movies).map((movie) => (
+        movies.map((movie) => (
           <Item key={movie.movieId}>
             <Movie movie={movie} />
           </Item>
@@ -25,13 +22,4 @@ const MoviesList = (props) => {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    movies: state.firestore.data.movies
-  };
-}
-
-export default compose(
-  firestoreConnect(() => ['movies']),
-  connect(mapStateToProps)
-)(memo(MoviesList));
+export default memo(MoviesList);

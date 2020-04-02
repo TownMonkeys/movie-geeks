@@ -6,11 +6,11 @@ import {
 import MoviesList from './components/moviesList';
 
 
-const Movies = () => {
+const Movies = ({ movies }) => {
   return (
     <MoviesSection>
       <Title>Movies</Title>
-      <MoviesList />
+      <MoviesList movies={movies} />
     </MoviesSection>
   );
 }

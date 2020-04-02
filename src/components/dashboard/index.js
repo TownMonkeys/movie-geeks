@@ -4,14 +4,29 @@ import {
   Title
 } from './style';
 import Movies from '../movies';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+  const { movies } = props;
+  const moviesArray = movies ? Object.values(movies) : [];
+
   return (
     <StyledDashboard>
       <Title>Dashboard</Title>
-      <Movies />
+      <Movies movies={moviesArray} />
     </StyledDashboard>
   );
 }
 
-export default memo(Dashboard);
+const mapStateToProps = (state) => {
+  return {
+    movies: state.firestore.data.movies
+  };
+}
+
+export default compose(
+  firestoreConnect(() => ['movies']),
+  connect(mapStateToProps)
+)(memo(Dashboard));
