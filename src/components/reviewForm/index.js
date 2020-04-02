@@ -40,11 +40,16 @@ const ReviewForm = ({ username, addMovie }) => {
 
   const handleMovieNameInputChange = useCallback(event => {
     const { target: { value } } = event;
-    
+
+    setMovieName(value);
     const movie = movies.find(movie => value.includes(movie.name || movie.title));
     setMovieId(movie ? movie.id : null);
-    setMovieName(value);
   });
+
+  const handleMovieNameInputKeyDown = useCallback((event) => {
+    const { key, shiftKey } = event;
+    if (shiftKey && key === 'Tab') setFormFocused(false);
+  }, []);
 
   const handleSubmitButtonKeyDown = useCallback((event) => {
     const tabKeyHit = event.keyCode === 9;
@@ -94,6 +99,7 @@ const ReviewForm = ({ username, addMovie }) => {
               value={movieName}
               onChange={handleMovieNameInputChange}
               onFocus={() => setFormFocused(true)}
+              onKeyDown={handleMovieNameInputKeyDown}
               list="reviewForm__moviesResults"
               required
             />
