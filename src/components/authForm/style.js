@@ -15,9 +15,9 @@ export const Container = styled.div`
 
   display: flex;
   flex-direction: column;
-  
+
   &:not(:last-child) {
-    margin-bottom: .625rem;
+    margin-bottom: 0.625rem;
   }
 `;
 
@@ -38,9 +38,9 @@ export const Button = styled.button`
   cursor: pointer;
   color: #fff;
   font-weight: 600;
-  padding: .6rem 0;
+  padding: 0.6rem 0;
   border-radius: ${measurements.borderRadius.button};
-  background-color: ${props => props.bg === 'pink' ? theme.bg.pink : null};
+  background-color: ${(props) => (props.bg === 'pink' ? theme.bg.pink : null)};
   margin-top: 1rem;
 `;
 
@@ -54,7 +54,7 @@ export const StyledFacebookButton = styled(Button)`
 
 export const FacebookIcon = styled.img`
   width: 1rem;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 `;
 
 export const Divider = styled.p`
@@ -87,10 +87,10 @@ export const Divider = styled.p`
 export const Input = styled.input`
   background-color: ${theme.bg.grey};
   border: 1px solid ${theme.border.light};
-  padding: .5rem 0 .5rem .5rem;
+  padding: 0.5rem 0 0.5rem 0.5rem;
   border-radius: ${measurements.borderRadius.input};
-  margin-bottom: ${props => props.last ? '.875rem' : '.375rem'};
-  width: ${props => props.inline ? '48.8%' : 'auto'};
+  margin-bottom: ${(props) => (props.last ? '.875rem' : '.375rem')};
+  width: ${(props) => (props.inline ? '48.8%' : 'auto')};
 
   &.signupForm__usernameInput:focus + .signupForm__usernameFeedback {
     display: flex;
@@ -99,7 +99,7 @@ export const Input = styled.input`
 
 export const UsernameFeedback = styled.p`
   display: none;
-  color: ${props => props.valid ? theme.text.valid : theme.text.warning}
+  color: ${(props) => (props.valid ? theme.text.valid : theme.text.warning)}
   align-items: center;
   justify-content: center;
   margin-top: 0;
@@ -114,12 +114,12 @@ export const AuthError = styled.p`
 
 export const ErrorIcon = styled.img`
   width: 1rem;
-  margin-left: .5rem;
+  margin-left: 0.5rem;
 `;
 
 export const P = styled.p``;
 
 export const StyledLink = styled(Link)`
   color: ${theme.text.pink};
-  margin-left: .25rem;
+  margin-left: 0.25rem;
 `;

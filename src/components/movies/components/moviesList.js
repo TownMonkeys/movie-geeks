@@ -1,8 +1,5 @@
 import React, { memo } from 'react';
-import { 
-  List,
-  Item
-} from '../style';
+import { List, Item } from '../style';
 import Movie from './movie';
 
 const MoviesList = (props) => {
@@ -11,15 +8,13 @@ const MoviesList = (props) => {
 
   return (
     <List>
-      {
-        movies.map((movie) => (
-          <Item key={movie.movieId}>
-            <Movie movie={movie} />
-          </Item>
-        ))
-      }
+      {movies.map((movie) => (
+        <Item key={movie.movieId}>
+          <Movie movie={movie} />
+        </Item>
+      ))}
     </List>
   );
-}
+};
 
 export default memo(MoviesList);
