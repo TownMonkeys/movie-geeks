@@ -75,7 +75,6 @@ export const MovieCoverButton = styled.button`
 export const MovieCover = styled.img`
   display: block;
   width: 100%;
-  max-height: 16rem;
   object-fit: cover;
 `;
 
@@ -134,20 +133,25 @@ export const Img = styled.img`
   margin-top: 2em;
 `;
 export const SettingContainer = styled.ul`
-  background: #000;
+  background: #1c1e21;
   width: 100px;
   height: 100px;
   padding: 0;
   padding-left: 1.7em;
   padding-top: 0.3em;
   display: block;
-  border-radius: 5px;
+  border-radius: 4px;
+  position: relative;
   &::after {
+    content: '';
     width: 0;
     height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 100px solid red;
+    border-left: 11px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 13px solid #1c1e21;
+    position: absolute;
+    top: -10px;
+    right: 0px;
   }
 `;
 export const SettingLi = styled.li`
@@ -155,6 +159,4 @@ export const SettingLi = styled.li`
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   font-size: 1.2em;
-
-
 `;
