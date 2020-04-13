@@ -11,7 +11,7 @@ const Setting = (props) => {
       <Img src={settingImage} alt="Setting Icon" />
       <SettingContainer>
         <SettingLi>Edit</SettingLi>
-        <SettingLi onClick={deleteMovie}>Delete</SettingLi>
+        <SettingLi>Delete</SettingLi>
       </SettingContainer>
     </Container>
   );
