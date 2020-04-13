@@ -11,12 +11,13 @@ import { firestoreConnect } from 'react-redux-firebase';
 const Profile = (props) => {
   const { match, movies } = props;
   const { username } = match.params;
-  const filteredMovies = movies ? Object.values(movies).filter(movie => movie.username === username) : [];
+  const filteredMovies = movies ? Object.entries(movies).filter(([id, data]) => data.username === username) : [];
+  console.log(filteredMovies);
 
   return (
     <ProfilePage>
       <Header />
-      <Movies movies={filteredMovies} />
+      {filteredMovies.length && <Movies movies={filteredMovies} />}
     </ProfilePage>
   );
 }

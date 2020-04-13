@@ -15,3 +15,17 @@ export const addMovie = (user, movie) => {
     });
   }
 }
+
+export const deleteMovie = (id) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+
+    firestore.collection('movies').doc(id).delete().then(() => {
+      dispatch({ type: 'MOVIE_DELETION_SUCCESS' });
+      console.log('MOVIE_DELETION_SUCCESS');
+    }).catch((err) => {
+      dispatch({ type: 'MOVIE_DELETION_ERROR', err });
+      console.log('MOVIE_DELETION_ERROR');
+    });
+  }
+}

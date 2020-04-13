@@ -10,12 +10,12 @@ import { connect } from 'react-redux';
 
 const Dashboard = (props) => {
   const { movies } = props;
-  const moviesArray = movies ? Object.values(movies) : [];
+  console.log(movies);
 
   return (
-    <StyledDashboard>
+    movies && <StyledDashboard>
       <Title>Dashboard</Title>
-      <Movies movies={moviesArray} />
+      <Movies movies={Object.entries(movies)} />
     </StyledDashboard>
   );
 }

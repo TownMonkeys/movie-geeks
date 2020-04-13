@@ -21,32 +21,28 @@ import {
 import Avatar from '../../avatar';
 import Star from '../../../svgs/star';
 import LikeSvg from '../../../svgs/like';
-import avatar from '../../../images/avatar-fallback.png';
 import ReactStars from '../../reactStars';
-
-const user = {
-  name: 'Yurio',
-  avatar,
-};
+import { deleteMovie } from '../../../store/actions/movieActions';
+import { connect } from 'react-redux';
 
 const Movie = (props) => {
   // props
-  const { movie } = props;
+  const { movie: [ movieFirebaseId, movieFirebaseData ], deleteMovie } = props;
 
   // state
-  const [movieData, setMovieData] = useState(null);
-  const [liked, setLiked] = useState(false);
+  const [ movieApiData, setMovieApiData ] = useState(null);
+  const [ liked, setLiked ] = useState(false);
 
   useEffect(function loadMovieData() {
-    const { movieId } = movie;
+    const { movieId } = movieFirebaseData;
     const apiKey = process.env.REACT_APP_TMDB_API_KEY;
     axios
       .get(
         `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`
       )
       .then((response) => {
-        const movieData = response.data;
-        setMovieData(movieData);
+        const movieApiData = response.data;
+        setMovieApiData(movieApiData);
       });
   }, []);
 
@@ -60,16 +56,16 @@ const Movie = (props) => {
 
   return (
     <>
-      {movieData && (
+      {movieApiData && (
         <StyledMovie>
           <Header>
-            <AvatarLink to={`/user/${movie.username}`}>
-              <Avatar email={movie.email} size={'3rem'} />
+            <AvatarLink to={`/user/${movieFirebaseData.username}`}>
+              <Avatar email={movieFirebaseData.email} size={'3rem'} />
             </AvatarLink>
-            <UserNameLink to={`/user/${movie.username}`}>
-              {movie.username}
+            <UserNameLink to={`/user/${movieFirebaseData.username}`}>
+              {movieFirebaseData.username}
             </UserNameLink>
-            <Setting />
+            <Setting deleteMovie={() => deleteMovie(movieFirebaseId)} />
           </Header>
 
           <Body>
@@ -80,17 +76,17 @@ const Movie = (props) => {
             >
               <MovieCover
                 className="movie__cover"
-                src={`http://image.tmdb.org/t/p/w500/${movieData.poster_path}`}
+                src={`http://image.tmdb.org/t/p/w500/${movieApiData.poster_path}`}
                 alt=""
               />
             </MovieCoverButton>
-            <MovieName>{movieData.title || movieData.name}</MovieName>
+            <MovieName>{movieApiData.title || movieApiData.name}</MovieName>
             <Genre>
-              {movieData.genres.map((genre) => genre.name).join(', ')}
+              {movieApiData.genres.map((genre) => genre.name).join(', ')}
             </Genre>
             <ReactStars
               edit={false}
-              value={movie.rating}
+              value={movieFirebaseData.rating}
               size={16}
               count={5}
               half={true}
@@ -99,7 +95,7 @@ const Movie = (props) => {
               filledIcon={<Star fullness="filled" width="1rem" />}
               className="ratingStars"
             />
-            <Review>{movie.review}</Review>
+            <Review>{movieFirebaseData.review}</Review>
           </Body>
 
           <Hr />
@@ -123,4 +119,10 @@ const Movie = (props) => {
   );
 };
 
-export default memo(Movie);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteMovie: id => dispatch(deleteMovie(id))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(memo(Movie));

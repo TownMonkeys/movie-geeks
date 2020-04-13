@@ -4,12 +4,11 @@ import Movie from './movie';
 
 const MoviesList = (props) => {
   const { movies } = props;
-  console.log('movies: ', movies && Object.values(movies));
 
   return (
     <List>
-      {movies.map((movie) => (
-        <Item key={movie.movieId}>
+      {movies.filter(([id, data]) => data).map((movie) => (
+        <Item key={movie[1].movieId}>
           <Movie movie={movie} />
         </Item>
       ))}
