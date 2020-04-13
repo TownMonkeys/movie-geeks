@@ -142,6 +142,7 @@ export const SettingContainer = styled.ul`
   display: block;
   border-radius: 4px;
   position: relative;
+  visibility: hidden;
   &::after {
     content: '';
     width: 0;
@@ -159,4 +160,15 @@ export const SettingLi = styled.li`
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   font-size: 1.2em;
+    cursor: pointer;
 `;
+
+
+/*
+const StyledMyPart = styled(SettingContainer).attrs({
+  className: "active"
+})`
+  &.active {
+    visibility: visible;
+  }
+`;*/
