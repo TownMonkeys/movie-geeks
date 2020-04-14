@@ -1,22 +1,22 @@
-import React, { memo,createRef } from 'react';
+import React, { memo,useState } from 'react';
 import settingImage from '../../../images/setting.svg';
 
 import { Img, SettingContainer, Container, SettingLi } from '../style';
 
 const Setting = ({deleteMovie}) => {
-  const settingRef = createRef();
-  const visibility = ()=>{
-      settingRef.current.style.visibility == "visible" ? 
-          settingRef.current.style.visibility="hidden":
-          settingRef.current.style.visibility = "visible"
+  const [visibility,setVisibility] =  useState(false);
+  const visibilit = ()=>{
+      setVisibility(!visibility);
   };
   return (
     <Container>
-      <Img src={settingImage} alt="Setting Icon" onClick={visibility} />
-      <SettingContainer   ref={settingRef}>
+      <Img src={settingImage} alt="Setting Icon" onClick={visibilit} />
+      {visibility && 
+      <SettingContainer>
         <SettingLi>Edit</SettingLi>
-        <SettingLi>Delete</SettingLi>
+        <SettingLi onClick={deleteMovie}>Delete</SettingLi>
       </SettingContainer>
+      }
     </Container>
   );
 };

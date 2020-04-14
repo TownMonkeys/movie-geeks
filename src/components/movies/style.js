@@ -10,6 +10,7 @@ export const Container = styled.section`
   position: absolute;
   right: 0;
   top: 0;
+  width: 100px;
 `;
 export const Title = styled.h3`
   position: absolute;
@@ -127,7 +128,6 @@ export const PostDate = styled.time`
 /* start setting component */
 export const Img = styled.img`
   max-width: 40%;
-  display: inline-block;
   cursor: pointer;
   margin-left: 5em;
   margin-top: 2em;
@@ -139,10 +139,10 @@ export const SettingContainer = styled.ul`
   padding: 0;
   padding-left: 1.7em;
   padding-top: 0.3em;
-  display: block;
+
   border-radius: 4px;
   position: relative;
-  visibility: hidden;
+ 
   &::after {
     content: '';
     width: 0;
