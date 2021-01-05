@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://moviegeeks.com",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-plugin-macros": "^2.8.0",
     "dotenv": "^8.2.0",
     "firebase": "^7.14.0",
